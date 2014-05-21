@@ -57,7 +57,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonDomain\Ports\HelloModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\HelloModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +72,7 @@
   <ItemGroup>
     <Folder Include="CommonDomain\Application\" />
     <Folder Include="CommonDomain\Domain\" />
+    <Folder Include="CommonDomain\Ports\Output\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,10 +1,6 @@
 ﻿using Nancy;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace CNISS
+namespace CNISS.CommonDomain.Ports.Input.REST.Modules
 {
     public class HelloModule: NancyModule
     {

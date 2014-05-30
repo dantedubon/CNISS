@@ -277,14 +277,6 @@
             Loads any assembly that references a Nancy assembly.
             </summary>
         </member>
-        <member name="M:Nancy.Bootstrapper.AppDomainAssemblyTypeScanner.TypesOf``1(System.Boolean)">
-            <summary>
-            Gets all types implementing a particular interface/base class
-            </summary>
-            <typeparam name="TType">Type to search for</typeparam>
-            <param name="excludeInternalTypes">Whether to exclude types inside the core Nancy assembly</param>
-            <returns>IEnumerable of types</returns>
-        </member>
         <member name="M:Nancy.Bootstrapper.AppDomainAssemblyTypeScanner.TypesOf(System.Type)">
             <summary>
             Gets all types implementing a particular interface/base class
@@ -373,6 +365,12 @@
             Scans for the implementation of <typeparamref name="TRegistration"/> and registers it.
             </summary>
             <typeparam name="TRegistration">The <see cref="T:System.Type"/> to scan for and register as.</typeparam>
+        </member>
+        <member name="M:Nancy.Bootstrapper.ApplicationRegistrations.RegisterAll``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TRegistration"></typeparam>
         </member>
         <member name="M:Nancy.Bootstrapper.ApplicationRegistrations.Register``1(System.Collections.Generic.IEnumerable{System.Type})">
             <summary>
@@ -1374,31 +1372,6 @@
             <param name="context">Current context</param>
             <returns>Response if serving content, null otherwise</returns>
         </member>
-        <member name="T:Nancy.ErrorHandling.IErrorHandler">
-            <summary>
-            Provides informative responses for particular HTTP status codes
-            </summary>
-        </member>
-        <member name="T:Nancy.ErrorHandling.IStatusCodeHandler">
-            <summary>
-            Provides informative responses for particular HTTP status codes
-            </summary>
-        </member>
-        <member name="M:Nancy.ErrorHandling.IStatusCodeHandler.HandlesStatusCode(Nancy.HttpStatusCode,Nancy.NancyContext)">
-            <summary>
-            Check if the error handler can handle errors of the provided status code.
-            </summary>
-            <param name="statusCode">Status code</param>
-            <param name="context">The <see cref="T:Nancy.NancyContext"/> instance of the current request.</param>
-            <returns>True if handled, false otherwise</returns>
-        </member>
-        <member name="M:Nancy.ErrorHandling.IStatusCodeHandler.Handle(Nancy.HttpStatusCode,Nancy.NancyContext)">
-            <summary>
-            Handle the error code
-            </summary>
-            <param name="statusCode">Status code</param>
-            <param name="context">Current context</param>
-        </member>
         <member name="T:Nancy.ErrorHandling.RouteExecutionEarlyExitException">
             <summary>
             Here Be Dragons - Using an exception for flow control to hotwire route execution.
@@ -1428,6 +1401,25 @@
             Gets or sets the response
             </summary>
         </member>
+        <member name="T:Nancy.ModelValidationResultExtensions">
+            <summary>
+            Containing extensions for the <see cref="P:Nancy.Validation.ModelValidationResult.Errors"/> property.
+            </summary>
+        </member>
+        <member name="M:Nancy.ModelValidationResultExtensions.Add(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.IList{Nancy.Validation.ModelValidationError}},System.String,System.String)">
+            <summary>
+            Adds a new <see cref="T:Nancy.Validation.ModelValidationError"/> to the validation results.
+            </summary>
+            <param name="errors">A reference to the <see cref="P:Nancy.Validation.ModelValidationResult.Errors"/> property.</param>
+            <param name="name">The name of the property.</param>
+            <param name="errorMessage">The validation error message.</param>
+            <returns>A reference to the <see cref="P:Nancy.Validation.ModelValidationResult.Errors"/> property.</returns>
+        </member>
+        <member name="T:Nancy.Extensions.StreamExtensions">
+            <summary>
+            Containing extensions for the <see cref="T:System.IO.Stream"/> object.
+            </summary>
+        </member>
         <member name="F:Nancy.Extensions.StreamExtensions.BufferSize">
             <summary>
             Buffer size for copy operations
@@ -1441,6 +1433,25 @@
             <param name="destination">The destination stream to copy to.</param>
             <param name="onComplete">Delegate that should be invoked when the operation has completed. Will pass the source, destination and exception (if one was thrown) to the function. Can pass in <see langword="null"/>.</param>
         </member>
+        <member name="T:Nancy.Extensions.TypeExtensions">
+            <summary>
+            Containing extensions for the <see cref="T:System.Type"/> object.
+            </summary>
+        </member>
+        <member name="M:Nancy.Extensions.TypeExtensions.GetAssemblyPath(System.Type)">
+            <summary>
+            Gets the path of the assembly that contains the provided type.
+            </summary>
+            <param name="source">The <see cref="T:System.Type"/> to look up the assembly path for.</param>
+            <returns>A string containing the path of the assembly that contains the type.</returns>
+        </member>
+        <member name="M:Nancy.Extensions.TypeExtensions.IsArray(System.Type)">
+            <summary>
+            Checks if a type is an array or not
+            </summary>
+            <param name="source">The type to check.</param>
+            <returns><see langword="true" /> if the type is an array, otherwise <see langword="false" />.</returns>
+        </member>
         <member name="M:Nancy.Extensions.TypeExtensions.IsAssignableToGenericType(System.Type,System.Type)">
             <summary>
             Determines whether the <paramref name="genericType"/> is assignable from
@@ -1449,6 +1460,20 @@
             <remarks>
             Borrowed from: http://tmont.com/blargh/2011/3/determining-if-an-open-generic-type-isassignablefrom-a-type
             </remarks>
+        </member>
+        <member name="M:Nancy.Extensions.TypeExtensions.IsCollection(System.Type)">
+            <summary>
+            Checks if a type is an collection or not
+            </summary>
+            <param name="source">The type to check.</param>
+            <returns><see langword="true" /> if the type is an collection, otherwise <see langword="false" />.</returns>
+        </member>
+        <member name="M:Nancy.Extensions.TypeExtensions.IsEnumerable(System.Type)">
+            <summary>
+            Checks if a type is enumerable or not
+            </summary>
+            <param name="source">The type to check.</param>
+            <returns><see langword="true" /> if the type is an enumerable, otherwise <see langword="false" />.</returns>
         </member>
         <member name="M:Nancy.Extensions.TypeExtensions.IsNumeric(System.Type)">
             <summary>
@@ -2053,6 +2078,43 @@
             Gets the value which was attempted to be assigned to the property
             </summary>
         </member>
+        <member name="M:Nancy.NancyEngineExtensions.HandleRequest(Nancy.INancyEngine,Nancy.Request)">
+            <summary>
+            Handles an incoming <see cref="T:Nancy.Request"/>.
+            </summary>
+            <param name="nancyEngine">The <see cref="T:Nancy.INancyEngine"/> instance.</param>
+            <param name="request">An <see cref="T:Nancy.Request"/> instance, containing the information about the current request.</param>
+            <returns>A <see cref="T:Nancy.NancyContext"/> instance containing the request/response context.</returns>
+        </member>
+        <member name="M:Nancy.NancyEngineExtensions.HandleRequest(Nancy.INancyEngine,Nancy.Request,System.Func{Nancy.NancyContext,Nancy.NancyContext})">
+            <summary>
+            Handles an incoming <see cref="T:Nancy.Request"/>.
+            </summary>
+            <param name="nancyEngine">The <see cref="T:Nancy.INancyEngine"/> instance.</param>
+            <param name="request">An <see cref="T:Nancy.Request"/> instance, containing the information about the current request.</param>
+            <param name="preRequest">Delegate to call before the request is processed</param>
+            <returns>A <see cref="T:Nancy.NancyContext"/> instance containing the request/response context.</returns>
+        </member>
+        <member name="M:Nancy.NancyEngineExtensions.HandleRequest(Nancy.INancyEngine,Nancy.Request,System.Func{Nancy.NancyContext,Nancy.NancyContext},System.Action{Nancy.NancyContext},System.Action{System.Exception},System.Threading.CancellationToken)">
+            <summary>
+            Handles an incoming <see cref="T:Nancy.Request"/> async.
+            </summary>
+            <param name="nancyEngine">The <see cref="T:Nancy.INancyEngine"/> instance.</param>
+            <param name="request">An <see cref="T:Nancy.Request"/> instance, containing the information about the current request.</param>
+            <param name="preRequest">Delegate to call before the request is processed</param>
+            <param name="onComplete">Delegate to call when the request is complete</param>
+            <param name="onError">Deletate to call when any errors occur</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        </member>
+        <member name="M:Nancy.NancyEngineExtensions.HandleRequest(Nancy.INancyEngine,Nancy.Request,System.Action{Nancy.NancyContext},System.Action{System.Exception})">
+            <summary>
+            Handles an incoming <see cref="T:Nancy.Request"/> async.
+            </summary>
+            <param name="nancyEngine">The <see cref="T:Nancy.INancyEngine"/> instance.</param>
+            <param name="request">An <see cref="T:Nancy.Request"/> instance, containing the information about the current request.</param>
+            <param name="onComplete">Delegate to call when the request is complete</param>
+            <param name="onError">Deletate to call when any errors occur</param>
+        </member>
         <member name="M:Nancy.NegotiatorExtensions.WithCookie(Nancy.Responses.Negotiation.Negotiator,Nancy.Cookies.INancyCookie)">
             <summary>
             Add a cookie to the response.
@@ -2160,6 +2222,26 @@
             <param name="modelFactory">Model factory for returning the model object</param>
             <returns>Updated negotiator object</returns>
         </member>
+        <member name="M:Nancy.NegotiatorExtensions.WithMediaRangeResponse(Nancy.Responses.Negotiation.Negotiator,Nancy.Responses.Negotiation.MediaRange,Nancy.Response)">
+            <summary>
+            Sets the <see cref="T:Nancy.Response"/> to use for a particular media range.
+            Will also add the MediaRange to the allowed list
+            </summary>
+            <param name="negotiator">Negotiator object</param>
+            <param name="range">Range to match against</param>
+            <param name="response">A <see cref="T:Nancy.Response"/> object</param>
+            <returns>Updated negotiator object</returns>
+        </member>
+        <member name="M:Nancy.NegotiatorExtensions.WithMediaRangeResponse(Nancy.Responses.Negotiation.Negotiator,Nancy.Responses.Negotiation.MediaRange,System.Func{Nancy.Response})">
+            <summary>
+            Sets the <see cref="T:Nancy.Response"/> to use for a particular media range.
+            Will also add the MediaRange to the allowed list
+            </summary>
+            <param name="negotiator">Negotiator object</param>
+            <param name="range">Range to match against</param>
+            <param name="responseFactory">Factory for returning the <see cref="T:Nancy.Response"/> object</param>
+            <returns>Updated negotiator object</returns>
+        </member>
         <member name="M:Nancy.NegotiatorExtensions.WithStatusCode(Nancy.Responses.Negotiation.Negotiator,System.Int32)">
             <summary>
             Sets the status code that should be assigned to the final response.
@@ -2199,6 +2281,88 @@
             Initializes a new instance of the <see cref="T:Nancy.Response"/> class.
             </summary>
         </member>
+        <member name="M:Nancy.Response.AddCookie(System.String,System.String)">
+            <summary>
+            Adds a <see cref="T:Nancy.Cookies.INancyCookie"/> to the response.
+            </summary>
+            <param name="name">The name of the cookie.</param>
+            <param name="value">The value of the cookie.</param>
+            <returns>The <see cref="T:Nancy.Response"/> instance.</returns>
+        </member>
+        <member name="M:Nancy.Response.AddCookie(System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Adds a <see cref="T:Nancy.Cookies.INancyCookie"/> to the response.
+            </summary>
+            <param name="name">The name of the cookie.</param>
+            <param name="value">The value of the cookie.</param>
+            <param name="expires">The expiration date of the cookie. Can be <see langword="null"/> if it should never expire.</param>
+            <returns>The <see cref="T:Nancy.Response"/> instance.</returns>
+        </member>
+        <member name="M:Nancy.Response.AddCookie(System.String,System.String,System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            Adds a <see cref="T:Nancy.Cookies.INancyCookie"/> to the response.
+            </summary>
+            <param name="name">The name of the cookie.</param>
+            <param name="value">The value of the cookie.</param>
+            <param name="expires">The expiration date of the cookie. Can be <see langword="null"/> if it should never expire.</param>
+            <param name="domain">The domain of the cookie.</param>
+            <param name="path">The path of the cookie.</param>
+            <returns>The <see cref="T:Nancy.Response"/> instance.</returns>
+        </member>
+        <member name="M:Nancy.Response.AddCookie(Nancy.Cookies.INancyCookie)">
+            <summary>
+            Adds a <see cref="T:Nancy.Cookies.INancyCookie"/> to the response.
+            </summary>
+            <param name="nancyCookie">A <see cref="T:Nancy.Cookies.INancyCookie"/> instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nancy.Response.op_Implicit(Nancy.HttpStatusCode)~Nancy.Response">
+            <summary>
+            Implicitly cast an <see cref="T:Nancy.HttpStatusCode"/> value to a <see cref="T:Nancy.Response"/> instance, with the <see cref="P:Nancy.Response.StatusCode"/>
+            set to the value of the <see cref="T:Nancy.HttpStatusCode"/>.
+            </summary>
+            <param name="statusCode">The <see cref="T:Nancy.HttpStatusCode"/> value that is being cast from.</param>
+            <returns>A <see cref="T:Nancy.Response"/> instance.</returns>
+        </member>
+        <member name="M:Nancy.Response.op_Implicit(System.Int32)~Nancy.Response">
+            <summary>
+            Implicitly cast an int value to a <see cref="T:Nancy.Response"/> instance, with the <see cref="P:Nancy.Response.StatusCode"/>
+            set to the value of the int.
+            </summary>
+            <param name="statusCode">The int value that is being cast from.</param>
+            <returns>A <see cref="T:Nancy.Response"/> instance.</returns>
+        </member>
+        <member name="M:Nancy.Response.op_Implicit(System.String)~Nancy.Response">
+            <summary>
+            Implicitly cast an string instance to a <see cref="T:Nancy.Response"/> instance, with the <see cref="P:Nancy.Response.Contents"/>
+            set to the value of the string.
+            </summary>
+            <param name="contents">The string that is being cast from.</param>
+            <returns>A <see cref="T:Nancy.Response"/> instance.</returns>
+        </member>
+        <member name="M:Nancy.Response.op_Implicit(System.Action{System.IO.Stream})~Nancy.Response">
+            <summary>
+            Implicitly cast an <see cref="T:System.Action`1"/>, where T is a <see cref="T:System.IO.Stream"/>, instance to
+            a <see cref="T:Nancy.Response"/> instance, with the <see cref="P:Nancy.Response.Contents"/> set to the value of the action.
+            </summary>
+            <param name="streamFactory">The <see cref="T:System.Action`1"/> instance that is being cast from.</param>
+            <returns>A <see cref="T:Nancy.Response"/> instance.</returns>
+        </member>
+        <member name="M:Nancy.Response.op_Implicit(Nancy.DynamicDictionaryValue)~Nancy.Response">
+            <summary>
+            Implicitly cast a <see cref="T:Nancy.DynamicDictionaryValue"/> instance to a <see cref="T:Nancy.Response"/> instance,
+            with the <see cref="P:Nancy.Response.Contents"/> set to the value of the <see cref="T:Nancy.DynamicDictionaryValue"/>.
+            </summary>
+            <param name="value">The <see cref="T:Nancy.DynamicDictionaryValue"/> instance that is being cast from.</param>
+            <returns>A <see cref="T:Nancy.Response"/> instance.</returns>
+        </member>
+        <member name="M:Nancy.Response.GetStringContents(System.String)">
+            <summary>
+            Converts a string content value to a response action.
+            </summary>
+            <param name="contents">The string containing the content.</param>
+            <returns>A response action that will write the content of the string to the response stream.</returns>
+        </member>
         <member name="M:Nancy.Response.Dispose">
             <summary>
             Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
@@ -2236,6 +2400,12 @@
             Gets or sets a text description of the HTTP status code returned to the client.
             </summary>
             <value>The HTTP status code description.</value>
+        </member>
+        <member name="P:Nancy.Response.Cookies">
+            <summary>
+            Gets the <see cref="T:Nancy.Cookies.INancyCookie"/> instances that are associated with the response.
+            </summary>
+            <value>A <see cref="T:System.Collections.Generic.IList`1"/> instance, containing <see cref="T:Nancy.Cookies.INancyCookie"/> instances.</value>
         </member>
         <member name="T:Nancy.Diagnostics.IDiagnosticsProvider">
             <summary>
@@ -2674,6 +2844,35 @@
             Gets or sets the match result based on the model
             </summary>
         </member>
+        <member name="T:Nancy.Responses.Negotiation.ResponseProcessor">
+            <summary>
+            Processes negotiated responses of model type <see cref="T:Nancy.Response"/>.
+            </summary>
+        </member>
+        <member name="M:Nancy.Responses.Negotiation.ResponseProcessor.CanProcess(Nancy.Responses.Negotiation.MediaRange,System.Object,Nancy.NancyContext)">
+            <summary>
+            Determines whether the the processor can handle a given content type and model.
+            </summary>
+            <param name="requestedMediaRange">Content type requested by the client.</param>
+            <param name="model">The model for the given media range.</param>
+            <param name="context">The nancy context.</param>
+            <returns>A <see cref="T:Nancy.Responses.Negotiation.ProcessorMatch"/> result that determines the priority of the processor.</returns>
+        </member>
+        <member name="M:Nancy.Responses.Negotiation.ResponseProcessor.Process(Nancy.Responses.Negotiation.MediaRange,System.Object,Nancy.NancyContext)">
+            <summary>
+            Process the response.
+            </summary>
+            <param name="requestedMediaRange">Content type requested by the client.</param>
+            <param name="model">The model for the given media range.</param>
+            <param name="context">The nancy context.</param>
+            <returns>A <see cref="T:Nancy.Response"/> instance.</returns>
+        </member>
+        <member name="P:Nancy.Responses.Negotiation.ResponseProcessor.ExtensionMappings">
+            <summary>
+            Gets a set of mappings that map a given extension (such as .json)
+            to a media range that can be sent to the client in a vary header.
+            </summary>
+        </member>
         <member name="T:Nancy.Responses.Negotiation.ViewProcessor">
             <summary>
             Processes the model for view requests.
@@ -3014,6 +3213,18 @@
             Default charset for json responses.
             </summary>
         </member>
+        <member name="P:Nancy.Json.JsonSettings.RetainCasing">
+            <summary>
+            Set to true to retain the casing used in the C# code in produced JSON.
+            Set to false to use camelCasing in the produced JSON.
+            False by default.
+            </summary>
+        </member>
+        <member name="P:Nancy.Json.JsonSettings.ISO8601DateFormat">
+            <summary>
+            Serialized date format
+            </summary>
+        </member>
         <member name="M:Nancy.Responses.DefaultJsonSerializer.CanSerialize(System.String)">
             <summary>
             Whether the serializer can serialize the content type
@@ -3047,6 +3258,13 @@
             Gets the list of extensions that the serializer can handle.
             </summary>
             <value>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of extensions if any are available, otherwise an empty enumerable.</value>
+        </member>
+        <member name="P:Nancy.Responses.DefaultJsonSerializer.RetainCasing">
+            <summary>
+            Set to true to retain the casing used in the C# code in produced JSON.
+            Set to false to use camelCasig in the produced JSON.
+            False by default.
+            </summary>
         </member>
         <member name="M:Nancy.Responses.DefaultXmlSerializer.CanSerialize(System.String)">
             <summary>
@@ -3092,6 +3310,136 @@
             <param name="encoding">String encoding - UTF8 if null</param>
             <param name="headers">Headers if required</param>
             <param name="cookies">Cookies if required</param>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.AlphaRouteSegmentConstraint">
+            <summary>
+            Constraint for alphabetical route segments.
+            </summary>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.RouteSegmentConstraintBase`1">
+            <summary>
+            Convenience class for implementing a route segment constraint.
+            </summary>
+            <typeparam name="T">The type of parameter to capture.</typeparam>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.IRouteSegmentConstraint">
+            <summary>
+            Defines the functionality to constrain route matching.
+            </summary>
+        </member>
+        <member name="M:Nancy.Routing.Constraints.IRouteSegmentConstraint.Matches(System.String)">
+            <summary>
+            Determines whether the given constraint should be matched.
+            </summary>
+            <param name="constraint">The route constraint.</param>
+            <returns><c>true</c> if the constraint matches, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Nancy.Routing.Constraints.IRouteSegmentConstraint.GetMatch(System.String,System.String,System.String)">
+            <summary>
+            Matches the segment and parameter name against the constraint.
+            </summary>
+            <param name="constraint">The constraint.</param>
+            <param name="segment">The segment.</param>
+            <param name="parameterName">Name of the parameter.</param>
+            <returns>A <see cref="T:Nancy.Routing.Trie.SegmentMatch"/> containing information about the captured parameters.</returns>
+        </member>
+        <member name="M:Nancy.Routing.Constraints.RouteSegmentConstraintBase`1.TryMatch(System.String,System.String,`0@)">
+            <summary>
+            Tries to match the given segment against the constraint.
+            </summary>
+            <param name="constraint">The constraint.</param>
+            <param name="segment">The segment to match.</param>
+            <param name="matchedValue">The matched value.</param>
+            <returns><c>true</c> if the segment matches the constraint, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="P:Nancy.Routing.Constraints.RouteSegmentConstraintBase`1.Name">
+            <summary>
+            Gets the name of the constraint, i.e. "int".
+            </summary>
+            <value>The constraint's name.</value>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.BoolRouteSegmentConstraint">
+            <summary>
+            Constraint for <see cref="T:System.Boolean"/> route segments.
+            </summary>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.CustomDateTimeRouteSegmentConstraint">
+            <summary>
+            Constraint for <see cref="T:System.DateTime"/> route segments with custom format.
+            </summary>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.ParameterizedRouteSegmentConstraintBase`1">
+            <summary>
+            Convenience class for implementing a route segment constraint that expects parameters.
+            </summary>
+            <typeparam name="T">The type of parameter to capture.</typeparam>
+        </member>
+        <member name="M:Nancy.Routing.Constraints.ParameterizedRouteSegmentConstraintBase`1.TryParseInt(System.String,System.Int32@)">
+            <summary>
+            Tries to parse an integer using <see cref="P:System.Globalization.CultureInfo.InvariantCulture"/>.
+            </summary>
+            <param name="string">The string value.</param>
+            <param name="result">The resulting integer.</param>
+            <returns><c>true</c> if the parsing was successful, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Nancy.Routing.Constraints.ParameterizedRouteSegmentConstraintBase`1.TryMatch(System.String,System.String[],`0@)">
+            <summary>
+            Tries to match the given segment and parameters against the constraint.
+            </summary>
+            <param name="segment">The segment to match.</param>
+            <param name="parameters">The parameters to match.</param>
+            <param name="matchedValue">The matched value.</param>
+            <returns><c>true</c> if the segment and parameters matches the constraint, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.DateTimeRouteSegmentConstraint">
+            <summary>
+            Constraint for <see cref="T:System.DateTime"/> route segments.
+            </summary>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.DecimalRouteSegmentConstraint">
+            <summary>
+            Constraint for <see cref="T:System.Decimal"/> route segments.
+            </summary>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.GuidRouteSegmentConstraint">
+            <summary>
+            Constraint for <see cref="T:System.Guid"/> route segments.
+            </summary>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.IntRouteSegmentConstraint">
+            <summary>
+            Constraint for <see cref="T:System.Int64"/> route segments.
+            </summary>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.LengthRouteSegmentConstraint">
+            <summary>
+            Constraint for route segments with a specific length.
+            </summary>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.MaxLengthRouteSegmentConstraint">
+            <summary>
+            Constraint for route segments with a maximum length.
+            </summary>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.MaxRouteSegmentConstraint">
+            <summary>
+            Constraint for <see cref="T:System.Int32"/> route segments with a maximum value.
+            </summary>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.MinLengthRouteSegmentConstraint">
+            <summary>
+            Constraint for route segments with a minimum length.
+            </summary>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.MinRouteSegmentConstraint">
+            <summary>
+            Constraint for <see cref="T:System.Int32"/> route segments with a minimum length.
+            </summary>
+        </member>
+        <member name="T:Nancy.Routing.Constraints.RangeRouteSegmentConstraint">
+            <summary>
+            Constraint for <see cref="T:System.Int32"/> route segments with value within a specified range.
+            </summary>
         </member>
         <member name="T:Nancy.Routing.DefaultRequestDispatcher">
             <summary>
@@ -4396,6 +4744,26 @@
             Default error handler
             </summary>
         </member>
+        <member name="T:Nancy.ErrorHandling.IStatusCodeHandler">
+            <summary>
+            Provides informative responses for particular HTTP status codes
+            </summary>
+        </member>
+        <member name="M:Nancy.ErrorHandling.IStatusCodeHandler.HandlesStatusCode(Nancy.HttpStatusCode,Nancy.NancyContext)">
+            <summary>
+            Check if the error handler can handle errors of the provided status code.
+            </summary>
+            <param name="statusCode">Status code</param>
+            <param name="context">The <see cref="T:Nancy.NancyContext"/> instance of the current request.</param>
+            <returns>True if handled, false otherwise</returns>
+        </member>
+        <member name="M:Nancy.ErrorHandling.IStatusCodeHandler.Handle(Nancy.HttpStatusCode,Nancy.NancyContext)">
+            <summary>
+            Handle the error code
+            </summary>
+            <param name="statusCode">Status code</param>
+            <param name="context">Current context</param>
+        </member>
         <member name="M:Nancy.ErrorHandling.DefaultStatusCodeHandler.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Nancy.ErrorHandling.DefaultStatusCodeHandler"/> type.
@@ -5219,7 +5587,7 @@
         </member>
         <member name="T:Nancy.Extensions.ContextExtensions">
             <summary>
-            Containing extensions for the NancyContext object
+            Containing extensions for the <see cref="T:Nancy.NancyContext"/> object
             </summary>
         </member>
         <member name="M:Nancy.Extensions.ContextExtensions.IsAjaxRequest(Nancy.NancyContext)">
@@ -5268,6 +5636,11 @@
             <param name="url">Url string (relative or absolute)</param>
             <returns>True if local, false otherwise</returns>
         </member>
+        <member name="T:Nancy.Extensions.ModuleExtensions">
+            <summary>
+            Containing extensions for <see cref="T:Nancy.INancyModule"/> implementations.
+            </summary>
+        </member>
         <member name="F:Nancy.Extensions.ModuleExtensions.ModuleNameExpression">
             <summary>
             A regular expression used to manipulate parameterized route segments.
@@ -5302,7 +5675,7 @@
         </member>
         <member name="T:Nancy.Extensions.RequestExtensions">
             <summary>
-            Containing extensions for the Request object
+            Containing extensions for the <see cref="T:Nancy.Request"/> object
             </summary>
         </member>
         <member name="M:Nancy.Extensions.RequestExtensions.IsAjaxRequest(Nancy.Request)">
@@ -5310,7 +5683,12 @@
             An extension method making it easy to check if the reqeuest was done using ajax
             </summary>
             <param name="request">The request made by client</param>
-            <returns>True if the request was done using ajax</returns>
+            <returns><see langword="true" /> if the request was done using ajax, otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="T:Nancy.Extensions.StringExtensions">
+            <summary>
+            Containing extensions for the <see cref="T:System.String"/> object.
+            </summary>
         </member>
         <member name="F:Nancy.Extensions.StringExtensions.ParameterExpression">
             <summary>
@@ -5340,6 +5718,20 @@
             </summary>
             <param name="queryString">The query string to extract values from</param>
             <returns>A dynamic dictionary containing the query string values</returns>
+        </member>
+        <member name="M:Nancy.Extensions.StringExtensions.ToCamelCase(System.String)">
+            <summary>
+            Converts the value from PascalCase to camelCase.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Nancy.Extensions.StringExtensions.ToPascalCase(System.String)">
+            <summary>
+            Converts the value from camelCase to PascalCase.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>System.String.</returns>
         </member>
         <member name="T:Nancy.RequestHeaders">
             <summary>
@@ -5525,7 +5917,7 @@
         <member name="M:Nancy.Security.Csrf.Enable(Nancy.Bootstrapper.IPipelines)">
             <summary>
             Enables Csrf token generation.
-            This is enabled automatically so there should be no reason to call this manually.
+            This is disabled by default.
             </summary>
             <param name="pipelines">Application pipelines</param>
         </member>
@@ -5731,6 +6123,11 @@
             Token is valid, but has expired
             </summary>
         </member>
+        <member name="T:Nancy.ResponseExtensions">
+            <summary>
+            Containing extensions for the <see cref="T:Nancy.Response"/> object.
+            </summary>
+        </member>
         <member name="M:Nancy.ResponseExtensions.AsAttachment(Nancy.Response,System.String,System.String)">
             <summary>
             Force the response to be downloaded as an attachment
@@ -5739,6 +6136,45 @@
             <param name="fileName">Filename for the download</param>
             <param name="contentType">Optional content type</param>
             <returns>Mopdified Response object</returns>
+        </member>
+        <member name="M:Nancy.ResponseExtensions.WithCookie(Nancy.Response,System.String,System.String)">
+            <summary>
+            Adds a <see cref="T:Nancy.Cookies.INancyCookie"/> to the response.
+            </summary>
+            <param name="response">Response object</param>
+            <param name="name">The name of the cookie.</param>
+            <param name="value">The value of the cookie.</param>
+            <returns>The <see cref="T:Nancy.Response"/> instance.</returns>
+        </member>
+        <member name="M:Nancy.ResponseExtensions.WithCookie(Nancy.Response,System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Adds a <see cref="T:Nancy.Cookies.INancyCookie"/> to the response.
+            </summary>
+            <param name="response">Response object</param>
+            <param name="name">The name of the cookie.</param>
+            <param name="value">The value of the cookie.</param>
+            <param name="expires">The expiration date of the cookie. Can be <see langword="null"/> if it should never expire.</param>
+            <returns>The <see cref="T:Nancy.Response"/> instance.</returns>
+        </member>
+        <member name="M:Nancy.ResponseExtensions.WithCookie(Nancy.Response,System.String,System.String,System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            Adds a <see cref="T:Nancy.Cookies.INancyCookie"/> to the response.
+            </summary>
+            <param name="response">Response object</param>
+            <param name="name">The name of the cookie.</param>
+            <param name="value">The value of the cookie.</param>
+            <param name="expires">The expiration date of the cookie. Can be <see langword="null"/> if it should never expire.</param>
+            <param name="domain">The domain of the cookie.</param>
+            <param name="path">The path of the cookie.</param>
+            <returns>The <see cref="T:Nancy.Response"/> instance.</returns>
+        </member>
+        <member name="M:Nancy.ResponseExtensions.WithCookie(Nancy.Response,Nancy.Cookies.INancyCookie)">
+            <summary>
+            Adds a <see cref="T:Nancy.Cookies.INancyCookie"/> to the response.
+            </summary>
+            <param name="response">Response object</param>
+            <param name="nancyCookie">A <see cref="T:Nancy.Cookies.INancyCookie"/> instance.</param>
+            <returns></returns>
         </member>
         <member name="M:Nancy.ResponseExtensions.WithHeader(Nancy.Response,System.String,System.String)">
             <summary>
@@ -5829,11 +6265,6 @@
             </summary>
             <value>An <see cref="T:System.Collections.Generic.IEnumerable`1"/>, containing the claims.</value>
         </member>
-        <member name="P:Nancy.StaticConfiguration.DisableCaches">
-            <summary>
-            Gets or sets a value indicating whether Nancy should disable caching
-            </summary>
-        </member>
         <member name="P:Nancy.StaticConfiguration.DisableErrorTraces">
             <summary>
             Gets or sets a value indicating whether or not to disable traces in error messages
@@ -5901,12 +6332,33 @@
             </summary>
             <returns>Returns a new cloned instance of the url.</returns>
         </member>
+        <member name="M:Nancy.Url.op_Implicit(Nancy.Url)~System.String">
+            <summary>
+            Casts the current <see cref="T:Nancy.Url"/> instance to a <see cref="T:System.String"/> instance.
+            </summary>
+            <param name="url">The instance that should be cast.</param>
+            <returns>A <see cref="T:System.String"/> representation of the <paramref name="url"/>.</returns>
+        </member>
+        <member name="M:Nancy.Url.op_Implicit(System.String)~Nancy.Url">
+            <summary>
+            Casts the current <see cref="T:System.String"/> instance to a <see cref="T:Nancy.Url"/> instance.
+            </summary>
+            <param name="url">The instance that should be cast.</param>
+            <returns>An <see cref="T:Nancy.Url"/> representation of the <paramref name="url"/>.</returns>
+        </member>
         <member name="M:Nancy.Url.op_Implicit(Nancy.Url)~System.Uri">
             <summary>
             Casts the current <see cref="T:Nancy.Url"/> instance to a <see cref="T:System.Uri"/> instance.
             </summary>
             <param name="url">The instance that should be cast.</param>
             <returns>An <see cref="T:System.Uri"/> representation of the <paramref name="url"/>.</returns>
+        </member>
+        <member name="M:Nancy.Url.op_Implicit(System.Uri)~Nancy.Url">
+            <summary>
+            Casts a <see cref="T:System.Uri"/> instance to a <see cref="T:Nancy.Url"/> instance
+            </summary>
+            <param name="uri">The instance that should be cast.</param>
+            <returns>An <see cref="T:Nancy.Url"/> representation of the <paramref name="uri"/>.</returns>
         </member>
         <member name="P:Nancy.Url.Scheme">
             <summary>
@@ -5965,36 +6417,47 @@
             Provides a way to validate a type as well as a description to use for client-side validation.
             </summary>
         </member>
-        <member name="M:Nancy.Validation.IModelValidator.Validate(System.Object)">
+        <member name="M:Nancy.Validation.IModelValidator.Validate(System.Object,Nancy.NancyContext)">
             <summary>
             Validates the specified instance.
             </summary>
-            <param name="instance">The instance.</param>
-            <returns>A ValidationResult with the result of the validation.</returns>
+            <param name="instance">The instance that should be validated.</param>
+            <param name="context">The <see cref="T:Nancy.NancyContext"/> of the current request.</param>
+            <returns>A <see cref="T:Nancy.Validation.ModelValidationResult"/> with the result of the validation.</returns>
         </member>
         <member name="P:Nancy.Validation.IModelValidator.Description">
             <summary>
             Gets the description of the validator.
             </summary>
         </member>
-        <member name="M:Nancy.Validation.CompositeValidator.#ctor(System.Collections.Generic.IEnumerable{Nancy.Validation.IModelValidator})">
+        <member name="P:Nancy.Validation.IModelValidator.ModelType">
+            <summary>
+            Gets the <see cref="T:System.Type"/> of the model that is being validated by the validator.
+            </summary>
+        </member>
+        <member name="M:Nancy.Validation.CompositeValidator.#ctor(System.Collections.Generic.IEnumerable{Nancy.Validation.IModelValidator},System.Type)">
             <summary>
             Initializes a new instance of the <see cref="T:Nancy.Validation.CompositeValidator"/> class.
             </summary>
             <param name="validators">The validators.</param>
+            <param name="modelType">The type of the model that is being validated.</param>
         </member>
-        <member name="M:Nancy.Validation.CompositeValidator.Validate(System.Object)">
+        <member name="M:Nancy.Validation.CompositeValidator.Validate(System.Object,Nancy.NancyContext)">
             <summary>
             Validates the specified instance.
             </summary>
-            <param name="instance">The instance.</param>
-            <returns>
-            A ValidationResult with the result of the validation.
-            </returns>
+            <param name="instance">The instance that should be validated.</param>
+            <param name="context">The <see cref="T:Nancy.NancyContext"/> of the current request.</param>
+            <returns>A <see cref="T:Nancy.Validation.ModelValidationResult"/> with the result of the validation.</returns>
         </member>
         <member name="P:Nancy.Validation.CompositeValidator.Description">
             <summary>
             Gets the description of the validator.
+            </summary>
+        </member>
+        <member name="P:Nancy.Validation.CompositeValidator.ModelType">
+            <summary>
+            The type of the model that is being validated by the validator.
             </summary>
         </member>
         <member name="T:Nancy.Validation.DefaultValidatorLocator">
@@ -6039,6 +6502,31 @@
             <param name="type">The type.</param>
             <returns>A validator for the given type or null if none exists.</returns>
         </member>
+        <member name="T:Nancy.Validation.ModelValidationException">
+            <summary>
+            Exception that is thrown during problems with model validation.
+            </summary>
+        </member>
+        <member name="M:Nancy.Validation.ModelValidationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Nancy.Validation.ModelValidationException"/> class.
+            </summary>
+        </member>
+        <member name="M:Nancy.Validation.ModelValidationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Nancy.Validation.ModelValidationException"/> class,
+            with the provided <paramref name="message"/>.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:Nancy.Validation.ModelValidationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Nancy.Validation.ModelValidationException"/> class,
+            with the provided <paramref name="message"/> and <paramref name="innerException"/>
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference if no inner exception is specified.</param>
+        </member>
         <member name="T:Nancy.Validation.ModuleExtensions">
             <summary>
             Extensions to <see cref="T:Nancy.INancyModule"/> for validation.
@@ -6052,6 +6540,47 @@
             <param name="module">The module that the validation is performed from.</param>
             <param name="instance">The instance that is being validated.</param>
             <returns>A <see cref="T:Nancy.Validation.ModelValidationResult"/> instance.</returns>
+        </member>
+        <member name="T:Nancy.Validation.Rules.ComparisonOperator">
+            <summary>
+            Specifies the validation comparison operators used by the <see cref="T:Nancy.Validation.Rules.ComparisonValidationRule"/> type.
+            </summary>
+        </member>
+        <member name="F:Nancy.Validation.Rules.ComparisonOperator.GreaterThan">
+            <summary>
+            A comparison for greater than.
+            </summary>
+        </member>
+        <member name="F:Nancy.Validation.Rules.ComparisonOperator.GreaterThanOrEqual">
+            <summary>
+            A comparison for greater than or equal to.
+            </summary>
+        </member>
+        <member name="F:Nancy.Validation.Rules.ComparisonOperator.LessThan">
+            <summary>
+            A comparison for less than.
+            </summary>
+        </member>
+        <member name="F:Nancy.Validation.Rules.ComparisonOperator.LessThanOrEqual">
+            <summary>
+            A comparison for less than or equal to.
+            </summary>
+        </member>
+        <member name="F:Nancy.Validation.Rules.ComparisonOperator.Equal">
+            <summary>
+            A comparison for equality.
+            </summary>
+        </member>
+        <member name="F:Nancy.Validation.Rules.ComparisonOperator.NotEqual">
+            <summary>
+            A comparison for inequality.
+            </summary>
+        </member>
+        <member name="T:Nancy.Validation.Rules.NotEmptyValidationRule">
+            <summary>
+            Implementation of <see cref="T:Nancy.Validation.ModelValidationRule"/> for ensuring a string does not
+            contain an empty value.
+            </summary>
         </member>
         <member name="T:Nancy.Validation.ModelValidationRule">
             <summary>
@@ -6099,6 +6628,11 @@
             <param name="errorMessageFormatter">The error message formatter.</param>
             <param name="memberNames">The member names.</param>
         </member>
+        <member name="T:Nancy.Validation.Rules.NotNullValidationRule">
+            <summary>
+            Implementation of <see cref="T:Nancy.Validation.ModelValidationRule"/> for ensuring a string is not null.
+            </summary>
+        </member>
         <member name="M:Nancy.Validation.Rules.NotNullValidationRule.#ctor(System.Func{System.String,System.String},System.Collections.Generic.IEnumerable{System.String})">
             <summary>
             Initializes a new instance of the <see cref="T:Nancy.Validation.Rules.NotNullValidationRule"/> class.
@@ -6106,38 +6640,55 @@
             <param name="errorMessageFormatter">The error message formatter.</param>
             <param name="memberNames">The member names.</param>
         </member>
+        <member name="T:Nancy.Validation.Rules.ComparisonValidationRule">
+            <summary>
+            Implementation of <see cref="T:Nancy.Validation.ModelValidationRule"/> for comparing two values using a
+            provided <see cref="T:Nancy.Validation.Rules.ComparisonOperator"/>.
+            </summary>
+        </member>
         <member name="M:Nancy.Validation.Rules.ComparisonValidationRule.#ctor(System.Func{System.String,System.String},System.Collections.Generic.IEnumerable{System.String},Nancy.Validation.Rules.ComparisonOperator,System.Object)">
             <summary>
             Initializes a new instance of the <see cref="T:Nancy.Validation.Rules.ComparisonValidationRule"/> class.
             </summary>
             <param name="errorMessageFormatter">The error message formatter.</param>
             <param name="memberNames">The member names.</param>
-            <param name="operator">The @operator.</param>
-            <param name="value">The value.</param>
+            <param name="operator">The <see cref="T:Nancy.Validation.Rules.ComparisonOperator"/> that should be used when comparing values.</param>
+            <param name="value">Gets the value to compare against.</param>
         </member>
         <member name="P:Nancy.Validation.Rules.ComparisonValidationRule.Operator">
             <summary>
-            Gets the operator.
+            The <see cref="T:Nancy.Validation.Rules.ComparisonOperator"/> that should be used when comparing values.
             </summary>
+            <value>A <see cref="T:Nancy.Validation.Rules.ComparisonOperator"/> value.</value>
         </member>
         <member name="P:Nancy.Validation.Rules.ComparisonValidationRule.Value">
             <summary>
-            Gets the value.
+            Gets the value to compare against.
             </summary>
         </member>
         <member name="T:Nancy.Validation.Rules.RegexValidationRule">
             <summary>
-            
+            Implementation of <see cref="T:Nancy.Validation.ModelValidationRule"/> for ensuring a string matches the
+            pattern which is defined by a regex.
             </summary>
+        </member>
+        <member name="M:Nancy.Validation.Rules.RegexValidationRule.#ctor(System.Func{System.String,System.String},System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Nancy.Validation.Rules.RegexValidationRule"/> class.
+            </summary>
+            <param name="errorMessageFormatter">The error message formatter.</param>
+            <param name="memberNames">The member names.</param>
+            <param name="pattern">The regex pattern that should be used to check for a match.</param>
         </member>
         <member name="P:Nancy.Validation.Rules.RegexValidationRule.Pattern">
             <summary>
-            
+            The regex pattern that should be used to check for a match.
             </summary>
         </member>
         <member name="T:Nancy.Validation.Rules.StringLengthValidationRule">
             <summary>
-            
+            Implementation of <see cref="T:Nancy.Validation.ModelValidationRule"/> for ensuring that the length of a string
+            is withing the specified range.
             </summary>
         </member>
         <member name="M:Nancy.Validation.Rules.StringLengthValidationRule.#ctor(System.Func{System.String,System.String},System.Collections.Generic.IEnumerable{System.String},System.Int32,System.Int32)">
@@ -6146,8 +6697,8 @@
             </summary>
             <param name="errorMessageFormatter">The error message formatter.</param>
             <param name="memberNames">The member names.</param>
-            <param name="minLength">Length of the min.</param>
-            <param name="maxLength">Length of the max.</param>
+            <param name="minLength">Minimum allowed length of the string</param>
+            <param name="maxLength">Maximum allowed length of the string</param>
         </member>
         <member name="P:Nancy.Validation.Rules.StringLengthValidationRule.MinLength">
             <summary>
@@ -6166,43 +6717,62 @@
             A description of the rules a validator provides.
             </summary>
         </member>
-        <member name="M:Nancy.Validation.ModelValidationDescriptor.#ctor(System.Collections.Generic.IEnumerable{Nancy.Validation.ModelValidationRule})">
+        <member name="M:Nancy.Validation.ModelValidationDescriptor.#ctor(System.Collections.Generic.IEnumerable{Nancy.Validation.ModelValidationRule},System.Type)">
             <summary>
             Initializes a new instance of the <see cref="T:Nancy.Validation.ModelValidationDescriptor"/> class.
             </summary>
-            <param name="rules">The rules.</param>
+            <param name="rules">The rules that describes the model.</param>
+            <param name="modelType">The type of the model that the rules are defined for.</param>
+        </member>
+        <member name="M:Nancy.Validation.ModelValidationDescriptor.#ctor(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.IList{Nancy.Validation.ModelValidationRule}},System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Nancy.Validation.ModelValidationDescriptor"/> class.
+            </summary>
+            <param name="rules">The rules that describes the model, grouped by member name.</param>
+            <param name="modelType">The type of the model that the rules are defined for.</param>
+        </member>
+        <member name="P:Nancy.Validation.ModelValidationDescriptor.ModelType">
+            <summary>
+            The type of the model that is being described.
+            </summary>
         </member>
         <member name="P:Nancy.Validation.ModelValidationDescriptor.Rules">
             <summary>
             Gets the rules.
             </summary>
-            <value>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:Nancy.Validation.ModelValidationRule"/> instances.</value>
+            <value>An <see cref="T:System.Collections.Generic.IDictionary`2"/> instance that contains <see cref="T:Nancy.Validation.ModelValidationRule"/> instances grouped by property name.</value>
         </member>
         <member name="T:Nancy.Validation.ModelValidationError">
             <summary>
-            A validation error.
+            Represents a model validation error.
             </summary>
         </member>
-        <member name="M:Nancy.Validation.ModelValidationError.#ctor(System.String,System.Func{System.String,System.String})">
+        <member name="M:Nancy.Validation.ModelValidationError.#ctor(System.String,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Nancy.Validation.ModelValidationError"/> class.
             </summary>
-            <param name="memberName">Name of the member.</param>
-            <param name="errorMessageFormatter">The error message formatter.</param>
+            <param name="memberName">Name of the member that the error describes.</param>
+            <param name="errorMessage"></param>
         </member>
-        <member name="M:Nancy.Validation.ModelValidationError.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Func{System.String,System.String})">
+        <member name="M:Nancy.Validation.ModelValidationError.#ctor(System.Collections.Generic.IEnumerable{System.String},System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Nancy.Validation.ModelValidationError"/> class.
             </summary>
-            <param name="memberNames">The member names.</param>
-            <param name="errorMessageFormatter">The error message formatter.</param>
+            <param name="memberNames">The member names that the error describes.</param>
+            <param name="errorMessage"></param>
         </member>
-        <member name="M:Nancy.Validation.ModelValidationError.GetMessage(System.String)">
+        <member name="M:Nancy.Validation.ModelValidationError.op_Implicit(Nancy.Validation.ModelValidationError)~System.String">
             <summary>
-            Gets the error message.
+            Implictly cast a validation error to a string.
             </summary>
-            <param name="displayName">The display name.</param>
-            <returns>The error message.</returns>
+            <param name="error">The <see cref="T:Nancy.Validation.ModelValidationError"/> that should be cast.</param>
+            <returns>A <see cref="T:System.String"/> containing the validation error description.</returns>
+        </member>
+        <member name="M:Nancy.Validation.ModelValidationError.ToString">
+            <summary>
+            Returns the <see cref="P:Nancy.Validation.ModelValidationError.ErrorMessage"/>.
+            </summary>
+            <returns>A string containing the error message.</returns>
         </member>
         <member name="P:Nancy.Validation.ModelValidationError.MemberNames">
             <summary>
@@ -6210,42 +6780,42 @@
             </summary>
             <value>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> that contains the name of the members.</value>
         </member>
+        <member name="P:Nancy.Validation.ModelValidationError.ErrorMessage">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Nancy.Validation.ModelValidationResult">
             <summary>
-            The result of a validation.
+            Represents the result of a model validation.
+            </summary>
+        </member>
+        <member name="M:Nancy.Validation.ModelValidationResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Nancy.Validation.ModelValidationResult"/> class.
             </summary>
         </member>
         <member name="M:Nancy.Validation.ModelValidationResult.#ctor(System.Collections.Generic.IEnumerable{Nancy.Validation.ModelValidationError})">
             <summary>
             Initializes a new instance of the <see cref="T:Nancy.Validation.ModelValidationResult"/> class.
             </summary>
-            <param name="errors">The errors.</param>
+            <param name="errors">The <see cref="T:Nancy.Validation.ModelValidationError"/> instances that makes up the result.</param>
         </member>
-        <member name="M:Nancy.Validation.ModelValidationResult.AddError(System.String,System.String)">
+        <member name="M:Nancy.Validation.ModelValidationResult.#ctor(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.IList{Nancy.Validation.ModelValidationError}})">
             <summary>
-            Creates a new ValidationResult with the added error.
+            Initializes a new instance of the <see cref="T:Nancy.Validation.ModelValidationResult"/> class.
             </summary>
-            <param name="memberName">Name of the member.</param>
-            <param name="errorMessage">The error message.</param>
-            <returns>An <see cref="T:Nancy.Validation.ModelValidationResult"/> instance.</returns>
-        </member>
-        <member name="M:Nancy.Validation.ModelValidationResult.AddError(System.Collections.Generic.IEnumerable{System.String},System.String)">
-            <summary>
-            Creates a new ValidationResult with the added error.
-            </summary>
-            <param name="memberNames">The member names.</param>
-            <param name="errorMessage">The error message.</param>
-            <returns>An <see cref="T:Nancy.Validation.ModelValidationResult"/> instance.</returns>
+            <param name="errors">The <see cref="T:Nancy.Validation.ModelValidationError"/> instances that makes up the result, grouped by member name.</param>
         </member>
         <member name="P:Nancy.Validation.ModelValidationResult.Errors">
             <summary>
             Gets the errors.
             </summary>
-            <value>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> that contains the <see cref="T:Nancy.Validation.ModelValidationError"/> instances.</value>
+            <value>An <see cref="T:System.Collections.Generic.IDictionary`2"/> instance that contains <see cref="T:Nancy.Validation.ModelValidationError"/> instances grouped by property name.</value>
         </member>
         <member name="P:Nancy.Validation.ModelValidationResult.IsValid">
             <summary>
-            Gets a value indicating whether the validated instance is valid.
+            Gets a value indicating whether the validated instance is valid or not.
             </summary>
             <value><see langword="true"/> if the validated instance is valid; otherwise, <see langword="false"/>.</value>
         </member>
@@ -6685,6 +7255,42 @@
             <param name="response">
             The full response to create the head response from.
             </param>
+        </member>
+        <member name="T:Nancy.Extensions.CollectionExtensions">
+            <summary>
+            Containing extensions for the collection objects.
+            </summary>
+        </member>
+        <member name="M:Nancy.Extensions.CollectionExtensions.ToDictionary(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Converts a <see cref="T:System.Collections.Specialized.NameValueCollection"/> to a <see cref="T:System.Collections.Generic.IDictionary`2"/> instance.
+            </summary>
+            <param name="source">The <see cref="T:System.Collections.Specialized.NameValueCollection"/> to convert.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IDictionary`2"/> instance.</returns>
+        </member>
+        <member name="M:Nancy.Extensions.CollectionExtensions.ToNameValueCollection(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}})">
+            <summary>
+            Converts an <see cref="T:System.Collections.Generic.IDictionary`2"/> instance to a <see cref="T:System.Collections.Specialized.NameValueCollection"/> instance.
+            </summary>
+            <param name="source">The <see cref="T:System.Collections.Generic.IDictionary`2"/> instance to convert.</param>
+            <returns>A <see cref="T:System.Collections.Specialized.NameValueCollection"/> instance.</returns>
+        </member>
+        <member name="M:Nancy.Extensions.CollectionExtensions.Merge(System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{System.String,System.String}})">
+            <summary>
+            Merges a collection of <see cref="T:System.Collections.Generic.IDictionary`2"/> instances into a single one.
+            </summary>
+            <param name="dictionaries">The list of <see cref="T:System.Collections.Generic.IDictionary`2"/> instances to merge.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IDictionary`2"/> instance containg the keys and values from the other instances.</returns>
+        </member>
+        <member name="M:Nancy.Extensions.CollectionExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Filters a collection based on a provided key selector.
+            </summary>
+            <param name="source">The collection filter.</param>
+            <param name="keySelector">The predicate to filter by.</param>
+            <typeparam name="TSource">The type of the collection to filter.</typeparam>
+            <typeparam name="TKey">The type of the key to filter by.</typeparam>
+            <returns>A <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance with the filtered values.</returns>
         </member>
         <member name="M:Nancy.Helpers.HttpUtility.HtmlDecode(System.String)">
             <summary>
@@ -10123,29 +10729,14 @@
             Defines the functionality of an engine that can handle Nancy <see cref="T:Nancy.Request"/>s.
             </summary>
         </member>
-        <member name="M:Nancy.INancyEngine.HandleRequest(Nancy.Request)">
-            <summary>
-            Handles an incoming <see cref="T:Nancy.Request"/>.
-            </summary>
-            <param name="request">An <see cref="T:Nancy.Request"/> instance, containing the information about the current request.</param>
-            <returns>A <see cref="T:Nancy.NancyContext"/> instance containing the request/response context.</returns>
-        </member>
-        <member name="M:Nancy.INancyEngine.HandleRequest(Nancy.Request,System.Action{Nancy.NancyContext},System.Action{System.Exception})">
-            <summary>
-            Handles an incoming <see cref="T:Nancy.Request"/> async.
-            </summary>
-            <param name="request">An <see cref="T:Nancy.Request"/> instance, containing the information about the current request.</param>
-            <param name="onComplete">Delegate to call when the request is complete</param>
-            <param name="onError">Deletate to call when any errors occur</param>
-        </member>
-        <member name="M:Nancy.INancyEngine.HandleRequest(Nancy.Request,System.Func{Nancy.NancyContext,Nancy.NancyContext},System.Action{Nancy.NancyContext},System.Action{System.Exception})">
+        <member name="M:Nancy.INancyEngine.HandleRequest(Nancy.Request,System.Func{Nancy.NancyContext,Nancy.NancyContext},System.Threading.CancellationToken)">
             <summary>
             Handles an incoming <see cref="T:Nancy.Request"/> async.
             </summary>
             <param name="request">An <see cref="T:Nancy.Request"/> instance, containing the information about the current request.</param>
             <param name="preRequest">Delegate to call before the request is processed</param>
-            <param name="onComplete">Delegate to call when the request is complete</param>
-            <param name="onError">Deletate to call when any errors occur</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
         </member>
         <member name="P:Nancy.INancyEngine.RequestPipelinesFactory">
             <summary>
@@ -10267,38 +10858,6 @@
             <param name="requestTracing">The request tracing instance.</param>
             <param name="diagnosticsConfiguration"></param>
             <param name="staticContentProvider">The provider to use for serving static content</param>
-        </member>
-        <member name="M:Nancy.NancyEngine.HandleRequest(Nancy.Request)">
-            <summary>
-            Handles an incoming <see cref="T:Nancy.Request"/>.
-            </summary>
-            <param name="request">An <see cref="T:Nancy.Request"/> instance, containing the information about the current request.</param>
-            <returns>A <see cref="T:Nancy.NancyContext"/> instance containing the request/response context.</returns>
-        </member>
-        <member name="M:Nancy.NancyEngine.HandleRequest(Nancy.Request,System.Action{Nancy.NancyContext},System.Action{System.Exception})">
-            <summary>
-            Handles an incoming <see cref="T:Nancy.Request"/> async.
-            </summary>
-            <param name="request">An <see cref="T:Nancy.Request"/> instance, containing the information about the current request.</param>
-            <param name="onComplete">Delegate to call when the request is complete</param>
-            <param name="onError">Deletate to call when any errors occur</param>
-        </member>
-        <member name="M:Nancy.NancyEngine.HandleRequest(Nancy.Request,System.Func{Nancy.NancyContext,Nancy.NancyContext})">
-            <summary>
-            Handles an incoming <see cref="T:Nancy.Request"/>.
-            </summary>
-            <param name="request">An <see cref="T:Nancy.Request"/> instance, containing the information about the current request.</param>
-            <param name="preRequest">Delegate to call before the request is processed</param>
-            <returns>A <see cref="T:Nancy.NancyContext"/> instance containing the request/response context.</returns>
-        </member>
-        <member name="M:Nancy.NancyEngine.HandleRequest(Nancy.Request,System.Func{Nancy.NancyContext,Nancy.NancyContext},System.Action{Nancy.NancyContext},System.Action{System.Exception})">
-            <summary>
-            Handles an incoming <see cref="T:Nancy.Request"/> async.
-            </summary>
-            <param name="request">An <see cref="T:Nancy.Request"/> instance, containing the information about the current request.</param>
-            <param name="preRequest">Pre request hook from the host</param>
-            <param name="onComplete">Delegate to call when the request is complete</param>
-            <param name="onError">Deletate to call when any errors occur</param>
         </member>
         <member name="P:Nancy.NancyEngine.RequestPipelinesFactory">
             <summary>

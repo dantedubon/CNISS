@@ -11,7 +11,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Infraestructure
     {
         public ApiBootstrapper()
         {
-            
+       
         }
         protected override void RequestStartup(Autofac.ILifetimeScope container, Nancy.Bootstrapper.IPipelines pipelines, NancyContext context)
         {

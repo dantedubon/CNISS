@@ -16,8 +16,6 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Infraestructure
         protected override void RequestStartup(Autofac.ILifetimeScope container, Nancy.Bootstrapper.IPipelines pipelines, NancyContext context)
         {
 
-            //pipelines.OnError += (ctx, err) => HandleExceptions(err, ctx);
-
             pipelines.AfterRequest.AddItemToEndOfPipeline(AddCorsHeaders());
 
             base.RequestStartup(container, pipelines, context);
@@ -25,11 +23,9 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Infraestructure
 
         static Response HandleExceptions(Exception err, NancyContext ctx)
         {
-            if (ctx.Response == null)
-            {
-                ctx.Response = new Response() { };
-                AddCorsHeaders()(ctx);
-            }
+            if (ctx.Response != null) return ctx.Response;
+            ctx.Response = new Response() { };
+            AddCorsHeaders()(ctx);
 
             return ctx.Response;
         }

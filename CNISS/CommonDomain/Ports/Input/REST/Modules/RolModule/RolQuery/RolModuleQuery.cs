@@ -14,7 +14,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.RolModule.RolQuery
             {
                 var rolModule = repository.getAll();
                 return Response.AsJson(rolModule)
-                    .WithStatusCode(HttpStatusCode.OK);
+                 .WithStatusCode(HttpStatusCode.OK);
 
 
             };

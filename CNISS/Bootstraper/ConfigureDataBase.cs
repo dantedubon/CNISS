@@ -22,7 +22,7 @@ namespace CNISS.Bootstraper
         {
             get
             {
-
+                log4net.Config.XmlConfigurator.Configure();
                 return builder =>
                 {
                     builder.RegisterInstance(SessionFactory).As<ISessionFactory>().SingleInstance();
@@ -44,10 +44,12 @@ namespace CNISS.Bootstraper
                 Configuration config = Fluently.Configure()
                .Database(
                    MsSqlConfiguration
-                   .MsSql2012
+                   .MsSql2012.ShowSql()
                     .ConnectionString(c => c.FromConnectionStringWithKey("CENSS_SQL")))
                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<RolMapping>())
-                   .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
+              
+                   .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true)
+                   )
                .BuildConfiguration();
 
                 return config.BuildSessionFactory();

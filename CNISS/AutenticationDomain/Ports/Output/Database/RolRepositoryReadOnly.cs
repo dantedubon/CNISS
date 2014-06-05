@@ -7,12 +7,12 @@ using NHibernate;
 
 namespace CNISS.AutenticationDomain.Ports.Output.Database
 {
-    public class RolRepositoryReadOnly:NHibernateReadOnlyRepository<Rol,Guid>,IRolRepositoryReadOnly
+    public class RolRepositoryReadOnly:NHibernateReadOnlyRepository<Rol,Guid>, IRolRepositoryReadOnly
     {
-        private ISession _session;
+      
         public RolRepositoryReadOnly(ISession session):base(session)
         {
-            _session = session;
+            
         }
       
 

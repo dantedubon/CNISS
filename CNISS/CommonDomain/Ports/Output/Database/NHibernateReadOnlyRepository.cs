@@ -8,7 +8,7 @@ using NHibernate.Linq;
 
 namespace CNISS.CommonDomain.Ports.Output.Database
 {
-    public class NHibernateReadOnlyRepository<T, TKey>:IRepositoryReadOnly<T,TKey>
+    public abstract  class NHibernateReadOnlyRepository<T, TKey>:IRepositoryReadOnly<T,TKey>
     {
         protected readonly ISession Session;
 

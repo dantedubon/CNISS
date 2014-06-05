@@ -20,6 +20,10 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Infraestructure
 
             pipelines.AfterRequest.AddItemToEndOfPipeline(AddCorsHeaders());
 
+            pipelines.OnError.AddItemToEndOfPipeline((ctx, err) =>
+                HandleExceptions(err, ctx)
+                );
+
             base.RequestStartup(container, pipelines, context);
         }
 

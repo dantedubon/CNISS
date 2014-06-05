@@ -13,7 +13,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.RolModule.RolQuery
             Get["/rol"] = parameters =>
             {
                 var rolModule = repository.getAll();
-                return Response.AsJson(rolModule);
+                return Response.AsJson(rolModule)
+                    .WithStatusCode(HttpStatusCode.OK);
 
 
             };
@@ -23,7 +24,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.RolModule.RolQuery
 
                 Guid id = parameters.id;
                
-                 return Response.AsJson(repository.get(id));
+                 return Response.AsJson(repository.get(id))
+                     .WithStatusCode(HttpStatusCode.OK);
             };
 
         }

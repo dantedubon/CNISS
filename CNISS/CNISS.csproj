@@ -38,11 +38,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=3.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+    <Reference Include="Autofac, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Autofac.3.4.0\lib\net40\Autofac.dll</HintPath>
+      <HintPath>..\packages\Autofac.3.0.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\packages\Autofac.3.0.0\lib\net40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Machine.Specifications">
+      <HintPath>..\packages\Machine.Specifications.0.8.2\lib\net40\Machine.Specifications.dll</HintPath>
+    </Reference>
+    <Reference Include="Machine.Specifications.Clr4">
+      <HintPath>..\packages\Machine.Specifications.0.8.2\lib\net40\Machine.Specifications.Clr4.dll</HintPath>
+    </Reference>
+    <Reference Include="Machine.Specifications.Should">
+      <HintPath>..\packages\Machine.Specifications.Should.0.7.2\lib\net40\Machine.Specifications.Should.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="Nancy, Version=0.22.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Nancy.0.22.2\lib\net40\Nancy.dll</HintPath>
@@ -55,23 +76,46 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Nancy.Hosting.Aspnet.0.22.2\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
     </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutenticationDomain\Domain\Repositories\IRolRepositoryCommands.cs" />
+    <Compile Include="AutenticationDomain\Domain\Repositories\IRolRepositoryReadOnly.cs" />
+    <Compile Include="AutenticationDomain\Domain\ValueObjects\Rol.cs" />
+    <Compile Include="AutenticationDomain\Ports\Output\Database\Mappings\RolMapping.cs" />
+    <Compile Include="AutenticationDomain\Ports\Output\Database\RolRepositoryCommands.cs" />
+    <Compile Include="AutenticationDomain\Ports\Output\Database\RolRepositoryReadOnly.cs" />
+    <Compile Include="Bootstraper\ConfigureDataBase.cs" />
     <Compile Include="Bootstraper\IBootstrapperTask.cs" />
+    <Compile Include="Bootstraper\ConfigureRoleDependencies.cs" />
+    <Compile Include="CommonDomain\Domain\IDomainObjectIdentified.cs" />
+    <Compile Include="CommonDomain\Domain\IRepositoryCommands.cs" />
+    <Compile Include="CommonDomain\Domain\IRepositoryReadOnly.cs" />
+    <Compile Include="CommonDomain\Domain\IUnitOfWork.cs" />
+    <Compile Include="CommonDomain\Domain\IValueObject.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\ApiBootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\Bootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\HelloModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolQuery\RolModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Output\Database\NHibernateCommandRepository.cs" />
+    <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepository.cs" />
+    <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,11 +128,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AutenticationDomain\Application\" />
+    <Folder Include="AutenticationDomain\Domain\Entities\" />
+    <Folder Include="AutenticationDomain\Ports\Input\" />
     <Folder Include="CommonDomain\Application\" />
-    <Folder Include="CommonDomain\Domain\" />
     <Folder Include="CommonDomain\Ports\Input\REST\API\" />
-    <Folder Include="CommonDomain\Ports\Input\REST\Request\" />
-    <Folder Include="CommonDomain\Ports\Output\" />
+    <Folder Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\" />
+    <Folder Include="CommonDomain\Ports\Input\REST\Request\RolModule\" />
+    <Folder Include="CommonDomain\Ports\Output\Database\Infraestructure\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

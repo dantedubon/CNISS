@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using CNISS.Bootstraper;
 using Nancy;
 using Nancy.Conventions;
 
@@ -11,7 +12,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Infraestructure
     {
         public ApiBootstrapper()
         {
-       
+            addBootstrapperTask(new ConfigureRoleDependencies());
+            addBootstrapperTask(new ConfigureDataBase());
         }
         protected override void RequestStartup(Autofac.ILifetimeScope container, Nancy.Bootstrapper.IPipelines pipelines, NancyContext context)
         {

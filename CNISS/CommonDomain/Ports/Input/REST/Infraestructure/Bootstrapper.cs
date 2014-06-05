@@ -20,7 +20,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Infraestructure
             };
         }
 
-        protected void AddBootstrapperTask(IBootstrapperTask<ContainerBuilder> bootstrapper)
+        protected void addBootstrapperTask(IBootstrapperTask<ContainerBuilder> bootstrapper)
         {
             _tasks.Add(bootstrapper);
         }

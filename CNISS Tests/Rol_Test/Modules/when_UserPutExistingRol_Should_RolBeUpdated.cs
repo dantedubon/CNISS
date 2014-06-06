@@ -8,40 +8,33 @@ using Moq;
 using Nancy.Testing;
 using It = Machine.Specifications.It;
 
-namespace CNISS_Tests.Rol_Test
+namespace CNISS_Tests.Rol_Test.Modules
 {
-
-
-    [Subject(typeof (RolModuleCommandInsert))]
-    public class when_UserPostNewRol_RolInserted    {
-
+    [Subject(typeof (RolModuleCommandUpdate))]
+    public class when_UserPutExistingRol_Should_RolBeUpdated
+    {
         static Browser _browser;
-   
-      
         static BrowserResponse _response;
-         static ICommandInsertIdentity<Rol> _commandInsert; 
-         static RolRequest _rolRequest;
-        
+        static ICommandUpdateIdentity<Rol> _commandUpdate;
+        static RolRequest _rolRequest;
 
          Establish context = () =>
          {
-
              _rolRequest = Builder<RolRequest>.CreateNew().Build();
-             _commandInsert = Mock.Of<ICommandInsertIdentity<Rol>>();
+             _commandUpdate = Mock.Of<ICommandUpdateIdentity<Rol>>();
 
              _browser = new Browser(
                  x =>
                  {
-                     x.Module<RolModuleCommandInsert>();
-                     x.Dependencies(_commandInsert);
-                    
+                     x.Module<RolModuleCommandUpdate>();
+                     x.Dependencies(_commandUpdate);
+
                  }
                  );
-
          };
 
-         Because of = () => _browser.PostSecureJson("/rol",_rolRequest);
+        Because of = () => _browser.PutSecureJson("/rol", _rolRequest);
 
-        It should_insertNewRol = () => Mock.Get(_commandInsert).Verify( x => x.execute(Moq.It.Is<Rol>( z =>z.name == _rolRequest.name)));
+        It should_update_rol = () => Mock.Get(_commandUpdate).Verify( x=> x.execute(Moq.It.Is<Rol>( z=> z.idKey == _rolRequest.idGuid)));
     }
 }

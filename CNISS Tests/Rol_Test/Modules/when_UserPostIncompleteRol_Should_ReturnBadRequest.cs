@@ -2,7 +2,6 @@
 using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.RolModule.RolCommand;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
-using FizzWare.NBuilder;
 using Machine.Specifications;
 using Moq;
 using Nancy;
@@ -10,7 +9,7 @@ using Nancy.Testing;
 using Should;
 using It = Machine.Specifications.It;
 
-namespace CNISS_Tests.Rol_Test
+namespace CNISS_Tests.Rol_Test.Modules
 {
     [Subject(typeof (RolModuleCommandInsert))]
     public class when_UserPostIncompleteRol_Should_ReturnBadRequest

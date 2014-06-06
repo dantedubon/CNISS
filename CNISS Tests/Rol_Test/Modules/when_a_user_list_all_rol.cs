@@ -9,7 +9,7 @@ using Moq;
 using Nancy.Testing;
 using It = Machine.Specifications.It;
 
-namespace CNISS_Tests.Rol_Test
+namespace CNISS_Tests.Rol_Test.Modules
 {
     [Subject(subjectType: typeof(RolModuleQuery))]
     public class when_a_user_list_all_rol

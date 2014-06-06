@@ -2,5 +2,6 @@
 {
     public interface ICommandInsertIdentity<in T>:ICommand<T>
     {
+
     }
 }

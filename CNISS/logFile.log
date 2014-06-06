@@ -2902,3 +2902,712 @@ command 0:UPDATE [Rol] SET name = @p0, description = @p1 WHERE idKey = @p2;@p0 =
 2014-06-06 16:01:16,831 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - running BatcherImpl.Dispose(true)
 2014-06-06 16:01:28,949 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=5bb6134f-ef31-413e-8126-905f0dd77e93] running ISession.Dispose()
 2014-06-06 16:01:28,949 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=5bb6134f-ef31-413e-8126-905f0dd77e93] executing real Dispose(True)
+2014-06-06 16:13:19,944 [8] INFO  NHibernate.Cfg.Environment - NHibernate 3.3.1.4000 (3.3.3.SP1)
+2014-06-06 16:13:19,978 [8] INFO  NHibernate.Cfg.Environment - hibernate-configuration section not found in application configuration file
+2014-06-06 16:13:19,980 [8] INFO  NHibernate.Cfg.Environment - Bytecode provider name : lcg
+2014-06-06 16:13:19,988 [8] INFO  NHibernate.Cfg.Environment - Using reflection optimizer
+2014-06-06 16:13:20,373 [8] DEBUG NHibernate.Cfg.Configuration - Mapping XML:
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"><class xmlns="urn:nhibernate-mapping-2.2" name="CNISS.AutenticationDomain.Domain.ValueObjects.Rol, CNISS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" table="`Rol`"><id name="idKey" type="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="idKey" /><generator class="guid.comb" /></id><property name="name" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="name" /></property><property name="description" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="description" /></property></class></hibernate-mapping>
+2014-06-06 16:13:20,551 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 16:13:20,695 [8] INFO  NHibernate.Cfg.XmlHbmBinding.Binder - Mapping class: CNISS.AutenticationDomain.Domain.ValueObjects.Rol -> Rol
+2014-06-06 16:13:20,761 [8] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder - Mapped property: idKey -> idKey, type: Guid
+2014-06-06 16:13:20,791 [8] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder - Mapped property: name -> name, type: String
+2014-06-06 16:13:20,791 [8] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder - Mapped property: description -> description, type: String
+2014-06-06 16:13:20,797 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 16:13:20,805 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - Running hbm2ddl schema update
+2014-06-06 16:13:20,805 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - fetching database metadata
+2014-06-06 16:13:20,807 [8] INFO  NHibernate.Connection.ConnectionProviderFactory - Initializing connection provider: NHibernate.Connection.DriverConnectionProvider
+2014-06-06 16:13:20,808 [8] INFO  NHibernate.Connection.ConnectionProvider - Configuring ConnectionProvider
+2014-06-06 16:13:20,809 [8] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 16:13:21,009 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - updating schema
+2014-06-06 16:13:21,022 [8] INFO  NHibernate.Cfg.Configuration - checking mappings queue
+2014-06-06 16:13:21,022 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-many association mappings
+2014-06-06 16:13:21,022 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-one association property references
+2014-06-06 16:13:21,022 [8] INFO  NHibernate.Cfg.Configuration - processing foreign key constraints
+2014-06-06 16:13:21,026 [8] INFO  NHibernate.Cfg.Configuration - processing filters (second pass)
+2014-06-06 16:13:21,578 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - table found: ACCION_SOCIAL.dbo.Rol
+2014-06-06 16:13:21,579 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - columns: idkey, name, description
+2014-06-06 16:13:21,579 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - foreign keys: 
+2014-06-06 16:13:21,579 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - indexes: pk__rol__3fbee7401b6ce5a8
+2014-06-06 16:13:21,615 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - schema update complete
+2014-06-06 16:13:21,616 [8] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 16:13:21,618 [8] INFO  NHibernate.Cfg.Configuration - checking mappings queue
+2014-06-06 16:13:21,618 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-many association mappings
+2014-06-06 16:13:21,618 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-one association property references
+2014-06-06 16:13:21,618 [8] INFO  NHibernate.Cfg.Configuration - processing foreign key constraints
+2014-06-06 16:13:21,618 [8] INFO  NHibernate.Cfg.Configuration - processing filters (second pass)
+2014-06-06 16:13:21,648 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 16:13:21,656 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 16:13:21,771 [8] INFO  NHibernate.Exceptions.SQLExceptionConverterFactory - Using dialect defined converter
+2014-06-06 16:13:21,772 [8] INFO  NHibernate.Cfg.SettingsFactory - Generate SQL with comments: disabled
+2014-06-06 16:13:21,772 [8] INFO  NHibernate.Connection.ConnectionProviderFactory - Initializing connection provider: NHibernate.Connection.DriverConnectionProvider
+2014-06-06 16:13:21,772 [8] INFO  NHibernate.Connection.ConnectionProvider - Configuring ConnectionProvider
+2014-06-06 16:13:21,772 [8] INFO  NHibernate.Cfg.SettingsFactory - Transaction factory: NHibernate.Transaction.AdoNetWithDistributedTransactionFactory
+2014-06-06 16:13:21,773 [8] INFO  NHibernate.Cfg.SettingsFactory - Optimize cache for minimal puts: False
+2014-06-06 16:13:21,773 [8] INFO  NHibernate.Cfg.SettingsFactory - Connection release mode: auto
+2014-06-06 16:13:21,774 [8] INFO  NHibernate.Cfg.SettingsFactory - Default batch fetch size: 1
+2014-06-06 16:13:21,774 [8] INFO  NHibernate.Cfg.SettingsFactory - echoing all SQL to stdout
+2014-06-06 16:13:21,774 [8] INFO  NHibernate.Cfg.SettingsFactory - Statistics: disabled
+2014-06-06 16:13:21,774 [8] INFO  NHibernate.Cfg.SettingsFactory - Deleted entity synthetic identifier rollback: disabled
+2014-06-06 16:13:21,775 [8] INFO  NHibernate.Cfg.SettingsFactory - Query translator: NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory
+2014-06-06 16:13:21,777 [8] INFO  NHibernate.Cfg.SettingsFactory - Query language substitutions: {'true'='1', 'false'='0', 'yes'=''Y'', 'no'=''N''}
+2014-06-06 16:13:21,779 [8] INFO  NHibernate.Cfg.SettingsFactory - cache provider: NHibernate.Cache.NoCacheProvider, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2014-06-06 16:13:21,780 [8] INFO  NHibernate.Cfg.SettingsFactory - Order SQL inserts for batching: enabled
+2014-06-06 16:13:21,780 [8] DEBUG NHibernate.Cfg.SettingsFactory - Wrap result sets: disabled
+2014-06-06 16:13:21,780 [8] INFO  NHibernate.Cfg.SettingsFactory - Batcher factory: NHibernate.AdoNet.SqlClientBatchingBatcherFactory, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2014-06-06 16:13:21,780 [8] INFO  NHibernate.Cfg.SettingsFactory - Default entity-mode: Poco
+2014-06-06 16:13:21,782 [8] INFO  NHibernate.Cfg.SettingsFactory - Named query checking : enabled
+2014-06-06 16:13:21,812 [8] INFO  NHibernate.Impl.SessionFactoryImpl - building session factory
+2014-06-06 16:13:21,814 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Session factory constructed with filter configurations : {}
+2014-06-06 16:13:21,815 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - instantiating session factory with properties: {'use_reflection_optimizer'='True', 'connection.provider'='NHibernate.Connection.DriverConnectionProvider', 'connection.driver_class'='NHibernate.Driver.SqlClientDriver, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'dialect'='NHibernate.Dialect.MsSql2012Dialect, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'hibernate.dialect'='NHibernate.Dialect.MsSql2012Dialect, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'show_sql'='true', 'connection.connection_string'='Server=WIN-4GUBUKEQKNL\SQLEXPRESS;Database=ACCION_SOCIAL;Trusted_Connection=Yes;'}
+2014-06-06 16:13:21,817 [8] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 16:13:21,821 [8] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 16:13:21,961 [8] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer - No custom accessors found for entity: CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 16:13:21,972 [8] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer - No custom accessors found for entity: CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 16:13:22,014 [8] DEBUG NHibernate.Tuple.Entity.PocoEntityTuplizer - Create Instantiator using optimizer for:CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 16:13:22,166 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Static SQL for entity: CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 16:13:22,166 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Version select: SELECT idKey FROM [Rol] WHERE idKey = ?
+2014-06-06 16:13:22,166 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Snapshot select: SELECT rol_.idKey, rol_.name as name0_, rol_.description as descript3_0_ FROM [Rol] rol_ WHERE rol_.idKey=?
+2014-06-06 16:13:22,167 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Insert 0: INSERT INTO [Rol] (name, description, idKey) VALUES (?, ?, ?)
+2014-06-06 16:13:22,167 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Update 0: UPDATE [Rol] SET name = ?, description = ? WHERE idKey = ?
+2014-06-06 16:13:22,167 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Delete 0: DELETE FROM [Rol] WHERE idKey = ?
+2014-06-06 16:13:22,257 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 16:13:22,259 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 16:13:22,259 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ with (updlock, rowlock) WHERE rol0_.idKey=?
+2014-06-06 16:13:22,259 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ with (updlock, rowlock, nowait) WHERE rol0_.idKey=?
+2014-06-06 16:13:22,259 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ with (updlock, rowlock) WHERE rol0_.idKey=?
+2014-06-06 16:13:22,263 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for action NHibernate.Engine.CascadingAction+MergeCascadingAction on entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 16:13:22,263 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for action NHibernate.Engine.CascadingAction+RefreshCascadingAction on entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 16:13:22,264 [8] DEBUG NHibernate.Impl.SessionFactoryObjectFactory - initializing class SessionFactoryObjectFactory
+2014-06-06 16:13:22,266 [8] DEBUG NHibernate.Impl.SessionFactoryObjectFactory - registered: 82cfa725a765476485fee528ca91d42f(unnamed)
+2014-06-06 16:13:22,266 [8] INFO  NHibernate.Impl.SessionFactoryObjectFactory - no name configured
+2014-06-06 16:13:22,266 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Instantiated session factory
+2014-06-06 16:13:22,269 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Checking 0 named HQL queries
+2014-06-06 16:13:22,269 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Checking 0 named SQL queries
+2014-06-06 16:13:23,592 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=fde32f7f-14e0-4a0f-a1c8-0402d7f13ff1] opened session at timestamp: 635376680035, for session factory: [/82cfa725a765476485fee528ca91d42f]
+2014-06-06 16:13:23,622 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=fde32f7f-14e0-4a0f-a1c8-0402d7f13ff1] running ISession.Dispose()
+2014-06-06 16:13:23,623 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=fde32f7f-14e0-4a0f-a1c8-0402d7f13ff1] executing real Dispose(True)
+2014-06-06 16:13:23,624 [8] DEBUG NHibernate.Impl.SessionImpl - closing session
+2014-06-06 16:13:23,626 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - running BatcherImpl.Dispose(true)
+2014-06-06 16:13:35,864 [9] DEBUG NHibernate.Impl.SessionImpl - [session-id=89899f42-493e-43a0-ad7b-c9d0b6b5a06f] opened session at timestamp: 635376680158, for session factory: [/82cfa725a765476485fee528ca91d42f]
+2014-06-06 16:13:59,534 [9] DEBUG NHibernate.Transaction.AdoTransaction - Begin (ReadCommitted)
+2014-06-06 16:13:59,535 [9] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 16:14:05,801 [9] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener - updating detached instance
+2014-06-06 16:14:05,958 [9] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener - updating [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#00000000-0000-0000-0000-000000000000]
+2014-06-06 16:14:06,053 [9] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener - updating [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#00000000-0000-0000-0000-000000000000]
+2014-06-06 16:14:17,781 [9] DEBUG NHibernate.Transaction.AdoTransaction - Start Commit
+2014-06-06 16:14:17,798 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - flushing session
+2014-06-06 16:14:17,799 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - processing flush-time cascades
+2014-06-06 16:14:17,800 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - dirty checking collections
+2014-06-06 16:14:17,800 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Flushing entities and processing referenced collections
+2014-06-06 16:14:17,806 [9] DEBUG NHibernate.Event.Default.DefaultFlushEntityEventListener - Updating entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#00000000-0000-0000-0000-000000000000]
+2014-06-06 16:14:17,810 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Processing unreferenced collections
+2014-06-06 16:14:17,810 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Scheduling collection removes/(re)creates/updates
+2014-06-06 16:14:17,810 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Flushed: 0 insertions, 1 updates, 0 deletions to 1 objects
+2014-06-06 16:14:17,810 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2014-06-06 16:14:17,812 [9] DEBUG NHibernate.Impl.Printer - listing entities:
+2014-06-06 16:14:17,813 [9] DEBUG NHibernate.Impl.Printer - CNISS.AutenticationDomain.Domain.ValueObjects.Rol{'idKey'='00000000-0000-0000-0000-000000000000', 'name'='rolUpdated', 'description'='rolUpdated'}
+2014-06-06 16:14:17,813 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - executing flush
+2014-06-06 16:14:17,813 [9] DEBUG NHibernate.AdoNet.ConnectionManager - registering flush begin
+2014-06-06 16:14:17,822 [9] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Updating entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#00000000-0000-0000-0000-000000000000]
+2014-06-06 16:14:17,841 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened new IDbCommand, open IDbCommands: 1
+2014-06-06 16:14:17,841 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Building an IDbCommand object for the SqlString: UPDATE [Rol] SET name = ?, description = ? WHERE idKey = ?
+2014-06-06 16:14:17,842 [9] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Dehydrating entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#00000000-0000-0000-0000-000000000000]
+2014-06-06 16:14:17,842 [9] DEBUG NHibernate.Type.StringType - binding 'rolUpdated' to parameter: 0
+2014-06-06 16:14:17,848 [9] DEBUG NHibernate.Type.StringType - binding 'rolUpdated' to parameter: 1
+2014-06-06 16:14:17,848 [9] DEBUG NHibernate.Type.GuidType - binding '00000000-0000-0000-0000-000000000000' to parameter: 2
+2014-06-06 16:14:17,855 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Adding to batch:UPDATE [Rol] SET name = @p0, description = @p1 WHERE idKey = @p2;@p0 = 'rolUpdated' [Type: String (4000)], @p1 = 'rolUpdated' [Type: String (4000)], @p2 = 00000000-0000-0000-0000-000000000000 [Type: Guid (0)]
+2014-06-06 16:14:17,864 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Executing batch
+2014-06-06 16:14:17,865 [9] DEBUG NHibernate.Transaction.AdoTransaction - Enlist Command
+2014-06-06 16:14:17,865 [9] DEBUG NHibernate.SQL - Batch commands:
+command 0:UPDATE [Rol] SET name = @p0, description = @p1 WHERE idKey = @p2;@p0 = 'rolUpdated' [Type: String (4000)], @p1 = 'rolUpdated' [Type: String (4000)], @p2 = 00000000-0000-0000-0000-000000000000 [Type: Guid (0)]
+
+2014-06-06 16:14:17,925 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDbCommand, open IDbCommands: 0
+2014-06-06 16:14:17,927 [9] ERROR NHibernate.Event.Default.AbstractFlushingEventListener - Could not synchronize database state with session
+NHibernate.StaleStateException: Batch update returned unexpected row count from update; actual row count: 0; expected: 1
+   at NHibernate.AdoNet.Expectations.VerifyOutcomeBatched(Int32 expectedRowCount, Int32 rowCount)
+   at NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps)
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteBatch()
+   at NHibernate.Engine.ActionQueue.ExecuteActions(IList list)
+   at NHibernate.Engine.ActionQueue.ExecuteActions()
+   at NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session)
+2014-06-06 17:39:31,787 [8] INFO  NHibernate.Cfg.Environment - NHibernate 3.3.1.4000 (3.3.3.SP1)
+2014-06-06 17:39:31,806 [8] INFO  NHibernate.Cfg.Environment - hibernate-configuration section not found in application configuration file
+2014-06-06 17:39:31,811 [8] INFO  NHibernate.Cfg.Environment - Bytecode provider name : lcg
+2014-06-06 17:39:31,815 [8] INFO  NHibernate.Cfg.Environment - Using reflection optimizer
+2014-06-06 17:39:32,191 [8] DEBUG NHibernate.Cfg.Configuration - Mapping XML:
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"><class xmlns="urn:nhibernate-mapping-2.2" name="CNISS.AutenticationDomain.Domain.ValueObjects.Rol, CNISS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" table="`Rol`"><id name="idKey" type="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="idKey" /><generator class="guid.comb" /></id><property name="name" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="name" /></property><property name="description" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="description" /></property></class></hibernate-mapping>
+2014-06-06 17:39:32,390 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 17:39:32,509 [8] INFO  NHibernate.Cfg.XmlHbmBinding.Binder - Mapping class: CNISS.AutenticationDomain.Domain.ValueObjects.Rol -> Rol
+2014-06-06 17:39:32,561 [8] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder - Mapped property: idKey -> idKey, type: Guid
+2014-06-06 17:39:32,587 [8] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder - Mapped property: name -> name, type: String
+2014-06-06 17:39:32,591 [8] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder - Mapped property: description -> description, type: String
+2014-06-06 17:39:32,598 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 17:39:32,608 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - Running hbm2ddl schema update
+2014-06-06 17:39:32,610 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - fetching database metadata
+2014-06-06 17:39:32,612 [8] INFO  NHibernate.Connection.ConnectionProviderFactory - Initializing connection provider: NHibernate.Connection.DriverConnectionProvider
+2014-06-06 17:39:32,612 [8] INFO  NHibernate.Connection.ConnectionProvider - Configuring ConnectionProvider
+2014-06-06 17:39:32,615 [8] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 17:39:32,814 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - updating schema
+2014-06-06 17:39:32,823 [8] INFO  NHibernate.Cfg.Configuration - checking mappings queue
+2014-06-06 17:39:32,823 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-many association mappings
+2014-06-06 17:39:32,824 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-one association property references
+2014-06-06 17:39:32,824 [8] INFO  NHibernate.Cfg.Configuration - processing foreign key constraints
+2014-06-06 17:39:32,828 [8] INFO  NHibernate.Cfg.Configuration - processing filters (second pass)
+2014-06-06 17:39:33,378 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - table found: ACCION_SOCIAL.dbo.Rol
+2014-06-06 17:39:33,378 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - columns: idkey, name, description
+2014-06-06 17:39:33,378 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - foreign keys: 
+2014-06-06 17:39:33,378 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - indexes: pk__rol__3fbee7401b6ce5a8
+2014-06-06 17:39:33,397 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - schema update complete
+2014-06-06 17:39:33,397 [8] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 17:39:33,397 [8] INFO  NHibernate.Cfg.Configuration - checking mappings queue
+2014-06-06 17:39:33,397 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-many association mappings
+2014-06-06 17:39:33,397 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-one association property references
+2014-06-06 17:39:33,397 [8] INFO  NHibernate.Cfg.Configuration - processing foreign key constraints
+2014-06-06 17:39:33,397 [8] INFO  NHibernate.Cfg.Configuration - processing filters (second pass)
+2014-06-06 17:39:33,419 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 17:39:33,424 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 17:39:33,529 [8] INFO  NHibernate.Exceptions.SQLExceptionConverterFactory - Using dialect defined converter
+2014-06-06 17:39:33,531 [8] INFO  NHibernate.Cfg.SettingsFactory - Generate SQL with comments: disabled
+2014-06-06 17:39:33,531 [8] INFO  NHibernate.Connection.ConnectionProviderFactory - Initializing connection provider: NHibernate.Connection.DriverConnectionProvider
+2014-06-06 17:39:33,531 [8] INFO  NHibernate.Connection.ConnectionProvider - Configuring ConnectionProvider
+2014-06-06 17:39:33,531 [8] INFO  NHibernate.Cfg.SettingsFactory - Transaction factory: NHibernate.Transaction.AdoNetWithDistributedTransactionFactory
+2014-06-06 17:39:33,532 [8] INFO  NHibernate.Cfg.SettingsFactory - Optimize cache for minimal puts: False
+2014-06-06 17:39:33,532 [8] INFO  NHibernate.Cfg.SettingsFactory - Connection release mode: auto
+2014-06-06 17:39:33,532 [8] INFO  NHibernate.Cfg.SettingsFactory - Default batch fetch size: 1
+2014-06-06 17:39:33,532 [8] INFO  NHibernate.Cfg.SettingsFactory - echoing all SQL to stdout
+2014-06-06 17:39:33,533 [8] INFO  NHibernate.Cfg.SettingsFactory - Statistics: disabled
+2014-06-06 17:39:33,534 [8] INFO  NHibernate.Cfg.SettingsFactory - Deleted entity synthetic identifier rollback: disabled
+2014-06-06 17:39:33,536 [8] INFO  NHibernate.Cfg.SettingsFactory - Query translator: NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory
+2014-06-06 17:39:33,538 [8] INFO  NHibernate.Cfg.SettingsFactory - Query language substitutions: {'true'='1', 'false'='0', 'yes'=''Y'', 'no'=''N''}
+2014-06-06 17:39:33,538 [8] INFO  NHibernate.Cfg.SettingsFactory - cache provider: NHibernate.Cache.NoCacheProvider, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2014-06-06 17:39:33,539 [8] INFO  NHibernate.Cfg.SettingsFactory - Order SQL inserts for batching: enabled
+2014-06-06 17:39:33,539 [8] DEBUG NHibernate.Cfg.SettingsFactory - Wrap result sets: disabled
+2014-06-06 17:39:33,539 [8] INFO  NHibernate.Cfg.SettingsFactory - Batcher factory: NHibernate.AdoNet.SqlClientBatchingBatcherFactory, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2014-06-06 17:39:33,540 [8] INFO  NHibernate.Cfg.SettingsFactory - Default entity-mode: Poco
+2014-06-06 17:39:33,540 [8] INFO  NHibernate.Cfg.SettingsFactory - Named query checking : enabled
+2014-06-06 17:39:33,576 [8] INFO  NHibernate.Impl.SessionFactoryImpl - building session factory
+2014-06-06 17:39:33,577 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Session factory constructed with filter configurations : {}
+2014-06-06 17:39:33,577 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - instantiating session factory with properties: {'use_reflection_optimizer'='True', 'connection.provider'='NHibernate.Connection.DriverConnectionProvider', 'connection.driver_class'='NHibernate.Driver.SqlClientDriver, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'dialect'='NHibernate.Dialect.MsSql2012Dialect, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'hibernate.dialect'='NHibernate.Dialect.MsSql2012Dialect, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'show_sql'='true', 'connection.connection_string'='Server=WIN-4GUBUKEQKNL\SQLEXPRESS;Database=ACCION_SOCIAL;Trusted_Connection=Yes;'}
+2014-06-06 17:39:33,578 [8] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 17:39:33,581 [8] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 17:39:33,729 [8] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer - No custom accessors found for entity: CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 17:39:33,735 [8] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer - No custom accessors found for entity: CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 17:39:33,773 [8] DEBUG NHibernate.Tuple.Entity.PocoEntityTuplizer - Create Instantiator using optimizer for:CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 17:39:33,884 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Static SQL for entity: CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 17:39:33,884 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Version select: SELECT idKey FROM [Rol] WHERE idKey = ?
+2014-06-06 17:39:33,884 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Snapshot select: SELECT rol_.idKey, rol_.name as name0_, rol_.description as descript3_0_ FROM [Rol] rol_ WHERE rol_.idKey=?
+2014-06-06 17:39:33,884 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Insert 0: INSERT INTO [Rol] (name, description, idKey) VALUES (?, ?, ?)
+2014-06-06 17:39:33,884 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Update 0: UPDATE [Rol] SET name = ?, description = ? WHERE idKey = ?
+2014-06-06 17:39:33,884 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Delete 0: DELETE FROM [Rol] WHERE idKey = ?
+2014-06-06 17:39:33,930 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:39:33,930 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:39:33,930 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ with (updlock, rowlock) WHERE rol0_.idKey=?
+2014-06-06 17:39:33,931 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ with (updlock, rowlock, nowait) WHERE rol0_.idKey=?
+2014-06-06 17:39:33,931 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ with (updlock, rowlock) WHERE rol0_.idKey=?
+2014-06-06 17:39:33,937 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for action NHibernate.Engine.CascadingAction+MergeCascadingAction on entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:39:33,938 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for action NHibernate.Engine.CascadingAction+RefreshCascadingAction on entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:39:33,939 [8] DEBUG NHibernate.Impl.SessionFactoryObjectFactory - initializing class SessionFactoryObjectFactory
+2014-06-06 17:39:33,939 [8] DEBUG NHibernate.Impl.SessionFactoryObjectFactory - registered: 27a93a17b0a240818e24e0c0bd29bda0(unnamed)
+2014-06-06 17:39:33,939 [8] INFO  NHibernate.Impl.SessionFactoryObjectFactory - no name configured
+2014-06-06 17:39:33,939 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Instantiated session factory
+2014-06-06 17:39:33,944 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Checking 0 named HQL queries
+2014-06-06 17:39:33,944 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Checking 0 named SQL queries
+2014-06-06 17:39:35,045 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=4a65336a-38dc-4ec4-aff4-e01567626831] opened session at timestamp: 635376731749, for session factory: [/27a93a17b0a240818e24e0c0bd29bda0]
+2014-06-06 17:39:35,077 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=4a65336a-38dc-4ec4-aff4-e01567626831] running ISession.Dispose()
+2014-06-06 17:39:35,081 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=4a65336a-38dc-4ec4-aff4-e01567626831] executing real Dispose(True)
+2014-06-06 17:39:35,085 [8] DEBUG NHibernate.Impl.SessionImpl - closing session
+2014-06-06 17:39:35,086 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - running BatcherImpl.Dispose(true)
+2014-06-06 17:39:41,889 [6] DEBUG NHibernate.Impl.SessionImpl - [session-id=8512dfe5-7211-4029-bd59-328ec93718bc] opened session at timestamp: 635376731818, for session factory: [/27a93a17b0a240818e24e0c0bd29bda0]
+2014-06-06 17:39:42,183 [6] DEBUG NHibernate.Event.Default.DefaultLoadEventListener - loading entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#00000000-0000-0000-0000-000000000000]
+2014-06-06 17:39:42,184 [6] DEBUG NHibernate.Event.Default.DefaultLoadEventListener - attempting to resolve: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#00000000-0000-0000-0000-000000000000]
+2014-06-06 17:39:42,186 [6] DEBUG NHibernate.Event.Default.DefaultLoadEventListener - object not resolved in any cache: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#00000000-0000-0000-0000-000000000000]
+2014-06-06 17:39:42,186 [6] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Fetching entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#00000000-0000-0000-0000-000000000000]
+2014-06-06 17:39:42,188 [6] DEBUG NHibernate.Loader.Loader - loading entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#00000000-0000-0000-0000-000000000000]
+2014-06-06 17:39:42,216 [6] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened new IDbCommand, open IDbCommands: 1
+2014-06-06 17:39:42,216 [6] DEBUG NHibernate.AdoNet.AbstractBatcher - Building an IDbCommand object for the SqlString: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:39:42,217 [6] DEBUG NHibernate.Type.GuidType - binding '00000000-0000-0000-0000-000000000000' to parameter: 0
+2014-06-06 17:39:42,223 [6] INFO  NHibernate.Loader.Loader - SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=@p0
+2014-06-06 17:39:42,225 [6] DEBUG NHibernate.SQL - SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=@p0;@p0 = 00000000-0000-0000-0000-000000000000 [Type: Guid (0)]
+2014-06-06 17:39:42,226 [6] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 17:39:42,249 [6] DEBUG NHibernate.AdoNet.AbstractBatcher - ExecuteReader took 21 ms
+2014-06-06 17:39:42,250 [6] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened IDataReader, open IDataReaders: 1
+2014-06-06 17:39:42,251 [6] DEBUG NHibernate.Loader.Loader - processing result set
+2014-06-06 17:39:42,251 [6] DEBUG NHibernate.Loader.Loader - done processing result set (0 rows)
+2014-06-06 17:39:42,252 [6] DEBUG NHibernate.Driver.NHybridDataReader - running NHybridDataReader.Dispose()
+2014-06-06 17:39:42,252 [6] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDataReader, open IDataReaders :0
+2014-06-06 17:39:42,252 [6] DEBUG NHibernate.AdoNet.AbstractBatcher - DataReader was closed after 24 ms
+2014-06-06 17:39:42,253 [6] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDbCommand, open IDbCommands: 0
+2014-06-06 17:39:42,253 [6] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 17:39:42,253 [6] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 17:39:42,254 [6] DEBUG NHibernate.Loader.Loader - total objects hydrated: 0
+2014-06-06 17:39:42,254 [6] DEBUG NHibernate.Engine.StatefulPersistenceContext - initializing non-lazy collections
+2014-06-06 17:39:42,255 [6] DEBUG NHibernate.Loader.Loader - done entity load
+2014-06-06 17:39:42,255 [6] DEBUG NHibernate.AdoNet.ConnectionManager - after autocommit
+2014-06-06 17:39:42,255 [6] DEBUG NHibernate.Impl.SessionImpl - transaction completion
+2014-06-06 17:39:42,256 [6] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 17:39:42,262 [6] DEBUG NHibernate.Impl.SessionImpl - [session-id=8512dfe5-7211-4029-bd59-328ec93718bc] running ISession.Dispose()
+2014-06-06 17:39:42,262 [6] DEBUG NHibernate.Impl.SessionImpl - [session-id=8512dfe5-7211-4029-bd59-328ec93718bc] executing real Dispose(True)
+2014-06-06 17:39:42,262 [6] DEBUG NHibernate.Impl.SessionImpl - closing session
+2014-06-06 17:39:42,262 [6] DEBUG NHibernate.AdoNet.AbstractBatcher - running BatcherImpl.Dispose(true)
+2014-06-06 17:40:18,853 [9] DEBUG NHibernate.Impl.SessionImpl - [session-id=0071ed54-cb3c-408e-b5a6-be8cad7e8549] opened session at timestamp: 635376732188, for session factory: [/27a93a17b0a240818e24e0c0bd29bda0]
+2014-06-06 17:40:18,854 [9] DEBUG NHibernate.Event.Default.DefaultLoadEventListener - loading entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:40:18,854 [9] DEBUG NHibernate.Event.Default.DefaultLoadEventListener - attempting to resolve: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:40:18,854 [9] DEBUG NHibernate.Event.Default.DefaultLoadEventListener - object not resolved in any cache: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:40:18,854 [9] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Fetching entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:40:18,854 [9] DEBUG NHibernate.Loader.Loader - loading entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:40:18,854 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened new IDbCommand, open IDbCommands: 1
+2014-06-06 17:40:18,854 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Building an IDbCommand object for the SqlString: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:40:18,854 [9] DEBUG NHibernate.Type.GuidType - binding '1a183cf4-1069-480c-9a81-a34200c32a6f' to parameter: 0
+2014-06-06 17:40:18,854 [9] INFO  NHibernate.Loader.Loader - SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=@p0
+2014-06-06 17:40:18,854 [9] DEBUG NHibernate.SQL - SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=@p0;@p0 = 1a183cf4-1069-480c-9a81-a34200c32a6f [Type: Guid (0)]
+2014-06-06 17:40:18,855 [9] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 17:40:18,866 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - ExecuteReader took 10 ms
+2014-06-06 17:40:18,866 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened IDataReader, open IDataReaders: 1
+2014-06-06 17:40:18,866 [9] DEBUG NHibernate.Loader.Loader - processing result set
+2014-06-06 17:40:18,866 [9] DEBUG NHibernate.Loader.Loader - result set row: 0
+2014-06-06 17:40:18,869 [9] DEBUG NHibernate.Loader.Loader - result row: EntityKey[CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:40:18,874 [9] DEBUG NHibernate.Loader.Loader - Initializing object from DataReader: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:40:18,880 [9] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Hydrating entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:40:18,881 [9] DEBUG NHibernate.Type.StringType - returning 'NombrePrueba3' as column: name0_0_
+2014-06-06 17:40:18,881 [9] DEBUG NHibernate.Type.StringType - returning 'DescripcionPrueba3' as column: descript3_0_0_
+2014-06-06 17:40:18,884 [9] DEBUG NHibernate.Loader.Loader - done processing result set (1 rows)
+2014-06-06 17:40:18,884 [9] DEBUG NHibernate.Driver.NHybridDataReader - running NHybridDataReader.Dispose()
+2014-06-06 17:40:18,884 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDataReader, open IDataReaders :0
+2014-06-06 17:40:18,884 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - DataReader was closed after 28 ms
+2014-06-06 17:40:18,884 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDbCommand, open IDbCommands: 0
+2014-06-06 17:40:18,884 [9] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 17:40:18,884 [9] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 17:40:18,884 [9] DEBUG NHibernate.Loader.Loader - total objects hydrated: 1
+2014-06-06 17:40:18,887 [9] DEBUG NHibernate.Engine.TwoPhaseLoad - resolving associations for [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:40:18,892 [9] DEBUG NHibernate.Engine.TwoPhaseLoad - done materializing entity [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:40:18,892 [9] DEBUG NHibernate.Engine.StatefulPersistenceContext - initializing non-lazy collections
+2014-06-06 17:40:18,892 [9] DEBUG NHibernate.Loader.Loader - done entity load
+2014-06-06 17:40:18,892 [9] DEBUG NHibernate.AdoNet.ConnectionManager - after autocommit
+2014-06-06 17:40:18,892 [9] DEBUG NHibernate.Impl.SessionImpl - transaction completion
+2014-06-06 17:40:18,892 [9] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 17:40:18,895 [9] DEBUG NHibernate.Transaction.AdoTransaction - Begin (ReadCommitted)
+2014-06-06 17:40:18,895 [9] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 17:40:24,277 [9] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener - updating detached instance
+2014-06-06 17:40:24,282 [9] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener - updating [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:40:38,407 [9] DEBUG NHibernate.Impl.SessionImpl - closing session
+2014-06-06 17:40:38,407 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - running BatcherImpl.Dispose(true)
+2014-06-06 17:40:38,411 [9] DEBUG NHibernate.Transaction.AdoTransaction - IDbTransaction disposed.
+2014-06-06 17:40:38,411 [9] DEBUG NHibernate.Impl.SessionImpl - transaction completion
+2014-06-06 17:40:38,411 [9] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 17:40:38,411 [9] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 17:40:38,428 [9] DEBUG NHibernate.Impl.SessionImpl - [session-id=0071ed54-cb3c-408e-b5a6-be8cad7e8549] running ISession.Dispose()
+2014-06-06 17:40:38,428 [9] DEBUG NHibernate.Impl.SessionImpl - [session-id=0071ed54-cb3c-408e-b5a6-be8cad7e8549] executing real Dispose(True)
+2014-06-06 17:43:17,413 [8] INFO  NHibernate.Cfg.Environment - NHibernate 3.3.1.4000 (3.3.3.SP1)
+2014-06-06 17:43:17,442 [8] INFO  NHibernate.Cfg.Environment - hibernate-configuration section not found in application configuration file
+2014-06-06 17:43:17,442 [8] INFO  NHibernate.Cfg.Environment - Bytecode provider name : lcg
+2014-06-06 17:43:17,443 [8] INFO  NHibernate.Cfg.Environment - Using reflection optimizer
+2014-06-06 17:43:17,828 [8] DEBUG NHibernate.Cfg.Configuration - Mapping XML:
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"><class xmlns="urn:nhibernate-mapping-2.2" name="CNISS.AutenticationDomain.Domain.ValueObjects.Rol, CNISS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" table="`Rol`"><id name="idKey" type="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="idKey" /><generator class="guid.comb" /></id><property name="name" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="name" /></property><property name="description" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="description" /></property></class></hibernate-mapping>
+2014-06-06 17:43:18,041 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 17:43:18,199 [8] INFO  NHibernate.Cfg.XmlHbmBinding.Binder - Mapping class: CNISS.AutenticationDomain.Domain.ValueObjects.Rol -> Rol
+2014-06-06 17:43:18,260 [8] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder - Mapped property: idKey -> idKey, type: Guid
+2014-06-06 17:43:18,290 [8] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder - Mapped property: name -> name, type: String
+2014-06-06 17:43:18,290 [8] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder - Mapped property: description -> description, type: String
+2014-06-06 17:43:18,313 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 17:43:18,317 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - Running hbm2ddl schema update
+2014-06-06 17:43:18,318 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - fetching database metadata
+2014-06-06 17:43:18,320 [8] INFO  NHibernate.Connection.ConnectionProviderFactory - Initializing connection provider: NHibernate.Connection.DriverConnectionProvider
+2014-06-06 17:43:18,323 [8] INFO  NHibernate.Connection.ConnectionProvider - Configuring ConnectionProvider
+2014-06-06 17:43:18,326 [8] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 17:43:18,467 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - updating schema
+2014-06-06 17:43:18,472 [8] INFO  NHibernate.Cfg.Configuration - checking mappings queue
+2014-06-06 17:43:18,473 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-many association mappings
+2014-06-06 17:43:18,473 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-one association property references
+2014-06-06 17:43:18,473 [8] INFO  NHibernate.Cfg.Configuration - processing foreign key constraints
+2014-06-06 17:43:18,476 [8] INFO  NHibernate.Cfg.Configuration - processing filters (second pass)
+2014-06-06 17:43:18,917 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - table found: ACCION_SOCIAL.dbo.Rol
+2014-06-06 17:43:18,918 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - columns: idkey, name, description
+2014-06-06 17:43:18,918 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - foreign keys: 
+2014-06-06 17:43:18,918 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - indexes: pk__rol__3fbee7401b6ce5a8
+2014-06-06 17:43:18,946 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - schema update complete
+2014-06-06 17:43:18,946 [8] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 17:43:18,949 [8] INFO  NHibernate.Cfg.Configuration - checking mappings queue
+2014-06-06 17:43:18,949 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-many association mappings
+2014-06-06 17:43:18,949 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-one association property references
+2014-06-06 17:43:18,949 [8] INFO  NHibernate.Cfg.Configuration - processing foreign key constraints
+2014-06-06 17:43:18,949 [8] INFO  NHibernate.Cfg.Configuration - processing filters (second pass)
+2014-06-06 17:43:18,969 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 17:43:18,981 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 17:43:19,100 [8] INFO  NHibernate.Exceptions.SQLExceptionConverterFactory - Using dialect defined converter
+2014-06-06 17:43:19,101 [8] INFO  NHibernate.Cfg.SettingsFactory - Generate SQL with comments: disabled
+2014-06-06 17:43:19,102 [8] INFO  NHibernate.Connection.ConnectionProviderFactory - Initializing connection provider: NHibernate.Connection.DriverConnectionProvider
+2014-06-06 17:43:19,102 [8] INFO  NHibernate.Connection.ConnectionProvider - Configuring ConnectionProvider
+2014-06-06 17:43:19,103 [8] INFO  NHibernate.Cfg.SettingsFactory - Transaction factory: NHibernate.Transaction.AdoNetWithDistributedTransactionFactory
+2014-06-06 17:43:19,105 [8] INFO  NHibernate.Cfg.SettingsFactory - Optimize cache for minimal puts: False
+2014-06-06 17:43:19,105 [8] INFO  NHibernate.Cfg.SettingsFactory - Connection release mode: auto
+2014-06-06 17:43:19,106 [8] INFO  NHibernate.Cfg.SettingsFactory - Default batch fetch size: 1
+2014-06-06 17:43:19,106 [8] INFO  NHibernate.Cfg.SettingsFactory - echoing all SQL to stdout
+2014-06-06 17:43:19,106 [8] INFO  NHibernate.Cfg.SettingsFactory - Statistics: disabled
+2014-06-06 17:43:19,107 [8] INFO  NHibernate.Cfg.SettingsFactory - Deleted entity synthetic identifier rollback: disabled
+2014-06-06 17:43:19,108 [8] INFO  NHibernate.Cfg.SettingsFactory - Query translator: NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory
+2014-06-06 17:43:19,117 [8] INFO  NHibernate.Cfg.SettingsFactory - Query language substitutions: {'true'='1', 'false'='0', 'yes'=''Y'', 'no'=''N''}
+2014-06-06 17:43:19,119 [8] INFO  NHibernate.Cfg.SettingsFactory - cache provider: NHibernate.Cache.NoCacheProvider, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2014-06-06 17:43:19,122 [8] INFO  NHibernate.Cfg.SettingsFactory - Order SQL inserts for batching: enabled
+2014-06-06 17:43:19,122 [8] DEBUG NHibernate.Cfg.SettingsFactory - Wrap result sets: disabled
+2014-06-06 17:43:19,124 [8] INFO  NHibernate.Cfg.SettingsFactory - Batcher factory: NHibernate.AdoNet.SqlClientBatchingBatcherFactory, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2014-06-06 17:43:19,124 [8] INFO  NHibernate.Cfg.SettingsFactory - Default entity-mode: Poco
+2014-06-06 17:43:19,124 [8] INFO  NHibernate.Cfg.SettingsFactory - Named query checking : enabled
+2014-06-06 17:43:19,174 [8] INFO  NHibernate.Impl.SessionFactoryImpl - building session factory
+2014-06-06 17:43:19,174 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Session factory constructed with filter configurations : {}
+2014-06-06 17:43:19,176 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - instantiating session factory with properties: {'use_reflection_optimizer'='True', 'connection.provider'='NHibernate.Connection.DriverConnectionProvider', 'connection.driver_class'='NHibernate.Driver.SqlClientDriver, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'dialect'='NHibernate.Dialect.MsSql2012Dialect, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'hibernate.dialect'='NHibernate.Dialect.MsSql2012Dialect, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'show_sql'='true', 'connection.connection_string'='Server=WIN-4GUBUKEQKNL\SQLEXPRESS;Database=ACCION_SOCIAL;Trusted_Connection=Yes;'}
+2014-06-06 17:43:19,178 [8] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 17:43:19,185 [8] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 17:43:19,310 [8] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer - No custom accessors found for entity: CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 17:43:19,326 [8] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer - No custom accessors found for entity: CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 17:43:19,378 [8] DEBUG NHibernate.Tuple.Entity.PocoEntityTuplizer - Create Instantiator using optimizer for:CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 17:43:19,490 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Static SQL for entity: CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 17:43:19,490 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Version select: SELECT idKey FROM [Rol] WHERE idKey = ?
+2014-06-06 17:43:19,490 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Snapshot select: SELECT rol_.idKey, rol_.name as name0_, rol_.description as descript3_0_ FROM [Rol] rol_ WHERE rol_.idKey=?
+2014-06-06 17:43:19,490 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Insert 0: INSERT INTO [Rol] (name, description, idKey) VALUES (?, ?, ?)
+2014-06-06 17:43:19,491 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Update 0: UPDATE [Rol] SET name = ?, description = ? WHERE idKey = ?
+2014-06-06 17:43:19,492 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Delete 0: DELETE FROM [Rol] WHERE idKey = ?
+2014-06-06 17:43:19,559 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:43:19,560 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:43:19,560 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ with (updlock, rowlock) WHERE rol0_.idKey=?
+2014-06-06 17:43:19,560 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ with (updlock, rowlock, nowait) WHERE rol0_.idKey=?
+2014-06-06 17:43:19,560 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ with (updlock, rowlock) WHERE rol0_.idKey=?
+2014-06-06 17:43:19,564 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for action NHibernate.Engine.CascadingAction+MergeCascadingAction on entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:43:19,566 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for action NHibernate.Engine.CascadingAction+RefreshCascadingAction on entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:43:19,570 [8] DEBUG NHibernate.Impl.SessionFactoryObjectFactory - initializing class SessionFactoryObjectFactory
+2014-06-06 17:43:19,570 [8] DEBUG NHibernate.Impl.SessionFactoryObjectFactory - registered: 6ff19eaa986c45418f6681be4153ff72(unnamed)
+2014-06-06 17:43:19,570 [8] INFO  NHibernate.Impl.SessionFactoryObjectFactory - no name configured
+2014-06-06 17:43:19,570 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Instantiated session factory
+2014-06-06 17:43:19,575 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Checking 0 named HQL queries
+2014-06-06 17:43:19,576 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Checking 0 named SQL queries
+2014-06-06 17:43:20,749 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=31beeecf-9e00-4dfc-9b86-735fc1ba2a62] opened session at timestamp: 635376734007, for session factory: [/6ff19eaa986c45418f6681be4153ff72]
+2014-06-06 17:43:20,767 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=31beeecf-9e00-4dfc-9b86-735fc1ba2a62] running ISession.Dispose()
+2014-06-06 17:43:20,767 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=31beeecf-9e00-4dfc-9b86-735fc1ba2a62] executing real Dispose(True)
+2014-06-06 17:43:20,769 [8] DEBUG NHibernate.Impl.SessionImpl - closing session
+2014-06-06 17:43:20,770 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - running BatcherImpl.Dispose(true)
+2014-06-06 17:43:37,090 [9] DEBUG NHibernate.Impl.SessionImpl - [session-id=f70c89b7-9745-47ad-9ff2-4fc441ff3c72] opened session at timestamp: 635376734170, for session factory: [/6ff19eaa986c45418f6681be4153ff72]
+2014-06-06 17:43:47,546 [9] DEBUG NHibernate.Event.Default.DefaultLoadEventListener - loading entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:43:47,552 [9] DEBUG NHibernate.Event.Default.DefaultLoadEventListener - attempting to resolve: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:43:47,554 [9] DEBUG NHibernate.Event.Default.DefaultLoadEventListener - object not resolved in any cache: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:43:47,554 [9] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Fetching entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:43:47,557 [9] DEBUG NHibernate.Loader.Loader - loading entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:43:47,593 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened new IDbCommand, open IDbCommands: 1
+2014-06-06 17:43:47,593 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Building an IDbCommand object for the SqlString: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:43:47,600 [9] DEBUG NHibernate.Type.GuidType - binding '1a183cf4-1069-480c-9a81-a34200c32a6f' to parameter: 0
+2014-06-06 17:43:47,610 [9] INFO  NHibernate.Loader.Loader - SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=@p0
+2014-06-06 17:43:47,618 [9] DEBUG NHibernate.SQL - SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=@p0;@p0 = 1a183cf4-1069-480c-9a81-a34200c32a6f [Type: Guid (0)]
+2014-06-06 17:43:47,636 [9] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 17:43:47,691 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - ExecuteReader took 47 ms
+2014-06-06 17:43:47,695 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened IDataReader, open IDataReaders: 1
+2014-06-06 17:43:47,697 [9] DEBUG NHibernate.Loader.Loader - processing result set
+2014-06-06 17:43:47,697 [9] DEBUG NHibernate.Loader.Loader - result set row: 0
+2014-06-06 17:43:47,703 [9] DEBUG NHibernate.Loader.Loader - result row: EntityKey[CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:44:06,795 [9] DEBUG NHibernate.Loader.Loader - Initializing object from DataReader: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:44:06,801 [9] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Hydrating entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:44:06,803 [9] DEBUG NHibernate.Type.StringType - returning 'NombrePrueba3' as column: name0_0_
+2014-06-06 17:44:06,803 [9] DEBUG NHibernate.Type.StringType - returning 'DescripcionPrueba3' as column: descript3_0_0_
+2014-06-06 17:44:06,850 [9] DEBUG NHibernate.Loader.Loader - done processing result set (1 rows)
+2014-06-06 17:44:06,853 [9] DEBUG NHibernate.Driver.NHybridDataReader - running NHybridDataReader.Dispose()
+2014-06-06 17:44:06,853 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDataReader, open IDataReaders :0
+2014-06-06 17:44:06,853 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - DataReader was closed after 19210 ms
+2014-06-06 17:44:06,853 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDbCommand, open IDbCommands: 0
+2014-06-06 17:44:06,855 [9] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 17:44:06,855 [9] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 17:44:06,861 [9] DEBUG NHibernate.Loader.Loader - total objects hydrated: 1
+2014-06-06 17:44:06,863 [9] DEBUG NHibernate.Engine.TwoPhaseLoad - resolving associations for [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:44:06,966 [9] DEBUG NHibernate.Engine.TwoPhaseLoad - done materializing entity [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:44:06,989 [9] DEBUG NHibernate.Engine.StatefulPersistenceContext - initializing non-lazy collections
+2014-06-06 17:44:07,006 [9] DEBUG NHibernate.Loader.Loader - done entity load
+2014-06-06 17:44:07,098 [9] DEBUG NHibernate.AdoNet.ConnectionManager - after autocommit
+2014-06-06 17:44:07,099 [9] DEBUG NHibernate.Impl.SessionImpl - transaction completion
+2014-06-06 17:44:07,099 [9] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 17:44:47,904 [9] DEBUG NHibernate.Transaction.AdoTransaction - Begin (ReadCommitted)
+2014-06-06 17:44:47,904 [9] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 17:44:51,944 [9] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener - updating detached instance
+2014-06-06 17:44:52,000 [9] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener - updating [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:58:55,518 [8] INFO  NHibernate.Cfg.Environment - NHibernate 3.3.1.4000 (3.3.3.SP1)
+2014-06-06 17:58:55,529 [8] INFO  NHibernate.Cfg.Environment - hibernate-configuration section not found in application configuration file
+2014-06-06 17:58:55,531 [8] INFO  NHibernate.Cfg.Environment - Bytecode provider name : lcg
+2014-06-06 17:58:55,535 [8] INFO  NHibernate.Cfg.Environment - Using reflection optimizer
+2014-06-06 17:58:55,911 [8] DEBUG NHibernate.Cfg.Configuration - Mapping XML:
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"><class xmlns="urn:nhibernate-mapping-2.2" name="CNISS.AutenticationDomain.Domain.ValueObjects.Rol, CNISS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" table="`Rol`"><id name="idKey" type="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="idKey" /><generator class="guid.comb" /></id><property name="name" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="name" /></property><property name="description" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><column name="description" /></property></class></hibernate-mapping>
+2014-06-06 17:58:56,117 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 17:58:56,305 [8] INFO  NHibernate.Cfg.XmlHbmBinding.Binder - Mapping class: CNISS.AutenticationDomain.Domain.ValueObjects.Rol -> Rol
+2014-06-06 17:58:56,369 [8] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder - Mapped property: idKey -> idKey, type: Guid
+2014-06-06 17:58:56,396 [8] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder - Mapped property: name -> name, type: String
+2014-06-06 17:58:56,397 [8] DEBUG NHibernate.Cfg.XmlHbmBinding.Binder - Mapped property: description -> description, type: String
+2014-06-06 17:58:56,413 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 17:58:56,425 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - Running hbm2ddl schema update
+2014-06-06 17:58:56,426 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - fetching database metadata
+2014-06-06 17:58:56,428 [8] INFO  NHibernate.Connection.ConnectionProviderFactory - Initializing connection provider: NHibernate.Connection.DriverConnectionProvider
+2014-06-06 17:58:56,428 [8] INFO  NHibernate.Connection.ConnectionProvider - Configuring ConnectionProvider
+2014-06-06 17:58:56,430 [8] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 17:58:56,608 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - updating schema
+2014-06-06 17:58:56,619 [8] INFO  NHibernate.Cfg.Configuration - checking mappings queue
+2014-06-06 17:58:56,619 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-many association mappings
+2014-06-06 17:58:56,619 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-one association property references
+2014-06-06 17:58:56,620 [8] INFO  NHibernate.Cfg.Configuration - processing foreign key constraints
+2014-06-06 17:58:56,620 [8] INFO  NHibernate.Cfg.Configuration - processing filters (second pass)
+2014-06-06 17:58:57,046 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - table found: ACCION_SOCIAL.dbo.Rol
+2014-06-06 17:58:57,047 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - columns: idkey, name, description
+2014-06-06 17:58:57,047 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - foreign keys: 
+2014-06-06 17:58:57,047 [8] INFO  NHibernate.Dialect.Schema.ITableMetadata - indexes: pk__rol__3fbee7401b6ce5a8
+2014-06-06 17:58:57,079 [8] INFO  NHibernate.Tool.hbm2ddl.SchemaUpdate - schema update complete
+2014-06-06 17:58:57,080 [8] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 17:58:57,084 [8] INFO  NHibernate.Cfg.Configuration - checking mappings queue
+2014-06-06 17:58:57,084 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-many association mappings
+2014-06-06 17:58:57,084 [8] INFO  NHibernate.Cfg.Configuration - processing one-to-one association property references
+2014-06-06 17:58:57,084 [8] INFO  NHibernate.Cfg.Configuration - processing foreign key constraints
+2014-06-06 17:58:57,084 [8] INFO  NHibernate.Cfg.Configuration - processing filters (second pass)
+2014-06-06 17:58:57,110 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 17:58:57,133 [8] INFO  NHibernate.Dialect.Dialect - Using dialect: NHibernate.Dialect.MsSql2012Dialect
+2014-06-06 17:58:57,290 [8] INFO  NHibernate.Exceptions.SQLExceptionConverterFactory - Using dialect defined converter
+2014-06-06 17:58:57,292 [8] INFO  NHibernate.Cfg.SettingsFactory - Generate SQL with comments: disabled
+2014-06-06 17:58:57,292 [8] INFO  NHibernate.Connection.ConnectionProviderFactory - Initializing connection provider: NHibernate.Connection.DriverConnectionProvider
+2014-06-06 17:58:57,292 [8] INFO  NHibernate.Connection.ConnectionProvider - Configuring ConnectionProvider
+2014-06-06 17:58:57,292 [8] INFO  NHibernate.Cfg.SettingsFactory - Transaction factory: NHibernate.Transaction.AdoNetWithDistributedTransactionFactory
+2014-06-06 17:58:57,292 [8] INFO  NHibernate.Cfg.SettingsFactory - Optimize cache for minimal puts: False
+2014-06-06 17:58:57,293 [8] INFO  NHibernate.Cfg.SettingsFactory - Connection release mode: auto
+2014-06-06 17:58:57,296 [8] INFO  NHibernate.Cfg.SettingsFactory - Default batch fetch size: 1
+2014-06-06 17:58:57,296 [8] INFO  NHibernate.Cfg.SettingsFactory - echoing all SQL to stdout
+2014-06-06 17:58:57,296 [8] INFO  NHibernate.Cfg.SettingsFactory - Statistics: disabled
+2014-06-06 17:58:57,296 [8] INFO  NHibernate.Cfg.SettingsFactory - Deleted entity synthetic identifier rollback: disabled
+2014-06-06 17:58:57,297 [8] INFO  NHibernate.Cfg.SettingsFactory - Query translator: NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory
+2014-06-06 17:58:57,300 [8] INFO  NHibernate.Cfg.SettingsFactory - Query language substitutions: {'true'='1', 'false'='0', 'yes'=''Y'', 'no'=''N''}
+2014-06-06 17:58:57,302 [8] INFO  NHibernate.Cfg.SettingsFactory - cache provider: NHibernate.Cache.NoCacheProvider, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2014-06-06 17:58:57,303 [8] INFO  NHibernate.Cfg.SettingsFactory - Order SQL inserts for batching: enabled
+2014-06-06 17:58:57,303 [8] DEBUG NHibernate.Cfg.SettingsFactory - Wrap result sets: disabled
+2014-06-06 17:58:57,306 [8] INFO  NHibernate.Cfg.SettingsFactory - Batcher factory: NHibernate.AdoNet.SqlClientBatchingBatcherFactory, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2014-06-06 17:58:57,306 [8] INFO  NHibernate.Cfg.SettingsFactory - Default entity-mode: Poco
+2014-06-06 17:58:57,308 [8] INFO  NHibernate.Cfg.SettingsFactory - Named query checking : enabled
+2014-06-06 17:58:57,361 [8] INFO  NHibernate.Impl.SessionFactoryImpl - building session factory
+2014-06-06 17:58:57,362 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Session factory constructed with filter configurations : {}
+2014-06-06 17:58:57,365 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - instantiating session factory with properties: {'use_reflection_optimizer'='True', 'connection.provider'='NHibernate.Connection.DriverConnectionProvider', 'connection.driver_class'='NHibernate.Driver.SqlClientDriver, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'dialect'='NHibernate.Dialect.MsSql2012Dialect, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'hibernate.dialect'='NHibernate.Dialect.MsSql2012Dialect, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4', 'show_sql'='true', 'connection.connection_string'='Server=WIN-4GUBUKEQKNL\SQLEXPRESS;Database=ACCION_SOCIAL;Trusted_Connection=Yes;'}
+2014-06-06 17:58:57,378 [8] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 17:58:57,382 [8] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 17:58:57,595 [8] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer - No custom accessors found for entity: CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 17:58:57,612 [8] DEBUG NHibernate.Tuple.Entity.AbstractEntityTuplizer - No custom accessors found for entity: CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 17:58:57,673 [8] DEBUG NHibernate.Tuple.Entity.PocoEntityTuplizer - Create Instantiator using optimizer for:CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 17:58:57,839 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Static SQL for entity: CNISS.AutenticationDomain.Domain.ValueObjects.Rol
+2014-06-06 17:58:57,839 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Version select: SELECT idKey FROM [Rol] WHERE idKey = ?
+2014-06-06 17:58:57,839 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Snapshot select: SELECT rol_.idKey, rol_.name as name0_, rol_.description as descript3_0_ FROM [Rol] rol_ WHERE rol_.idKey=?
+2014-06-06 17:58:57,839 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Insert 0: INSERT INTO [Rol] (name, description, idKey) VALUES (?, ?, ?)
+2014-06-06 17:58:57,839 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Update 0: UPDATE [Rol] SET name = ?, description = ? WHERE idKey = ?
+2014-06-06 17:58:57,839 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister -  Delete 0: DELETE FROM [Rol] WHERE idKey = ?
+2014-06-06 17:58:57,891 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:58:57,893 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:58:57,894 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ with (updlock, rowlock) WHERE rol0_.idKey=?
+2014-06-06 17:58:57,895 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ with (updlock, rowlock, nowait) WHERE rol0_.idKey=?
+2014-06-06 17:58:57,896 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ with (updlock, rowlock) WHERE rol0_.idKey=?
+2014-06-06 17:58:57,903 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for action NHibernate.Engine.CascadingAction+MergeCascadingAction on entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:58:57,904 [8] DEBUG NHibernate.Loader.Entity.AbstractEntityLoader - Static select for action NHibernate.Engine.CascadingAction+RefreshCascadingAction on entity CNISS.AutenticationDomain.Domain.ValueObjects.Rol: SELECT rol0_.idKey as idKey0_0_, rol0_.name as name0_0_, rol0_.description as descript3_0_0_ FROM [Rol] rol0_ WHERE rol0_.idKey=?
+2014-06-06 17:58:57,911 [8] DEBUG NHibernate.Impl.SessionFactoryObjectFactory - initializing class SessionFactoryObjectFactory
+2014-06-06 17:58:57,912 [8] DEBUG NHibernate.Impl.SessionFactoryObjectFactory - registered: bb5890b8b3a7404db287c1eb00c3dad5(unnamed)
+2014-06-06 17:58:57,912 [8] INFO  NHibernate.Impl.SessionFactoryObjectFactory - no name configured
+2014-06-06 17:58:57,912 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Instantiated session factory
+2014-06-06 17:58:57,916 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Checking 0 named HQL queries
+2014-06-06 17:58:57,916 [8] DEBUG NHibernate.Impl.SessionFactoryImpl - Checking 0 named SQL queries
+2014-06-06 17:58:59,437 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=eada384a-ca64-4f31-a033-702536ecbc19] opened session at timestamp: 635376743393, for session factory: [/bb5890b8b3a7404db287c1eb00c3dad5]
+2014-06-06 17:58:59,467 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=eada384a-ca64-4f31-a033-702536ecbc19] running ISession.Dispose()
+2014-06-06 17:58:59,468 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=eada384a-ca64-4f31-a033-702536ecbc19] executing real Dispose(True)
+2014-06-06 17:58:59,468 [8] DEBUG NHibernate.Impl.SessionImpl - closing session
+2014-06-06 17:58:59,469 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - running BatcherImpl.Dispose(true)
+2014-06-06 17:59:13,635 [9] DEBUG NHibernate.Impl.SessionImpl - [session-id=b8fc7a5d-aa64-4f74-91f4-76893cffb87d] opened session at timestamp: 635376743536, for session factory: [/bb5890b8b3a7404db287c1eb00c3dad5]
+2014-06-06 17:59:20,653 [9] DEBUG NHibernate.Linq - Expression (partially evaluated): value(NHibernate.Linq.NhQueryable`1[CNISS.AutenticationDomain.Domain.ValueObjects.Rol]).Where(x => (x.idKey == 1a183cf4-1069-480c-9a81-a34200c32a6f)).Select(x => x.idKey).Any()
+2014-06-06 17:59:20,666 [9] DEBUG NHibernate.Engine.Query.QueryPlanCache - unable to locate HQL query plan in cache; generating (.Any[System.Guid](.Select[CNISS.AutenticationDomain.Domain.ValueObjects.Rol,System.Guid](.Where[CNISS.AutenticationDomain.Domain.ValueObjects.Rol](NHibernate.Linq.NhQueryable`1[CNISS.AutenticationDomain.Domain.ValueObjects.Rol], Quote((x, ) => (Guid.op_Equality(x.idKey, p1))), ), Quote((x, ) => (x.idKey)), ), ))
+2014-06-06 17:59:21,075 [9] DEBUG NHibernate.Hql.Ast.ANTLR.HqlSqlWalker - select << begin [level=1, statement=select]
+2014-06-06 17:59:21,089 [9] DEBUG NHibernate.Hql.Ast.ANTLR.Tree.FromElement - FromClause{level=1} :  CNISS.AutenticationDomain.Domain.ValueObjects.Rol (x) -> rol0_
+2014-06-06 17:59:21,101 [9] DEBUG NHibernate.Hql.Ast.ANTLR.Tree.FromReferenceNode - Resolved :  x -> rol0_.idKey
+2014-06-06 17:59:21,107 [9] INFO  NHibernate.Hql.Ast.ANTLR.Tree.FromElement - handling property dereference [CNISS.AutenticationDomain.Domain.ValueObjects.Rol (x) -> idKey (Class)]
+2014-06-06 17:59:21,114 [9] DEBUG NHibernate.Hql.Ast.ANTLR.Tree.DotNode - getDataType() : idKey -> NHibernate.Type.GuidType
+2014-06-06 17:59:21,117 [9] DEBUG NHibernate.Hql.Ast.ANTLR.Tree.FromReferenceNode - Resolved :  x.idKey -> rol0_.idKey
+2014-06-06 17:59:21,117 [9] INFO  NHibernate.Hql.Ast.ANTLR.Tree.FromElement - handling property dereference [CNISS.AutenticationDomain.Domain.ValueObjects.Rol (x) -> idKey (Class)]
+2014-06-06 17:59:21,145 [9] DEBUG NHibernate.Hql.Ast.ANTLR.Tree.FromReferenceNode - Resolved :  x -> rol0_.idKey
+2014-06-06 17:59:21,146 [9] INFO  NHibernate.Hql.Ast.ANTLR.Tree.FromElement - handling property dereference [CNISS.AutenticationDomain.Domain.ValueObjects.Rol (x) -> idKey (Class)]
+2014-06-06 17:59:21,146 [9] DEBUG NHibernate.Hql.Ast.ANTLR.Tree.DotNode - getDataType() : idKey -> NHibernate.Type.GuidType
+2014-06-06 17:59:21,146 [9] DEBUG NHibernate.Hql.Ast.ANTLR.Tree.FromReferenceNode - Resolved :  x.idKey -> rol0_.idKey
+2014-06-06 17:59:21,151 [9] DEBUG NHibernate.Hql.Ast.ANTLR.HqlSqlWalker - select : finishing up [level=1, statement=select]
+2014-06-06 17:59:21,152 [9] DEBUG NHibernate.Hql.Ast.ANTLR.HqlSqlWalker - processQuery() : ( SELECT ( {select clause} ( rol0_.idKey rol0_.idKey idKey ) ) ( FromClause{level=1} [Rol] rol0_ ) ( where ( == ( rol0_.idKey rol0_.idKey idKey ) ? ) ) ( take 1 ) )
+2014-06-06 17:59:21,165 [9] DEBUG NHibernate.Hql.Ast.ANTLR.Util.JoinProcessor - Using FROM fragment [[Rol] rol0_]
+2014-06-06 17:59:21,165 [9] DEBUG NHibernate.Hql.Ast.ANTLR.HqlSqlWalker - select >> end [level=1, statement=select]
+2014-06-06 17:59:21,167 [9] DEBUG NHibernate.Hql.Ast.ANTLR.ErrorCounter - throwQueryException() : no errors
+2014-06-06 17:59:21,199 [9] DEBUG NHibernate.Hql.Ast.ANTLR.HqlSqlGenerator - SQL: select TOP (1)  rol0_.idKey as col_0_0_ from [Rol] rol0_ where rol0_.idKey=?
+2014-06-06 17:59:21,199 [9] DEBUG NHibernate.Hql.Ast.ANTLR.ErrorCounter - throwQueryException() : no errors
+2014-06-06 17:59:21,225 [9] DEBUG NHibernate.Engine.Query.QueryPlanCache - located HQL query plan in cache (.Any[System.Guid](.Select[CNISS.AutenticationDomain.Domain.ValueObjects.Rol,System.Guid](.Where[CNISS.AutenticationDomain.Domain.ValueObjects.Rol](NHibernate.Linq.NhQueryable`1[CNISS.AutenticationDomain.Domain.ValueObjects.Rol], Quote((x, ) => (Guid.op_Equality(x.idKey, p1))), ), Quote((x, ) => (x.idKey)), ), ))
+2014-06-06 17:59:21,227 [9] DEBUG NHibernate.Engine.Query.HQLQueryPlan - find: .Any[System.Guid](.Select[CNISS.AutenticationDomain.Domain.ValueObjects.Rol,System.Guid](.Where[CNISS.AutenticationDomain.Domain.ValueObjects.Rol](NHibernate.Linq.NhQueryable`1[CNISS.AutenticationDomain.Domain.ValueObjects.Rol], Quote((x, ) => (Guid.op_Equality(x.idKey, p1))), ), Quote((x, ) => (x.idKey)), ), )
+2014-06-06 17:59:21,229 [9] DEBUG NHibernate.Engine.QueryParameters - named parameters: {'p1'='1a183cf4-1069-480c-9a81-a34200c32a6f'}
+2014-06-06 17:59:21,248 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened new IDbCommand, open IDbCommands: 1
+2014-06-06 17:59:21,248 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Building an IDbCommand object for the SqlString: select TOP (1)  rol0_.idKey as col_0_0_ from [Rol] rol0_ where rol0_.idKey=?
+2014-06-06 17:59:21,253 [9] DEBUG NHibernate.Type.GuidType - binding '1a183cf4-1069-480c-9a81-a34200c32a6f' to parameter: 0
+2014-06-06 17:59:21,257 [9] INFO  NHibernate.Loader.Loader - select TOP (1)  rol0_.idKey as col_0_0_ from [Rol] rol0_ where rol0_.idKey=@p0
+2014-06-06 17:59:21,260 [9] DEBUG NHibernate.SQL - select TOP (1)  rol0_.idKey as col_0_0_ from [Rol] rol0_ where rol0_.idKey=@p0;@p0 = 1a183cf4-1069-480c-9a81-a34200c32a6f [Type: Guid (0)]
+2014-06-06 17:59:21,260 [9] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 17:59:21,281 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - ExecuteReader took 19 ms
+2014-06-06 17:59:21,282 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened IDataReader, open IDataReaders: 1
+2014-06-06 17:59:21,283 [9] DEBUG NHibernate.Loader.Loader - processing result set
+2014-06-06 17:59:21,283 [9] DEBUG NHibernate.Loader.Loader - result set row: 0
+2014-06-06 17:59:21,284 [9] DEBUG NHibernate.Loader.Loader - result row: 
+2014-06-06 17:59:21,288 [9] DEBUG NHibernate.Type.GuidType - returning '1a183cf4-1069-480c-9a81-a34200c32a6f' as column: col_0_0_
+2014-06-06 17:59:21,288 [9] DEBUG NHibernate.Loader.Loader - done processing result set (1 rows)
+2014-06-06 17:59:21,288 [9] DEBUG NHibernate.Driver.NHybridDataReader - running NHybridDataReader.Dispose()
+2014-06-06 17:59:21,288 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDataReader, open IDataReaders :0
+2014-06-06 17:59:21,290 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - DataReader was closed after 27 ms
+2014-06-06 17:59:21,290 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDbCommand, open IDbCommands: 0
+2014-06-06 17:59:21,291 [9] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 17:59:21,291 [9] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 17:59:21,292 [9] DEBUG NHibernate.Engine.StatefulPersistenceContext - initializing non-lazy collections
+2014-06-06 17:59:21,295 [9] DEBUG NHibernate.AdoNet.ConnectionManager - after autocommit
+2014-06-06 17:59:21,295 [9] DEBUG NHibernate.Impl.SessionImpl - transaction completion
+2014-06-06 17:59:21,295 [9] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 17:59:41,633 [9] DEBUG NHibernate.Transaction.AdoTransaction - Begin (ReadCommitted)
+2014-06-06 17:59:41,633 [9] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 17:59:41,638 [9] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener - updating detached instance
+2014-06-06 17:59:41,641 [9] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener - updating [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:59:41,649 [9] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener - updating [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:59:41,651 [9] DEBUG NHibernate.Transaction.AdoTransaction - Start Commit
+2014-06-06 17:59:41,654 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - flushing session
+2014-06-06 17:59:41,655 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - processing flush-time cascades
+2014-06-06 17:59:41,655 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - dirty checking collections
+2014-06-06 17:59:41,658 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Flushing entities and processing referenced collections
+2014-06-06 17:59:41,663 [9] DEBUG NHibernate.Event.Default.DefaultFlushEntityEventListener - Updating entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:59:41,669 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Processing unreferenced collections
+2014-06-06 17:59:41,669 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Scheduling collection removes/(re)creates/updates
+2014-06-06 17:59:41,671 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Flushed: 0 insertions, 1 updates, 0 deletions to 1 objects
+2014-06-06 17:59:41,671 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2014-06-06 17:59:41,671 [9] DEBUG NHibernate.Impl.Printer - listing entities:
+2014-06-06 17:59:41,671 [9] DEBUG NHibernate.Impl.Printer - CNISS.AutenticationDomain.Domain.ValueObjects.Rol{'idKey'='1a183cf4-1069-480c-9a81-a34200c32a6f', 'name'='rolUpdated', 'description'='rolUpdated'}
+2014-06-06 17:59:41,671 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - executing flush
+2014-06-06 17:59:41,671 [9] DEBUG NHibernate.AdoNet.ConnectionManager - registering flush begin
+2014-06-06 17:59:41,678 [9] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Updating entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:59:41,679 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened new IDbCommand, open IDbCommands: 1
+2014-06-06 17:59:41,679 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Building an IDbCommand object for the SqlString: UPDATE [Rol] SET name = ?, description = ? WHERE idKey = ?
+2014-06-06 17:59:41,679 [9] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Dehydrating entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#1a183cf4-1069-480c-9a81-a34200c32a6f]
+2014-06-06 17:59:41,680 [9] DEBUG NHibernate.Type.StringType - binding 'rolUpdated' to parameter: 0
+2014-06-06 17:59:41,680 [9] DEBUG NHibernate.Type.StringType - binding 'rolUpdated' to parameter: 1
+2014-06-06 17:59:41,680 [9] DEBUG NHibernate.Type.GuidType - binding '1a183cf4-1069-480c-9a81-a34200c32a6f' to parameter: 2
+2014-06-06 17:59:41,681 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Adding to batch:UPDATE [Rol] SET name = @p0, description = @p1 WHERE idKey = @p2;@p0 = 'rolUpdated' [Type: String (4000)], @p1 = 'rolUpdated' [Type: String (4000)], @p2 = 1a183cf4-1069-480c-9a81-a34200c32a6f [Type: Guid (0)]
+2014-06-06 17:59:41,684 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Executing batch
+2014-06-06 17:59:41,684 [9] DEBUG NHibernate.Transaction.AdoTransaction - Enlist Command
+2014-06-06 17:59:41,684 [9] DEBUG NHibernate.SQL - Batch commands:
+command 0:UPDATE [Rol] SET name = @p0, description = @p1 WHERE idKey = @p2;@p0 = 'rolUpdated' [Type: String (4000)], @p1 = 'rolUpdated' [Type: String (4000)], @p2 = 1a183cf4-1069-480c-9a81-a34200c32a6f [Type: Guid (0)]
+
+2014-06-06 17:59:41,701 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - ExecuteBatch for 1 statements took 17 ms
+2014-06-06 17:59:41,701 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDbCommand, open IDbCommands: 0
+2014-06-06 17:59:41,701 [9] DEBUG NHibernate.AdoNet.ConnectionManager - registering flush end
+2014-06-06 17:59:41,702 [9] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - post flush
+2014-06-06 17:59:41,702 [9] DEBUG NHibernate.Impl.SessionImpl - before transaction completion
+2014-06-06 17:59:41,705 [9] DEBUG NHibernate.Transaction.AdoTransaction - IDbTransaction Committed
+2014-06-06 17:59:41,705 [9] DEBUG NHibernate.Impl.SessionImpl - transaction completion
+2014-06-06 17:59:41,705 [9] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 17:59:41,705 [9] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 17:59:41,707 [9] DEBUG NHibernate.Transaction.AdoTransaction - IDbTransaction disposed.
+2014-06-06 17:59:41,707 [9] DEBUG NHibernate.Impl.SessionImpl - closing session
+2014-06-06 17:59:41,707 [9] DEBUG NHibernate.AdoNet.AbstractBatcher - running BatcherImpl.Dispose(true)
+2014-06-06 17:59:53,662 [9] DEBUG NHibernate.Impl.SessionImpl - [session-id=b8fc7a5d-aa64-4f74-91f4-76893cffb87d] running ISession.Dispose()
+2014-06-06 17:59:53,662 [9] DEBUG NHibernate.Impl.SessionImpl - [session-id=b8fc7a5d-aa64-4f74-91f4-76893cffb87d] executing real Dispose(True)
+2014-06-06 18:00:18,321 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=3d2e05f5-cd96-4de6-85e6-a7e33b6098d0] opened session at timestamp: 635376744183, for session factory: [/bb5890b8b3a7404db287c1eb00c3dad5]
+2014-06-06 18:00:21,921 [8] DEBUG NHibernate.Linq - Expression (partially evaluated): value(NHibernate.Linq.NhQueryable`1[CNISS.AutenticationDomain.Domain.ValueObjects.Rol]).Where(x => (x.idKey == 47570455-31ce-418f-82aa-a34200b933e7)).Select(x => x.idKey).Any()
+2014-06-06 18:00:21,922 [8] DEBUG NHibernate.Engine.Query.QueryPlanCache - located HQL query plan in cache (.Any[System.Guid](.Select[CNISS.AutenticationDomain.Domain.ValueObjects.Rol,System.Guid](.Where[CNISS.AutenticationDomain.Domain.ValueObjects.Rol](NHibernate.Linq.NhQueryable`1[CNISS.AutenticationDomain.Domain.ValueObjects.Rol], Quote((x, ) => (Guid.op_Equality(x.idKey, p1))), ), Quote((x, ) => (x.idKey)), ), ))
+2014-06-06 18:00:21,922 [8] DEBUG NHibernate.Engine.Query.QueryPlanCache - located HQL query plan in cache (.Any[System.Guid](.Select[CNISS.AutenticationDomain.Domain.ValueObjects.Rol,System.Guid](.Where[CNISS.AutenticationDomain.Domain.ValueObjects.Rol](NHibernate.Linq.NhQueryable`1[CNISS.AutenticationDomain.Domain.ValueObjects.Rol], Quote((x, ) => (Guid.op_Equality(x.idKey, p1))), ), Quote((x, ) => (x.idKey)), ), ))
+2014-06-06 18:00:21,922 [8] DEBUG NHibernate.Engine.Query.HQLQueryPlan - find: .Any[System.Guid](.Select[CNISS.AutenticationDomain.Domain.ValueObjects.Rol,System.Guid](.Where[CNISS.AutenticationDomain.Domain.ValueObjects.Rol](NHibernate.Linq.NhQueryable`1[CNISS.AutenticationDomain.Domain.ValueObjects.Rol], Quote((x, ) => (Guid.op_Equality(x.idKey, p1))), ), Quote((x, ) => (x.idKey)), ), )
+2014-06-06 18:00:21,922 [8] DEBUG NHibernate.Engine.QueryParameters - named parameters: {'p1'='47570455-31ce-418f-82aa-a34200b933e7'}
+2014-06-06 18:00:21,923 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened new IDbCommand, open IDbCommands: 1
+2014-06-06 18:00:21,923 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - Building an IDbCommand object for the SqlString: select TOP (1)  rol0_.idKey as col_0_0_ from [Rol] rol0_ where rol0_.idKey=?
+2014-06-06 18:00:21,923 [8] DEBUG NHibernate.Type.GuidType - binding '47570455-31ce-418f-82aa-a34200b933e7' to parameter: 0
+2014-06-06 18:00:21,923 [8] INFO  NHibernate.Loader.Loader - select TOP (1)  rol0_.idKey as col_0_0_ from [Rol] rol0_ where rol0_.idKey=@p0
+2014-06-06 18:00:21,923 [8] DEBUG NHibernate.SQL - select TOP (1)  rol0_.idKey as col_0_0_ from [Rol] rol0_ where rol0_.idKey=@p0;@p0 = 47570455-31ce-418f-82aa-a34200b933e7 [Type: Guid (0)]
+2014-06-06 18:00:21,923 [8] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 18:00:21,934 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - ExecuteReader took 10 ms
+2014-06-06 18:00:21,934 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened IDataReader, open IDataReaders: 1
+2014-06-06 18:00:21,934 [8] DEBUG NHibernate.Loader.Loader - processing result set
+2014-06-06 18:00:21,934 [8] DEBUG NHibernate.Loader.Loader - result set row: 0
+2014-06-06 18:00:21,934 [8] DEBUG NHibernate.Loader.Loader - result row: 
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Type.GuidType - returning '47570455-31ce-418f-82aa-a34200b933e7' as column: col_0_0_
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Loader.Loader - done processing result set (1 rows)
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Driver.NHybridDataReader - running NHybridDataReader.Dispose()
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDataReader, open IDataReaders :0
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - DataReader was closed after 10 ms
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDbCommand, open IDbCommands: 0
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Engine.StatefulPersistenceContext - initializing non-lazy collections
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.AdoNet.ConnectionManager - after autocommit
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Impl.SessionImpl - transaction completion
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Transaction.AdoTransaction - Begin (ReadCommitted)
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener - updating detached instance
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener - updating [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#47570455-31ce-418f-82aa-a34200b933e7]
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Event.Default.DefaultSaveOrUpdateEventListener - updating [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#47570455-31ce-418f-82aa-a34200b933e7]
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Transaction.AdoTransaction - Start Commit
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - flushing session
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - processing flush-time cascades
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - dirty checking collections
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Flushing entities and processing referenced collections
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Event.Default.DefaultFlushEntityEventListener - Updating entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#47570455-31ce-418f-82aa-a34200b933e7]
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Processing unreferenced collections
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Scheduling collection removes/(re)creates/updates
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Flushed: 0 insertions, 1 updates, 0 deletions to 1 objects
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Impl.Printer - listing entities:
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Impl.Printer - CNISS.AutenticationDomain.Domain.ValueObjects.Rol{'idKey'='47570455-31ce-418f-82aa-a34200b933e7', 'name'='rolUpdated', 'description'='rolUpdated'}
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - executing flush
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.AdoNet.ConnectionManager - registering flush begin
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Updating entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#47570455-31ce-418f-82aa-a34200b933e7]
+2014-06-06 18:00:21,935 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened new IDbCommand, open IDbCommands: 1
+2014-06-06 18:00:21,937 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - Building an IDbCommand object for the SqlString: UPDATE [Rol] SET name = ?, description = ? WHERE idKey = ?
+2014-06-06 18:00:21,937 [8] DEBUG NHibernate.Persister.Entity.AbstractEntityPersister - Dehydrating entity: [CNISS.AutenticationDomain.Domain.ValueObjects.Rol#47570455-31ce-418f-82aa-a34200b933e7]
+2014-06-06 18:00:21,937 [8] DEBUG NHibernate.Type.StringType - binding 'rolUpdated' to parameter: 0
+2014-06-06 18:00:21,937 [8] DEBUG NHibernate.Type.StringType - binding 'rolUpdated' to parameter: 1
+2014-06-06 18:00:21,937 [8] DEBUG NHibernate.Type.GuidType - binding '47570455-31ce-418f-82aa-a34200b933e7' to parameter: 2
+2014-06-06 18:00:21,937 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - Adding to batch:UPDATE [Rol] SET name = @p0, description = @p1 WHERE idKey = @p2;@p0 = 'rolUpdated' [Type: String (4000)], @p1 = 'rolUpdated' [Type: String (4000)], @p2 = 47570455-31ce-418f-82aa-a34200b933e7 [Type: Guid (0)]
+2014-06-06 18:00:21,937 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - Executing batch
+2014-06-06 18:00:21,937 [8] DEBUG NHibernate.Transaction.AdoTransaction - Enlist Command
+2014-06-06 18:00:21,937 [8] DEBUG NHibernate.SQL - Batch commands:
+command 0:UPDATE [Rol] SET name = @p0, description = @p1 WHERE idKey = @p2;@p0 = 'rolUpdated' [Type: String (4000)], @p1 = 'rolUpdated' [Type: String (4000)], @p2 = 47570455-31ce-418f-82aa-a34200b933e7 [Type: Guid (0)]
+
+2014-06-06 18:00:21,947 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - ExecuteBatch for 1 statements took 10 ms
+2014-06-06 18:00:21,947 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDbCommand, open IDbCommands: 0
+2014-06-06 18:00:21,947 [8] DEBUG NHibernate.AdoNet.ConnectionManager - registering flush end
+2014-06-06 18:00:21,947 [8] DEBUG NHibernate.Event.Default.AbstractFlushingEventListener - post flush
+2014-06-06 18:00:21,947 [8] DEBUG NHibernate.Impl.SessionImpl - before transaction completion
+2014-06-06 18:00:21,949 [8] DEBUG NHibernate.Transaction.AdoTransaction - IDbTransaction Committed
+2014-06-06 18:00:21,949 [8] DEBUG NHibernate.Impl.SessionImpl - transaction completion
+2014-06-06 18:00:21,949 [8] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 18:00:21,949 [8] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 18:00:21,949 [8] DEBUG NHibernate.Transaction.AdoTransaction - IDbTransaction disposed.
+2014-06-06 18:00:21,949 [8] DEBUG NHibernate.Impl.SessionImpl - closing session
+2014-06-06 18:00:21,949 [8] DEBUG NHibernate.AdoNet.AbstractBatcher - running BatcherImpl.Dispose(true)
+2014-06-06 18:00:21,949 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=3d2e05f5-cd96-4de6-85e6-a7e33b6098d0] running ISession.Dispose()
+2014-06-06 18:00:21,949 [8] DEBUG NHibernate.Impl.SessionImpl - [session-id=3d2e05f5-cd96-4de6-85e6-a7e33b6098d0] executing real Dispose(True)
+2014-06-06 18:00:37,037 [10] DEBUG NHibernate.Impl.SessionImpl - [session-id=b269103b-4847-4902-8c18-d5f52046ae4d] opened session at timestamp: 635376744370, for session factory: [/bb5890b8b3a7404db287c1eb00c3dad5]
+2014-06-06 18:00:37,082 [10] DEBUG NHibernate.Linq - Expression (partially evaluated): value(NHibernate.Linq.NhQueryable`1[CNISS.AutenticationDomain.Domain.ValueObjects.Rol]).Where(x => (x.idKey == 00000000-0000-0000-0000-000000000000)).Select(x => x.idKey).Any()
+2014-06-06 18:00:37,082 [10] DEBUG NHibernate.Engine.Query.QueryPlanCache - located HQL query plan in cache (.Any[System.Guid](.Select[CNISS.AutenticationDomain.Domain.ValueObjects.Rol,System.Guid](.Where[CNISS.AutenticationDomain.Domain.ValueObjects.Rol](NHibernate.Linq.NhQueryable`1[CNISS.AutenticationDomain.Domain.ValueObjects.Rol], Quote((x, ) => (Guid.op_Equality(x.idKey, p1))), ), Quote((x, ) => (x.idKey)), ), ))
+2014-06-06 18:00:37,082 [10] DEBUG NHibernate.Engine.Query.QueryPlanCache - located HQL query plan in cache (.Any[System.Guid](.Select[CNISS.AutenticationDomain.Domain.ValueObjects.Rol,System.Guid](.Where[CNISS.AutenticationDomain.Domain.ValueObjects.Rol](NHibernate.Linq.NhQueryable`1[CNISS.AutenticationDomain.Domain.ValueObjects.Rol], Quote((x, ) => (Guid.op_Equality(x.idKey, p1))), ), Quote((x, ) => (x.idKey)), ), ))
+2014-06-06 18:00:37,082 [10] DEBUG NHibernate.Engine.Query.HQLQueryPlan - find: .Any[System.Guid](.Select[CNISS.AutenticationDomain.Domain.ValueObjects.Rol,System.Guid](.Where[CNISS.AutenticationDomain.Domain.ValueObjects.Rol](NHibernate.Linq.NhQueryable`1[CNISS.AutenticationDomain.Domain.ValueObjects.Rol], Quote((x, ) => (Guid.op_Equality(x.idKey, p1))), ), Quote((x, ) => (x.idKey)), ), )
+2014-06-06 18:00:37,082 [10] DEBUG NHibernate.Engine.QueryParameters - named parameters: {'p1'='00000000-0000-0000-0000-000000000000'}
+2014-06-06 18:00:37,082 [10] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened new IDbCommand, open IDbCommands: 1
+2014-06-06 18:00:37,082 [10] DEBUG NHibernate.AdoNet.AbstractBatcher - Building an IDbCommand object for the SqlString: select TOP (1)  rol0_.idKey as col_0_0_ from [Rol] rol0_ where rol0_.idKey=?
+2014-06-06 18:00:37,082 [10] DEBUG NHibernate.Type.GuidType - binding '00000000-0000-0000-0000-000000000000' to parameter: 0
+2014-06-06 18:00:37,082 [10] INFO  NHibernate.Loader.Loader - select TOP (1)  rol0_.idKey as col_0_0_ from [Rol] rol0_ where rol0_.idKey=@p0
+2014-06-06 18:00:37,082 [10] DEBUG NHibernate.SQL - select TOP (1)  rol0_.idKey as col_0_0_ from [Rol] rol0_ where rol0_.idKey=@p0;@p0 = 00000000-0000-0000-0000-000000000000 [Type: Guid (0)]
+2014-06-06 18:00:37,083 [10] DEBUG NHibernate.Connection.DriverConnectionProvider - Obtaining IDbConnection from Driver
+2014-06-06 18:00:37,104 [10] DEBUG NHibernate.AdoNet.AbstractBatcher - ExecuteReader took 21 ms
+2014-06-06 18:00:37,105 [10] DEBUG NHibernate.AdoNet.AbstractBatcher - Opened IDataReader, open IDataReaders: 1
+2014-06-06 18:00:37,105 [10] DEBUG NHibernate.Loader.Loader - processing result set
+2014-06-06 18:00:37,105 [10] DEBUG NHibernate.Loader.Loader - done processing result set (0 rows)
+2014-06-06 18:00:37,105 [10] DEBUG NHibernate.Driver.NHybridDataReader - running NHybridDataReader.Dispose()
+2014-06-06 18:00:37,105 [10] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDataReader, open IDataReaders :0
+2014-06-06 18:00:37,105 [10] DEBUG NHibernate.AdoNet.AbstractBatcher - DataReader was closed after 22 ms
+2014-06-06 18:00:37,105 [10] DEBUG NHibernate.AdoNet.AbstractBatcher - Closed IDbCommand, open IDbCommands: 0
+2014-06-06 18:00:37,106 [10] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 18:00:37,106 [10] DEBUG NHibernate.Connection.ConnectionProvider - Closing connection
+2014-06-06 18:00:37,106 [10] DEBUG NHibernate.Engine.StatefulPersistenceContext - initializing non-lazy collections
+2014-06-06 18:00:37,107 [10] DEBUG NHibernate.AdoNet.ConnectionManager - after autocommit
+2014-06-06 18:00:37,108 [10] DEBUG NHibernate.Impl.SessionImpl - transaction completion
+2014-06-06 18:00:37,108 [10] DEBUG NHibernate.AdoNet.ConnectionManager - aggressively releasing database connection
+2014-06-06 18:00:37,119 [10] DEBUG NHibernate.Impl.SessionImpl - [session-id=b269103b-4847-4902-8c18-d5f52046ae4d] running ISession.Dispose()
+2014-06-06 18:00:37,119 [10] DEBUG NHibernate.Impl.SessionImpl - [session-id=b269103b-4847-4902-8c18-d5f52046ae4d] executing real Dispose(True)
+2014-06-06 18:00:37,119 [10] DEBUG NHibernate.Impl.SessionImpl - closing session
+2014-06-06 18:00:37,119 [10] DEBUG NHibernate.AdoNet.AbstractBatcher - running BatcherImpl.Dispose(true)

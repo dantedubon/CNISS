@@ -6,6 +6,6 @@ namespace CNISS.CommonDomain.Domain
     {
         T get(TKey id);
         IEnumerable<T> getAll();
-
+        bool exists(TKey id);
     }
 }

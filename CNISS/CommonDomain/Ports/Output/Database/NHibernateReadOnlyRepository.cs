@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using CNISS.CommonDomain.Domain;
 using NHibernate;
 using NHibernate.Linq;
@@ -27,6 +28,11 @@ namespace CNISS.CommonDomain.Ports.Output.Database
         public IEnumerable<T> getAll()
         {
             return Session.Query<T>().ToList();
+        }
+
+        public virtual bool exists(TKey id)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

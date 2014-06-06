@@ -9,9 +9,10 @@ using NUnit.Framework;
 namespace CNISS_Integration_Test.Repositories.RolRepository.ReadOnly
 {
     [TestFixture]
-    class RolRepositoryReadOnlyTest:InMemoryDatabaseTest
+    class RolRepositoryReadOnlyTest : InMemoryDatabaseTest
     {
-        public RolRepositoryReadOnlyTest() : base(typeof(Rol).Assembly)
+        public RolRepositoryReadOnlyTest()
+            : base(typeof(Rol).Assembly)
         {
             openSession();
         }
@@ -20,8 +21,8 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.ReadOnly
         public void getAll_RetornaTodosRoles()
         {
             //Arrange
-          
-            IRolRepositoryReadOnly _repository = new RolRepositoryReadOnly(session); 
+
+            IRolRepositoryReadOnly _repository = new RolRepositoryReadOnly(session);
             IEnumerable<Rol> _expectedRols = Builder<Rol>.CreateListOfSize(10).Build();
             IEnumerable<Rol> _resultRols;
 
@@ -38,17 +39,17 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.ReadOnly
 
             session.Clear();
 
-          
-                _resultRols = _repository.getAll();
-                
-                    
-            
-                
-            _resultRols.ShouldAllBeEquivalentTo(_expectedRols);
-		 
 
-           
+            _resultRols = _repository.getAll();
+
+
+
+
+            _resultRols.ShouldAllBeEquivalentTo(_expectedRols);
+
+
+
         }
     }
-    
+
 }

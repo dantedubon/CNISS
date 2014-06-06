@@ -106,6 +106,8 @@
     <Compile Include="Repositories\RolRepository\Command\when_UpdateNewRol_Should_RepositoryUpdate.cs" />
     <Compile Include="Repositories\RolRepository\Command\when_DeleteRol_Should_RepositoryDelete.cs" />
     <Compile Include="Repositories\RolRepository\Command\when_InsertNewRol_Should_RepositorySave.cs" />
+    <Compile Include="Repositories\RolRepository\ReadOnly\when_UserAskExistingRole_Should_ReturnTrue.cs" />
+    <Compile Include="Repositories\RolRepository\ReadOnly\when_UserAskNonExistingRole_Should_ReturnFalse.cs" />
     <Compile Include="Repositories\RolRepository\ReadOnly\RolRepositoryReadOnlyTest.cs" />
     <Compile Include="Repositories\RolRepository\ReadOnly\when_GetSpecificRolById_Should_ReturnRol.cs" />
     <Compile Include="Repositories\RolRepository\ReadOnly\when_ListAllRol_Should_ReturnFromDB.cs" />

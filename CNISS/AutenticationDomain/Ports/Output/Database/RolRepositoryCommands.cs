@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Ports.Output.Database;
@@ -13,5 +14,7 @@ namespace CNISS.AutenticationDomain.Ports.Output.Database
         {
             
         }
+
+      
     }
 }

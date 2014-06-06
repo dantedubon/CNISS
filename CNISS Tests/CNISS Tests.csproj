@@ -98,6 +98,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rol_Test\when_UserPostIncompleteRol_Should_ReturnBadRequest.cs" />
+    <Compile Include="Rol_Test\when_UserPostNewRol_RolInserted.cs" />
     <Compile Include="Rol_Test\when_UserGetSpecificRol_Should_ReturnRol.cs" />
     <Compile Include="Rol_Test\when_a_user_list_all_rol.cs" />
     <Compile Include="SecureBrowserExtensions.cs" />

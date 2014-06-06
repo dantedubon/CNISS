@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using CNISS.AutenticationDomain.Domain.Repositories;
+﻿using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.RolModule.RolQuery;
 using FizzWare.NBuilder;

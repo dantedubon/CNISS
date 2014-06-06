@@ -14,6 +14,7 @@ C:\CNISS\CNISS\bin\Autofac.Configuration.dll
 C:\CNISS\CNISS\bin\Autofac.dll
 C:\CNISS\CNISS\bin\FluentNHibernate.dll
 C:\CNISS\CNISS\bin\Iesi.Collections.dll
+C:\CNISS\CNISS\bin\log4net.dll
 C:\CNISS\CNISS\bin\Machine.Specifications.Clr4.dll
 C:\CNISS\CNISS\bin\Machine.Specifications.dll
 C:\CNISS\CNISS\bin\Machine.Specifications.Should.dll
@@ -26,13 +27,11 @@ C:\CNISS\CNISS\bin\nunit.framework.dll
 C:\CNISS\CNISS\bin\Autofac.xml
 C:\CNISS\CNISS\bin\FluentNHibernate.xml
 C:\CNISS\CNISS\bin\Iesi.Collections.xml
+C:\CNISS\CNISS\bin\log4net.xml
 C:\CNISS\CNISS\bin\Moq.xml
 C:\CNISS\CNISS\bin\Nancy.xml
 C:\CNISS\CNISS\bin\Nancy.Hosting.Aspnet.xml
 C:\CNISS\CNISS\bin\NHibernate.xml
 C:\CNISS\CNISS\bin\nunit.framework.xml
-C:\CNISS\CNISS\obj\Debug\CNISS.csprojResolveAssemblyReference.cache
 C:\CNISS\CNISS\obj\Debug\CNISS.dll
 C:\CNISS\CNISS\obj\Debug\CNISS.pdb
-C:\CNISS\CNISS\bin\log4net.dll
-C:\CNISS\CNISS\bin\log4net.xml

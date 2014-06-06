@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using CNISS.CommonDomain.Domain;
+﻿using CNISS.CommonDomain.Domain;
 using NHibernate;
 
 
 namespace CNISS.CommonDomain.Ports.Output.Database
 {
-    public class NHibernateCommandRepository<T,TKey>:IRepositoryCommands<T,TKey>
+    public class NHibernateCommandRepository<T,TKey>:IRepositoryCommands<T>
     {
         private readonly ISession _session;
         public NHibernateCommandRepository(ISession session )

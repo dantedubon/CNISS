@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CNISS.AutenticationDomain.Domain.Repositories;
+﻿using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.AutenticationDomain.Ports.Output.Database;
 using CNISS.CommonDomain.Ports.Output.Database;
@@ -37,7 +33,7 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.Command
 
          Because of = () =>
          {
-             using (var uow = new NHibernateUnitOfWork(_sessionFactory))
+             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
              {
                  _repository = new RolRepositoryCommands(uow.Session);
                  _repository.save(_expectedRol);
@@ -48,7 +44,7 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.Command
 
         It should_new_rol_be_saved = () =>
         {
-            using (var uow = new NHibernateUnitOfWork(_sessionFactory))
+            using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 _resultRol = uow.Session.Get<Rol>(_expectedRol.idKey);
             }

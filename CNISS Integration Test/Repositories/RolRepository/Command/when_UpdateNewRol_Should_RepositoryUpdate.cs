@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CNISS.AutenticationDomain.Domain.Repositories;
+﻿using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.AutenticationDomain.Ports.Output.Database;
 using CNISS.CommonDomain.Ports.Output.Database;
@@ -36,7 +31,7 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.Command
             _expectedRol = Builder<Rol>.CreateNew().Build();
             _newRolName = "Nuevo Nombre";
 
-            using (var uow = new NHibernateUnitOfWork(_sessionFactory))
+            using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 _repository = new RolRepositoryCommands(uow.Session);
                 _repository.save(_expectedRol);
@@ -49,7 +44,7 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.Command
          Because of = () =>
          {
              _expectedRol.name = _newRolName;
-             using (var uow = new NHibernateUnitOfWork(_sessionFactory))
+             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
              {
                  _repository = new RolRepositoryCommands(uow.Session);
                  _repository.update(_expectedRol);
@@ -62,7 +57,7 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.Command
         It should_update_existing_rol = () =>
         {
 
-            using (var uow = new NHibernateUnitOfWork(_sessionFactory))
+            using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 _resultRol = uow.Session.Get<Rol>(_expectedRol.idKey);
 

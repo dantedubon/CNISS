@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Autofac;
+using CNISS.AutenticationDomain.Application.Comandos;
 using CNISS.AutenticationDomain.Domain.Repositories;
+using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.AutenticationDomain.Ports.Output.Database;
+using CNISS.CommonDomain.Application;
 
 namespace CNISS.Bootstraper
 {
@@ -14,7 +14,12 @@ namespace CNISS.Bootstraper
         {
             get
             {
-                return builder => builder.RegisterType<RolRepositoryReadOnly>().As<IRolRepositoryReadOnly>();
+                return builder =>
+                {
+                    builder.RegisterType<RolRepositoryReadOnly>().As<IRolRepositoryReadOnly>();
+                    builder.RegisterType<RolRepositoryCommands>().As<IRolRepositoryCommands>();
+                    builder.RegisterType<CommandInsertRol>().As<ICommandInsertIdentity<Rol>>();
+                };
             }
             
         }

@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using Autofac;
 using CNISS.AutenticationDomain.Ports.Output.Database.Mappings;
+using CNISS.CommonDomain.Domain;
+using CNISS.CommonDomain.Ports.Output.Database;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
-using Iesi.Collections;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
@@ -26,9 +21,8 @@ namespace CNISS.Bootstraper
                 return builder =>
                 {
                     builder.RegisterInstance(SessionFactory).As<ISessionFactory>().SingleInstance();
-                    builder.Register(c => c.Resolve<ISessionFactory>().OpenSession())
-                        .As<ISession>()
-                        .InstancePerLifetimeScope();
+                    builder.Register(c => c.Resolve<ISessionFactory>().OpenSession()).InstancePerLifetimeScope(); 
+                    builder.RegisterType<NHibernateUnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
                 };
 
             }

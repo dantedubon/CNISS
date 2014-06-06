@@ -27,7 +27,7 @@ namespace CNISS_Integration_Test.Unit_Of_Work
 
         Because of = () =>
         {
-            using (var uow = new NHibernateUnitOfWork(_sessionFactory))
+            using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 uow.Session.Save(_expectedRol);
                 uow.rollback();
@@ -37,7 +37,7 @@ namespace CNISS_Integration_Test.Unit_Of_Work
 
          It should_be_null_result_roll = () =>
         {
-            using (var uow = new NHibernateUnitOfWork(_sessionFactory))
+            using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 _resultRol = uow.Session.Get<Rol>(_expectedRol.idKey); 
             }

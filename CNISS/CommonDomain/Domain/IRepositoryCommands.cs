@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace CNISS.CommonDomain.Domain
+﻿namespace CNISS.CommonDomain.Domain
 {
-    public interface IRepositoryCommands <in T, TKey>
+    public interface IRepositoryCommands <in T>
     {
         void save(T entity);
         void delete(T entity);

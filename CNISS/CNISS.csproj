@@ -98,6 +98,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutenticationDomain\Application\Comandos\CommandInsertRol.cs" />
     <Compile Include="AutenticationDomain\Domain\Repositories\IRolRepositoryCommands.cs" />
     <Compile Include="AutenticationDomain\Domain\Repositories\IRolRepositoryReadOnly.cs" />
     <Compile Include="AutenticationDomain\Domain\ValueObjects\Rol.cs" />
@@ -107,6 +108,9 @@
     <Compile Include="Bootstraper\ConfigureDataBase.cs" />
     <Compile Include="Bootstraper\IBootstrapperTask.cs" />
     <Compile Include="Bootstraper\ConfigureRoleDependencies.cs" />
+    <Compile Include="CommonDomain\Application\CommandInsertIdentity.cs" />
+    <Compile Include="CommonDomain\Application\ICommand.cs" />
+    <Compile Include="CommonDomain\Application\ICommandInsert.cs" />
     <Compile Include="CommonDomain\Domain\IDomainObjectIdentified.cs" />
     <Compile Include="CommonDomain\Domain\IRepositoryCommands.cs" />
     <Compile Include="CommonDomain\Domain\IRepositoryReadOnly.cs" />
@@ -115,7 +119,9 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\ApiBootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\Bootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\HelloModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolQuery\RolModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\RolModule\RolRequest.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateCommandRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
@@ -131,13 +137,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AutenticationDomain\Application\" />
     <Folder Include="AutenticationDomain\Domain\Entities\" />
     <Folder Include="AutenticationDomain\Ports\Input\" />
-    <Folder Include="CommonDomain\Application\" />
     <Folder Include="CommonDomain\Ports\Input\REST\API\" />
-    <Folder Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\" />
-    <Folder Include="CommonDomain\Ports\Input\REST\Request\RolModule\" />
     <Folder Include="CommonDomain\Ports\Output\Database\Infraestructure\" />
   </ItemGroup>
   <PropertyGroup>

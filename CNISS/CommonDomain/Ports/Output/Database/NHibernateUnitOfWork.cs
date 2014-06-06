@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Data;
 using CNISS.CommonDomain.Domain;
 using NHibernate;
 
@@ -9,16 +6,17 @@ namespace CNISS.CommonDomain.Ports.Output.Database
 {
     public class NHibernateUnitOfWork:IUnitOfWork
     {
-        private readonly ISessionFactory _sessionFactory;
+        
         private readonly ITransaction _transaction;
         private ISession _session;
 
 
-        public NHibernateUnitOfWork(ISessionFactory sessionFactory)
+        public NHibernateUnitOfWork(ISession session)
         {
-            _sessionFactory = sessionFactory;
-            _session = _sessionFactory.OpenSession();
-            _transaction = _session.BeginTransaction();
+
+            _session = session;
+            _session.FlushMode = FlushMode.Auto;
+            _transaction = _session.BeginTransaction(IsolationLevel.ReadCommitted);
 
 
         }
@@ -31,6 +29,7 @@ namespace CNISS.CommonDomain.Ports.Output.Database
 
         public void Dispose()
         {
+            if (_session == null) return;
             _session.Close();
             _session = null;
         }

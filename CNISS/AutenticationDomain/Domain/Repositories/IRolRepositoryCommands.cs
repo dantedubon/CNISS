@@ -1,10 +1,9 @@
-﻿using System;
-using CNISS.AutenticationDomain.Domain.ValueObjects;
+﻿using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Domain;
 
 namespace CNISS.AutenticationDomain.Domain.Repositories
 {
-    public interface IRolRepositoryCommands:IRepositoryCommands<Rol,Guid>
+    public interface IRolRepositoryCommands:IRepositoryCommands<Rol>
     {
 
     }

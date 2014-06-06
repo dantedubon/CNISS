@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Machine.Specifications;
-
-namespace CNISS.CommonDomain.Domain
+﻿namespace CNISS.CommonDomain.Domain
 {
     public abstract class ValueObject<TKey>:IDomainObjectIdentified<TKey>
     {

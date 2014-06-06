@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CNISS.AutenticationDomain.Domain.Repositories;
+﻿using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.AutenticationDomain.Ports.Output.Database;
 using CNISS.CommonDomain.Ports.Output.Database;
@@ -32,7 +27,7 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.Command
             _sessionFactory = _dataBaseTest.sessionFactory;
             _expectedRol = Builder<Rol>.CreateNew().Build();
 
-            using (var uow = new NHibernateUnitOfWork(_sessionFactory))
+            using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 _repository = new RolRepositoryCommands(uow.Session);
                 _repository.save(_expectedRol);
@@ -43,7 +38,7 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.Command
 
         Because of = () =>
         {
-            using (var uow = new NHibernateUnitOfWork(_sessionFactory))
+            using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 _repository = new RolRepositoryCommands(uow.Session);
                 _repository.delete(_expectedRol);
@@ -55,7 +50,7 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.Command
 
         It should_rol_be_deleted = () =>
         {
-            using (var uow = new NHibernateUnitOfWork(_sessionFactory))
+            using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 _resultRol = uow.Session.Get<Rol>(_expectedRol.idKey);
 

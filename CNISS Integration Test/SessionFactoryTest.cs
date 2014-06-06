@@ -1,14 +1,8 @@
-﻿using System;
-using System.Reflection;
-using CNISS.AutenticationDomain.Domain.ValueObjects;
+﻿using CNISS.AutenticationDomain.Domain.ValueObjects;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
-using NHibernate.Cfg;
-using NHibernate.Dialect;
-using NHibernate.Driver;
 using NHibernate.Tool.hbm2ddl;
-using Environment = NHibernate.Cfg.Environment;
 
 namespace CNISS_Integration_Test
 {

@@ -38,5 +38,14 @@ namespace CNISS_Tests
                 with.JsonBody(payload);
             });
         }
+        public static BrowserResponse DeleteSecureJson(this Browser browser, string resource, object payload)
+        {
+            return browser.Delete(resource, with =>
+            {
+                with.HttpsRequest();
+                with.Accept(MediaRange.FromString("application/json"));
+                with.JsonBody(payload);
+            });
+        }
     }
 }

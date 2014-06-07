@@ -20,6 +20,7 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<RolRepositoryCommands>().As<IRolRepositoryCommands>();
                     builder.RegisterType<CommandInsertRol>().As<ICommandInsertIdentity<Rol>>();
                     builder.RegisterType<CommandUpdateRol>().As<ICommandUpdateIdentity<Rol>>();
+                    builder.RegisterType<CommandDeleteRol>().As<ICommandDeleteIdentity<Rol>>();
                 };
             }
             

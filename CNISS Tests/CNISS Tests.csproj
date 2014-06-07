@@ -99,6 +99,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rol_Test\Commands\when_CommandUpdateIdentity_Shuld_UpdateIdentity.cs" />
+    <Compile Include="Rol_Test\Modules\when_UserDeleteNonExistingRol_ShouldReturnError.cs" />
+    <Compile Include="Rol_Test\Modules\when_UserDeleteExistingRol_Should_DeleteRol.cs" />
+    <Compile Include="Rol_Test\Modules\when_UserPutNonExistingRole_Should_ReturnNotFound.cs" />
     <Compile Include="Rol_Test\Modules\when_a_user_list_all_rol.cs" />
     <Compile Include="Rol_Test\Modules\when_UserGetSpecificRol_Should_ReturnRol.cs" />
     <Compile Include="Rol_Test\Modules\when_UserPostIncompleteRol_Should_ReturnBadRequest.cs" />

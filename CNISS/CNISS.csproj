@@ -98,6 +98,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutenticationDomain\Application\Comandos\CommandDeleteRol.cs" />
     <Compile Include="AutenticationDomain\Application\Comandos\CommandInsertRol.cs" />
     <Compile Include="AutenticationDomain\Application\Comandos\CommandUpdateRol.cs" />
     <Compile Include="AutenticationDomain\Domain\Repositories\IRolRepositoryCommands.cs" />
@@ -109,9 +110,11 @@
     <Compile Include="Bootstraper\ConfigureDataBase.cs" />
     <Compile Include="Bootstraper\IBootstrapperTask.cs" />
     <Compile Include="Bootstraper\ConfigureRoleDependencies.cs" />
+    <Compile Include="CommonDomain\Application\CommandDeleteIdentity.cs" />
     <Compile Include="CommonDomain\Application\CommandInsertIdentity.cs" />
     <Compile Include="CommonDomain\Application\CommandUpdateIdentity.cs" />
     <Compile Include="CommonDomain\Application\ICommand.cs" />
+    <Compile Include="CommonDomain\Application\ICommandDeleteIdentity.cs" />
     <Compile Include="CommonDomain\Application\ICommandInsertIdentity.cs" />
     <Compile Include="CommonDomain\Application\ICommandUpdateIdentity.cs" />
     <Compile Include="CommonDomain\Domain\IDomainObjectIdentified.cs" />
@@ -122,6 +125,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\ApiBootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\Bootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\HelloModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolQuery\RolModuleQuery.cs" />

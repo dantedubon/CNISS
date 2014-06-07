@@ -38,7 +38,7 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.ReadOnly
 
          Because of = () =>
          {
-             _existRol = _repository.exists(_expectedRol.idKey);
+             _existRol = _repository.exists(_expectedRol.Id);
 
          };
 

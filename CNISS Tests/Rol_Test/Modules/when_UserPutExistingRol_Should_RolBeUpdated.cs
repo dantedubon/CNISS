@@ -40,6 +40,6 @@ namespace CNISS_Tests.Rol_Test.Modules
 
         Because of = () => _browser.PutSecureJson("/rol", _rolRequest);
 
-        It should_update_rol = () => Mock.Get(_commandUpdate).Verify( x=> x.execute(Moq.It.Is<Rol>( z=> z.idKey == _rolRequest.idGuid)));
+        It should_update_rol = () => Mock.Get(_commandUpdate).Verify( x=> x.execute(Moq.It.Is<Rol>( z=> z.Id == _rolRequest.idGuid)));
     }
 }

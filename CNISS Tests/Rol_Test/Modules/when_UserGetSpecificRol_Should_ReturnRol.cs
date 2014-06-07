@@ -25,7 +25,7 @@ namespace CNISS_Tests.Rol_Test.Modules
 
             var rolRepositoryReadOnlyMock = new Mock<IRolRepositoryReadOnly>();
 
-            rolRepositoryReadOnlyMock.Setup(x => x.get(_rolExpected.idKey)).Returns(_rolExpected);
+            rolRepositoryReadOnlyMock.Setup(x => x.get(_rolExpected.Id)).Returns(_rolExpected);
 
             _repositoryReadOnly = rolRepositoryReadOnlyMock.Object;
 
@@ -41,7 +41,7 @@ namespace CNISS_Tests.Rol_Test.Modules
 
         private Because of = () =>
         {
-            _rolResponse = _browser.GetSecureJson("/rol/id=" + _rolExpected.idKey).Body.DeserializeJson<Rol>();
+            _rolResponse = _browser.GetSecureJson("/rol/id=" + _rolExpected.Id).Body.DeserializeJson<Rol>();
 
         };
 

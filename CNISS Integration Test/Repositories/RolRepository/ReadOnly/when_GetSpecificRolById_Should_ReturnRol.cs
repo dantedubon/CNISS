@@ -42,7 +42,7 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.ReadOnly
 
          Because of = () =>
         {
-            _resultRol = _repository.get(_expectedRol.idKey);
+            _resultRol = _repository.get(_expectedRol.Id);
 
         };
 

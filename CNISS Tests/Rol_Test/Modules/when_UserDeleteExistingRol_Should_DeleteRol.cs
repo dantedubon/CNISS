@@ -44,7 +44,7 @@ namespace CNISS_Tests.Rol_Test.Modules
         Because of = () => _browser.DeleteSecureJson("/rol", _rolRequest);
 
         It should_delete_rol = () => Mock.Get(_commandDelete)
-            .Verify(x => x.execute(Moq.It.Is<Rol>(z => z.idKey == _rolRequest.idGuid)));
+            .Verify(x => x.execute(Moq.It.Is<Rol>(z => z.Id == _rolRequest.idGuid)));
 
 
     }

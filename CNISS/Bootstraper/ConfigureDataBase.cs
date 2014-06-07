@@ -41,6 +41,7 @@ namespace CNISS.Bootstraper
                    .MsSql2012.ShowSql()
                     .ConnectionString(c => c.FromConnectionStringWithKey("CENSS_SQL")))
                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<RolMapping>())
+                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserMappings>())
               
                    .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true)
                    )

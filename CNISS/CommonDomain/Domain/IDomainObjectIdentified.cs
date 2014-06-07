@@ -2,6 +2,6 @@
 {
     public interface IDomainObjectIdentified<Tkey>
     {
-        Tkey idKey { get; }
+        Tkey Id { get; }
     }
 }

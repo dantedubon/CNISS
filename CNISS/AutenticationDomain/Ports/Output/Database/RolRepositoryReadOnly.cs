@@ -21,8 +21,8 @@ namespace CNISS.AutenticationDomain.Ports.Output.Database
         public override bool exists(Guid id)
         {
 
-            return Session.Query<Rol>().Where(x => x.idKey == id)
-                .Select(x => x.idKey)
+            return Session.Query<Rol>().Where(x => x.Id == id)
+                .Select(x => x.Id)
                 .Any();
         }
     }

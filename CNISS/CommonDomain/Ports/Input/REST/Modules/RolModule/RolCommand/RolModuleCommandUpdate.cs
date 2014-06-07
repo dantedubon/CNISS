@@ -20,7 +20,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.RolModule.RolCommand
                 if (repositoryRead.exists(_rolRequest.idGuid))
                 {
                     var _rol = new Rol(_rolRequest.name, _rolRequest.description);
-                    _rol.idKey = _rolRequest.idGuid;
+                    _rol.Id = _rolRequest.idGuid;
                     commandUpdate.execute(_rol);
 
                     return new Response()

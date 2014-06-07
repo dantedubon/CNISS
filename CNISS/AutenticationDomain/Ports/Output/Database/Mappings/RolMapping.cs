@@ -7,7 +7,7 @@ namespace CNISS.AutenticationDomain.Ports.Output.Database.Mappings
     {
         public RolMapping()
         {
-            Id(x => x.idKey);
+            Id(x => x.Id);
             Map(x => x.name);
             Map(x => x.description);
 

@@ -101,10 +101,12 @@
     <Compile Include="AutenticationDomain\Application\Comandos\CommandDeleteRol.cs" />
     <Compile Include="AutenticationDomain\Application\Comandos\CommandInsertRol.cs" />
     <Compile Include="AutenticationDomain\Application\Comandos\CommandUpdateRol.cs" />
+    <Compile Include="AutenticationDomain\Domain\Entities\User.cs" />
     <Compile Include="AutenticationDomain\Domain\Repositories\IRolRepositoryCommands.cs" />
     <Compile Include="AutenticationDomain\Domain\Repositories\IRolRepositoryReadOnly.cs" />
     <Compile Include="AutenticationDomain\Domain\ValueObjects\Rol.cs" />
     <Compile Include="AutenticationDomain\Ports\Output\Database\Mappings\RolMapping.cs" />
+    <Compile Include="AutenticationDomain\Ports\Output\Database\Mappings\UserMappings.cs" />
     <Compile Include="AutenticationDomain\Ports\Output\Database\RolRepositoryCommands.cs" />
     <Compile Include="AutenticationDomain\Ports\Output\Database\RolRepositoryReadOnly.cs" />
     <Compile Include="Bootstraper\ConfigureDataBase.cs" />
@@ -117,11 +119,12 @@
     <Compile Include="CommonDomain\Application\ICommandDeleteIdentity.cs" />
     <Compile Include="CommonDomain\Application\ICommandInsertIdentity.cs" />
     <Compile Include="CommonDomain\Application\ICommandUpdateIdentity.cs" />
+    <Compile Include="CommonDomain\Domain\Entity.cs" />
     <Compile Include="CommonDomain\Domain\IDomainObjectIdentified.cs" />
     <Compile Include="CommonDomain\Domain\IRepositoryCommands.cs" />
     <Compile Include="CommonDomain\Domain\IRepositoryReadOnly.cs" />
     <Compile Include="CommonDomain\Domain\IUnitOfWork.cs" />
-    <Compile Include="CommonDomain\Domain\IValueObject.cs" />
+    <Compile Include="CommonDomain\Domain\ValueObject.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\ApiBootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\Bootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\HelloModule.cs" />
@@ -145,7 +148,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AutenticationDomain\Domain\Entities\" />
     <Folder Include="AutenticationDomain\Ports\Input\" />
     <Folder Include="CommonDomain\Ports\Input\REST\API\" />
     <Folder Include="CommonDomain\Ports\Output\Database\Infraestructure\" />

@@ -33,7 +33,7 @@ namespace CNISS_Tests.Rol_Test.Commands
 
         Because of = () => _command.execute(_rolUpdated);
 
-        It should_update_identity= () => Mock.Get(_repository).Verify( x=> x.update( Moq.It.Is<Rol>( z => z.idKey == _rolUpdated.idKey)));
+        It should_update_identity= () => Mock.Get(_repository).Verify( x=> x.update( Moq.It.Is<Rol>( z => z.Id == _rolUpdated.Id)));
     }
 
     internal class DummyUnitOfWork:IUnitOfWork

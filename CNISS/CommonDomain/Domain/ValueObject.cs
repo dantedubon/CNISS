@@ -2,7 +2,7 @@
 {
     public abstract class ValueObject<TKey>:IDomainObjectIdentified<TKey>
     {
-        public virtual TKey idKey { get;  set; }
+        public virtual TKey Id { get;  set; }
 
       
     }

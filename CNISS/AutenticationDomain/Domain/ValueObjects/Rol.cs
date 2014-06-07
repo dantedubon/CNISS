@@ -7,7 +7,7 @@ namespace CNISS.AutenticationDomain.Domain.ValueObjects
     {
         public Rol() 
         {
-            idKey = new Guid();
+            Id = new Guid();
         }
 
         public Rol(string name, string description):this()

@@ -1,8 +1,10 @@
 ﻿using System;
 using Autofac;
+using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Ports.Output.Database.Mappings;
 using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Output.Database;
+using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
@@ -17,6 +19,7 @@ namespace CNISS.Bootstraper
         {
             get
             {
+              
                 log4net.Config.XmlConfigurator.Configure();
                 return builder =>
                 {
@@ -35,14 +38,15 @@ namespace CNISS.Bootstraper
         {
             get
             {
+                var storeConfig = new StoreConfiguration();
                 Configuration config = Fluently.Configure()
                .Database(
                    MsSqlConfiguration
                    .MsSql2012.ShowSql()
                     .ConnectionString(c => c.FromConnectionStringWithKey("CENSS_SQL")))
-                   .Mappings(m => m.FluentMappings.AddFromAssemblyOf<RolMapping>())
-                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserMappings>())
-              
+              //     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<RolMapping>())
+           //     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserMappings>())
+              .Mappings(m => m.AutoMappings.Add(AutoMap.AssemblyOf<User>(storeConfig)))
                    .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true)
                    )
                .BuildConfiguration();

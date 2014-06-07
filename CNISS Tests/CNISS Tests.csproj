@@ -108,6 +108,8 @@
     <Compile Include="Rol_Test\Modules\when_UserPostNewRol_RolInserted.cs" />
     <Compile Include="Rol_Test\Modules\when_UserPutExistingRol_Should_RolBeUpdated.cs" />
     <Compile Include="SecureBrowserExtensions.cs" />
+    <Compile Include="User_Test\Modules\when_UserPostExistingUser_ShouldReturnError.cs" />
+    <Compile Include="User_Test\Modules\when_UserPostNonExistingUser_CreateNewUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -100,18 +100,25 @@
   <ItemGroup>
     <Compile Include="AutenticationDomain\Application\Comandos\CommandDeleteRol.cs" />
     <Compile Include="AutenticationDomain\Application\Comandos\CommandInsertRol.cs" />
+    <Compile Include="AutenticationDomain\Application\Comandos\CommandInsertUser.cs" />
     <Compile Include="AutenticationDomain\Application\Comandos\CommandUpdateRol.cs" />
     <Compile Include="AutenticationDomain\Domain\Entities\User.cs" />
     <Compile Include="AutenticationDomain\Domain\Repositories\IRolRepositoryCommands.cs" />
     <Compile Include="AutenticationDomain\Domain\Repositories\IRolRepositoryReadOnly.cs" />
+    <Compile Include="AutenticationDomain\Domain\Repositories\IUserRepositoryCommands.cs" />
+    <Compile Include="AutenticationDomain\Domain\Repositories\IUserRepositoryReadOnly.cs" />
     <Compile Include="AutenticationDomain\Domain\ValueObjects\Rol.cs" />
     <Compile Include="AutenticationDomain\Ports\Output\Database\Mappings\RolMapping.cs" />
     <Compile Include="AutenticationDomain\Ports\Output\Database\Mappings\UserMappings.cs" />
     <Compile Include="AutenticationDomain\Ports\Output\Database\RolRepositoryCommands.cs" />
     <Compile Include="AutenticationDomain\Ports\Output\Database\RolRepositoryReadOnly.cs" />
+    <Compile Include="AutenticationDomain\Ports\Output\Database\UserRepositoryCommands.cs" />
+    <Compile Include="AutenticationDomain\Ports\Output\Database\UserRepositoryReadOnly.cs" />
     <Compile Include="Bootstraper\ConfigureDataBase.cs" />
+    <Compile Include="Bootstraper\ConfigureUserDependencies.cs" />
     <Compile Include="Bootstraper\IBootstrapperTask.cs" />
     <Compile Include="Bootstraper\ConfigureRoleDependencies.cs" />
+    <Compile Include="Bootstraper\StoreConfiguration.cs" />
     <Compile Include="CommonDomain\Application\CommandDeleteIdentity.cs" />
     <Compile Include="CommonDomain\Application\CommandInsertIdentity.cs" />
     <Compile Include="CommonDomain\Application\CommandUpdateIdentity.cs" />
@@ -132,7 +139,9 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolQuery\RolModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\RolModule\RolRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\UserRequest\UserRequest.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateCommandRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
@@ -150,6 +159,7 @@
   <ItemGroup>
     <Folder Include="AutenticationDomain\Ports\Input\" />
     <Folder Include="CommonDomain\Ports\Input\REST\API\" />
+    <Folder Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserQuery\" />
     <Folder Include="CommonDomain\Ports\Output\Database\Infraestructure\" />
   </ItemGroup>
   <PropertyGroup>

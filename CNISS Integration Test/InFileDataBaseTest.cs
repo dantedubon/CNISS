@@ -38,7 +38,8 @@ namespace CNISS_Integration_Test.Unit_Of_Work
             return Fluently.Configure()
                 .Database(SQLiteConfiguration
                     .Standard
-                    .UsingFile("dataTest.db"))
+                    .UsingFile("dataTest.db")
+                    .ShowSql)
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Rol>())
                 .ExposeConfiguration( BuildSchema)
                 .BuildConfiguration();

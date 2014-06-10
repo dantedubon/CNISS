@@ -14,7 +14,7 @@ namespace CNISS.CommonDomain.Application
             _factory = unitOfWork;
         }
 
-        public void execute(T identity)
+        public virtual void  execute(T identity)
         {
             
             var _uow = _factory();

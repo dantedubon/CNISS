@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 using CNISS.AutenticationDomain.Application.Comandos;
 using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.Repositories;
+using CNISS.AutenticationDomain.Domain.Services;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.AutenticationDomain.Ports.Output.Database;
 using CNISS.CommonDomain.Application;
@@ -18,8 +14,8 @@ using CNISS.CommonDomain.Ports.Output.Database;
 using CNISS_Integration_Test.Unit_Of_Work;
 using CNISS_Tests;
 using FizzWare.NBuilder;
-using FluentAssertions;
 using Machine.Specifications;
+using Nancy.Cryptography;
 using Nancy.Testing;
 using NHibernate;
 
@@ -46,16 +42,9 @@ namespace CNISS_Integration_Test.Modules.Users
              _userRol = Builder<RolRequest>.CreateNew().Build();
              _userRol.idGuid = Guid.NewGuid();
 
-          
 
-             var _rol = new Rol(_userRol.name, _userRol.description);
-             _rol.Id = _userRol.idGuid;
-       
-             Utils.insertEntity(_userRol.idGuid,_rol, _sessionFactory);
-
-
-       
-          
+             Rol _rol;
+             prepareRol(out _rol);
 
 
              _userRequest = Builder<UserRequest>.CreateNew().Build();
@@ -67,7 +56,15 @@ namespace CNISS_Integration_Test.Modules.Users
              _repositoryRead = new UserRepositoryReadOnly(_session2);
              _repositoryCommands = new UserRepositoryCommands(_session2);
 
-             _commandInsert = new CommandInsertUser(_repositoryCommands, 
+
+         
+             var _keyGenerator = new UserKeyGenerator(new RandomKeyGenerator());
+
+
+             var encryptService = new CryptoService(_keyGenerator, (x) => new DefaultHmacProvider(x));
+
+
+             _commandInsert = new CommandInsertUser(encryptService,_repositoryCommands, 
                  () => new NHibernateUnitOfWork(_session2));
              _browser = new Browser(
                  x =>
@@ -82,6 +79,14 @@ namespace CNISS_Integration_Test.Modules.Users
 
 
          };
+
+        private static void prepareRol(out Rol _rol)
+        {
+            _rol = new Rol(_userRol.name, _userRol.description);
+            _rol.Id = _userRol.idGuid;
+
+            Utils.insertEntity(_userRol.idGuid, _rol, _sessionFactory);
+        }
 
         private static void configureDataBase()
         {

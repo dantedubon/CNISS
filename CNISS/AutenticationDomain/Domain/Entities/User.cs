@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Domain;
 
@@ -13,7 +10,9 @@ namespace CNISS.AutenticationDomain.Domain.Entities
         public virtual String mail { get; set; }
         public virtual String secondName { get; set; }
         public virtual String password { get; set; }
+        public virtual String userKey { get; set; }
         public virtual Rol userRol { get; set; }
+       
 
         protected User()
         {
@@ -30,5 +29,7 @@ namespace CNISS.AutenticationDomain.Domain.Entities
             this.userRol = userRol;
 
         }
+
+        
     }
 }

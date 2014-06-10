@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CNISS.CommonDomain.Domain;
-using CNISS.CommonDomain.Ports.Output.Database;
-using NHibernate;
+﻿using NHibernate;
 
 namespace CNISS_Integration_Test
 {

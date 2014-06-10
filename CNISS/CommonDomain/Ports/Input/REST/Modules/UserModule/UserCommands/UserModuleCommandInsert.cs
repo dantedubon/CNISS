@@ -1,5 +1,4 @@
-﻿using System.Security.Policy;
-using CNISS.AutenticationDomain.Domain.Entities;
+﻿using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Application;
@@ -16,29 +15,37 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserCommands
         {
             Post["/user"] = parameters =>
             {
-                var _userRequest = this.Bind<UserRequest>();
-                  if (!repository.exists(_userRequest.Id))
+                 var _userRequest = this.Bind<UserRequest>();
+                if (_userRequest.isValidPost())
                 {
-                var _userRol = new Rol( _userRequest.userRol.name,
-                    _userRequest.userRol.description);
-                _userRol.Id = _userRequest.userRol.idGuid;
+                    if (!repository.exists(_userRequest.Id))
+                    {
+                        var _userRol = new Rol(_userRequest.userRol.name,
+                            _userRequest.userRol.description);
+                        _userRol.Id = _userRequest.userRol.idGuid;
 
-                var user = new User(_userRequest.Id,
-                    _userRequest.firstName,
-                    _userRequest.secondName,
-                    _userRequest.password,
-                    _userRequest.mail,
-                   _userRol);
-                commandInsert.execute(user);
+                        var user = new User(_userRequest.Id,
+                            _userRequest.firstName,
+                            _userRequest.secondName,
+                            _userRequest.password,
+                            _userRequest.mail,
+                           _userRol);
+                        commandInsert.execute(user);
+                       
+                        return new Response()
+                   .WithStatusCode(HttpStatusCode.OK);
+                    }
+                }
 
-                return new Response()
-           .WithStatusCode(HttpStatusCode.OK);
-                  }
+               
+               
 
                 return new Response()
                     .WithStatusCode(HttpStatusCode.NotAcceptable);
 
             };
         }
+
+     
     }
 }

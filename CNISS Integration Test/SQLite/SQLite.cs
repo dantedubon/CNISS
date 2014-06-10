@@ -110,7 +110,7 @@ namespace CNISS_Integration_Test.SQLite
     public enum CreateFlags
     {
         None = 0,
-        ImplicitPK = 1,    // create a primary key for field called 'Id' (Orm.ImplicitPkName)
+        ImplicitPK = 1,    // create a primary userKey for field called 'Id' (Orm.ImplicitPkName)
         ImplicitIndex = 2, // create an index for fields ending in 'Id' (Orm.ImplicitIndexSuffix)
         AllImplicit = 3,   // do both above
 
@@ -749,15 +749,15 @@ namespace CNISS_Integration_Test.SQLite
 		}
 
 		/// <summary>
-		/// Attempts to retrieve an object with the given primary key from the table
+		/// Attempts to retrieve an object with the given primary userKey from the table
 		/// associated with the specified type. Use of this method requires that
 		/// the given type have a designated PrimaryKey (using the PrimaryKeyAttribute).
 		/// </summary>
 		/// <param name="pk">
-		/// The primary key.
+		/// The primary userKey.
 		/// </param>
 		/// <returns>
-		/// The object with the given primary key. Throws a not found exception
+		/// The object with the given primary userKey. Throws a not found exception
 		/// if the object is not found.
 		/// </returns>
 		public T Get<T> (object pk) where T : new()
@@ -783,15 +783,15 @@ namespace CNISS_Integration_Test.SQLite
         }
 
 		/// <summary>
-		/// Attempts to retrieve an object with the given primary key from the table
+		/// Attempts to retrieve an object with the given primary userKey from the table
 		/// associated with the specified type. Use of this method requires that
 		/// the given type have a designated PrimaryKey (using the PrimaryKeyAttribute).
 		/// </summary>
 		/// <param name="pk">
-		/// The primary key.
+		/// The primary userKey.
 		/// </param>
 		/// <returns>
-		/// The object with the given primary key or null
+		/// The object with the given primary userKey or null
 		/// if the object is not found.
 		/// </returns>
 		public T Find<T> (object pk) where T : new ()
@@ -801,18 +801,18 @@ namespace CNISS_Integration_Test.SQLite
 		}
 
 		/// <summary>
-		/// Attempts to retrieve an object with the given primary key from the table
+		/// Attempts to retrieve an object with the given primary userKey from the table
 		/// associated with the specified type. Use of this method requires that
 		/// the given type have a designated PrimaryKey (using the PrimaryKeyAttribute).
 		/// </summary>
 		/// <param name="pk">
-		/// The primary key.
+		/// The primary userKey.
 		/// </param>
 		/// <param name="map">
 		/// The TableMapping used to identify the object type.
 		/// </param>
 		/// <returns>
-		/// The object with the given primary key or null
+		/// The object with the given primary userKey or null
 		/// if the object is not found.
 		/// </returns>
 		public object Find (object pk, TableMapping map)
@@ -1108,7 +1108,7 @@ namespace CNISS_Integration_Test.SQLite
 		
 		/// <summary>
 		/// Inserts the given object and retrieves its
-		/// auto incremented primary key if it has one.
+		/// auto incremented primary userKey if it has one.
 		/// </summary>
 		/// <param name="obj">
 		/// The object to insert.
@@ -1126,7 +1126,7 @@ namespace CNISS_Integration_Test.SQLite
 
 		/// <summary>
 		/// Inserts the given object and retrieves its
-		/// auto incremented primary key if it has one.
+		/// auto incremented primary userKey if it has one.
 		/// If a UNIQUE constraint violation occurs with
 		/// some pre-existing object, this function deletes
 		/// the old object.
@@ -1147,7 +1147,7 @@ namespace CNISS_Integration_Test.SQLite
 
 		/// <summary>
 		/// Inserts the given object and retrieves its
-		/// auto incremented primary key if it has one.
+		/// auto incremented primary userKey if it has one.
 		/// </summary>
 		/// <param name="obj">
 		/// The object to insert.
@@ -1165,7 +1165,7 @@ namespace CNISS_Integration_Test.SQLite
 
 		/// <summary>
 		/// Inserts the given object and retrieves its
-		/// auto incremented primary key if it has one.
+		/// auto incremented primary userKey if it has one.
 		/// If a UNIQUE constraint violation occurs with
 		/// some pre-existing object, this function deletes
 		/// the old object.
@@ -1186,7 +1186,7 @@ namespace CNISS_Integration_Test.SQLite
 		
 		/// <summary>
 		/// Inserts the given object and retrieves its
-		/// auto incremented primary key if it has one.
+		/// auto incremented primary userKey if it has one.
 		/// </summary>
 		/// <param name="obj">
 		/// The object to insert.
@@ -1207,7 +1207,7 @@ namespace CNISS_Integration_Test.SQLite
 
 	    /// <summary>
 	    /// Inserts the given object and retrieves its
-	    /// auto incremented primary key if it has one.
+	    /// auto incremented primary userKey if it has one.
 	    /// </summary>
 	    /// <param name="obj">
 	    /// The object to insert.
@@ -1296,11 +1296,11 @@ namespace CNISS_Integration_Test.SQLite
 
 		/// <summary>
 		/// Updates all of the columns of a table using the specified object
-		/// except for its primary key.
-		/// The object is required to have a primary key.
+		/// except for its primary userKey.
+		/// The object is required to have a primary userKey.
 		/// </summary>
 		/// <param name="obj">
-		/// The object to update. It must have a primary key designated using the PrimaryKeyAttribute.
+		/// The object to update. It must have a primary userKey designated using the PrimaryKeyAttribute.
 		/// </param>
 		/// <returns>
 		/// The number of rows updated.
@@ -1315,11 +1315,11 @@ namespace CNISS_Integration_Test.SQLite
 
 		/// <summary>
 		/// Updates all of the columns of a table using the specified object
-		/// except for its primary key.
-		/// The object is required to have a primary key.
+		/// except for its primary userKey.
+		/// The object is required to have a primary userKey.
 		/// </summary>
 		/// <param name="obj">
-		/// The object to update. It must have a primary key designated using the PrimaryKeyAttribute.
+		/// The object to update. It must have a primary userKey designated using the PrimaryKeyAttribute.
 		/// </param>
 		/// <param name="objType">
 		/// The type of object to insert.
@@ -1388,10 +1388,10 @@ namespace CNISS_Integration_Test.SQLite
 		}
 
 		/// <summary>
-		/// Deletes the given object from the database using its primary key.
+		/// Deletes the given object from the database using its primary userKey.
 		/// </summary>
 		/// <param name="objectToDelete">
-		/// The object to delete. It must have a primary key designated using the PrimaryKeyAttribute.
+		/// The object to delete. It must have a primary userKey designated using the PrimaryKeyAttribute.
 		/// </param>
 		/// <returns>
 		/// The number of rows deleted.
@@ -1408,10 +1408,10 @@ namespace CNISS_Integration_Test.SQLite
 		}
 
 		/// <summary>
-		/// Deletes the object with the specified primary key.
+		/// Deletes the object with the specified primary userKey.
 		/// </summary>
 		/// <param name="primaryKey">
-		/// The primary key of the object to delete.
+		/// The primary userKey of the object to delete.
 		/// </param>
 		/// <returns>
 		/// The number of objects deleted.
@@ -1842,7 +1842,7 @@ namespace CNISS_Integration_Test.SQLite
 			string decl = "\"" + p.Name + "\" " + SqlType (p, storeDateTimeAsTicks) + " ";
 			
 			if (p.IsPK) {
-				decl += "primary key ";
+				decl += "primary userKey ";
 			}
 			if (p.IsAutoInc) {
 				decl += "autoincrement ";

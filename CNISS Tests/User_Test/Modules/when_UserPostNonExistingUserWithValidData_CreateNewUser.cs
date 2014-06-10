@@ -1,8 +1,6 @@
 ﻿using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.Repositories;
-using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Application;
-using CNISS.CommonDomain.Ports.Input.REST.Modules.RolModule.RolCommand;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserCommands;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
@@ -15,7 +13,7 @@ using It = Machine.Specifications.It;
 namespace CNISS_Tests.User_Test.Modules
 {
     [Subject(typeof (UserModuleCommandInsert))]
-    public class when_UserPostNonExistingUser_CreateNewUser
+    public class when_UserPostNonExistingUserWithValidData_CreateNewUser
     {
         static Browser _browser;
         static BrowserResponse _response;

@@ -1,11 +1,9 @@
 using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Application;
-using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using Nancy;
 using Nancy.ModelBinding;
-using NHibernate.Param;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.RolModule.RolCommand
 {

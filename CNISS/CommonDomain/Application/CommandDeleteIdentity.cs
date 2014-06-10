@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using CNISS.CommonDomain.Domain;
 
 namespace CNISS.CommonDomain.Application

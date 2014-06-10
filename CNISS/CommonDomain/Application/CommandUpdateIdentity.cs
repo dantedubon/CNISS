@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using CNISS.CommonDomain.Domain;
 
 namespace CNISS.CommonDomain.Application
@@ -16,7 +13,7 @@ namespace CNISS.CommonDomain.Application
             _repository = repository;
             _factory = unitOfWork;
         }
-        public void execute(T identity)
+        public virtual void execute(T identity)
         {
             var _uow = _factory();
             using (_uow)

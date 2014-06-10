@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using CNISS.AutenticationDomain.Application.Comandos;
 using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
@@ -34,23 +31,5 @@ namespace CNISS_Tests.Rol_Test.Commands
         Because of = () => _command.execute(_rolUpdated);
 
         It should_update_identity= () => Mock.Get(_repository).Verify( x=> x.update( Moq.It.Is<Rol>( z => z.Id == _rolUpdated.Id)));
-    }
-
-    internal class DummyUnitOfWork:IUnitOfWork
-    {
-        public void Dispose()
-        {
-            
-        }
-
-        public void commit()
-        {
-           
-        }
-
-        public void rollback()
-        {
-           
-        }
     }
 }

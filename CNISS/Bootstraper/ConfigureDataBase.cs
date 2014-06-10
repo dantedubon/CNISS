@@ -1,7 +1,6 @@
 ﻿using System;
 using Autofac;
 using CNISS.AutenticationDomain.Domain.Entities;
-using CNISS.AutenticationDomain.Ports.Output.Database.Mappings;
 using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Output.Database;
 using FluentNHibernate.Automapping;

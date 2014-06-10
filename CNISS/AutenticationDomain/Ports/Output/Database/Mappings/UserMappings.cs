@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using CNISS.AutenticationDomain.Domain.Entities;
+﻿using CNISS.AutenticationDomain.Domain.Entities;
 using FluentNHibernate.Mapping;
 
 namespace CNISS.AutenticationDomain.Ports.Output.Database.Mappings
@@ -14,8 +10,9 @@ namespace CNISS.AutenticationDomain.Ports.Output.Database.Mappings
             Id(x => x.Id);
             Map(x => x.firstName);
             Map(x => x.mail);
-            Map(x => x.password);
             Map(x => x.secondName);
+            Map(x => x.password);
+            Map(x => x.userKey);
             References(x => x.userRol);
         }
     }

@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
 using Nancy;
+using HttpStatusCode = Nancy.HttpStatusCode;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserQuery
 {
@@ -17,6 +19,33 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserQuery
                 var userResponse = repository.getAll();
                 return Response.AsJson(convertToRequest(userResponse))
                     .WithStatusCode(HttpStatusCode.OK);
+            };
+
+            Get["/user/id={id}"] = parameters =>
+            {
+                string idUser = parameters.id;
+                var user = repository.get(idUser);
+                UserRequest response = convertToRequest(user);
+                return Response.AsJson(response)
+                    .WithStatusCode(HttpStatusCode.OK);
+            };
+        }
+
+        private UserRequest convertToRequest(User user)
+        {
+            return new UserRequest
+            {
+                firstName = user.firstName,
+                secondName = user.secondName,
+                Id = user.Id,
+                mail = user.mail,
+                password = "",
+                userRol = new RolRequest
+                {
+                    description = user.userRol.description,
+                    name = user.userRol.name,
+                    idGuid = user.userRol.Id
+                }
             };
         }
 

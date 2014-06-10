@@ -103,7 +103,7 @@
     <Compile Include="Rol_Test\Modules\when_UserDeleteNonExistingRol_ShouldReturnError.cs" />
     <Compile Include="Rol_Test\Modules\when_UserDeleteExistingRol_Should_DeleteRol.cs" />
     <Compile Include="Rol_Test\Modules\when_UserPutNonExistingRole_Should_ReturnNotFound.cs" />
-    <Compile Include="Rol_Test\Modules\when_a_user_list_all_rol.cs" />
+    <Compile Include="Rol_Test\Modules\when_GetAllRols_Should_ReturnAllRol.cs" />
     <Compile Include="Rol_Test\Modules\when_UserGetSpecificRol_Should_ReturnRol.cs" />
     <Compile Include="Rol_Test\Modules\when_UserPostIncompleteRol_Should_ReturnBadRequest.cs" />
     <Compile Include="Rol_Test\Modules\when_UserPostNewRol_RolInserted.cs" />
@@ -111,6 +111,7 @@
     <Compile Include="SecureBrowserExtensions.cs" />
     <Compile Include="User_Test\Commands\CommandUpdateUser_Test.cs" />
     <Compile Include="User_Test\Commands\CommandInsertUser_Test.cs" />
+    <Compile Include="User_Test\Modules\when_UserGetAllUsers_Should_ReturnAllUsers.cs" />
     <Compile Include="User_Test\Modules\when_UserDeleteExistingUserWithInvalidData_Should_ReturnError.cs" />
     <Compile Include="User_Test\Modules\when_UserDeleteNonExistingUser_Should_ReturnError.cs" />
     <Compile Include="User_Test\Modules\when_UserDeleteExistingRolWithValidData_Should_DeleteUser.cs" />

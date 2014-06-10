@@ -12,7 +12,7 @@ using It = Machine.Specifications.It;
 namespace CNISS_Tests.Rol_Test.Modules
 {
     [Subject(subjectType: typeof(RolModuleQuery))]
-    public class when_a_user_list_all_rol
+    public class when_GetAllRols_Should_ReturnAllRol
     {
         static Browser _browser;
         static IEnumerable<Rol> _rolCollection;
@@ -35,7 +35,7 @@ namespace CNISS_Tests.Rol_Test.Modules
                 x =>
                 {
                     x.Module<RolModuleQuery>();
-                    x.Dependency<IRolRepositoryReadOnly>(_repositoryReadOnly);
+                    x.Dependency(_repositoryReadOnly);
 
                 }
             );

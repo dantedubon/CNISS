@@ -147,6 +147,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandUpdate.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserQuery\UserModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\IValidRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\RolModule\RolRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\UserRequest\UserRequest.cs" />
@@ -167,7 +168,6 @@
   <ItemGroup>
     <Folder Include="AutenticationDomain\Ports\Input\" />
     <Folder Include="CommonDomain\Ports\Input\REST\API\" />
-    <Folder Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserQuery\" />
     <Folder Include="CommonDomain\Ports\Output\Database\Infraestructure\" />
   </ItemGroup>
   <PropertyGroup>

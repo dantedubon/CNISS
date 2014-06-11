@@ -66,7 +66,7 @@ namespace CNISS_Tests.User_Test.Modules
                 secondName = x.secondName,
                 Id = x.Id,
                 mail = x.mail,
-                password = x.password,
+                password = "",
                 
                  userRol = new RolRequest
                 {

@@ -120,6 +120,7 @@
     <Compile Include="AutenticationDomain\Ports\Output\Database\UserRepositoryCommands.cs" />
     <Compile Include="AutenticationDomain\Ports\Output\Database\UserRepositoryReadOnly.cs" />
     <Compile Include="Bootstraper\ConfigureDataBase.cs" />
+    <Compile Include="Bootstraper\ConfigureEnterpriseServices.cs" />
     <Compile Include="Bootstraper\ConfigureUserDependencies.cs" />
     <Compile Include="Bootstraper\IBootstrapperTask.cs" />
     <Compile Include="Bootstraper\ConfigureRoleDependencies.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="CommonDomain\Domain\ValueObject.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\ApiBootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\Bootstrapper.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\EnterpriseServiceModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\HelloModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandInsert.cs" />
@@ -154,6 +156,9 @@
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateCommandRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
+    <Compile Include="EnterpriseDomain\Application\IServiceValidatorRTN.cs" />
+    <Compile Include="EnterpriseDomain\Application\ServiceValidatorRTN.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Service\ContribuyenteDomainService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +174,7 @@
     <Folder Include="AutenticationDomain\Ports\Input\" />
     <Folder Include="CommonDomain\Ports\Input\REST\API\" />
     <Folder Include="CommonDomain\Ports\Output\Database\Infraestructure\" />
+    <Folder Include="EnterpriseDomain\Ports\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -111,6 +111,7 @@
     <Compile Include="SecureBrowserExtensions.cs" />
     <Compile Include="User_Test\Commands\CommandUpdateUser_Test.cs" />
     <Compile Include="User_Test\Commands\CommandInsertUser_Test.cs" />
+    <Compile Include="User_Test\Modules\when_UserGetUserByIdAndGivesEmptyID_Should_ReturnError.cs" />
     <Compile Include="User_Test\Modules\when_GetUserByID_Should_ReturnUser.cs" />
     <Compile Include="User_Test\Modules\when_UserGetAllUsers_Should_ReturnAllUsers.cs" />
     <Compile Include="User_Test\Modules\when_UserDeleteExistingUserWithInvalidData_Should_ReturnError.cs" />

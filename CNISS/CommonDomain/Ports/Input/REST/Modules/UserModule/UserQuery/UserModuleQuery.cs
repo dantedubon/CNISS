@@ -24,10 +24,18 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserQuery
             Get["/user/id={id}"] = parameters =>
             {
                 string idUser = parameters.id;
-                var user = repository.get(idUser);
-                UserRequest response = convertToRequest(user);
-                return Response.AsJson(response)
-                    .WithStatusCode(HttpStatusCode.OK);
+                if (!string.IsNullOrEmpty(idUser))
+                {
+                    var user = repository.get(idUser);
+                    UserRequest response = convertToRequest(user);
+                    return Response.AsJson(response)
+                        .WithStatusCode(HttpStatusCode.OK); 
+                }
+                return new Response()
+                    .WithStatusCode(HttpStatusCode.NotAcceptable);
+
+
+
             };
         }
 

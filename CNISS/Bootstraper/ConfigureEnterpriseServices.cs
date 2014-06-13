@@ -1,7 +1,9 @@
 using System;
 using Autofac;
 using CNISS.EnterpriseDomain.Application;
+using CNISS.EnterpriseDomain.Domain.Repositories;
 using CNISS.EnterpriseDomain.Domain.Service;
+using CNISS.EnterpriseDomain.Ports.Output.Database;
 
 namespace CNISS.Bootstraper
 {
@@ -15,6 +17,7 @@ namespace CNISS.Bootstraper
                 {
                     builder.Register(x => new ContribuyenteDomainService());
                     builder.RegisterType<ServiceValidatorRTN>().As<IServiceValidatorRTN>();
+                    builder.RegisterType<DepartamentRepositoryReadOnly>().As<IDepartamentRepositoryReadOnly>();
                 };
             }
         }

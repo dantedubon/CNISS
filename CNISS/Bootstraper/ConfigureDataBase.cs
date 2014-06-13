@@ -3,6 +3,7 @@ using Autofac;
 using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Output.Database;
+using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
@@ -46,6 +47,7 @@ namespace CNISS.Bootstraper
               //     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<RolMapping>())
            //     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserMappings>())
               .Mappings(m => m.AutoMappings.Add(AutoMap.AssemblyOf<User>(storeConfig)))
+              .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Departamento>())
                    .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true)
                    )
                .BuildConfiguration();

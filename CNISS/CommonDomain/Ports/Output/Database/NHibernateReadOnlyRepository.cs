@@ -24,7 +24,7 @@ namespace CNISS.CommonDomain.Ports.Output.Database
 
         
 
-        public IEnumerable<T> getAll()
+        public virtual IEnumerable<T> getAll()
         {
             return Session.Query<T>().ToList();
         }

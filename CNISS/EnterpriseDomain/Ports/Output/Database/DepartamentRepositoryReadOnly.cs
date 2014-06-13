@@ -13,6 +13,9 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
     {
         public DepartamentRepositoryReadOnly(ISession session) : base(session)
         {
+           
         }
+
+       
     }
 }

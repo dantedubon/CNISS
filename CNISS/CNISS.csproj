@@ -142,6 +142,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\Bootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\DepartamentoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\EnterpriseServiceModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\PersonRNPModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\HelloModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandInsert.cs" />
@@ -161,7 +162,9 @@
     <Compile Include="EnterpriseDomain\Application\IServiceValidatorRTN.cs" />
     <Compile Include="EnterpriseDomain\Application\ServiceValidatorRTN.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\BusinessEntities.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Entities\PersonRNP.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IDepartamentRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\IPersonRNPRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\Departamento.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\Municipio.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\RTN.cs" />
@@ -169,6 +172,8 @@
     <Compile Include="EnterpriseDomain\Ports\Output\Database\DepartamentRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\DepartamentosMapping.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\MunicipiosMapping.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\PersonRNPMapping.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\PersonRNPRepositoryReadOnly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

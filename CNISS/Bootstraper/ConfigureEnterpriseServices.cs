@@ -18,6 +18,7 @@ namespace CNISS.Bootstraper
                     builder.Register(x => new ContribuyenteDomainService());
                     builder.RegisterType<ServiceValidatorRTN>().As<IServiceValidatorRTN>();
                     builder.RegisterType<DepartamentRepositoryReadOnly>().As<IDepartamentRepositoryReadOnly>();
+                    builder.RegisterType<PersonRNPRepositoryReadOnly>().As<IPersonRNPRepositoryReadOnly>();
                 };
             }
         }

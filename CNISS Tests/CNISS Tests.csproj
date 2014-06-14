@@ -97,6 +97,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainServices\Modules\when_UserGetPersonGiveInvalidID_Should_Return_Error.cs" />
+    <Compile Include="DomainServices\Modules\when_UserGetPersonGiveValidId_Should_ReturnPersonInformation.cs" />
     <Compile Include="DomainServices\Modules\when_UserGetInvalidRTN_Should_ReturnFalse.cs" />
     <Compile Include="DomainServices\Modules\when_UserGetValidRTN_Should_ReturnTrue.cs" />
     <Compile Include="DummyUnitOfWork.cs" />

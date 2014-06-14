@@ -12,7 +12,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
     {
         public PersonRNPModule(IPersonRNPRepositoryReadOnly repository)
         {
-            Get["/enterprise/Person/{id}"] = parameters =>
+            Get["/enterprise/Person/id={id}"] = parameters =>
             {
                 string id = parameters.id;
                 if (!string.IsNullOrEmpty(id))

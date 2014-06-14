@@ -10,7 +10,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
     {
         public virtual string departamentoId { get; set; } 
         public virtual string nombre { get; set; }
-    
+        public virtual Departamento departamento { get; set; }
 
              #region NHibernate Composite Key Requirements
         public override bool Equals(object obj) {

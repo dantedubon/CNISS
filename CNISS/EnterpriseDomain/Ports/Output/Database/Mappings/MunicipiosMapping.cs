@@ -13,11 +13,13 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
         {
             Table("Municipios");
             ReadOnly();
-            LazyLoad();
+      
             CompositeId().KeyProperty(x => x.departamentoId, "CodigoDepartamento")
                 .KeyProperty( x => x.Id,"CodigoMunicipio");
             Map(x => x.nombre).Column("DescripcionMunicipio");
-     
+            References(x => x.departamento)
+                .Class<Departamento>()
+                .Columns("CodigoDepartamento");
 
 
         }

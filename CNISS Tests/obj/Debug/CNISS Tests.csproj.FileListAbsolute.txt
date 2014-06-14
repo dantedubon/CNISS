@@ -1,3 +1,4 @@
+C:\CNISS\CNISS Tests\bin\CNISS Tests.dll.config
 C:\CNISS\CNISS Tests\bin\CNISS Tests.dll
 C:\CNISS\CNISS Tests\bin\CNISS Tests.pdb
 C:\CNISS\CNISS Tests\bin\CNISS.dll
@@ -14,7 +15,6 @@ C:\CNISS\CNISS Tests\bin\nunit.framework.dll
 C:\CNISS\CNISS Tests\bin\Should.dll
 C:\CNISS\CNISS Tests\bin\Should.Fluent.dll
 C:\CNISS\CNISS Tests\bin\FluentNHibernate.dll
-C:\CNISS\CNISS Tests\bin\Autofac.dll
 C:\CNISS\CNISS Tests\bin\Nancy.Bootstrappers.Autofac.dll
 C:\CNISS\CNISS Tests\bin\NHibernate.dll
 C:\CNISS\CNISS Tests\bin\log4net.dll
@@ -30,10 +30,11 @@ C:\CNISS\CNISS Tests\bin\Nancy.xml
 C:\CNISS\CNISS Tests\bin\Nancy.Testing.xml
 C:\CNISS\CNISS Tests\bin\nunit.framework.xml
 C:\CNISS\CNISS Tests\bin\FluentNHibernate.xml
-C:\CNISS\CNISS Tests\bin\Autofac.xml
 C:\CNISS\CNISS Tests\bin\NHibernate.xml
 C:\CNISS\CNISS Tests\bin\log4net.xml
 C:\CNISS\CNISS Tests\bin\Iesi.Collections.xml
 C:\CNISS\CNISS Tests\obj\Debug\CNISS Tests.csprojResolveAssemblyReference.cache
 C:\CNISS\CNISS Tests\obj\Debug\CNISS Tests.dll
 C:\CNISS\CNISS Tests\obj\Debug\CNISS Tests.pdb
+C:\CNISS\CNISS Tests\bin\Autofac.dll
+C:\CNISS\CNISS Tests\bin\Autofac.xml

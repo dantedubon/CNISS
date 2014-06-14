@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using CNISS.CommonDomain.Domain;
+﻿using CNISS.CommonDomain.Domain;
 
 namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 {
@@ -10,7 +6,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
     {
         public virtual string departamentoId { get; set; } 
         public virtual string nombre { get; set; }
-        public virtual Departamento departamento { get; set; }
+        
 
              #region NHibernate Composite Key Requirements
         public override bool Equals(object obj) {

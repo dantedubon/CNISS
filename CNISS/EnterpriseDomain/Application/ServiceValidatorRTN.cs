@@ -1,5 +1,4 @@
 using System;
-using System.Web.UI;
 using CNISS.EnterpriseDomain.Domain.Service;
 
 namespace CNISS.EnterpriseDomain.Application

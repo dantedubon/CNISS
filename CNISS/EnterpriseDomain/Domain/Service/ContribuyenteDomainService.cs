@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
-
-namespace CNISS.EnterpriseDomain.Domain.Service
+﻿namespace CNISS.EnterpriseDomain.Domain.Service
 {
     /*Legacy Code*/
     public class ContribuyenteDomainService

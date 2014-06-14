@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
-using System.Web;
 using CNISS.CommonDomain.Ports.Output.Database;
 using CNISS.EnterpriseDomain.Domain.Repositories;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using NHibernate;
-using NHibernate.Criterion;
 using NHibernate.Linq;
-using NHibernate.Mapping;
-using NHibernate.Transform;
 
 namespace CNISS.EnterpriseDomain.Ports.Output.Database
 {
@@ -21,7 +15,9 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
            
         }
 
-        public override IEnumerable<Departamento> getAll()
+
+
+       /* public override IEnumerable<Departamento> getAll()
         {
             var list = Session.CreateCriteria<Departamento>().List<Departamento>();
             var query = list.Select(x => new Departamento
@@ -36,6 +32,18 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
                 })
             });
             return query.ToList();
+        }*/
+
+
+        private bool isMunicipioFromDepartamento(string idMunicipio, string departamentoId)
+        {
+            var departamento = Session.Get<Departamento>(departamentoId);
+            return departamento != null && departamento.municipios.Any(x => x.Id == idMunicipio && x.departamentoId == departamentoId);
+        }
+
+        public bool isMunicipioFromDepartamento(Municipio _municipio)
+        {
+            return isMunicipioFromDepartamento(_municipio.Id, _municipio.departamentoId);
         }
     }
 }

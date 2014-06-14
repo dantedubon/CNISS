@@ -1,7 +1,6 @@
 using System;
 using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
-using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using FluentNHibernate.Automapping;
 
 namespace CNISS.Bootstraper

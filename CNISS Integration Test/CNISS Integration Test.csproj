@@ -114,6 +114,9 @@
   <ItemGroup>
     <Compile Include="InMemoryDataBaseTest.cs" />
     <Compile Include="Modules\Users\when_UserPostNewUser_Should_SaveNewUser.cs" />
+    <Compile Include="Repositories\DepartamentoRepository\when_UserAskIfMunicipioBelongDepartamento_Should_ReturnTrue.cs" />
+    <Compile Include="Repositories\MunicipioRepository\when_UserAskIfMunicipioBelongDepartamentoMunicipioNotExist_Should_ReturnFalse.cs" />
+    <Compile Include="Repositories\MunicipioRepository\when_UserGetSpecificMunicipioById_Should_ReturnMunicipio.cs" />
     <Compile Include="Repositories\RolRepository\Command\when_UpdateNewRol_Should_RepositoryUpdate.cs" />
     <Compile Include="Repositories\RolRepository\Command\when_DeleteRol_Should_RepositoryDelete.cs" />
     <Compile Include="Repositories\RolRepository\Command\when_InsertNewRol_Should_RepositorySave.cs" />

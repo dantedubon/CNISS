@@ -103,6 +103,8 @@
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetValidRTN_Should_ReturnTrue.cs" />
     <Compile Include="DummyUnitOfWork.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Gremio_Test.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Module\when_UserPostGremioWithBadData_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Module\when_UserPostValidGremio_Should_SaveGremio.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Request\GremioRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Departamento_Test\Departamento_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Departamento_Test\Request\DepartamentoRequest_Test.cs" />
@@ -158,7 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Autentication Test\User_Test\Cryptography\" />
-    <Folder Include="Enterprise Test\Entities_Test\Gremio_Test\Module\" />
     <Folder Include="Enterprise Test\Modules_Test\" />
   </ItemGroup>
   <PropertyGroup>

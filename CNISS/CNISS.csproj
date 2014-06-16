@@ -145,6 +145,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\DepartamentoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\EnterpriseServiceModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\PersonRNPModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\HelloModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandInsert.cs" />
@@ -155,6 +156,13 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserQuery\UserModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\DepartamentoRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\DireccionRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\GremioRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\IdentidadRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\MunicipioRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\RepresentanteLegalRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\RTNRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\IValidRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\RolModule\RolRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\UserRequest\UserRequest.cs" />
@@ -172,9 +180,11 @@
     <Compile Include="EnterpriseDomain\Domain\Repositories\IDireccionRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IDireccionRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IGremioRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\IGremioRespositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IMunicipioRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IPersonRNPRepositoryReadOnly.cs" />
-    <Compile Include="EnterpriseDomain\Domain\Repositories\IRepresentanteLegalReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\IRepresentanteLegalRepositoryCommands.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\IRepresentanteLegalRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\Departamento.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\Direccion.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\Identidad.cs" />
@@ -183,6 +193,7 @@
     <Compile Include="EnterpriseDomain\Domain\Service\ContribuyenteDomainService.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\DepartamentRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\DireccionRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\GremioRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\GremioRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\DepartamentosMapping.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\DireccionMapping.cs" />
@@ -193,6 +204,7 @@
     <Compile Include="EnterpriseDomain\Ports\Output\Database\MunicipioRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\PersonRNPRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\DireccionRepositoryCommand.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\RepresentanteLegalRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\RepresentanteLegalRepositoryReadOnly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

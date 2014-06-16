@@ -1,5 +1,6 @@
 ﻿using System;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
+using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using NUnit.Framework;
 
 namespace CNISS_Tests.Enterprise_Test.ValueObject_Test

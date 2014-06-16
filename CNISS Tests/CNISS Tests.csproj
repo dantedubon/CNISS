@@ -102,11 +102,16 @@
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetInvalidRTN_Should_ReturnFalse.cs" />
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetValidRTN_Should_ReturnTrue.cs" />
     <Compile Include="DummyUnitOfWork.cs" />
-    <Compile Include="Enterprise Test\Entities_Test\Gremio_Test.cs" />
-    <Compile Include="Enterprise Test\ValueObject Test\Departamento_Test.cs" />
-    <Compile Include="Enterprise Test\ValueObject Test\Direccion_Test.cs" />
-    <Compile Include="Enterprise Test\ValueObject Test\Identidad_Test.cs" />
-    <Compile Include="Enterprise Test\Entities_Test\RepresentanteLegal_Test.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Gremio\Gremio_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Departamento_Test\Departamento_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Departamento_Test\Request\DepartamentoRequest_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Direccion\DireccionRequest_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Direccion\Direccion_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Identidad_Test\Identidad_Test.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\RepresentanteLegal\RepresentanteLegal_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Identidad_Test\Request\IdentidadRequest_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Municipio_Test\Request\MunicipioRequest_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\RTN_Test\Request\RTNRequest_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Autentication Test\Rol_Test\Commands\when_CommandUpdateIdentity_Shuld_UpdateIdentity.cs" />
     <Compile Include="Autentication Test\Rol_Test\Modules\when_UserDeleteNonExistingRol_ShouldReturnError.cs" />
@@ -151,6 +156,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Autentication Test\User_Test\Cryptography\" />
+    <Folder Include="Enterprise Test\Entities_Test\Gremio\Module\" />
+    <Folder Include="Enterprise Test\Modules_Test\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

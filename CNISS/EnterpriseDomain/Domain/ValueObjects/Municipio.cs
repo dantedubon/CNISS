@@ -6,9 +6,20 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
     {
         public virtual string departamentoId { get; set; } 
         public virtual string nombre { get; set; }
-        
 
-             #region NHibernate Composite Key Requirements
+        public Municipio(string id, string departamentoId, string nombre) : base(id)
+        {
+            this.departamentoId = departamentoId;
+            this.nombre = nombre;
+        }
+
+
+        public Municipio()
+        {
+            
+        }
+
+        #region NHibernate Composite Key Requirements
         public override bool Equals(object obj) {
             if (obj == null) return false;
             var t = obj as Municipio;

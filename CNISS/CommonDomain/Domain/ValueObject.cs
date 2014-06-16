@@ -4,6 +4,15 @@
     {
         public virtual TKey Id { get;  set; }
 
+        protected ValueObject()
+        {
+           
+        }
+
+        protected ValueObject(TKey id)
+        {
+            Id = id;
+        }
       
     }
 

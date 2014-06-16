@@ -4,7 +4,7 @@ using CNISS.EnterpriseDomain.Domain.ValueObjects;
 
 namespace CNISS.EnterpriseDomain.Domain.Repositories
 {
-    public interface IRepresentanteLegalReadOnly : IRepositoryReadOnly<RepresentanteLegal, Identidad>
+    public interface IRepresentanteLegalRepositoryReadOnly : IRepositoryReadOnly<RepresentanteLegal, Identidad>
     {
         
     }

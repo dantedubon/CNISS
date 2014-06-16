@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using CNISS.CommonDomain.Ports.Output.Database;
 using CNISS.EnterpriseDomain.Domain.Repositories;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using NHibernate;
-using NHibernate.Linq;
 
 namespace CNISS.EnterpriseDomain.Ports.Output.Database
 {
@@ -35,15 +33,15 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
         }*/
 
 
-        private bool isMunicipioFromDepartamento(string idMunicipio, string departamentoId)
+        private bool isValidMunicipio(string idMunicipio, string departamentoId)
         {
             var departamento = Session.Get<Departamento>(departamentoId);
             return departamento != null && departamento.municipios.Any(x => x.Id == idMunicipio && x.departamentoId == departamentoId);
         }
 
-        public bool isMunicipioFromDepartamento(Municipio _municipio)
+        public bool isValidMunicipio(Municipio _municipio)
         {
-            return isMunicipioFromDepartamento(_municipio.Id, _municipio.departamentoId);
+            return isValidMunicipio(_municipio.Id, _municipio.departamentoId);
         }
     }
 }

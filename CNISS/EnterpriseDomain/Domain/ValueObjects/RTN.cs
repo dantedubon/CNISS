@@ -4,21 +4,44 @@ using CNISS.CommonDomain.Domain;
 
 namespace CNISS.EnterpriseDomain.Domain
 {
-    public class RTN:ValueObject<string>
+    public class RTN:IDomainObjectNotIdentified, IEquatable<RTN>
     {
+        public virtual string rtn { get; set; }
+
         protected RTN()
         {
-            
+
+        }
+      
+
+        public bool Equals(RTN other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return string.Equals(rtn, other.rtn);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((RTN) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return (rtn != null ? rtn.GetHashCode() : 0);
         }
 
         public RTN(string rtn)
         {
-            this.Id = rtn;
+            this.rtn = rtn;
         }
 
         public bool isRTNValid()
         {
-            var rtn = this.Id;
+           
             if (string.IsNullOrEmpty(rtn)) throw new ArgumentNullException("rtn");
             if (rtn == @"00000000000000") return false;
             if (rtn.Length != 14) return false;

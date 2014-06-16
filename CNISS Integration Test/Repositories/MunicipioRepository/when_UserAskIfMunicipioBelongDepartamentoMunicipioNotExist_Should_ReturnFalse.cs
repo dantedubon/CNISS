@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using CNISS.EnterpriseDomain.Ports.Output.Database;
 using FizzWare.NBuilder;
@@ -60,7 +56,7 @@ namespace CNISS_Integration_Test.Repositories.MunicipioRepository
 
         Because of = () =>
         {
-            _response = _repositoryRead.isMunicipioFromDepartamento(_municipioNotFromDepartamento);
+            _response = _repositoryRead.isValidMunicipio(_municipioNotFromDepartamento);
         };
 
          It should_return_true = () => _response.Should().BeFalse();

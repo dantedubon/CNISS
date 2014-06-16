@@ -6,18 +6,16 @@ using FluentAssertions;
 using Machine.Specifications;
 using NHibernate;
 
-namespace CNISS_Integration_Test.Repositories.DepartamentoRepository
+namespace CNISS_Integration_Test.Repositories.DireccionRepository
 {
-    [Subject(typeof (DepartamentRepositoryReadOnly))]
-    public class when_UserAskIfMunicipioBelongDepartamento_Should_ReturnTrue
+    [Subject(typeof (DireccionRepositoryReadOnly))]
+    public class when_UserAskForDireccionById_Return_Direccion
     {
         static InMemoryDatabaseTest _databaseTest;
         static ISession _session;
-        static DepartamentRepositoryReadOnly _repositoryRead;
-         static Departamento _departamento;
-         static Municipio _municipio;
-         static bool _response;
-
+        static DireccionRepositoryReadOnly _repository;
+        static Direccion _response;
+        static Direccion _expecteDireccion;
 
          Establish context = () =>
          {
@@ -26,37 +24,36 @@ namespace CNISS_Integration_Test.Repositories.DepartamentoRepository
 
              _session = _databaseTest.session;
 
-             _repositoryRead = new DepartamentRepositoryReadOnly(_session);
-
+             _repository = new DireccionRepositoryReadOnly(_session);
              var idMunicipio = "municipio1";
              var idDepartamento = "departamento1";
-             _municipio = Builder<Municipio>.CreateNew()
+             var municipio = Builder<Municipio>.CreateNew()
                  .With(x => x.Id = idMunicipio)
                  .With(x => x.departamentoId = idDepartamento)
                  .Build();
-             _departamento = Builder<Departamento>.CreateNew()
+             var departamento = Builder<Departamento>.CreateNew()
                  .With(x => x.Id = idDepartamento)
                  .With(x => x.municipios = new List<Municipio>
                  {
-                     _municipio
+                     municipio
                  })
                  .Build();
+
+             _expecteDireccion = new Direccion(departamento, municipio, "Barrio Abajo");
 
 
              using (var tx = _session.BeginTransaction())
              {
-                 _session.Save(_departamento);
-                 _session.Save(_municipio);
+                 _session.Save(departamento);
+                 _session.Save(municipio);
+                 _session.Save(_expecteDireccion);
                  tx.Commit();
              }
              _session.Clear();
          };
 
-         Because of = () =>
-         {
-             _response = _repositoryRead.isValidMunicipio(_municipio);
-         };
+         Because of = () => { _response = _repository.get(_expecteDireccion.Id); };
 
-        It should_return_true = () => _response.Should().BeTrue();
+        It should_return_direccion = () => _response.ShouldBeEquivalentTo(_expecteDireccion);
     }
 }

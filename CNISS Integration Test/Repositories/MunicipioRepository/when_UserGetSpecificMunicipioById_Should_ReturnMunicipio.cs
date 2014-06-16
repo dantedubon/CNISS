@@ -4,7 +4,6 @@ using FizzWare.NBuilder;
 using FluentAssertions;
 using Machine.Specifications;
 using NHibernate;
-using NHibernate.Mapping;
 
 namespace CNISS_Integration_Test.Repositories.MunicipioRepository
 {

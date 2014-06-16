@@ -6,7 +6,13 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 {
     public class RepresentanteLegal:Entity<Identidad>
     {
-        public virtual string _nombre { get; protected set; }
+        public virtual string nombre { get; protected set; }
+
+        protected RepresentanteLegal()
+        {
+            
+        }
+
         public RepresentanteLegal(Identidad identidad,  string nombre)
         {
            
@@ -14,7 +20,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
             if (string.IsNullOrEmpty(nombre))
                 throw new ArgumentException("Nombre de Representante no puede ser nulo");
             Id = identidad;
-            _nombre = nombre;
+            this.nombre = nombre;
         }
     }
 }

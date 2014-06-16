@@ -7,7 +7,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
     {
         public EnterpriseServiceModule(IServiceValidatorRTN _serviceValidatorRtn)
         {
-            Get["/enterprise/isValidRTN={RTN}"] = parameters =>
+            Get["/enterprise/isValidRTN={rtn}"] = parameters =>
             {
                 string RTN = parameters.RTN;
                 bool response = _serviceValidatorRtn.isValidRTN(RTN);

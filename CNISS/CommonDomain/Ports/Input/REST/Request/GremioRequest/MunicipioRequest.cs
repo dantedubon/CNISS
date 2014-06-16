@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
 {
-    public class MunicipioRequest:IValidRequest
+    public class MunicipioRequest:IValidPost
     {
         public string idMunicipio { get; set; }
         public string idDepartamento { get; set; }
@@ -32,19 +32,6 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
             return idMunicipio.ToCharArray().All(char.IsNumber) && idDepartamento.ToCharArray().All(char.IsNumber);
         }
 
-        public bool isValidPut()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool isValidDelete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool isValidGet()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

@@ -3,7 +3,7 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest
 {
-    public class UserRequest:IValidRequest
+    public class UserRequest:IValidPost,IValidDelete
     {
         public  String Id { get; set; }
         public  String firstName { get; set; }
@@ -28,19 +28,12 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest
 
         }
 
-        public bool isValidPut()
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public bool isValidDelete()
         {
             return !String.IsNullOrEmpty(Id);
         }
 
-        public bool isValidGet()
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

@@ -163,7 +163,10 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\MunicipioRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\RepresentanteLegalRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\RTNRequest.cs" />
-    <Compile Include="CommonDomain\Ports\Input\REST\Request\IValidRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\IValidDelete.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\IValidPost.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\IValidPut.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\IValidGet.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\RolModule\RolRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\UserRequest\UserRequest.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateCommandRepository.cs" />

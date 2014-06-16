@@ -2,7 +2,7 @@ using System;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Request.RolModule
 {
-    public class RolRequest:IValidRequest
+    public class RolRequest:IValidPost
     {
         public Guid idGuid { get; set; }
         public string name { get; set; }
@@ -19,14 +19,6 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.RolModule
             throw new NotImplementedException();
         }
 
-        public bool isValidPut()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool isValidDelete()
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using CNISS.EnterpriseDomain.Domain;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
 {
-    public class GremioRequest:IValidRequest
+    public class GremioRequest:IValidPost
     {
         public RTNRequest rtnRequest { get; set; }
         public DireccionRequest direccionRequest { get; set; }
@@ -13,22 +14,12 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
         public string nombre { get; set; }
         public bool isValidPost()
         {
-            throw new NotImplementedException();
+            return representanteLegalRequest!=null && representanteLegalRequest.isValidPost()
+               && rtnRequest!=null && rtnRequest.isValidPost()
+               && direccionRequest!=null&& direccionRequest.isValidPost()
+               && !string.IsNullOrEmpty(nombre);
         }
 
-        public bool isValidPut()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool isValidDelete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool isValidGet()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

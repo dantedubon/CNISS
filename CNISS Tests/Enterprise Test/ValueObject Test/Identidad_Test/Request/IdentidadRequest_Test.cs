@@ -15,6 +15,7 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.Identidad_Test.Request
             { 
                 new object[]{"0801"},
                 new object[]{string.Empty},
+                new object[]{null},
                 new object[]{"080119851239A"}
             };
 

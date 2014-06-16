@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
 {
-    public class DepartamentoRequest:IValidRequest
+    public class DepartamentoRequest:IValidPost
     {
         public string idDepartamento { get; set; }
         public string nombre { get; set; }
@@ -29,19 +29,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
         {
             return 2 == idDepartamento.Length;
         }
-        public bool isValidPut()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool isValidDelete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool isValidGet()
-        {
-            throw new NotImplementedException();
-        }
+      
+        
     }
 }

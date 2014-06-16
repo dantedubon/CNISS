@@ -5,7 +5,7 @@ using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using FizzWare.NBuilder;
 using NUnit.Framework;
 
-namespace CNISS_Tests.Enterprise_Test.Entities_Test
+namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test
 {
     [TestFixture]
     public class Gremio_Test

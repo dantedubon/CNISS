@@ -2,7 +2,7 @@ using System;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
 {
-    public class DireccionRequest:IValidRequest
+    public class DireccionRequest:IValidPost
     {
         public Guid IdGuid { get; set; }
         public MunicipioRequest municipioRequest { get; set; }
@@ -21,19 +21,6 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
                 && descripcion != null&& !string.IsNullOrEmpty(descripcion);
         }
 
-        public bool isValidPut()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool isValidDelete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool isValidGet()
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }

@@ -21,13 +21,22 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand
             _gremioMap = new GremioMap();
             Post["enterprise/gremio"] = paramaters =>
             {
+
                 var request = this.Bind<GremioRequest>();
-                if (request.isValidPost())
+                try
                 {
-                    var gremio = _gremioMap.getGremio(request);
-                    commandInsert.execute(gremio);
+                    if (request.isValidPost())
+                    {
+                        var gremio = _gremioMap.getGremio(request);
+                        commandInsert.execute(gremio);
+                        return new Response()
+                            .WithStatusCode(HttpStatusCode.OK);
+                    }
+                }
+                catch (ArgumentException e)
+                {
                     return new Response()
-                        .WithStatusCode(HttpStatusCode.OK);
+                   .WithStatusCode(HttpStatusCode.BadRequest);
                 }
 
                 return new Response()

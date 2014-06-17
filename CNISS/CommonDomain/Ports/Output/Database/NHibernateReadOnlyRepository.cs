@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using CNISS.CommonDomain.Domain;
+using FluentNHibernate.Conventions;
 using NHibernate;
 using NHibernate.Linq;
 

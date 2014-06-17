@@ -121,6 +121,7 @@
     <Compile Include="AutenticationDomain\Ports\Output\Database\UserRepositoryReadOnly.cs" />
     <Compile Include="Bootstraper\ConfigureDataBase.cs" />
     <Compile Include="Bootstraper\ConfigureEnterpriseServices.cs" />
+    <Compile Include="Bootstraper\ConfigureGremioDependencies.cs" />
     <Compile Include="Bootstraper\ConfigureUserDependencies.cs" />
     <Compile Include="Bootstraper\IBootstrapperTask.cs" />
     <Compile Include="Bootstraper\ConfigureRoleDependencies.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\PersonRNPModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioMap.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioModuleInsert.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioQuery\GremioModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\HelloModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandInsert.cs" />
@@ -174,8 +176,10 @@
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepositoryCompoundKey.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
-    <Compile Include="EnterpriseDomain\Application\GremioInsertCommand.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandInsertGremio.cs" />
+    <Compile Include="EnterpriseDomain\Application\IServiceDireccionValidator.cs" />
     <Compile Include="EnterpriseDomain\Application\IServiceValidatorRTN.cs" />
+    <Compile Include="EnterpriseDomain\Application\ServiceDireccionValidator.cs" />
     <Compile Include="EnterpriseDomain\Application\ServiceValidatorRTN.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\BusinessEntities.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\Gremio.cs" />

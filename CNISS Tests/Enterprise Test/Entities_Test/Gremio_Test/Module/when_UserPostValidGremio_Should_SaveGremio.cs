@@ -60,7 +60,13 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
         private static DireccionRequest getDireccion()
         {
             var municipio = Builder<MunicipioRequest>.CreateNew().Build();
+            municipio.idDepartamento = "01";
+            municipio.idMunicipio = "01";
+            municipio.nombre = "municipio";
             var departamento = Builder<DepartamentoRequest>.CreateNew().Build();
+            departamento.idDepartamento = "01";
+            departamento.nombre = "departamento";
+
 
             return new DireccionRequest()
             {

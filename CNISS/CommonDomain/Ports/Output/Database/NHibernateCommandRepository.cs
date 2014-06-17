@@ -6,7 +6,7 @@ namespace CNISS.CommonDomain.Ports.Output.Database
 {
     public class NHibernateCommandRepository<T,TKey>:IRepositoryCommands<T>
     {
-        private readonly ISession _session;
+        protected readonly ISession _session;
         public NHibernateCommandRepository(ISession session )
         {
             _session = session;

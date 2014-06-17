@@ -6,7 +6,7 @@ using CNISS.EnterpriseDomain.Domain;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
 {
-    public class GremioRequest:IValidPost
+    public class GremioRequest:IValidPost,IValidPut
     {
         public RTNRequest rtnRequest { get; set; }
         public DireccionRequest direccionRequest { get; set; }
@@ -20,6 +20,15 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
                && !string.IsNullOrEmpty(nombre);
         }
 
-       
+
+        public bool isValidPutRepresentante()
+        {
+            return isValidPut()&&representanteLegalRequest!=null &&representanteLegalRequest.isValidPost();
+        }
+
+        public bool isValidPut()
+        {
+            return rtnRequest!=null&& rtnRequest.isValidPost();
+        }
     }
 }

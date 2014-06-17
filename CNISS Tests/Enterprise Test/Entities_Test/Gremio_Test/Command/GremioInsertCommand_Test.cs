@@ -30,7 +30,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Command
                 .Returns(false);
                 
 
-            var repositorio = Mock.Of<IRepositoryCommands<Gremio>>();
+            var repositorio = Mock.Of<IGremioRespositoryCommands>();
             var uow = Mock.Of<Func<IUnitOfWork>>();
             Mock.Get(uow).Setup(x => x()).Returns(new DummyUnitOfWork());
 
@@ -59,7 +59,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Command
                 .Returns(true);
 
 
-            var repositorio = Mock.Of<IRepositoryCommands<Gremio>>();
+            var repositorio = Mock.Of<IGremioRespositoryCommands>();
             var uow = Mock.Of<Func<IUnitOfWork>>();
             Mock.Get(uow).Setup(x => x()).Returns(new DummyUnitOfWork());
 

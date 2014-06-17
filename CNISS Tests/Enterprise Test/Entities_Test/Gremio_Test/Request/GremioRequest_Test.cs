@@ -11,6 +11,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.RequestTest
     public class GremioRequest_Test
     {
         public object[] badRequestForPost;
+        public object[] badRequestForPutRepresentante;
 
         public GremioRequest_Test()
         {
@@ -49,6 +50,28 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.RequestTest
                     getValidRepresentanteLegal(),getValidRTN(),getValidDireccion(),null
                 }
             };
+
+            badRequestForPutRepresentante = new object[]
+            {
+                new object[]
+                {
+                    getValidRTN(),new RepresentanteLegalRequest()
+                },
+                new object[]
+                {
+                    getValidRTN(),null
+                },
+                 new object[]
+                {
+                    new RTNRequest(),getValidRepresentanteLegal()
+                },
+                 new object[]
+                {
+                    null,getValidRepresentanteLegal()
+                }
+            };
+
+            
         }
 
         private RTNRequest getValidRTN()
@@ -109,6 +132,30 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.RequestTest
 
             var respuesta = gremio.isValidPost();
 
+
+            Assert.IsTrue(respuesta);
+        }
+
+         [TestCaseSource("badRequestForPutRepresentante")]
+        public void isValidPutRepresentante_dataInvalid_returnFalse(RTNRequest rtn,RepresentanteLegalRequest representante)
+        {
+            var gremio = new GremioRequest();
+            gremio.rtnRequest = rtn;
+            gremio.representanteLegalRequest = representante;
+
+            var respuesta = gremio.isValidPutRepresentante();
+
+            Assert.IsFalse(respuesta);
+        }
+
+        [Test]
+        public void isValidPutRepresentante_dataValid_returnTrue()
+        {
+            var gremio = new GremioRequest();
+            gremio.rtnRequest = getValidRTN();
+            gremio.representanteLegalRequest = getValidRepresentanteLegal();
+
+            var respuesta = gremio.isValidPutRepresentante();
 
             Assert.IsTrue(respuesta);
         }

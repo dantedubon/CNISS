@@ -102,6 +102,7 @@
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetInvalidRTN_Should_ReturnFalse.cs" />
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetValidRTN_Should_ReturnTrue.cs" />
     <Compile Include="DummyUnitOfWork.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Command\CommandUpdateGremioRepresentante_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Command\GremioInsertCommand_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Gremio_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Module\when_UserPostGremioWithBadData_Should_ReturnError.cs" />

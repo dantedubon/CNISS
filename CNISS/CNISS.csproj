@@ -177,6 +177,7 @@
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepositoryCompoundKey.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertGremio.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandUpdateGremioRepresentante.cs" />
     <Compile Include="EnterpriseDomain\Application\IServiceDireccionValidator.cs" />
     <Compile Include="EnterpriseDomain\Application\IServiceValidatorRTN.cs" />
     <Compile Include="EnterpriseDomain\Application\ServiceDireccionValidator.cs" />

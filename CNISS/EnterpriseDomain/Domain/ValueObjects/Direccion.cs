@@ -12,7 +12,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 
         protected Direccion()
         {
-            Id = Guid.NewGuid();
+            
         }
 
         public Direccion( Departamento departamento, Municipio municipio, string referenciaDireccion):this()
@@ -21,7 +21,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 
             if (municipio == null) throw new ArgumentNullException("El municipio no puede ser nulo");
             if (string.IsNullOrEmpty(referenciaDireccion)) throw new ArgumentException("Referencia no puede ser nula");
-
+            Id = Guid.NewGuid();
             this.departamento = departamento;
             this.municipio = municipio;
             this.referenciaDireccion = referenciaDireccion;

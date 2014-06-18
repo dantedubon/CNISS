@@ -27,10 +27,14 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand
                 {
                     if (request.isValidPost())
                     {
-                        var gremio = _gremioMap.getGremio(request);
-                        commandInsert.execute(gremio);
-                        return new Response()
-                            .WithStatusCode(HttpStatusCode.OK);
+                        var gremio = _gremioMap.getGremioForPost(request);
+                        if (commandInsert.isExecutable(gremio))
+                        {
+                            commandInsert.execute(gremio);
+                            return new Response()
+                                .WithStatusCode(HttpStatusCode.OK);
+                        }
+                       
                     }
                 }
                 catch (ArgumentException e)

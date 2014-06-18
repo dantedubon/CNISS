@@ -24,5 +24,10 @@ namespace CNISS.CommonDomain.Application
                 _uow.commit();
             }
         }
+
+        public bool isExecutable(T identity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

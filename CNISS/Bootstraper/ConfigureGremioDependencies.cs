@@ -18,13 +18,16 @@ namespace CNISS.Bootstraper
                 return builder =>
                 {
                     builder.RegisterType<GremioRepositoryReadOnly>().As<IGremioRepositoryReadOnly>();
-                    builder.RegisterType<GremioRepositoryCommands>().As<IGremioRespositoryCommands>();
+                    builder.RegisterType<GremioRepositoryCommands>().As<IGremioRepositoryCommands>();
                   
                     
                     builder.RegisterType<ServiceDireccionValidator>().As<IServiceDireccionValidator>();
                     builder.RegisterType<RepresentanteLegalRepositoryReadOnly>()
                         .As<IRepresentanteLegalRepositoryReadOnly>();
                     builder.RegisterType<CommandInsertGremio>().As<ICommandInsertIdentity<Gremio>>();
+                    builder.RegisterType<CommandUpdateGremioRepresentante>().As<ICommandUpdateGremioRepresentante>();
+
+
 
                 };
             }

@@ -3,5 +3,6 @@
    public  interface ICommand<in T>
     {
         void execute(T identity);
+       bool isExecutable(T identity);
     }
 }

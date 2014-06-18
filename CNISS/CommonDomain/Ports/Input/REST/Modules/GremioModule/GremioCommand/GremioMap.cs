@@ -11,7 +11,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand
         {
         }
 
-        public Gremio getGremio(GremioRequest gremioRequest)
+        public Gremio getGremioForPost(GremioRequest gremioRequest)
         {
             var representanteLegal = getRepresentanteLegal(gremioRequest);
             var rtn = getRTN(gremioRequest);
@@ -22,6 +22,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand
 
 
         }
+
+       
 
         private Direccion getDireccion(GremioRequest gremioRequest)
         {

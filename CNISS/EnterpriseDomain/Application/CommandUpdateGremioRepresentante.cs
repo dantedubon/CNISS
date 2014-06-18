@@ -6,7 +6,7 @@ using CNISS.EnterpriseDomain.Domain.Repositories;
 
 namespace CNISS.EnterpriseDomain.Application
 {
-    public class CommandUpdateGremioRepresentante:CommandUpdateIdentity<Gremio>
+    public class CommandUpdateGremioRepresentante : CommandUpdateIdentity<Gremio>, ICommandUpdateGremioRepresentante
     {
         private readonly IGremioRepositoryReadOnly _repositoryRead;
 
@@ -14,7 +14,7 @@ namespace CNISS.EnterpriseDomain.Application
 
         public CommandUpdateGremioRepresentante(
             IGremioRepositoryReadOnly repositoryRead,
-            IRepositoryCommands<Gremio> repository,
+            IGremioRepositoryCommands repository,
             IRepresentanteLegalRepositoryReadOnly representanteLegalRepositoryRead,
             Func<IUnitOfWork> unitOfWork) : base(repository, unitOfWork)
         {
@@ -32,7 +32,7 @@ namespace CNISS.EnterpriseDomain.Application
         {
             var gremio = _repositoryRead.get(identity.Id);
             gremio.representanteLegal = identity.representanteLegal;
-            base.execute(identity);
+            base.execute(gremio);
         }
     }
 }

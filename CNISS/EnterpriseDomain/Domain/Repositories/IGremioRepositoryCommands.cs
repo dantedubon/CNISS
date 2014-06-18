@@ -3,7 +3,7 @@ using CNISS.EnterpriseDomain.Domain.Entities;
 
 namespace CNISS.EnterpriseDomain.Domain.Repositories
 {
-    public interface IGremioRespositoryCommands:IRepositoryCommands<Gremio>
+    public interface IGremioRepositoryCommands:IRepositoryCommands<Gremio>
     {
          
     }

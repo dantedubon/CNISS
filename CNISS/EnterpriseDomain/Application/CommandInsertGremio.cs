@@ -12,11 +12,17 @@ namespace CNISS.EnterpriseDomain.Application
     public class CommandInsertGremio:CommandInsertIdentity<Gremio>
     {
         private IServiceDireccionValidator validatorDireccion;
+        private readonly IGremioRepositoryReadOnly _repositoryReadOnly;
+     
+
         public CommandInsertGremio(IServiceDireccionValidator validatorDireccion,
-            IGremioRespositoryCommands repository, 
+            IGremioRepositoryReadOnly repositoryReadOnly,
+            IGremioRepositoryCommands repository, 
             Func<IUnitOfWork> unitOfWork) : base(repository, unitOfWork)
         {
             this.validatorDireccion = validatorDireccion;
+            _repositoryReadOnly = repositoryReadOnly;
+          
         }
 
         public override void execute(Gremio gremio)
@@ -26,6 +32,11 @@ namespace CNISS.EnterpriseDomain.Application
                 throw new ArgumentException("Direccion mala");
             
             base.execute(gremio);
+        }
+
+        public override bool isExecutable(Gremio identity)
+        {
+            return !_repositoryReadOnly.exists(identity.Id);
         }
     }
 }

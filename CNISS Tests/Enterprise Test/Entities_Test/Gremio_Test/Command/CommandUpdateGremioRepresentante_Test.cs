@@ -25,7 +25,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Command
 
             var representanteRepository = Mock.Of<IRepresentanteLegalRepositoryReadOnly>();
            
-            var repository = Mock.Of<IGremioRespositoryCommands>();
+            var repository = Mock.Of<IGremioRepositoryCommands>();
             var uow = Mock.Of<Func<IUnitOfWork>>();
             Mock.Get(uow).Setup(x => x()).Returns(new DummyUnitOfWork());
 
@@ -50,7 +50,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Command
            Mock.Get(repositoryReadOnly).Setup(x => x.exists(Moq.It.IsAny<RTN>())).Returns(true);
 
            var representanteRepository = Mock.Of<IRepresentanteLegalRepositoryReadOnly>();
-           var repository = Mock.Of<IGremioRespositoryCommands>();
+           var repository = Mock.Of<IGremioRepositoryCommands>();
            var uow = Mock.Of<Func<IUnitOfWork>>();
            Mock.Get(uow).Setup(x => x()).Returns(new DummyUnitOfWork());
 
@@ -83,7 +83,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Command
             var representanteRepository = Mock.Of<IRepresentanteLegalRepositoryReadOnly>();
             Mock.Get(representanteRepository).Setup(x => x.exists(It.IsAny<Identidad>())).Returns(false);
 
-            var repository = Mock.Of<IGremioRespositoryCommands>();
+            var repository = Mock.Of<IGremioRepositoryCommands>();
             var uow = Mock.Of<Func<IUnitOfWork>>();
             Mock.Get(uow).Setup(x => x()).Returns(new DummyUnitOfWork());
 

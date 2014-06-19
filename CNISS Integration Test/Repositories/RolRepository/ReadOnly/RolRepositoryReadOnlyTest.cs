@@ -14,14 +14,14 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.ReadOnly
         public RolRepositoryReadOnlyTest()
             : base(typeof(Rol).Assembly)
         {
-            openSession();
+            
         }
 
         [TestCase]
         public void getAll_RetornaTodosRoles()
         {
             //Arrange
-
+            openSession();
             IRolRepositoryReadOnly _repository = new RolRepositoryReadOnly(session);
             IEnumerable<Rol> _expectedRols = Builder<Rol>.CreateListOfSize(10).Build();
             IEnumerable<Rol> _resultRols;

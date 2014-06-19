@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using CNISS.CommonDomain.Domain;
+using FluentNHibernate.Conventions;
 using NHibernate;
 using NHibernate.Linq;
 
@@ -24,7 +25,7 @@ namespace CNISS.CommonDomain.Ports.Output.Database
 
         
 
-        public IEnumerable<T> getAll()
+        public virtual IEnumerable<T> getAll()
         {
             return Session.Query<T>().ToList();
         }

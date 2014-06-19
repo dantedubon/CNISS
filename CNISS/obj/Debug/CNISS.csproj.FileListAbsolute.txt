@@ -8,6 +8,7 @@ c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\bin\Nancy.Hos
 c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\obj\Debug\CNISS.csprojResolveAssemblyReference.cache
 c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\obj\Debug\CNISS.dll
 c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\obj\Debug\CNISS.pdb
+C:\CNISS\CNISS\bin\CNISS.dll.config
 C:\CNISS\CNISS\bin\CNISS.dll
 C:\CNISS\CNISS\bin\CNISS.pdb
 C:\CNISS\CNISS\bin\Autofac.Configuration.dll
@@ -33,6 +34,6 @@ C:\CNISS\CNISS\bin\Nancy.xml
 C:\CNISS\CNISS\bin\Nancy.Hosting.Aspnet.xml
 C:\CNISS\CNISS\bin\NHibernate.xml
 C:\CNISS\CNISS\bin\nunit.framework.xml
+C:\CNISS\CNISS\obj\Debug\CNISS.csprojResolveAssemblyReference.cache
 C:\CNISS\CNISS\obj\Debug\CNISS.dll
 C:\CNISS\CNISS\obj\Debug\CNISS.pdb
-C:\CNISS\CNISS\obj\Debug\CNISS.csprojResolveAssemblyReference.cache

@@ -1,3 +1,4 @@
+C:\CNISS\CNISS Tests\bin\CNISS Tests.dll.config
 C:\CNISS\CNISS Tests\bin\CNISS Tests.dll
 C:\CNISS\CNISS Tests\bin\CNISS Tests.pdb
 C:\CNISS\CNISS Tests\bin\CNISS.dll

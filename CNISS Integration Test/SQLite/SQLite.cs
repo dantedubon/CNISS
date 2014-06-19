@@ -1300,7 +1300,7 @@ namespace CNISS_Integration_Test.SQLite
 		/// The object is required to have a primary userKey.
 		/// </summary>
 		/// <param name="obj">
-		/// The object to update. It must have a primary userKey designated using the PrimaryKeyAttribute.
+		/// The object to updateRepresentante. It must have a primary userKey designated using the PrimaryKeyAttribute.
 		/// </param>
 		/// <returns>
 		/// The number of rows updated.
@@ -1319,7 +1319,7 @@ namespace CNISS_Integration_Test.SQLite
 		/// The object is required to have a primary userKey.
 		/// </summary>
 		/// <param name="obj">
-		/// The object to update. It must have a primary userKey designated using the PrimaryKeyAttribute.
+		/// The object to updateRepresentante. It must have a primary userKey designated using the PrimaryKeyAttribute.
 		/// </param>
 		/// <param name="objType">
 		/// The type of object to insert.
@@ -1339,7 +1339,7 @@ namespace CNISS_Integration_Test.SQLite
 			var pk = map.PK;
 			
 			if (pk == null) {
-				throw new NotSupportedException ("Cannot update " + map.TableName + ": it has no PK");
+				throw new NotSupportedException ("Cannot updateRepresentante " + map.TableName + ": it has no PK");
 			}
 			
 			var cols = from p in map.Columns
@@ -1349,7 +1349,7 @@ namespace CNISS_Integration_Test.SQLite
 				select c.GetValue (obj);
 			var ps = new List<object> (vals);
 			ps.Add (pk.GetValue (obj));
-			var q = string.Format ("update \"{0}\" set {1} where {2} = ? ", map.TableName, string.Join (",", (from c in cols
+			var q = string.Format ("updateRepresentante \"{0}\" set {1} where {2} = ? ", map.TableName, string.Join (",", (from c in cols
 				select "\"" + c.Name + "\" = ? ").ToArray ()), pk.Name);
 
 			try {

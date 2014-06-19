@@ -106,6 +106,11 @@
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Command\CommandUpdateGremioRepresentante_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Command\CommandInsertGremio_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Gremio_Test.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Module\when_UserGetSpecicGremioById_Should_ReturnGremio.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Module\when_UserGetAllGremios_Should_returnListOfGremios.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Module\when_UserPutNonExistingGremioWithWithDireccion_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Module\when_UserPutValidGremioWithInvalidDireccion_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Module\when_UserPutValidGremioWithValidDireccion_Should_UpdateGremio.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Module\when_UserPutGremioWithInvalidRepresentante_Should_ReturnError.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Module\when_UserPutGremioNonExistingWithRepresentante_Should_ReturnError.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Module\when_UserPutValidGremioWithValidRepresentante_Should_UpdateGremio.cs" />

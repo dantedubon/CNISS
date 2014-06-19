@@ -116,6 +116,7 @@
     <Compile Include="Modules\Users\when_UserPostNewUser_Should_SaveNewUser.cs" />
     <Compile Include="Repositories\DepartamentoRepository\when_UserAskIfMunicipioBelongDepartamento_Should_ReturnTrue.cs" />
     <Compile Include="Repositories\DireccionRepository\when_UserAskForDireccionById_Return_Direccion.cs" />
+    <Compile Include="Repositories\GremioRepository\Command\when_UserUpdateGremioDireccion_Should_UpdateGremio.cs" />
     <Compile Include="Repositories\GremioRepository\Command\when_UserUpdatesGremioWithExistingRepresentante_Should_UpdateGremio.cs" />
     <Compile Include="Repositories\GremioRepository\Command\when_UserUpdatesGremioWithNonExistingRepresentante_Should_UpdateGremio.cs" />
     <Compile Include="Repositories\GremioRepository\Command\when_UserSaveGremioWithExistingRepresentante_Should_SaveGremio.cs" />

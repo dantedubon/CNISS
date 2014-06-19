@@ -9,6 +9,7 @@ namespace CNISS.EnterpriseDomain.Application
     public class CommandUpdateGremioRepresentante : CommandUpdateIdentity<Gremio>, ICommandUpdateGremioRepresentante
     {
         private readonly IGremioRepositoryReadOnly _repositoryRead;
+        private readonly IGremioRepositoryCommands _repositoryCommands;
 
         private readonly IRepresentanteLegalRepositoryReadOnly _representanteLegalRepositoryRead;
 
@@ -21,6 +22,7 @@ namespace CNISS.EnterpriseDomain.Application
             _repositoryRead = repositoryRead;
            
             _representanteLegalRepositoryRead = representanteLegalRepositoryRead;
+            _repositoryCommands = repository;
         }
 
         public bool isExecutable(Gremio gremio)
@@ -32,7 +34,15 @@ namespace CNISS.EnterpriseDomain.Application
         {
             var gremio = _repositoryRead.get(identity.Id);
             gremio.representanteLegal = identity.representanteLegal;
-            base.execute(gremio);
+
+            var _uow = _factory();
+
+            using (_uow)
+            {
+                _repositoryCommands.updateRepresentante(gremio);
+                _uow.commit();
+            }
+           
         }
     }
 }

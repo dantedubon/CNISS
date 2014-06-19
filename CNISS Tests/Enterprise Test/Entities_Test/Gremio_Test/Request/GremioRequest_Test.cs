@@ -12,6 +12,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.RequestTest
     {
         public object[] badRequestForPost;
         public object[] badRequestForPutRepresentante;
+        public object[] badRequestForPutDireccion;
 
         public GremioRequest_Test()
         {
@@ -71,7 +72,28 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.RequestTest
                 }
             };
 
-            
+            badRequestForPutDireccion = new object[]
+            {
+                 new object[]
+                {
+                    getValidRTN(),new DireccionRequest()
+                },
+                new object[]
+                {
+                    getValidRTN(),null
+                },
+                 new object[]
+                {
+                    null, getValidDireccion()
+                },
+                 new object[]
+                {
+                    new RTNRequest(), getValidDireccion()
+                }
+
+
+            };
+
         }
 
         private RTNRequest getValidRTN()
@@ -158,6 +180,20 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.RequestTest
             var respuesta = gremio.isValidPutRepresentante();
 
             Assert.IsTrue(respuesta);
+        }
+
+        [TestCaseSource("badRequestForPutDireccion")]
+        public void isValidPutDireccion_dataInvalid_returnFalse(RTNRequest rtnRequest,DireccionRequest direccionRequest )
+        {
+            var gremio = new GremioRequest();
+            gremio.rtnRequest = rtnRequest;
+            gremio.direccionRequest = direccionRequest;
+
+            var respuesta = gremio.isValidPutDireccion();
+            Assert.IsFalse(respuesta);
+
+
+
         }
     }
 }

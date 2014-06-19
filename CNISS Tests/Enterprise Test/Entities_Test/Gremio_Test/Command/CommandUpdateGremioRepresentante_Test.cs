@@ -95,7 +95,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Command
 
             command.execute(nuevoGremio);
 
-            Mock.Get(repository).Verify(x => x.update(nuevoGremio));
+          
+            Mock.Get(repository).Verify(x => x.updateRepresentante(It.Is<Gremio>( z=> z.representanteLegal == nuevoGremio.representanteLegal)));
 
 
         }

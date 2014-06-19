@@ -3,48 +3,100 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
+using CNISS.EnterpriseDomain.Domain;
+using CNISS.EnterpriseDomain.Domain.Entities;
+using CNISS.EnterpriseDomain.Domain.Repositories;
 using Nancy;
+using NHibernate.Criterion;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioQuery
 {
     public class GremioModuleQuery:NancyModule
     {
-        public GremioModuleQuery()
+        public GremioModuleQuery(IGremioRepositoryReadOnly repository)
         {
             Get["enterprise/gremio"] = parameters =>
             {
-                var respuestaDummy = new GremioRequest();
-                var representanteDummy = new RepresentanteLegalRequest();
-
-                var identidad = new IdentidadRequest();
-                identidad.identidad = "0801198512396";
-                representanteDummy.identidadRequest = identidad;
-                representanteDummy.nombre = "Juan Perez";
-
-                var RTN = new RTNRequest();
-                RTN.RTN = "08011985123960";
-
-                var municipio = new MunicipioRequest();
-                municipio.idDepartamento = "01";
-                municipio.idMunicipio = "01";
-                municipio.nombre = "municipio";
-
-                var departamento = new DepartamentoRequest();
-                departamento.idDepartamento = "01";
-                departamento.nombre = "departamento";
-
-                var direccion = new DireccionRequest();
-                direccion.municipioRequest = municipio;
-                direccion.departamentoRequest = departamento;
-                direccion.descripcion = "Barrio Abajo";
-
-                respuestaDummy.rtnRequest = RTN;
-                respuestaDummy.representanteLegalRequest = representanteDummy;
-                respuestaDummy.nombre = "Camara";
-                respuestaDummy.direccionRequest = direccion;
-                return Response.AsJson(respuestaDummy);
+                var response = repository.getAll();
+                return Response.AsJson(response.Select(convertToGremioRequest))
+                    .WithStatusCode(HttpStatusCode.OK);
 
             };
+            Get["enterprise/gremio/id={id}"] = parameters =>
+            {
+
+                var idRtn = parameters.id;
+                var rtn = new RTNRequest()
+                {
+                    RTN = idRtn
+                };
+                if (rtn.isValidPost())
+                {
+                    RTN idGremio = new RTN(rtn.RTN);
+                    if (idGremio.isRTNValid())
+                    {
+                        var gremio = repository.get(idGremio);
+                        if (gremio != null)
+                            return Response.AsJson(convertToGremioRequest(gremio));
+                    }
+                    
+
+                }
+
+                return new Response()
+                    .WithStatusCode(HttpStatusCode.NotAcceptable);
+            };
+
+        }
+
+
+        private GremioRequest convertToGremioRequest(Gremio gremio)
+        {
+            var direccion = gremio.direccion;
+            var departamento = direccion.departamento;
+            var municipio = direccion.municipio;
+
+            var rtn = gremio.Id;
+            var representante = gremio.representanteLegal;
+            var nombreGremio = gremio.nombre;
+
+            var representanteRequest = new RepresentanteLegalRequest()
+            {
+                identidadRequest = new IdentidadRequest() {identidad = representante.Id.identidad},
+                nombre = representante.nombre
+            };
+
+            var rtnRequestGremio = new RTNRequest() {RTN = rtn.rtn};
+            var departamentoRequestGremio = new DepartamentoRequest()
+            {
+                idDepartamento = departamento.Id,
+                nombre = departamento.nombre
+            };
+
+            var municipioRequestGremio = new MunicipioRequest()
+            {
+                idDepartamento = municipio.departamentoId,
+                idMunicipio = municipio.Id,
+                nombre = municipio.nombre
+            };
+            var direccionRequestGremio = new DireccionRequest()
+            {
+               departamentoRequest = departamentoRequestGremio,
+               municipioRequest = municipioRequestGremio,
+               descripcion = direccion.referenciaDireccion,
+               IdGuid = direccion.Id
+            };
+
+            var gremioRequest = new GremioRequest()
+            {
+                direccionRequest = direccionRequestGremio,
+                rtnRequest = rtnRequestGremio,
+                representanteLegalRequest = representanteRequest,
+                nombre = nombreGremio
+            };
+            
+        
+            return gremioRequest;
         }
     }
 }

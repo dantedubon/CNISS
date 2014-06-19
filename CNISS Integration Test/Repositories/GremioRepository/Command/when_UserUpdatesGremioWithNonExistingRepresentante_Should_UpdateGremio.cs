@@ -44,7 +44,8 @@ namespace CNISS_Integration_Test.Repositories.GremioRepository.Command
             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 var representanteRepository = new RepresentanteLegalRepositoryReadOnly(uow.Session);
-                _repository = new GremioRepositoryCommands(uow.Session, representanteRepository);
+                var direccionRepository = new DireccionRepositoryReadOnly(uow.Session);
+                _repository = new GremioRepositoryCommands(uow.Session, representanteRepository, direccionRepository);
                 _repository.save(_originalGremio);
                 uow.commit();
 
@@ -62,8 +63,9 @@ namespace CNISS_Integration_Test.Repositories.GremioRepository.Command
             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 var representanteRepository = new RepresentanteLegalRepositoryReadOnly(uow.Session);
-                _repository = new GremioRepositoryCommands(uow.Session, representanteRepository);
-                _repository.update(_originalGremio);
+                var direccionRepository = new DireccionRepositoryReadOnly(uow.Session);
+                _repository = new GremioRepositoryCommands(uow.Session, representanteRepository, direccionRepository);
+                _repository.updateRepresentante(_originalGremio);
                 uow.commit();
 
             } 

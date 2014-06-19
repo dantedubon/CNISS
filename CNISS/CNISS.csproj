@@ -113,8 +113,8 @@
     <Compile Include="AutenticationDomain\Domain\Services\ICryptoService.cs" />
     <Compile Include="AutenticationDomain\Domain\Services\UserKeyGenerator.cs" />
     <Compile Include="AutenticationDomain\Domain\ValueObjects\Rol.cs" />
-    <Compile Include="AutenticationDomain\Ports\Output\Database\Mappings\RolMapping.cs" />
-    <Compile Include="AutenticationDomain\Ports\Output\Database\Mappings\UserMappings.cs" />
+    <Compile Include="AutenticationDomain\Application\Mappings\RolMapping.cs" />
+    <Compile Include="AutenticationDomain\Application\Mappings\UserMappings.cs" />
     <Compile Include="AutenticationDomain\Ports\Output\Database\RolRepositoryCommands.cs" />
     <Compile Include="AutenticationDomain\Ports\Output\Database\RolRepositoryReadOnly.cs" />
     <Compile Include="AutenticationDomain\Ports\Output\Database\UserRepositoryCommands.cs" />
@@ -148,6 +148,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\PersonRNPModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioMap.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioModuleInsert.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioModuleUpdateDireccion.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioModuleUpdateRepresentante.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioQuery\GremioModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\HelloModule.cs" />

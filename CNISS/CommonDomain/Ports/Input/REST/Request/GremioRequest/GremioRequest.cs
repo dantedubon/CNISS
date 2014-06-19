@@ -30,5 +30,10 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
         {
             return rtnRequest!=null&& rtnRequest.isValidPost();
         }
+
+        public bool isValidPutDireccion()
+        {
+            return isValidPut()&& direccionRequest!=null && direccionRequest.isValidPost();
+        }
     }
 }

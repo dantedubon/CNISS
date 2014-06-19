@@ -10,6 +10,7 @@ namespace CNISS.EnterpriseDomain.Application
     {
         private readonly IServiceDireccionValidator _validatorDireccion;
         private readonly IGremioRepositoryReadOnly _repositoryReadOnly;
+        private readonly IGremioRepositoryCommands _repositoryCommands;
 
 
         public CommandUpdateGremioDireccion(IServiceDireccionValidator validatorDireccion,
@@ -19,13 +20,20 @@ namespace CNISS.EnterpriseDomain.Application
         {
             _validatorDireccion = validatorDireccion;
             _repositoryReadOnly = repositoryReadOnly;
+            _repositoryCommands = repository;
         }
 
         public void execute(Gremio identity)
         {
             var gremio = _repositoryReadOnly.get(identity.Id);
             gremio.direccion = identity.direccion;
-            base.execute(gremio);
+            var _uow = _factory();
+
+            using (_uow)
+            {
+                _repositoryCommands.updateDireccion(gremio);
+                _uow.commit();
+            }
         }
 
         public bool isExecutable(Gremio identity)

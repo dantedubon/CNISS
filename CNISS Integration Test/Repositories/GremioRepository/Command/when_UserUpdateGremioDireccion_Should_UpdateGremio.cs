@@ -14,11 +14,12 @@ using FizzWare.NBuilder;
 using FluentAssertions;
 using Machine.Specifications;
 using NHibernate;
+using NHibernate.Linq.Expressions;
 
 namespace CNISS_Integration_Test.Repositories.GremioRepository.Command
 {
-    [Subject(typeof(GremioRepositoryCommands))]
-    public class when_UserUpdatesGremioWithExistingRepresentante_Should_UpdateGremio
+    [Subject(typeof (GremioRepositoryCommands))]
+    public class when_UserUpdateGremioDireccion_Should_UpdateGremio
     {
         private static InFileDataBaseTest _dataBaseTest;
         private static ISessionFactory _sessionFactory;
@@ -26,7 +27,7 @@ namespace CNISS_Integration_Test.Repositories.GremioRepository.Command
         private static GremioRepositoryCommands _repository;
         private static Gremio _originalGremio;
         private static Gremio _updatedGremio;
-        private static RepresentanteLegal _representanteLegalNuevo;
+        private static Direccion _nuevaDireccion;
         private Establish context = () =>
         {
             _dataBaseTest = new InFileDataBaseTest();
@@ -49,28 +50,31 @@ namespace CNISS_Integration_Test.Repositories.GremioRepository.Command
                 uow.commit();
 
             }
+            var nuevoMunicipio = getMunicipio("02", "02");
+            
+            var nuevoDepartamento = getDepartamento("02", nuevoMunicipio);
+            saveDepartamentoMunicipio(nuevoDepartamento, nuevoMunicipio);
 
-            _representanteLegalNuevo = getRepresentante(new Identidad("0801198512396"));
-
+            _nuevaDireccion = new Direccion(nuevoDepartamento,nuevoMunicipio,"Barrio el Centro");
 
 
         };
 
         private Because of = () =>
         {
-            _originalGremio.representanteLegal = _representanteLegalNuevo;
+            _originalGremio.direccion = _nuevaDireccion;
             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 var representanteRepository = new RepresentanteLegalRepositoryReadOnly(uow.Session);
                 var direccionRepository = new DireccionRepositoryReadOnly(uow.Session);
-                _repository = new GremioRepositoryCommands(uow.Session, representanteRepository, direccionRepository);
-                _repository.updateRepresentante(_originalGremio);
+                _repository = new GremioRepositoryCommands(uow.Session, representanteRepository,direccionRepository);
+                _repository.updateDireccion(_originalGremio);
                 uow.commit();
 
-            }
+            } 
         };
 
-        It should_update_gremio = () =>
+        It should_update_Gremio = () =>
         {
             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {

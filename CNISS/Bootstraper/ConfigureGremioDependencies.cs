@@ -28,6 +28,7 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<CommandUpdateGremioRepresentante>().As<ICommandUpdateGremioRepresentante>();
                     builder.RegisterType<CommandUpdateGremioDireccion>().As<ICommandUpdateGremioDireccion>();
                     builder.RegisterType<DireccionRepositoryReadOnly>().As<IDireccionRepositoryReadOnly>();
+                    builder.RegisterType<CommandDeleteGremio>().As<ICommandDeleteGremio>();
 
 
 

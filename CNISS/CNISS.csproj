@@ -147,6 +147,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\EnterpriseServiceModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\PersonRNPModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioMap.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioModuleDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioModuleUpdateDireccion.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioModuleUpdateRepresentante.cs" />
@@ -178,9 +179,11 @@
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepositoryCompoundKey.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandDeleteGremio.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertGremio.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateGremioDireccion.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateGremioRepresentante.cs" />
+    <Compile Include="EnterpriseDomain\Application\ICommandDeleteGremio.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateGremioDireccion.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateGremioRepresentante.cs" />
     <Compile Include="EnterpriseDomain\Application\IServiceDireccionValidator.cs" />

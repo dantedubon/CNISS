@@ -26,7 +26,10 @@ namespace CNISS.EnterpriseDomain.Application
         public void execute(Gremio identity)
         {
             var gremio = _repositoryReadOnly.get(identity.Id);
+            identity.direccion.Id = gremio.direccion.Id;
             gremio.direccion = identity.direccion;
+
+
             var _uow = _factory();
 
             using (_uow)

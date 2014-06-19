@@ -5,9 +5,9 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 {
     public class Direccion:ValueObject<Guid>
     {
-        public virtual Municipio municipio { get; protected set; }
-        public virtual string referenciaDireccion { get; protected set; }
-        public virtual Departamento departamento { get; protected set; }
+        public virtual Municipio municipio { get;  set; }
+        public virtual string referenciaDireccion { get;  set; }
+        public virtual Departamento departamento { get;  set; }
        
 
         protected Direccion()

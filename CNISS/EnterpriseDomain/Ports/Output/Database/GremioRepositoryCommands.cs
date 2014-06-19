@@ -32,18 +32,16 @@ namespace CNISS.EnterpriseDomain.Ports.Output
         public void updateRepresentante(Gremio entity)
         {
             var representante = entity.representanteLegal;
-            if (!isRepresentantExisting(representante.Id))
-                _session.Save(representante);
+         
+            _session.SaveOrUpdate(representante);
             update(entity);
         }
 
         public void updateDireccion(Gremio entity)
         {
             var direccion = entity.direccion;
-            if (!isDireccionExisting(direccion.Id))
-            {
-                _session.Save(direccion);
-            }
+            _session.SaveOrUpdate(direccion);
+
             update(entity);
 
         }

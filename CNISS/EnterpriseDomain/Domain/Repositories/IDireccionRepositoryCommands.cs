@@ -6,4 +6,6 @@ namespace CNISS.EnterpriseDomain.Domain.Repositories
     public interface IDireccionRepositoryCommands:IRepositoryCommands<Direccion>
     {
     }
+
+    
 }

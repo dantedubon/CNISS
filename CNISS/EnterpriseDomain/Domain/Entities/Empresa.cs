@@ -9,7 +9,8 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
     public class Empresa:EnterpriseEntities
     {
         public virtual  string nombre { get; set; }
-        public virtual IEnumerable<ActividadEconomica> ActividadesEconomicas { get; set; }
+        public virtual IEnumerable<ActividadEconomica> actividadesEconomicas { get; set; }
+        public virtual IEnumerable<Sucursal> sucursales { get; set; }
         public virtual DateTime fechaIngreso { get; set; }
         public virtual int empleadosTotales { get; set; }
         public virtual bool proyectoPiloto { get; set; }

@@ -141,6 +141,8 @@
     <Compile Include="CommonDomain\Domain\IRepositoryReadOnlyCompoundKey.cs" />
     <Compile Include="CommonDomain\Domain\IUnitOfWork.cs" />
     <Compile Include="CommonDomain\Domain\ValueObject.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\FilePersister.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\IFilePersister.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\ApiBootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\Bootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\DepartamentoModuleQuery.cs" />
@@ -157,7 +159,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolQuery\RolModuleQuery.cs" />
-    <Compile Include="CommonDomain\Ports\Input\REST\Modules\TestModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\EmpresaContratoModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandUpdate.cs" />
@@ -191,6 +193,7 @@
     <Compile Include="EnterpriseDomain\Application\ServiceDireccionValidator.cs" />
     <Compile Include="EnterpriseDomain\Application\ServiceValidatorRTN.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\BusinessEntities.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Entities\Empresa.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\Gremio.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\PersonRNP.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\RepresentanteLegal.cs" />
@@ -203,6 +206,8 @@
     <Compile Include="EnterpriseDomain\Domain\Repositories\IPersonRNPRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IRepresentanteLegalRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IRepresentanteLegalRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Domain\ValueObjects\ActividadEconomica.cs" />
+    <Compile Include="EnterpriseDomain\Domain\ValueObjects\ContentFile.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\Departamento.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\Direccion.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\Identidad.cs" />
@@ -238,6 +243,7 @@
   <ItemGroup>
     <Folder Include="AutenticationDomain\Ports\Input\" />
     <Folder Include="CommonDomain\Ports\Input\REST\API\" />
+    <Folder Include="CommonDomain\Ports\Input\REST\Modules\Files\" />
     <Folder Include="CommonDomain\Ports\Output\Database\Infraestructure\" />
     <Folder Include="EnterpriseDomain\Ports\Input\" />
   </ItemGroup>

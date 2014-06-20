@@ -5,8 +5,10 @@ using System.Web;
 
 namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 {
-    public class ActividadEconomica
+    public class ContentFile
     {
-        public virtual string descripcion { get; set; }
+
+        public virtual byte[] dataFile { get; set; }
+      
     }
 }

@@ -32,7 +32,7 @@ namespace CNISS_Integration_Test.Repositories.GremioRepository
         private Establish context = () =>
         {
             _dataBaseTest = new InFileDataBaseTest();
-            _sessionFactory = _dataBaseTest.sessionFactory;
+            _sessionFactory = _dataBaseTest.sessionFactory; 
             var municipio = getMunicipio("01", "01");
             var departamento = getDepartamento("01", municipio);
             var representante = getRepresentante();
@@ -43,7 +43,7 @@ namespace CNISS_Integration_Test.Repositories.GremioRepository
 
             var rtn = new RTN("08011985123960");
             _expectedGremio = new Gremio(rtn,representante,direccion,"Camara");
-
+            _expectedGremio.empresas = new List<Empresa>();
 
 
 

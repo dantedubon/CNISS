@@ -50,6 +50,10 @@
     <Reference Include="FluentAssertions.Core">
       <HintPath>..\packages\FluentAssertions.3.0.107\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Iesi.Collections.3.2.0.1001\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="Machine.Specifications">
       <HintPath>..\packages\Machine.Specifications.0.8.2\lib\net45\Machine.Specifications.dll</HintPath>
     </Reference>
@@ -65,6 +69,10 @@
     </Reference>
     <Reference Include="Nancy.Testing">
       <HintPath>..\packages\Nancy.Testing.0.22.2\lib\net40\Nancy.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -102,6 +110,8 @@
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetInvalidRTN_Should_ReturnFalse.cs" />
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetValidRTN_Should_ReturnTrue.cs" />
     <Compile Include="DummyUnitOfWork.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Command\CommandInsertEmpresa_Test.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\ServiceSucursalesValidator_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Command\CommandDeleteGremio_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Command\CommandUpdateGremioDireccion_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Command\CommandUpdateGremioRepresentante_Test.cs" />

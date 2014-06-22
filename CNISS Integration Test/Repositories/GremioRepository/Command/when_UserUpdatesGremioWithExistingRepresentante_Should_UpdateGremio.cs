@@ -39,7 +39,7 @@ namespace CNISS_Integration_Test.Repositories.GremioRepository.Command
             var direccion = new Direccion(departamento, municipio, "Barrio abajo");
             var rtn = new RTN("08011985123960");
             _originalGremio = new Gremio(rtn, representante, direccion, "Camara");
-
+            _originalGremio.empresas = new List<Empresa>();
             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 var representanteRepository = new RepresentanteLegalRepositoryReadOnly(uow.Session);

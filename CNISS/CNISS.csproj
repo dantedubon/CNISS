@@ -184,15 +184,19 @@
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepositoryCompoundKey.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandDeleteGremio.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandInsertEmpresa.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertGremio.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateGremioDireccion.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateGremioRepresentante.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandDeleteGremio.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateGremioDireccion.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateGremioRepresentante.cs" />
+    <Compile Include="EnterpriseDomain\Application\IEmpresaRepositoryCommand.cs" />
     <Compile Include="EnterpriseDomain\Application\IServiceDireccionValidator.cs" />
+    <Compile Include="EnterpriseDomain\Application\IServiceSucursalesValidator.cs" />
     <Compile Include="EnterpriseDomain\Application\IServiceValidatorRTN.cs" />
     <Compile Include="EnterpriseDomain\Application\ServiceDireccionValidator.cs" />
+    <Compile Include="EnterpriseDomain\Application\ServiceSucursalesValidator.cs" />
     <Compile Include="EnterpriseDomain\Application\ServiceValidatorRTN.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\BusinessEntities.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\Empresa.cs" />
@@ -205,6 +209,7 @@
     <Compile Include="EnterpriseDomain\Domain\Repositories\IDepartamentRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IDireccionRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IDireccionRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\IEmpresaRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IGremioRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IGremioRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IMunicipioRepositoryReadOnly.cs" />

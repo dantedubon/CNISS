@@ -4,7 +4,7 @@ using CNISS.CommonDomain.Domain;
 
 namespace CNISS.AutenticationDomain.Domain.Entities
 {
-    public class User:Entity<string>
+    public class User:Entity<string>, IEquatable<User>
     {
         public virtual String firstName { get; set; }
         public virtual String mail { get; set; }
@@ -30,6 +30,29 @@ namespace CNISS.AutenticationDomain.Domain.Entities
 
         }
 
-        
+        public virtual bool Equals(User other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return string.Equals(Id, other.Id);
+        }
+
+        public override  bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((User) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hashCode = (Id != null ? Id.GetHashCode() : 0);
+               
+                return hashCode;
+            }
+        }
     }
 }

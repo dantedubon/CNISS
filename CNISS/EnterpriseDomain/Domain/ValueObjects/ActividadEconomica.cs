@@ -8,6 +8,17 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 {
     public class ActividadEconomica:ValueObject<Guid>
     {
+        public ActividadEconomica( string descripcion)
+        {
+            this.descripcion = descripcion;
+            Id = Guid.NewGuid();
+        }
+
+        protected ActividadEconomica()
+        {
+            
+        }
+
         public virtual string descripcion { get; set; }
     }
 }

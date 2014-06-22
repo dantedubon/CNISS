@@ -17,5 +17,16 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual Gremio gremial { get; set; }
         public virtual ContentFile contrato { get; set; }
 
+        protected Empresa()
+        {
+            
+        }
+
+        public Empresa(string nombre,DateTime fechaIngreso, Gremio gremial)
+        {
+            this.nombre = nombre;
+            this.fechaIngreso = fechaIngreso;
+            this.gremial = gremial;
+        }
     }
 }

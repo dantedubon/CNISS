@@ -48,7 +48,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Command
             var sucursales = getSucursales();
             var gremio = getGremio();
             var fechaIngreso = DateTime.Now;
-            var empresa = new Empresa("La Holgazana", fechaIngreso, gremio);
+            var rtn = new RTN("08011985123960");
+            var empresa = new Empresa(rtn, "La Holgazana", fechaIngreso, gremio);
             empresa.actividadesEconomicas = actividades;
             empresa.sucursales = sucursales;
             empresa.contrato = getContrato();
@@ -180,7 +181,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Command
             var municipio = new Municipio("01", "01", "Municipio");
             var departamento = new Departamento() {Id = "01", municipios =new List<Municipio>() {municipio}, nombre = "Departamento"};
             var direccion = new Direccion(departamento, municipio, "direccion");
-            var firma = new FirmaAutorizada(new User("DRCD","Dante","Ruben","SDSD","as",new Rol("rol", "rol")));
+            var firma = new FirmaAutorizada(new User("DRCD","Dante","Ruben","SDSD","as",new Rol("rol", "rol")),DateTime.Now);
 
             var sucursal = new Sucursal("El Centro", direccion, firma);
             return new List<Sucursal>() {sucursal};

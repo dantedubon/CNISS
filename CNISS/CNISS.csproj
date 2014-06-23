@@ -166,6 +166,9 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserQuery\UserModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\ActividadEconomicaRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\EmpresaRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\SucursalRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\DepartamentoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\DireccionRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\GremioRequest.cs" />
@@ -209,6 +212,7 @@
     <Compile Include="EnterpriseDomain\Domain\Repositories\IDepartamentRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IDireccionRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IDireccionRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\IEmpresaRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IEmpresaRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IGremioRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IGremioRepositoryCommands.cs" />
@@ -227,6 +231,7 @@
     <Compile Include="EnterpriseDomain\Ports\Output\Database\ActividadEconomicaRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\DepartamentRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\DireccionRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\EmpresaRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\GremioRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\GremioRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\ActividadEconomicaMapping.cs" />

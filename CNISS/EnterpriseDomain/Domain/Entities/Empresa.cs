@@ -22,11 +22,12 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
             
         }
 
-        public Empresa(string nombre,DateTime fechaIngreso, Gremio gremial)
+        public Empresa(RTN rtnEmpresa, string nombre,DateTime fechaIngreso, Gremio gremial)
         {
             this.nombre = nombre;
             this.fechaIngreso = fechaIngreso;
             this.gremial = gremial;
+            Id = rtnEmpresa;
         }
     }
 }

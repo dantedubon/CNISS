@@ -15,11 +15,11 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 
         public virtual DateTime fechaCreacion { get; set; }
 
-        public FirmaAutorizada(User user)
+        public FirmaAutorizada(User user, DateTime fechaCreacion)
         {
             
             Id = Guid.NewGuid();
-            fechaCreacion = DateTime.Now;
+            this.fechaCreacion = fechaCreacion;
             this.user = user;
 
         }

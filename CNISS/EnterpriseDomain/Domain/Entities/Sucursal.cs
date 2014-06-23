@@ -9,9 +9,9 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 {
     public class Sucursal:Entity<Guid>
     {
-        public Sucursal(string nombre, Direccion direccion, FirmaAutorizada firmaAutorizada)
+        public Sucursal(string nombre, Direccion direccion, FirmaAutorizada firmaAutorizada):this()
         {
-            Id = Guid.NewGuid();
+            
             this.nombre = nombre;
             this.direccion = direccion;
             this.firma = firmaAutorizada;
@@ -19,7 +19,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 
         protected Sucursal()
         {
-            
+            Id = Guid.NewGuid();
         }
         public virtual string nombre { get; set; }
         public virtual Direccion direccion { get; set; }

@@ -29,7 +29,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual string nombre { get; set; }
         public virtual RepresentanteLegal representanteLegal { get; set; }
         public virtual Direccion direccion { get; set; }
-        public virtual IEnumerable<Empresa> empresas { get; set; }
+       
        
 
 

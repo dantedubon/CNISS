@@ -18,6 +18,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest
         public bool programaPiloto { get; set; }
         public string contentFile { get; set; }
         public RTNRequest rtnRequest { get; set; }
+        public DateTime fechaIngreso { get; set; }
         public string nombre { get; set; }
 
 

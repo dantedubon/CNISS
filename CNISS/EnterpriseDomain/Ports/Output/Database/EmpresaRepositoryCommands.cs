@@ -22,7 +22,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output
         {
             var sucursales = entity.sucursales;
 
-            entity.gremial = getGremio(entity.gremial.Id);
+          //  entity.gremial = getGremio(entity.gremial.Id);
             base.save(entity);
             sucursales.ToList().ForEach(saveSucursal);
 

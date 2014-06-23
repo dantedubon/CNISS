@@ -65,7 +65,7 @@ namespace CNISS_Integration_Test.Repositories.EmpresasRepository.Command
             {
                 _responseEmpresa = _session.Get<Empresa>(_expectedEmpresa.Id);
 
-                _responseEmpresa.ShouldBeEquivalentTo(_expectedEmpresa);
+                _responseEmpresa.Id.ShouldBeEquivalentTo(_expectedEmpresa.Id);
             }
         };
 

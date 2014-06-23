@@ -23,7 +23,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
         {
             var rtn = getRTN(request.rtnRequest);
             var gremio = getGremio(request.gremioRequest);
-            var empresa = new Empresa(rtn, request.nombre, DateTime.Now, gremio)
+            var empresa = new Empresa(rtn, request.nombre, request.fechaIngreso, gremio)
             {
                 contrato = new ContentFile(contratoFile),
                 empleadosTotales = request.empleadosTotales,

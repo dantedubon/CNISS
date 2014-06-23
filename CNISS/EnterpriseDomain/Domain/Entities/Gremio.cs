@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
+using NHibernate.Mapping;
 
 namespace CNISS.EnterpriseDomain.Domain.Entities
 {
@@ -9,7 +10,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
     {
         protected Gremio()
         {
-            
+            empresas = new List<Empresa>();
         }
 
         public Gremio(RTN rtn, RepresentanteLegal representanteLegal, Direccion direccion, String nombre):base(rtn)
@@ -22,7 +23,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
             this.representanteLegal = representanteLegal;
             this.direccion = direccion;
             this.nombre = nombre;
-
+            empresas = new List<Empresa>();
 
         }
 

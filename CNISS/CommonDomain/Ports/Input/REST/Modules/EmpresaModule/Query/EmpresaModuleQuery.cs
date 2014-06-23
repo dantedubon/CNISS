@@ -24,6 +24,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
                     gremioRequest = getGremio(),
                     programaPiloto = true,
                     rtnRequest = getValidRTN(),
+                    fechaIngreso = DateTime.Now,
                     sucursalRequests = getGoodSucursales(),
                     nombre = "Empresa"
                 };

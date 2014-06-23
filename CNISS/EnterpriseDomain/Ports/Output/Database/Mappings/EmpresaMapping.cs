@@ -17,8 +17,8 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             Map(x => x.nombre);
             Map(x => x.proyectoPiloto);
             References(x => x.gremial,"rtn_gremio").Not.Nullable();
-              
-            Component(x => x.contrato, z => z.Map(x => x.dataFile).Column("Contrato").CustomSqlType("varbinary(max)").Length(int.MaxValue));
+
+            Component(x => x.contrato, z => z.Map(x => x.dataFile).Column("Contrato").Length(int.MaxValue));//.CustomSqlType("varbinary(max)").Length(int.MaxValue));
             HasMany(x => x.sucursales);
               
             HasManyToMany(x => x.actividadesEconomicas)

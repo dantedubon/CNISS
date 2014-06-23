@@ -25,4 +25,16 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
 
         }
     }
+
+    public class EmpresaRespositoryReadOnly : NHibernateReadOnlyRepository<Empresa, RTN>, IEmpresaRepositoryReadOnly
+    {
+        public EmpresaRespositoryReadOnly(ISession session) : base(session)
+        {
+        }
+
+        public bool exists(RTN id)
+        {
+            return (Session.Query<Empresa>().Where(empresa => empresa.Id == id).Select(empresa => empresa.Id)).Any();
+        }
+    }
 }

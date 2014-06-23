@@ -19,7 +19,7 @@ namespace CNISS.EnterpriseDomain.Application
             IGremioRepositoryReadOnly repositoryGremiosRead, 
             IActividadEconomicaRepositoryReadOnly repositoryActividadesRead, 
             IEmpresaRepositoryReadOnly repositoryRead,
-            IEmpresaRepositoryCommand repositoryCommand, Func<IUnitOfWork> uof) : base(repositoryCommand, uof)
+            IEmpresaRepositoryCommands repositoryCommand, Func<IUnitOfWork> uof) : base(repositoryCommand, uof)
         {
             _validadorSucursales = validadorSucursales;
             _repositoryGremiosRead = repositoryGremiosRead;

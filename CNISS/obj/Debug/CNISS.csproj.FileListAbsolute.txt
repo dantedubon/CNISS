@@ -34,6 +34,6 @@ C:\CNISS\CNISS\bin\Nancy.xml
 C:\CNISS\CNISS\bin\Nancy.Hosting.Aspnet.xml
 C:\CNISS\CNISS\bin\NHibernate.xml
 C:\CNISS\CNISS\bin\nunit.framework.xml
+C:\CNISS\CNISS\obj\Debug\CNISS.csprojResolveAssemblyReference.cache
 C:\CNISS\CNISS\obj\Debug\CNISS.dll
 C:\CNISS\CNISS\obj\Debug\CNISS.pdb
-C:\CNISS\CNISS\obj\Debug\CNISS.csprojResolveAssemblyReference.cache

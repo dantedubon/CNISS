@@ -142,11 +142,16 @@
     <Compile Include="CommonDomain\Domain\IRepositoryReadOnlyCompoundKey.cs" />
     <Compile Include="CommonDomain\Domain\IUnitOfWork.cs" />
     <Compile Include="CommonDomain\Domain\ValueObject.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\FileGetter.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\FilePersister.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\IFileGetter.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\IFilePersister.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\ApiBootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\Bootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\ActividadesEconomicasModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaMap.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleInsert.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Query\EmpresaModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\DepartamentoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\EnterpriseServiceModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\PersonRNPModule.cs" />
@@ -194,7 +199,6 @@
     <Compile Include="EnterpriseDomain\Application\ICommandDeleteGremio.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateGremioDireccion.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateGremioRepresentante.cs" />
-    <Compile Include="EnterpriseDomain\Application\IEmpresaRepositoryCommand.cs" />
     <Compile Include="EnterpriseDomain\Application\IServiceDireccionValidator.cs" />
     <Compile Include="EnterpriseDomain\Application\IServiceSucursalesValidator.cs" />
     <Compile Include="EnterpriseDomain\Application\IServiceValidatorRTN.cs" />

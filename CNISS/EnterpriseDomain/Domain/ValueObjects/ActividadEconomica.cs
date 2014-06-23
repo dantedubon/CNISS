@@ -14,7 +14,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
             Id = Guid.NewGuid();
         }
 
-        protected ActividadEconomica()
+        public ActividadEconomica()
         {
             
         }

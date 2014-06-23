@@ -111,6 +111,10 @@
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetValidRTN_Should_ReturnTrue.cs" />
     <Compile Include="DummyUnitOfWork.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Command\CommandInsertEmpresa_Test.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostEmpresaWithNotExecutable_Should_Return_Error.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostValidEmpresa_Should_SaveEmpresa.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostEmpresaWithIncorrectFileName_Should_Return_Error.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostInvalidEmpresa_Should_Return_Error.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Request\EmpresaRequest_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Request\SucursalRequest_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\ServiceSucursalesValidator_Test.cs" />

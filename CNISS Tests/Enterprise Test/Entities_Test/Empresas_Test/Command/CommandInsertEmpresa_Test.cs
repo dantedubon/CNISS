@@ -24,7 +24,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Command
             var empresa = getEmpresa();
 
             var repositoryReadOnly = Mock.Of<IEmpresaRepositoryReadOnly>();
-            var repositoryCommand = Mock.Of<IEmpresaRepositoryCommand>();
+            var repositoryCommand = Mock.Of<IEmpresaRepositoryCommands>();
             var repositoryActividadesRead = Mock.Of<IActividadEconomicaRepositoryReadOnly>();
             var repositoryGremiosRead = Mock.Of<IGremioRepositoryReadOnly>();
             var validadorSucursales = Mock.Of<IServiceSucursalesValidator>();
@@ -63,7 +63,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Command
         {
             var empresa = getEmpresa();
             var repositoryReadOnly = Mock.Of<IEmpresaRepositoryReadOnly>();
-            var repositoryCommand = Mock.Of<IEmpresaRepositoryCommand>();
+            var repositoryCommand = Mock.Of<IEmpresaRepositoryCommands>();
             var repositoryActividadesRead = Mock.Of<IActividadEconomicaRepositoryReadOnly>();
             var repositoryGremiosRead = Mock.Of<IGremioRepositoryReadOnly>();
             var validadorSucursales = Mock.Of<IServiceSucursalesValidator>();
@@ -87,7 +87,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Command
         {
             var empresa = getEmpresa();
             var repositoryReadOnly = Mock.Of<IEmpresaRepositoryReadOnly>();
-            var repositoryCommand = Mock.Of<IEmpresaRepositoryCommand>();
+            var repositoryCommand = Mock.Of<IEmpresaRepositoryCommands>();
             var repositoryActividadesRead = Mock.Of<IActividadEconomicaRepositoryReadOnly>();
             var repositoryGremiosRead = Mock.Of<IGremioRepositoryReadOnly>();
             var validadorSucursales = Mock.Of<IServiceSucursalesValidator>();
@@ -111,7 +111,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Command
         {
             var empresa = getEmpresa();
             var repositoryReadOnly = Mock.Of<IEmpresaRepositoryReadOnly>();
-            var repositoryCommand = Mock.Of<IEmpresaRepositoryCommand>();
+            var repositoryCommand = Mock.Of<IEmpresaRepositoryCommands>();
             var repositoryActividadesRead = Mock.Of<IActividadEconomicaRepositoryReadOnly>();
             var repositoryGremiosRead = Mock.Of<IGremioRepositoryReadOnly>();
             var validadorSucursales = Mock.Of<IServiceSucursalesValidator>();
@@ -135,7 +135,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Command
         {
             var empresa = getEmpresa();
             var repositoryReadOnly = Mock.Of<IEmpresaRepositoryReadOnly>();
-            var repositoryCommand = Mock.Of<IEmpresaRepositoryCommand>();
+            var repositoryCommand = Mock.Of<IEmpresaRepositoryCommands>();
             var repositoryActividadesRead = Mock.Of<IActividadEconomicaRepositoryReadOnly>();
             var repositoryGremiosRead = Mock.Of<IGremioRepositoryReadOnly>();
             var validadorSucursales = Mock.Of<IServiceSucursalesValidator>();

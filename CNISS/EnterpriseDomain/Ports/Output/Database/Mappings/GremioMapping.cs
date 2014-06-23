@@ -14,7 +14,8 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             Map(x => x.nombre);
             References(x => x.representanteLegal);
             References(x => x.direccion);
-      
+            HasMany(x => x.empresas).Inverse().Cascade.SaveUpdate().KeyColumn("rtn_gremio");
+
         }
     }
 }

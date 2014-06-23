@@ -1,5 +1,6 @@
 using System.Linq;
 using CNISS.CommonDomain.Ports.Output.Database;
+using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
@@ -20,11 +21,19 @@ namespace CNISS.EnterpriseDomain.Ports.Output
         public void save(Empresa entity)
         {
             var sucursales = entity.sucursales;
-  
+
+            entity.gremial = getGremio(entity.gremial.Id);
             base.save(entity);
             sucursales.ToList().ForEach(saveSucursal);
 
             
+
+
+        }
+
+        private Gremio getGremio(RTN rtnGremio)
+        {
+            return _repositoryReadGremio.get(rtnGremio);
         }
 
         private void saveSucursal(Sucursal sucursal)

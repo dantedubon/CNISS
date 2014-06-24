@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using CNISS.EnterpriseDomain.Domain;
-
-namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
+﻿namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
 {
     public class GremioRequest:IValidPost,IValidPut
     {

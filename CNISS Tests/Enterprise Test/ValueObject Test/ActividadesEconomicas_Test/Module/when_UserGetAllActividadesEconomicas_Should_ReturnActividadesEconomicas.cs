@@ -7,7 +7,6 @@ using FluentAssertions;
 using Machine.Specifications;
 using Moq;
 using Nancy.Testing;
-using Should;
 using It = Machine.Specifications.It;
 
 namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.ActividadesEconomicas_Test.Module

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CNISS.CommonDomain.Ports.Output.Database;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
@@ -12,7 +8,6 @@ using CNISS.EnterpriseDomain.Ports.Output.Database;
 using CNISS_Integration_Test.Unit_Of_Work;
 using FizzWare.NBuilder;
 using FluentAssertions;
-using FluentNHibernate.Testing.Values;
 using Machine.Specifications;
 using NHibernate;
 

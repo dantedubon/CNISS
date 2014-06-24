@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Nancy;
-using Nancy.Hosting.Aspnet;
+﻿using Nancy;
 
 namespace CNISS.CommonDomain.Ports.Input.REST
 {

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using CNISS.CommonDomain.Application;
+﻿using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
-using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using Machine.Specifications;
 using Moq;

@@ -1,6 +1,5 @@
 using System.Linq;
 using CNISS.CommonDomain.Ports.Output.Database;
-using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;

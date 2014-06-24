@@ -1,5 +1,4 @@
-﻿using System;
-using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
+﻿using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest
 {

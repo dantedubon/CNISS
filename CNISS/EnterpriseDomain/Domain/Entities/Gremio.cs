@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
-using NHibernate.Mapping;
 
 namespace CNISS.EnterpriseDomain.Domain.Entities
 {

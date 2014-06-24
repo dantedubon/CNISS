@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using CNISS.CommonDomain.Domain;
+﻿using CNISS.CommonDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
 
 namespace CNISS.EnterpriseDomain.Domain.Repositories

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Web;
-using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
+﻿using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using NUnit.Framework;
 
 namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.Identidad_Test.Request

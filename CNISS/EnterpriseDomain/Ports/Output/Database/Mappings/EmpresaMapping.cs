@@ -1,7 +1,5 @@
-using System.Security.Policy;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using FluentNHibernate.Mapping;
-using NUnit.Framework;
 
 namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
 {

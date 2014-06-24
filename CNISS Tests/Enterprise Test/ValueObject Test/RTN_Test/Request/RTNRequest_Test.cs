@@ -1,5 +1,4 @@
 ﻿using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
-using CNISS.EnterpriseDomain.Domain;
 using NUnit.Framework;
 
 namespace CNISS_Tests.RTN_Test.Request

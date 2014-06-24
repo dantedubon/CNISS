@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.EnterpriseDomain.Domain.Entities;
-using CNISS.EnterpriseDomain.Domain.Repositories;
 
 namespace CNISS.EnterpriseDomain.Application
 {

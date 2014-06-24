@@ -1,13 +1,3 @@
-c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\bin\CNISS.dll.config
-c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\bin\CNISS.dll
-c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\bin\CNISS.pdb
-c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\bin\Nancy.dll
-c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\bin\Nancy.Hosting.Aspnet.dll
-c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\bin\Nancy.xml
-c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\bin\Nancy.Hosting.Aspnet.xml
-c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\obj\Debug\CNISS.csprojResolveAssemblyReference.cache
-c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\obj\Debug\CNISS.dll
-c:\users\usuario\documents\visual studio 2013\Projects\CNISS\CNISS\obj\Debug\CNISS.pdb
 C:\CNISS\CNISS\bin\CNISS.dll.config
 C:\CNISS\CNISS\bin\CNISS.dll
 C:\CNISS\CNISS\bin\CNISS.pdb

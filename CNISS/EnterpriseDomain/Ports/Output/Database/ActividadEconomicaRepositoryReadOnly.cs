@@ -4,7 +4,6 @@ using System.Linq;
 using CNISS.CommonDomain.Ports.Output.Database;
 using CNISS.EnterpriseDomain.Domain.Repositories;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
-using FluentNHibernate.Utils;
 using NHibernate;
 using NHibernate.Linq;
 

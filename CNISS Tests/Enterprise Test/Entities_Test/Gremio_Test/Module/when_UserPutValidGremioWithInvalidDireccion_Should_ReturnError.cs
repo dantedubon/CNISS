@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand;
+﻿using CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using FizzWare.NBuilder;
-using FluentAssertions;
 using Machine.Specifications;
 using Moq;
 using Nancy;

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CNISS.CommonDomain.Ports.Output.Database;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
@@ -14,8 +10,6 @@ using FizzWare.NBuilder;
 using FluentAssertions;
 using Machine.Specifications;
 using NHibernate;
-using NHibernate.Linq.Expressions;
-using NHibernate.Mapping;
 
 namespace CNISS_Integration_Test.Repositories.GremioRepository.Command
 {

@@ -116,6 +116,7 @@
     <Compile Include="Modules\Users\when_UserPostNewUser_Should_SaveNewUser.cs" />
     <Compile Include="Repositories\ActividadEconomicaRepository\when_UserAskIfExistsAllActividadesExisting_Should_ReturnTrue.cs" />
     <Compile Include="Repositories\ActividadEconomicaRepository\when_UserAskIfExistsAllActividadesNotExisting_Should_ReturnFalse.cs" />
+    <Compile Include="Repositories\BeneficiarioRepository\when_UserInsertNewBeneficisario_Should_InsertBeneficiario.cs" />
     <Compile Include="Repositories\DepartamentoRepository\when_UserAskIfMunicipioBelongDepartamento_Should_ReturnTrue.cs" />
     <Compile Include="Repositories\DireccionRepository\when_UserAskForDireccionById_Return_Direccion.cs" />
     <Compile Include="Repositories\EmpresasRepository\Command\when_UserSavesValidEmpresa_Should_SaveEmpresa.cs" />

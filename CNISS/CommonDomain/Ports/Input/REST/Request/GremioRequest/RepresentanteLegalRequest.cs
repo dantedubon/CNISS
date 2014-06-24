@@ -1,5 +1,3 @@
-using System;
-
 namespace CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest
 {
     public class RepresentanteLegalRequest:IValidPost

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Web;
+﻿using System.Collections.Generic;
 using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain.Repositories;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
-using CNISS.EnterpriseDomain.Ports.Output.Database;
 using FizzWare.NBuilder;
 using Moq;
 using NUnit.Framework;

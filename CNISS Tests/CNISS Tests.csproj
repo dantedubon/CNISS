@@ -110,6 +110,7 @@
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetInvalidRTN_Should_ReturnFalse.cs" />
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetValidRTN_Should_ReturnTrue.cs" />
     <Compile Include="DummyUnitOfWork.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Commands\CommandInsertBeneficiario_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Command\CommandInsertEmpresa_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostEmpresaWithNotExecutable_Should_Return_Error.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostValidEmpresa_Should_SaveEmpresa.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Enterprise Test\Entities_Test\RepresentanteLegal\RepresentanteLegal_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Identidad_Test\Request\IdentidadRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Municipio_Test\Request\MunicipioRequest_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Parentesco_Test\Module\when_UserGetAllParentesco_Should_.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\RepresentanteLegal_Test\Request\RepresentanteLegalRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\RTN_Test\Request\RTNRequest_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Autentication Test\User_Test\Cryptography\" />
+    <Folder Include="Enterprise Test\Entities_Test\Beneficiario_Test\Module\" />
     <Folder Include="Enterprise Test\Modules_Test\" />
   </ItemGroup>
   <PropertyGroup>

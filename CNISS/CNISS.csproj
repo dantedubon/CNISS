@@ -148,6 +148,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\IFilePersister.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\ApiBootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\Bootstrapper.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\ParentescoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\ActividadesEconomicasModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaMap.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleInsert.cs" />
@@ -226,6 +227,7 @@
     <Compile Include="EnterpriseDomain\Domain\Repositories\IGremioRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IGremioRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IMunicipioRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\IParentescoReadOnlyRepository.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IPersonRNPRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IRepresentanteLegalRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IRepresentanteLegalRepositoryReadOnly.cs" />
@@ -262,6 +264,7 @@
     <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\RepresentanteLegalMapping.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\SucursalMapping.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\MunicipioRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\ParentescoRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\PersonRNPRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\DireccionRepositoryCommand.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\RepresentanteLegalRepositoryCommands.cs" />

@@ -2,6 +2,7 @@ using System;
 using Autofac;
 using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST;
+using CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule;
 using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
@@ -26,7 +27,7 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<EmpresaRespositoryReadOnly>().As<IEmpresaRepositoryReadOnly>();
                     builder.RegisterType<EmpresaRepositoryCommands>().As<IEmpresaRepositoryCommands>();
                     builder.RegisterType<CommandInsertEmpresa>().As<ICommandInsertIdentity<Empresa>>();
-
+                    builder.RegisterType<ParentescoRepositoryReadOnly>().As<IParentescoReadOnlyRepository>();
 
 
                 };

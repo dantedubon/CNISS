@@ -44,7 +44,7 @@ namespace CNISS_Tests.Entities_Test.Beneficiario_Test.Commands
 
             var parentescoNoExistente = getParentescoPadre();
             var dependienteWithParentescoNoExistente = getDependiente(new Identidad("0501198512498"),
-                new Nombre("", "", "", ""), parentescoNoExistente);
+                new Nombre("", "", ""), parentescoNoExistente);
             beneficiario.addDependiente(dependienteWithParentescoNoExistente);
 
             var repositoryCommandBeneficiario = Mock.Of<IBeneficiarioRepositoryCommands>();
@@ -73,7 +73,7 @@ namespace CNISS_Tests.Entities_Test.Beneficiario_Test.Commands
 
             var parentescoNoExistente = getParentescoPadre();
             var dependienteWithParentescoNoExistente = getDependiente(new Identidad("0501198512498"),
-                new Nombre("", "", "", ""), parentescoNoExistente);
+                new Nombre("", "", ""), parentescoNoExistente);
             beneficiario.addDependiente(dependienteWithParentescoNoExistente);
 
             var repositoryCommandBeneficiario = Mock.Of<IBeneficiarioRepositoryCommands>();
@@ -117,15 +117,15 @@ namespace CNISS_Tests.Entities_Test.Beneficiario_Test.Commands
         private  Beneficiario getBeneficiario()
         {
             var beneficiario = new Beneficiario(new Identidad("0801198512396"),
-                new Nombre("Dante", "Dubon", "Castillo", "Rubén"), new DateTime(1984, 8, 2));
+                new Nombre("Dante", "Castillo", "Rubén"), new DateTime(1984, 8, 2));
 
 
             var parentescoHijo = getParentescoHijo();
             var parentescoMadre = getParentescoMadre();
 
           
-            beneficiario.addDependiente(getDependiente(new Identidad("0801196712396"), new Nombre("Lavinia", "", "Dubon", "Fajardo"), parentescoMadre));
-            beneficiario.addDependiente(getDependiente(new Identidad("0801196712395"), new Nombre("Daniel", "", "Castillo", "Velasquez"), parentescoHijo));
+            beneficiario.addDependiente(getDependiente(new Identidad("0801196712396"), new Nombre("Lavinia", "Dubon", "Fajardo"), parentescoMadre));
+            beneficiario.addDependiente(getDependiente(new Identidad("0801196712395"), new Nombre("Daniel", "Castillo", "Velasquez"), parentescoHijo));
             return beneficiario;
         }
     }

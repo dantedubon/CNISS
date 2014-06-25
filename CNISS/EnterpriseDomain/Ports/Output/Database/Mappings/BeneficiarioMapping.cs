@@ -14,10 +14,10 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
 
             Component(x => x.nombre, z =>
             {
-                z.Map(x => x.primerNombre);
+                z.Map(x => x.nombres);
                 z.Map(x => x.primerApellido);
                 z.Map(x => x.segundoApellido);
-                z.Map(x => x.segundoNombre);
+              
             }
                 );
 

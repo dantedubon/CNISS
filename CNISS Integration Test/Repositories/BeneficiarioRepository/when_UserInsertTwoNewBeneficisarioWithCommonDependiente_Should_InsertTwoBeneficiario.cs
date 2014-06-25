@@ -32,17 +32,17 @@ namespace CNISS_Integration_Test.Repositories.BeneficiarioRepository
             var parentescoMadre = getParentescoMadre();
             var parentescoPadre = getParentescoPadre();
 
-            _expectedBeneficiario = getBeneficiario(new Identidad("0801198512396"),new Nombre("Dante","Ruben","Castillo",""),new DateTime(1984,8,2)  );
+            _expectedBeneficiario = getBeneficiario(new Identidad("0801198512396"),new Nombre("Dante","Ruben","Castillo"),new DateTime(1984,8,2)  );
             _expectedBeneficiario2 = getBeneficiario(new Identidad("0801197915396"),
-                new Nombre("Angela", "Velasquez", "Rosario", ""), new DateTime(1979, 4, 21));
+                new Nombre("Angela", "Velasquez", "Rosario"), new DateTime(1979, 4, 21));
 
 
             var dependiente1 = getDependiente(new Identidad("0801195712396"),
-                new Nombre("Lavinia", "", "Dubon", "Fajardo"), parentescoMadre);
+                new Nombre("Lavinia", "Dubon", "Fajardo"), parentescoMadre);
             var dependiente2 = getDependiente(new Identidad("0801201516395"),
-                new Nombre("Daniel", "", "Castillo", "Velasquez"), parentescoHijo);
+                new Nombre("Daniel", "Castillo", "Velasquez"), parentescoHijo);
             var dependiente3 = getDependiente(new Identidad("0801195013366"),
-               new Nombre("David", "", "Castillo", "Velasquez"), parentescoPadre);
+               new Nombre("David", "Castillo", "Velasquez"), parentescoPadre);
 
 
             _expectedBeneficiario.addDependiente(dependiente1);

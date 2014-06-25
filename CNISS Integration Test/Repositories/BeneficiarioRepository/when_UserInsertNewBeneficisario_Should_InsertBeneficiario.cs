@@ -29,8 +29,8 @@ namespace CNISS_Integration_Test.Repositories.BeneficiarioRepository
             var parentescoMadre = getParentescoMadre();
 
             _expectedBeneficiario = getBeneficiario();
-            _expectedBeneficiario.addDependiente(getDependiente(new Identidad("0801196712396"), new Nombre("Lavinia", "", "Dubon", "Fajardo"), parentescoMadre));
-            _expectedBeneficiario.addDependiente(getDependiente(new Identidad("0801196712395"),new Nombre("Daniel", "", "Castillo", "Velasquez"), parentescoHijo));
+            _expectedBeneficiario.addDependiente(getDependiente(new Identidad("0801196712396"), new Nombre("Lavinia", "Dubon", "Fajardo"), parentescoMadre));
+            _expectedBeneficiario.addDependiente(getDependiente(new Identidad("0801196712395"),new Nombre("Daniel", "Castillo", "Velasquez"), parentescoHijo));
 
             prepareParentesco(parentescoHijo);
             prepareParentesco(parentescoMadre);
@@ -94,7 +94,7 @@ namespace CNISS_Integration_Test.Repositories.BeneficiarioRepository
         private static Beneficiario getBeneficiario()
         {
             var beneficiario = new Beneficiario(new Identidad("0801198512396"),
-                new Nombre("Dante", "Dubon", "Castillo", "Rubén"), new DateTime(1984, 8, 2));
+                new Nombre("Dante", "Castillo", "Rubén"), new DateTime(1984, 8, 2));
 
             return beneficiario;
         }

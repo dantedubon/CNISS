@@ -28,6 +28,11 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<EmpresaRepositoryCommands>().As<IEmpresaRepositoryCommands>();
                     builder.RegisterType<CommandInsertEmpresa>().As<ICommandInsertIdentity<Empresa>>();
                     builder.RegisterType<ParentescoRepositoryReadOnly>().As<IParentescoReadOnlyRepository>();
+                    builder.RegisterType<CommandInsertBeneficiario>().As<ICommandInsertIdentity<Beneficiario>>();
+                    builder.RegisterType<BeneficiarioRepositoryReadOnly>().As<IBeneficiarioRepositoryReadOnly>();
+                    builder.RegisterType<BeneficiarioRepositoryCommands>().As<IBeneficiarioRepositoryCommands>();
+                    builder.RegisterType<ParentescoRepositoryReadOnly>().As<IParentescoReadOnlyRepository>();
+
 
 
                 };

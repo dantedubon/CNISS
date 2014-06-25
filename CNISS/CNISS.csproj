@@ -148,7 +148,10 @@
     <Compile Include="CommonDomain\Ports\Input\REST\IFilePersister.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\ApiBootstrapper.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Infraestructure\Bootstrapper.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\Commands\BeneficiarioMap.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\Commands\BeneficiarioModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\ParentescoModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\Query\BeneficiarioModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\ActividadesEconomicasModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaMap.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleInsert.cs" />
@@ -172,6 +175,10 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserQuery\UserModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\BeneficiarioRequest\BeneficiarioRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\BeneficiarioRequest\DependienteRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\BeneficiarioRequest\NombreRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\BeneficiarioRequest\ParentescoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\ActividadEconomicaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\EmpresaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\SucursalRequest.cs" />

@@ -118,7 +118,10 @@
     <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Request\BeneficiarioRequest_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Request\DependienteRequest_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Command\CommandInsertEmpresa_Test.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserGetEmpresaByIDBadRTN_Should_ReturnError.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserGetAllEmpresas_Should_ReturnAllEmpresas.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserGetEmpresaByIDNotValidRTN_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserGetEmpresaByValidID_Should_ReturnEmpresa.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostEmpresaWithNotExecutable_Should_Return_Error.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostValidEmpresa_Should_SaveEmpresa.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostEmpresaWithIncorrectFileName_Should_Return_Error.cs" />

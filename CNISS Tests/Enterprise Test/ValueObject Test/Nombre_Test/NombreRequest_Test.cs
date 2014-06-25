@@ -44,7 +44,16 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.Nombre_Test
                  new object[]
                 {
                     "nombre","primerApellido", "1"
+                },
+                 new object[]
+                {
+                    null,"primerApellido", null
+                },
+                 new object[]
+                {
+                    null,null, null
                 }
+
 
             };
         }

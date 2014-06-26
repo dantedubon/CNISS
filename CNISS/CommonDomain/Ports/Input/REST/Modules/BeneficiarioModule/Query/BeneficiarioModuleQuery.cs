@@ -7,7 +7,9 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
+using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using Nancy;
+using Nancy.ModelBinding;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Query
 {
@@ -19,6 +21,21 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Query
             {
                 var beneficiarios = repository.getAll();
                 return Response.AsJson(beneficiarios.Select(getShortBeneficiarioRequest).ToList());
+            };
+
+            Get["/enterprise/beneficiarios/id="] = parameters =>
+            {
+                var id = this.Bind<IdentidadRequest>();
+                if (id.isValidPost())
+                {
+                    var identidad = new Identidad(id.identidad);
+                    var beneficiario = repository.get(identidad);
+                    return Response.AsJson(getLongBeneficiarioRequest(beneficiario))
+                        .WithStatusCode(HttpStatusCode.OK);
+                }
+
+                return new Response()
+                    .WithStatusCode(HttpStatusCode.BadRequest);
             };
         }
 
@@ -35,6 +52,38 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Query
                 fechaNacimiento = beneficiario.fechaNacimiento,
                 dependienteRequests = new List<DependienteRequest>()
                 
+            };
+        }
+
+        private  BeneficiarioRequest getLongBeneficiarioRequest(Beneficiario beneficiario)
+        {
+            return new BeneficiarioRequest()
+            {
+                nombreRequest = new NombreRequest()
+                {
+                    nombres = beneficiario.nombre.nombres,
+                    primerApellido = beneficiario.nombre.primerApellido,
+                    segundoApellido = beneficiario.nombre.segundoApellido
+                },
+                fechaNacimiento = beneficiario.fechaNacimiento,
+                identidadRequest = new IdentidadRequest() { identidad = beneficiario.Id.identidad },
+                dependienteRequests = beneficiario.dependientes.Select(x => new DependienteRequest()
+                {
+                    edad = x.edad,
+                    identidadRequest = new IdentidadRequest() { identidad = x.Id.identidad },
+                    nombreRequest = new NombreRequest()
+                    {
+                        nombres = x.nombre.nombres,
+                        primerApellido = x.nombre.primerApellido,
+                        segundoApellido = x.nombre.segundoApellido
+                    },
+                    parentescoRequest = new ParentescoRequest()
+                    {
+                        descripcion = x.parentesco.descripcion,
+                        guid = x.parentesco.Id
+                    }
+                }).ToList()
+
             };
         }
     }

@@ -157,6 +157,8 @@
     <Compile Include="Enterprise Test\ValueObject Test\Direccion_Test\DireccionRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Direccion_Test\ServiceDireccionValidator_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Direccion_Test\Direccion_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\HorarioLaboral_Test\Hora_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\HorarioLaboral_Test\Parte_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Identidad_Test\Identidad_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\RepresentanteLegal\RepresentanteLegal_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Identidad_Test\Request\IdentidadRequest_Test.cs" />

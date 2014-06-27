@@ -6,12 +6,12 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 {
     public class DiasLaborables
     {
-        public virtual byte lunes { get; set; }
-        public virtual byte martes { get; set; }
-        public virtual byte miercoles { get; set; }
-        public virtual byte jueves { get; set; }
-        public virtual byte viernes { get; set; }
-        public virtual byte sabado { get; set; }
-        public virtual byte domingo { get; set; }
+        public virtual bool lunes { get; set; }
+        public virtual bool martes { get; set; }
+        public virtual bool miercoles { get; set; }
+        public virtual bool jueves { get; set; }
+        public virtual bool viernes { get; set; }
+        public virtual bool sabado { get; set; }
+        public virtual bool domingo { get; set; }
     }
 }

@@ -9,9 +9,9 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
             
         }
 
-        public Hora(int hora, int minutos, IParteDia parteDia)
+        public Hora(int hora, int minutos,string parte)
         {
-            if (parteDia == null) throw new ArgumentNullException("parteDia");
+          
             if (hora > 12 || hora < 1)
             {
                 throw new ArgumentException();
@@ -26,14 +26,21 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
             {
                 throw new ArgumentException();
             }
+
+            if (!(parte == "AM" || parte == "PM"))
+            {
+                throw new ArgumentException();
+            }
             this.hora = hora;
             this.minutos = minutos;
-            this.parteDia = parteDia;
+            this.parte = parte;
+
         }
 
         public virtual int hora { get; protected set; }
         public virtual int minutos { get; protected set; }
-        public virtual IParteDia parteDia { get; protected set; }
+        public virtual string parte { get; set; }
+      
 
     }
 }

@@ -10,7 +10,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
         {
             
         }
-        public HorarioLaboral(Hora horaSalida, Hora horaEntrada, DiasLaborables diasLaborables)
+        public HorarioLaboral(Hora horaEntrada, Hora horaSalida, DiasLaborables diasLaborables)
         {
             this.horaSalida = horaSalida;
             this.horaEntrada = horaEntrada;

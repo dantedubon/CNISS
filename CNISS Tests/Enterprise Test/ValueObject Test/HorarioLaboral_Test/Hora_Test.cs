@@ -15,7 +15,7 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.HorarioLaboral_Test
         {
           
 
-            Assert.Throws<ArgumentException>(() => new Hora(13, 0, new AM()));
+            Assert.Throws<ArgumentException>(() => new Hora(13, 0,"AM"));
 
         }
 
@@ -24,7 +24,7 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.HorarioLaboral_Test
         {
 
 
-            Assert.Throws<ArgumentException>(() => new Hora(0, 0, new AM()));
+            Assert.Throws<ArgumentException>(() => new Hora(0, 0,"AM"));
 
         }
         [Test]
@@ -32,7 +32,7 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.HorarioLaboral_Test
         {
 
 
-            Assert.Throws<ArgumentException>(() => new Hora(1, 60, new AM()));
+            Assert.Throws<ArgumentException>(() => new Hora(1, 60,"AM"));
 
         }
 
@@ -41,17 +41,35 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.HorarioLaboral_Test
         {
 
 
-            Assert.Throws<ArgumentException>(() => new Hora(1, -1, new AM()));
+            Assert.Throws<ArgumentException>(() => new Hora(1, -1,"AM"));
 
         }
 
         [Test]
-        public void constructor_parteNula_lanzaExcepcion()
+        public void constructor_parteDiferenteAMoPM_lanzaExcepcion()
         {
 
 
-            Assert.Throws<ArgumentNullException>(() => new Hora(1, 0, null));
+            Assert.Throws<ArgumentException>(() => new Hora(1, 0,"XX"));
 
         }
+        [Test]
+        public void constructor_parteIgualAM_NolanzaExcepcion()
+        {
+
+            Assert.DoesNotThrow(() => new Hora(1, 0, "AM"));
+        
+
+        }
+
+        [Test]
+        public void constructor_parteIgualPM_NolanzaExcepcion()
+        {
+
+            Assert.DoesNotThrow(() => new Hora(1, 0, "PM"));
+
+
+        }
+
     }
 }

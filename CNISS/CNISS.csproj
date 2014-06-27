@@ -203,6 +203,7 @@
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandDeleteGremio.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertBeneficiario.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandInsertEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertEmpresa.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertGremio.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateGremioDireccion.cs" />
@@ -233,11 +234,14 @@
     <Compile Include="EnterpriseDomain\Domain\Repositories\IDepartamentRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IDireccionRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IDireccionRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\IEmpleoRepositoryCommands.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\IEmpleoRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IEmpresaRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IEmpresaRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IGremioRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IGremioRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IMunicipioRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\ITipoDeEmpleoReadOnlyRepository.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IParentescoReadOnlyRepository.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IPersonRNPRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IRepresentanteLegalRepositoryCommands.cs" />
@@ -262,6 +266,9 @@
     <Compile Include="EnterpriseDomain\Ports\Output\Database\ActividadEconomicaRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\BeneficiarioRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\BeneficiarioRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\EmpleoRepositoryCommands.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\EmpleoRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\TipoDeEmpleoRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\DepartamentRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\DireccionRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\EmpresaRepositoryCommands.cs" />

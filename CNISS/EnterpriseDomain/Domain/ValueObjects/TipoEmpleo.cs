@@ -7,5 +7,16 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
     {
         public virtual string descripcion { get; protected set; }
 
+        protected TipoEmpleo()
+        {
+            Id = Guid.NewGuid();
+        }
+
+        public TipoEmpleo(string descripcion)
+        {
+            Id = Guid.NewGuid();
+            this.descripcion = descripcion;
+
+        }
     }
 }

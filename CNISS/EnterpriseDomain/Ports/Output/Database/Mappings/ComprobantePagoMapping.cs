@@ -11,7 +11,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public ComprobantePagoMapping()
         {
-            Id(x => x.Id);
+            Id(x => x.Id).GeneratedBy.Assigned();
             Map(x => x.deducciones);
             Map(x => x.percepciones);
             Map(x => x.total);

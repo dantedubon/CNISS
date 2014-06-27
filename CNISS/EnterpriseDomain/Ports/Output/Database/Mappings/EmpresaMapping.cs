@@ -14,6 +14,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             Map(x => x.fechaIngreso);
             Map(x => x.nombre);
             Map(x => x.proyectoPiloto);
+            
             References(x => x.gremial,"rtn_gremio").Not.Nullable();
 
             Component(x => x.contrato, z => z.Map(x => x.dataFile).Column("Contrato").Length(int.MaxValue));//.CustomSqlType("varbinary(max)").Length(int.MaxValue));

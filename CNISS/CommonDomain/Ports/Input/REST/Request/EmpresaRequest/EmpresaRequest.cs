@@ -30,6 +30,13 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest
                 
         }
 
+        public bool isValidPostForEmpleo()
+        {
+            return rtnRequest != null && rtnRequest.isValidPost() && !string.IsNullOrEmpty(nombre);
+
+
+        }
+
         private bool isValidSucursales()
         {
             return sucursalRequests.All(x => x.isValidPost());

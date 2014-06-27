@@ -11,6 +11,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
     public class SucursalRequest_Test
     {
         public object[] badRequestForPost;
+        public object[] badRequestForPostEmpleo;
 
         public SucursalRequest_Test()
         {
@@ -42,6 +43,22 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
                      getDireccionRequest(), getUserRequest(),null
                 }
             };
+
+            badRequestForPostEmpleo = new object[]
+            {
+                new object[]
+                {
+                    Guid.Empty,"Sucursal"
+                },
+                    new object[]
+                {
+                   Guid.NewGuid(),null
+                },
+                 new object[]
+                {
+                   Guid.NewGuid(),""
+                }
+            };
         }
 
          [TestCaseSource("badRequestForPost")]
@@ -54,6 +71,36 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
 
             Assert.IsFalse(respuesta);
         }
+
+         [TestCaseSource("badRequestForPostEmpleo")]
+         public void isValidPostForPostEmpleo_invalidData_returnFalse(Guid idGuid, string nombre)
+         {
+
+             var sucursal = new SucursalRequest()
+             {
+                 guid = idGuid,
+                 nombre = nombre
+             };
+
+             var respuesta = sucursal.isValidForPostEmpleo();
+
+             Assert.IsFalse(respuesta);
+         }
+
+        [Test]
+         public void isValidPostForPostEmpleo_validData_returnTrue()
+         {
+
+             var sucursal = new SucursalRequest()
+             {
+                 guid = Guid.NewGuid(),
+                 nombre = "Sucursal"
+             };
+
+             var respuesta = sucursal.isValidForPostEmpleo();
+
+             Assert.IsTrue(respuesta);
+         }
         [Test]
         public void isValidPost_validData_returnTrue()
         {

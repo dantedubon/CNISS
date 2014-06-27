@@ -20,6 +20,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest
                 && isValidDependientes();
         }
 
+        
+
         private bool isValidDependientes()
         {
             return dependienteRequests!=null &&( !dependienteRequests.Any() || dependienteRequests.All(x => x.isValidPost()));

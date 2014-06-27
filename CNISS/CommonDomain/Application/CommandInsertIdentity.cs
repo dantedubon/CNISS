@@ -29,5 +29,7 @@ namespace CNISS.CommonDomain.Application
         {
             throw new NotImplementedException();
         }
+
+        public string message { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
+using CNISS.EnterpriseDomain.Domain;
 using NUnit.Framework;
 
 namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
@@ -12,6 +13,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
     public class EmpresaRequest_Test
     {
         public Object[] badDataForPost;
+        public Object[] badDataForPostEmpleo;
 
         public EmpresaRequest_Test()
         {
@@ -60,6 +62,28 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
                 }
                 
             };
+
+            badDataForPostEmpleo = new object[]
+            {
+
+                new Object[]
+                {
+                    new RTNRequest(),"Empresa"
+                },
+                new Object[]
+                {
+                    null,"Empresa"
+                },
+                  new Object[]
+                {
+                    getValidRTN(),null
+                },
+                 new Object[]
+                {
+                    getValidRTN(),""
+                },
+
+            };
         }
 
         [TestCaseSource("badDataForPost")]
@@ -103,6 +127,41 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
             var respuesta = empresa.isValidPost();
 
             Assert.IsTrue(respuesta);
+        }
+
+        [TestCaseSource("badDataForPostEmpleo")]
+        public void isValidForPostEmpleo_invalidData_returnFalse(RTNRequest rtn, string nombre)
+        {
+            var empresa = new EmpresaRequest()
+            {
+                
+                programaPiloto = true,
+                rtnRequest = rtn,
+               
+                nombre = nombre
+            };
+
+            var respuesta = empresa.isValidPostForEmpleo();
+
+            Assert.IsFalse(respuesta);
+
+        }
+        [Test]
+        public void isValidForPostEmpleo_validData_returnTrue()
+        {
+            var empresa = new EmpresaRequest()
+            {
+
+                programaPiloto = true,
+                rtnRequest = getValidRTN(),
+
+                nombre = "Empresa"
+            };
+
+            var respuesta = empresa.isValidPostForEmpleo();
+
+            Assert.IsTrue(respuesta);
+
         }
 
         private IEnumerable<ActividadEconomicaRequest> getActividades()

@@ -5,7 +5,8 @@ using System.Web;
 
 namespace CNISS.EnterpriseDomain.Application
 {
-    public class IProvideDaysForNewEmpleo
+    public interface IProvideAllowedDaysForNewEmpleo
     {
+        int getDays();
     }
 }

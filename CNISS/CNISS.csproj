@@ -181,6 +181,11 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Request\BeneficiarioRequest\DependienteRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\BeneficiarioRequest\NombreRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\BeneficiarioRequest\ParentescoRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\DiasLaborablesRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\EmpleoRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\HoraRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\HorarioLaboralRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\TipoEmpleoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\ActividadEconomicaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\EmpresaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\SucursalRequest.cs" />
@@ -211,9 +216,11 @@
     <Compile Include="EnterpriseDomain\Application\ICommandDeleteGremio.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateGremioDireccion.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateGremioRepresentante.cs" />
+    <Compile Include="EnterpriseDomain\Application\IProvideAllowedDaysForNewEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Application\IServiceDireccionValidator.cs" />
     <Compile Include="EnterpriseDomain\Application\IServiceSucursalesValidator.cs" />
     <Compile Include="EnterpriseDomain\Application\IServiceValidatorRTN.cs" />
+    <Compile Include="EnterpriseDomain\Application\ProvideAllowedDaysForNewEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Application\ServiceDireccionValidator.cs" />
     <Compile Include="EnterpriseDomain\Application\ServiceSucursalesValidator.cs" />
     <Compile Include="EnterpriseDomain\Application\ServiceValidatorRTN.cs" />
@@ -261,7 +268,7 @@
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\PM.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\RTN.cs" />
     <Compile Include="EnterpriseDomain\Domain\Service\ContribuyenteDomainService.cs" />
-    <Compile Include="EnterpriseDomain\Domain\ValueObjects\SemanaLaboral.cs" />
+    <Compile Include="EnterpriseDomain\Domain\ValueObjects\DiasLaborables.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\TipoEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\ActividadEconomicaRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\BeneficiarioRepositoryCommands.cs" />

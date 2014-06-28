@@ -16,20 +16,16 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
                 var request = this.Bind<EmpresaRequest>();
                 if (request.isValidPost())
                 {
-                    var directory = @"/EmpresasContratos";
-                    var extension = ".pdf";
-                    var nameFile = request.contentFile;
-                    if (fileGetter.existsFile(directory, nameFile, extension))
-                    {
-                        var dataFile = fileGetter.getFile(directory, nameFile, extension);
+                   
+                       
                         var empresaMap = new EmpresaMap();
-                        var empresa = empresaMap.getEmpresa(request, dataFile);
+                        var empresa = empresaMap.getEmpresa(request, new byte[]{0,0});
                         if (_commandInsert.isExecutable(empresa))
                         {
                             _commandInsert.execute(empresa);
                             return new Response()
                       .WithStatusCode(HttpStatusCode.OK);
-                        }
+                        
                         
                        
                     }

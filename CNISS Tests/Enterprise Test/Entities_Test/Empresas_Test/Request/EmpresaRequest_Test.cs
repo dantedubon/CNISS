@@ -56,10 +56,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
                 {
                     getValidRTN(),getGremio(),getGoodSucursales(),getActividades(),null,"file"
                 },
-                new Object[]
-                {
-                    getValidRTN(),getGremio(),getGoodSucursales(),getActividades(),"Empresa",string.Empty
-                }
+              
                 
             };
 

@@ -71,14 +71,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
                 {
                     getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",25000.0m,new DateTime(2014,4,1),null,"contrato",getTipoEmpleoRequest()
                 },
-                 new object[]
-                {
-                    getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",25000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"",getTipoEmpleoRequest()
-                },
-                  new object[]
-                {
-                    getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",25000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),null,getTipoEmpleoRequest()
-                },
+              
                  new object[]
                 {
                     getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",25000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",null

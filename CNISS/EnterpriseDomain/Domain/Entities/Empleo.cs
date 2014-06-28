@@ -18,9 +18,6 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual TipoEmpleo tipoEmpleo { get; protected set; }
         public virtual ContentFile contrato { get; protected set; }
         public virtual DateTime fechaDeInicio { get; protected set; }
-      
-
-
         public virtual IList<ComprobantePago>  comprobantesPago { get; protected set; }
 
         public Empleo(Empresa empresa, Sucursal sucursal, Beneficiario beneficiario, HorarioLaboral horarioLaboral,

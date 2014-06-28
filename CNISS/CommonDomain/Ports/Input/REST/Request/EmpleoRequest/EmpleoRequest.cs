@@ -27,7 +27,6 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
                    && !string.IsNullOrEmpty(cargo) && cargo != null && sueldoMayorA0()
                    && fechaDeInicio >= new DateTime(2012,1,1)
                    && horarioLaboralRequest!=null&&horarioLaboralRequest.isValidPost()
-                   && contrato!=null && !string.IsNullOrEmpty(contrato)
                    && tipoEmpleoRequest!=null;
               
             ;

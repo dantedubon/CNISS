@@ -21,13 +21,13 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest
 
         public bool isValidPost()
         {
-            return rtnRequest!=null &&rtnRequest.isValidPost()
-               &&gremioRequest!=null && gremioRequest.isValidPost()
-               &&sucursalRequests!=null &&isValidSucursales()
-               &&actividadEconomicaRequests!=null
-               &&!string.IsNullOrEmpty(nombre)
-               &&!string.IsNullOrEmpty(contentFile);
-                
+            return rtnRequest != null && rtnRequest.isValidPost()
+                   && gremioRequest != null && gremioRequest.isValidPost()
+                   && sucursalRequests != null && isValidSucursales()
+                   && actividadEconomicaRequests != null
+                   && !string.IsNullOrEmpty(nombre);
+
+
         }
 
         public bool isValidPostForEmpleo()

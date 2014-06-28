@@ -181,6 +181,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Request\BeneficiarioRequest\DependienteRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\BeneficiarioRequest\NombreRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\BeneficiarioRequest\ParentescoRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\ComprobantePagoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\DiasLaborablesRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\EmpleoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\HoraRequest.cs" />

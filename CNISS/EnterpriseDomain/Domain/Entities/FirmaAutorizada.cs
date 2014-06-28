@@ -25,4 +25,12 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
             
         }
     }
+
+    public class FirmaAutorizadaNull:FirmaAutorizada
+    {
+        public virtual User user { get{return new UserNull();} }
+        public virtual DateTime fechaCreacion { get { return DateTime.MinValue; } }
+    }
+
+
 }

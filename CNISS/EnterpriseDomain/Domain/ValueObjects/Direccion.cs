@@ -27,4 +27,14 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
             this.referenciaDireccion = referenciaDireccion;
         }
     }
+
+    public class DireccionNull:Direccion
+    {
+        public virtual Municipio municipio { get{return new MunicipioNull();}  }
+        public virtual string referenciaDireccion { get { return string.Empty; }  }
+        public  virtual Departamento departamento { get{return new DepartamentoNull();}  }
+        public virtual Guid Id { get { return Guid.Empty; }  }
+       
+    }
+
 }

@@ -55,4 +55,15 @@ namespace CNISS.AutenticationDomain.Domain.Entities
             }
         }
     }
+
+    public class UserNull:User
+    {
+        public virtual String firstName { get { return string.Empty; }  }
+        public virtual  String mail { get { return string.Empty; } }
+        public virtual  String secondName { get { return string.Empty; } }
+        public virtual String password { get { return string.Empty; }  }
+        public virtual  String userKey { get { return string.Empty; }  }
+        public virtual Rol userRol { get{return new RolNull();} }
+       
+    }
 }

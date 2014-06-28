@@ -55,5 +55,21 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
 
             Assert.IsFalse(respuesta);
         }
+
+        [Test]
+        public void isValid_validData_returnTrue()
+        {
+            var comprobante = new ComprobantePagoRequest()
+            {
+                deducciones = 2.0m,
+                fechaPago = new DateTime(2014,1,1),
+                percepciones = 3.0m,
+                total = 3.0m
+            };
+
+            var respuesta = comprobante.isValidPost();
+
+            Assert.IsTrue(respuesta);
+        }
     }
 }

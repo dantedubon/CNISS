@@ -30,10 +30,14 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual Direccion direccion { get; set; }
         public virtual IEnumerable<Empresa> empresas { get; set; }
  
-       
-       
 
+    }
 
-
+    public class GremioNull:Gremio
+    {
+        public virtual  string nombre { get { return string.Empty; } }
+        public virtual RepresentanteLegal representanteLegal { get{return new RepresentanteLegalNull();} }
+        public virtual Direccion direccion { get{return new DireccionNull();} }
+      
     }
 }

@@ -15,15 +15,16 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         protected ComprobantePago()
         {
             Id = Guid.NewGuid();
+            imagenComprobante = new ContentFile(new byte[]{0});
         }
 
-        public ComprobantePago(DateTime fechaPago, decimal deducciones, decimal percepciones, decimal total, ContentFile imagenComprobante):this()
+        public ComprobantePago(DateTime fechaPago, decimal deducciones, decimal percepciones, decimal total):this()
         {
             this.fechaPago = fechaPago;
             this.deducciones = deducciones;
             this.percepciones = percepciones;
             this.total = total;
-            this.imagenComprobante = imagenComprobante;
+            
           
         }
 

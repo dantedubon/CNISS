@@ -53,4 +53,9 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 
        
     }
+
+    public class IdentidadNull:Identidad
+    {
+        public string identidad { get { return string.Empty; }  }    
+    }
 }

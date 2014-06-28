@@ -1,6 +1,7 @@
 ﻿using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands;
+using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using Machine.Specifications;
@@ -19,10 +20,10 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
         static Browser _browser;
         static BrowserResponse _response;
         static ICommandInsertIdentity<Empresa> _commandInsert;
-        static EmpresaRequest _request;
+        static EmpleoRequest _request;
         private Establish context = () =>
         {
-            _request = new EmpresaRequest();
+            _request = new EmpleoRequest();
             _commandInsert = Mock.Of<ICommandInsertIdentity<Empresa>>();
             var fileGetter = Mock.Of<IFileGetter>();
 

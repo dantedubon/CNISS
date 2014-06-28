@@ -18,6 +18,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
         public decimal sueldo { get; set; }
         public DateTime fechaDeInicio { get; set; }
         public string contrato { get; set; }
+        public IEnumerable<ComprobantePagoRequest> comprobantes { get; set; } 
+
 
         public bool isValidPost()
         {
@@ -25,11 +27,17 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
                    && beneficiarioRequest != null && beneficiarioRequest.isValidPost()
                    && sucursalRequest != null && sucursalRequest.isValidForPostEmpleo()
                    && !string.IsNullOrEmpty(cargo) && cargo != null && sueldoMayorA0()
-                   && fechaDeInicio >= new DateTime(2012,1,1)
-                   && horarioLaboralRequest!=null&&horarioLaboralRequest.isValidPost()
-                   && tipoEmpleoRequest!=null;
+                   && fechaDeInicio >= new DateTime(2012, 1, 1)
+                   && horarioLaboralRequest != null && horarioLaboralRequest.isValidPost()
+                   && tipoEmpleoRequest != null
+                   && comprobantes!=null&& isGoodComprobantes();
               
             ;
+        }
+
+        private bool isGoodComprobantes()
+        {
+            return comprobantes.All(x => x.isValidPost());
         }
 
         private bool sueldoMayorA0()

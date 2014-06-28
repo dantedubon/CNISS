@@ -54,7 +54,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.ReadOnly
             var contrato = new ContentFile(new byte[] { 1, 1, 1 });
             var tipoEmpleo = new TipoEmpleo("Empleo Mensual");
             var fechaDeInicio = DateTime.Now.AddMonths(-1).Date;
-            _recienteEmpleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 25000, tipoEmpleo, contrato,fechaDeInicio);
+            _recienteEmpleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 25000, tipoEmpleo,fechaDeInicio);
             _recienteEmpleo.addComprobante(getComprobantePago());
 
             prepareBeneficiario(beneficiario);
@@ -95,7 +95,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.ReadOnly
 
         private static ComprobantePago getComprobantePago()
         {
-            return new ComprobantePago(new DateTime(2014, 8, 2), 10, 20, 10, new ContentFile(new byte[] { 0, 1 }));
+            return new ComprobantePago(new DateTime(2014, 8, 2), 10, 20, 10);
         }
 
 

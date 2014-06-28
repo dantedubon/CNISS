@@ -84,4 +84,9 @@ namespace CNISS.EnterpriseDomain.Domain
         }
 
     }
+
+    public class RTNNull : RTN
+    {
+        public virtual string rtn { get { return string.Empty; } }
+    }
 }

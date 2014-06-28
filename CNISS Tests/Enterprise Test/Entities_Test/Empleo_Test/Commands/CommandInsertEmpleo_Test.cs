@@ -38,7 +38,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
                 new DiasLaborables() {lunes = true, martes = true});
 
             var empleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 30000,
-                new TipoEmpleo("Horas"), new ContentFile(new byte[] {0, 1}), new DateTime(2014, 5, 6));
+                new TipoEmpleo("Horas"), new DateTime(2014, 5, 6));
 
 
             var repositoryRead = Mock.Of<IEmpleoRepositoryReadOnly>();
@@ -82,7 +82,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
                 new DiasLaborables() { lunes = true, martes = true });
 
             var empleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 30000,
-                new TipoEmpleo("Horas"), new ContentFile(new byte[] { 0, 1 }), new DateTime(2014, 5, 6));
+                new TipoEmpleo("Horas"), new DateTime(2014, 5, 6));
 
 
             var repositoryRead = Mock.Of<IEmpleoRepositoryReadOnly>();
@@ -126,7 +126,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
                 new DiasLaborables() { lunes = true, martes = true });
 
             var empleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 30000,
-                new TipoEmpleo("Horas"), new ContentFile(new byte[] { 0, 1 }), new DateTime(2014, 5, 6));
+                new TipoEmpleo("Horas"), new DateTime(2014, 5, 6));
 
 
             var repositoryRead = Mock.Of<IEmpleoRepositoryReadOnly>();
@@ -169,7 +169,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
                 new DiasLaborables() { lunes = true, martes = true });
 
             var empleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 30000,
-                new TipoEmpleo("Horas"), new ContentFile(new byte[] { 0, 1 }), new DateTime(2014, 5, 6));
+                new TipoEmpleo("Horas"), new DateTime(2014, 5, 6));
 
 
             var repositoryRead = Mock.Of<IEmpleoRepositoryReadOnly>();
@@ -212,7 +212,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
                 new DiasLaborables() { lunes = true, martes = true });
 
             var empleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 30000,
-                new TipoEmpleo("Horas"), new ContentFile(new byte[] { 0, 1 }), new DateTime(2014, 5, 6));
+                new TipoEmpleo("Horas"), new DateTime(2014, 5, 6));
 
 
             var repositoryRead = Mock.Of<IEmpleoRepositoryReadOnly>();
@@ -248,7 +248,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
       
         private  ComprobantePago getComprobantePago()
         {
-            return new ComprobantePago(new DateTime(2014, 8, 2), 10, 20, 10, new ContentFile(new byte[] { 0, 1 }));
+            return new ComprobantePago(new DateTime(2014, 8, 2), 10, 20, 10);
         }
 
 

@@ -21,7 +21,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual IList<ComprobantePago>  comprobantesPago { get; protected set; }
 
         public Empleo(Empresa empresa, Sucursal sucursal, Beneficiario beneficiario, HorarioLaboral horarioLaboral,
-            string cargo, decimal sueldo, TipoEmpleo tipoEmpleo, ContentFile contrato, DateTime fechaDeInicio)
+            string cargo, decimal sueldo, TipoEmpleo tipoEmpleo, DateTime fechaDeInicio)
         {
             this.empresa = empresa;
             this.sucursal = sucursal;

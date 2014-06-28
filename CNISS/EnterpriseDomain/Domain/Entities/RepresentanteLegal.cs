@@ -23,4 +23,10 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
             this.nombre = nombre;
         }
     }
+
+    public class RepresentanteLegalNull:RepresentanteLegal
+    {
+        public virtual string nombre { get { return string.Empty; }  }
+        public virtual Identidad Id { get { return new IdentidadNull(); } }
+    }
 }

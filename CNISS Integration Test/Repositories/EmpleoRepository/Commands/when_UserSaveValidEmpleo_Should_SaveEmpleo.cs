@@ -49,7 +49,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
             });
             var contrato = new ContentFile(new byte[] {1, 1, 1});
             var tipoEmpleo = new TipoEmpleo("Empleo Mensual");
-            _expectedEmpleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 25000, tipoEmpleo, contrato,new DateTime(2014,8,2));
+            _expectedEmpleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 25000, tipoEmpleo,new DateTime(2014,8,2));
             _expectedEmpleo.addComprobante(getComprobantePago());
             
             prepareBeneficiario(beneficiario);
@@ -86,7 +86,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
 
         private static ComprobantePago getComprobantePago()
         {
-            return new ComprobantePago(new DateTime(2014,8,2),10,20,10,new ContentFile(new byte[]{0,1}));
+            return new ComprobantePago(new DateTime(2014,8,2),10,20,10);
         }
 
 

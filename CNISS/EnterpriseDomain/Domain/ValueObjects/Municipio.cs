@@ -41,4 +41,11 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
     
       
     }
+
+    public class MunicipioNull:Municipio
+    {
+        public virtual string departamentoId { get { return string.Empty; }  }
+        public virtual string Id { get { return string.Empty; } }
+        public virtual string nombre { get { return string.Empty; }}
+    }
 }

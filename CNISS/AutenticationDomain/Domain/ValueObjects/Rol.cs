@@ -22,4 +22,11 @@ namespace CNISS.AutenticationDomain.Domain.ValueObjects
 
         
     }
+
+    public class RolNull:Rol
+    {
+        public virtual string name { get { return string.Empty; } }
+        public virtual string description { get { return string.Empty; } }
+        public virtual Guid Id { get { return Guid.Empty; } }
+    }
 }

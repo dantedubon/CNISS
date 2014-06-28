@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using CNISS.CommonDomain.Domain;
+using NHibernate.Mapping;
 
 namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 {
@@ -19,5 +20,13 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
         {
             return municipios.Any(x => x.Id == municipio.Id && x.departamentoId == municipio.departamentoId);
         }
+
+    }
+
+    public class DepartamentoNull:Departamento
+    {
+        public virtual string nombre { get { return string.Empty; }  }
+        public virtual string Id { get { return string.Empty; }  }
+        public virtual IEnumerable<MunicipioNull> municipios { get { return new List<MunicipioNull>(); }  }
     }
 }

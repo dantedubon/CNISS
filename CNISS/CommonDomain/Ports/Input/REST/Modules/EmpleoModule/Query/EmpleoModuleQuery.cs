@@ -9,8 +9,10 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
+using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using Nancy;
 using Nancy.ModelBinding;
+using NUnit.Framework.Constraints;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
 {
@@ -62,6 +64,20 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                 }
                 return new Response()
                     .WithStatusCode(HttpStatusCode.BadRequest);
+            };
+
+            Get["/enterprise/empleos/beneficiario/id={identidad}"] = parameters =>
+            {
+                var identidadRequest = new IdentidadRequest() {identidad = parameters.identidad};
+                if (identidadRequest.isValidPost())
+                {
+                    var identidad = new Identidad(identidadRequest.identidad);
+                    var empleos = repositoryRead.getEmpleosByBeneficiario(identidad);
+                    return Response.AsJson(getEmpleosRequests(empleos));
+
+                }
+                return new Response()
+               .WithStatusCode(HttpStatusCode.BadRequest);
             };
         }
         private  IEnumerable<EmpleoRequest> getEmpleosRequests(IEnumerable<Empleo> empleos)

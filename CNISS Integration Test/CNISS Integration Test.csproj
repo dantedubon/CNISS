@@ -121,6 +121,7 @@
     <Compile Include="Repositories\DepartamentoRepository\when_UserAskIfMunicipioBelongDepartamento_Should_ReturnTrue.cs" />
     <Compile Include="Repositories\DireccionRepository\when_UserAskForDireccionById_Return_Direccion.cs" />
     <Compile Include="Repositories\EmpleoRepository\Commands\when_UserSaveValidEmpleo_Should_SaveEmpleo.cs" />
+    <Compile Include="Repositories\EmpleoRepository\ReadOnly\when_UserGetEmpleosFromBeneficiario_Should_ReturnEmpleos.cs" />
     <Compile Include="Repositories\EmpleoRepository\ReadOnly\when_UserGetEmpleosFromEmpresa_Should_ReturnEmpleos.cs" />
     <Compile Include="Repositories\EmpleoRepository\ReadOnly\when_UserAskNotExistingRecienteEmpleoParaBeneficiario_Should_ReturnFalse.cs" />
     <Compile Include="Repositories\EmpleoRepository\ReadOnly\when_UserAskExistingRecienteEmpleoParaBeneficiario_Should_ReturnTrue.cs" />

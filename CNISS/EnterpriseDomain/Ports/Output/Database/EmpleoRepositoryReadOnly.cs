@@ -42,7 +42,11 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
 
         public IEnumerable<Empleo> getEmpleosByBeneficiario(Identidad identidad)
         {
-            throw new NotImplementedException();
+            return (from empleo in Session.Query<Empleo>()
+                    where
+                        empleo.beneficiario.Id == identidad
+                    select empleo
+                );
         }
     }
 }

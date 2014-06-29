@@ -6,6 +6,8 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
+using CNISS.EnterpriseDomain.Domain.Entities;
+using CNISS.EnterpriseDomain.Domain.Repositories;
 using Nancy;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
@@ -13,90 +15,109 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
     public class EmpleoModuleQuery:NancyModule
     {
 
-        public EmpleoModuleQuery()
+        public EmpleoModuleQuery(IEmpleoRepositoryReadOnly repositoryRead)
         {
             Get["/enterprise/empleos"] = parameters =>
             {
-              var  _request = new EmpleoRequest()
+                var empleos = repositoryRead.getAll();
+                return Response.AsJson(getEmpleosRequests(empleos));
+
+            };
+
+            Get["/enterprise/empleos/id={id}"] = parameters =>
+            {
+                var id = parameters.id;
+
+                Guid idRequest;
+                if (Guid.TryParse(id, out idRequest))
                 {
-                    beneficiarioRequest = getBeneficiario(),
-                    cargo = "ingeniero",
-                    contrato = "",
-                    empresaRequest = getEmpresaRequest(),
-                    fechaDeInicio = new DateTime(2014, 1, 1),
-                    horarioLaboralRequest = getHorarioLaboralRequest(),
-                    sucursalRequest = getSucursalRequest(),
-                    sueldo = 10m,
-                    tipoEmpleoRequest = getTipoEmpleoRequest(),
-                    comprobantes = new List<ComprobantePagoRequest>()
-               {
-                   new ComprobantePagoRequest()
-                   {
-                       deducciones = 15m,
-                       fechaPago =new DateTime(2014,3,2),
-                       percepciones = 12m,total = 13m
-                   }
-               }
-                };
+                    if (Guid.Empty != idRequest)
+                    {
+                        var empleo = repositoryRead.get(idRequest);
 
-                return Response.AsJson(_request);
+                        return Response.AsJson(getEmpleoRequests(empleo));
+                    }
+                 
+                }
+
+                return new Response()
+                    .WithStatusCode(HttpStatusCode.BadRequest);
             };
         }
-
-        private  TipoEmpleoRequest getTipoEmpleoRequest()
+        private  IEnumerable<EmpleoRequest> getEmpleosRequests(IEnumerable<Empleo> empleos)
         {
-            return new TipoEmpleoRequest()
-            {
-                descripcion = "Por Hora",
-                IdGuid = Guid.NewGuid()
-            };
+            return empleos.Select(getEmpleoRequests);
         }
-
-        private  EmpresaRequest getEmpresaRequest()
+        private static EmpleoRequest getEmpleoRequests(Empleo empleo)
         {
-            return new EmpresaRequest()
+            return new EmpleoRequest()
             {
-                rtnRequest = new RTNRequest() { RTN = "08011985123960" },
-                nombre = "Empresa"
-
-            };
-        }
-
-        private  HorarioLaboralRequest getHorarioLaboralRequest()
-        {
-            return new HorarioLaboralRequest()
-            {
-                diasLaborablesRequest = new DiasLaborablesRequest() { lunes = true, martes = true },
-                horaEntrada = new HoraRequest() { hora = 2, minutos = 10, parte = "AM" },
-                horaSalida = new HoraRequest() { hora = 3, minutos = 10, parte = "PM" }
-            };
-        }
-
-        private  BeneficiarioRequest getBeneficiario()
-        {
-            return new BeneficiarioRequest()
-            {
-                identidadRequest = new IdentidadRequest() { identidad = "0801198512396" },
-                fechaNacimiento = new DateTime(1984, 8, 2),
-                nombreRequest = new NombreRequest()
+                beneficiarioRequest = new BeneficiarioRequest()
                 {
-                    nombres = "Dante Ruben",
-                    primerApellido = "Castillo",
-                    segundoApellido = ""
+                    identidadRequest = new IdentidadRequest() { identidad = empleo.beneficiario.Id.identidad },
+                    nombreRequest = new NombreRequest()
+                    {
+                        nombres = empleo.beneficiario.nombre.nombres,
+                        primerApellido = empleo.beneficiario.nombre.primerApellido,
+                        segundoApellido = empleo.beneficiario.nombre.segundoApellido
+                    },
+                    fechaNacimiento = empleo.beneficiario.fechaNacimiento
+
 
                 },
-                dependienteRequests = new List<DependienteRequest>()
+                cargo = empleo.cargo,
+                comprobantes = empleo.comprobantesPago.Select(z => new ComprobantePagoRequest()
+                {
+                    deducciones = z.deducciones,
+                    fechaPago = z.fechaPago,
+                    guid = z.Id,
+                    percepciones = z.percepciones,
+                    total = z.total
+                }),
+                empresaRequest = new EmpresaRequest()
+                {
+                    nombre = empleo.empresa.nombre,
+                    rtnRequest = new RTNRequest() { RTN = empleo.empresa.Id.rtn }
+                },
+                fechaDeInicio = empleo.fechaDeInicio,
+                horarioLaboralRequest = new HorarioLaboralRequest()
+                {
+                    diasLaborablesRequest = new DiasLaborablesRequest()
+                    {
+                        domingo = empleo.horarioLaboral.diasLaborables.domingo,
+                        lunes = empleo.horarioLaboral.diasLaborables.lunes,
+                        martes = empleo.horarioLaboral.diasLaborables.martes,
+                        miercoles = empleo.horarioLaboral.diasLaborables.miercoles,
+                        jueves = empleo.horarioLaboral.diasLaborables.jueves,
+                        viernes = empleo.horarioLaboral.diasLaborables.viernes,
+                        sabado = empleo.horarioLaboral.diasLaborables.sabado
+                    },
+                    horaEntrada = new HoraRequest()
+                    {
+                        hora = empleo.horarioLaboral.horaEntrada.hora,
+                        minutos = empleo.horarioLaboral.horaEntrada.minutos,
+                        parte = empleo.horarioLaboral.horaEntrada.parte
 
-            };
-        }
+                    },
+                    horaSalida = new HoraRequest()
+                    {
+                        hora = empleo.horarioLaboral.horaSalida.hora,
+                        minutos = empleo.horarioLaboral.horaSalida.minutos,
+                        parte = empleo.horarioLaboral.horaSalida.parte
 
-        private  SucursalRequest getSucursalRequest()
-        {
-            return new SucursalRequest()
-            {
-                guid = Guid.NewGuid(),
-                nombre = "Sucursal"
+                    }
+                },
+                sueldo = empleo.sueldo,
+                tipoEmpleoRequest = new TipoEmpleoRequest()
+                {
+                    descripcion = empleo.tipoEmpleo.descripcion,
+                    IdGuid = empleo.tipoEmpleo.Id
+                },
+                IdGuid = empleo.Id
             };
+
         }
     }
+      
+    
 }

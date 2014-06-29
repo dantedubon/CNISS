@@ -210,7 +210,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
                 if (!gremioRead.exists(gremio.Id))
                 {
                     var gremioRepository = new GremioRepositoryCommands(uow.Session, representanteRepository,
-                     direccionRepository);
+                   direccionRepository);
                     gremioRepository.save(gremio);
                     uow.commit();
                 }

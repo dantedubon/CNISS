@@ -32,7 +32,12 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
 
         public IEnumerable<Empleo> getEmpleosByEmpresa(RTN rtn)
         {
-            throw new NotImplementedException();
+            return (from empleo in Session.Query<Empleo>()
+                where
+                    empleo.empresa.Id == rtn
+                select empleo
+                );
+
         }
 
         public IEnumerable<Empleo> getEmpleosByBeneficiario(Identidad identidad)

@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
@@ -9,66 +9,67 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
+using CNISS.EnterpriseDomain.Domain.ValueObjects;
+using FizzWare.NBuilder;
+using FluentAssertions;
+using Machine.Specifications;
+using Moq;
 using Nancy;
-using Nancy.ModelBinding;
+using Nancy.Testing;
+using Should;
+using It = Machine.Specifications.It;
 
-namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
+namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 {
-    public class EmpleoModuleQuery:NancyModule
+    [Subject(typeof(EmpleoModuleQuery))]
+    public class when_UserGetEmpleoById_Should_returnEmpleo
     {
+        static Browser _browser;
+        static BrowserResponse _response;
+        private static IEmpleoRepositoryReadOnly _repositoryRead;
+        private static Guid _idRequest;
+        private static EmpleoRequest _expectedEmpleo;
+        private static EmpleoRequest _responseEmpleo;
 
-        public EmpleoModuleQuery(IEmpleoRepositoryReadOnly repositoryRead)
+        private Establish context = () =>
         {
-            Get["/enterprise/empleos"] = parameters =>
-            {
-                var empleos = repositoryRead.getAll();
-                return Response.AsJson(getEmpleosRequests(empleos));
 
-            };
+            _repositoryRead = Mock.Of<IEmpleoRepositoryReadOnly>();
+            var empleo = Builder<Empleo>.CreateNew().WithConstructor(
+               () => new Empleo(Builder<Empresa>.CreateNew().WithConstructor(
+                   () => new Empresa(new RTN("08011985123960"), "empresa", new DateTime(2014, 2, 1), new GremioNull())
+                   ).Build(), Builder<Sucursal>.CreateNew().WithConstructor(() => new Sucursal("Sucursal", new DireccionNull(), new FirmaAutorizadaNull())).Build(),
+                   Builder<Beneficiario>.CreateNew().WithConstructor(() => new Beneficiario(new Identidad("0801198512396"), Builder<Nombre>.CreateNew().Build(), new DateTime(1984, 8, 2))).Build(),
+                   Builder<HorarioLaboral>.CreateNew().WithConstructor(() => new HorarioLaboral(Builder<Hora>.CreateNew().Build(), Builder<Hora>.CreateNew().Build(), Builder<DiasLaborables>.CreateNew().Build())).Build(),
+                   "Ingeniero", 12000m, Builder<TipoEmpleo>.CreateNew().Build(), new DateTime(2014, 8, 2))
 
-            Get["/enterprise/empleos/id={id}"] = parameters =>
-            {
-                var id = parameters.id;
+               ).Build();
+            Mock.Get(_repositoryRead).Setup(x => x.get(empleo.Id)).Returns(empleo);
 
-                Guid idRequest;
-                if (Guid.TryParse(id, out idRequest))
+            _expectedEmpleo = getEmpleoRequests(empleo);
+
+
+
+            _idRequest = Guid.Empty;
+            _browser = new Browser(
+                x =>
                 {
-                    if (Guid.Empty != idRequest)
-                    {
-                        var empleo = repositoryRead.get(idRequest);
-
-                        return Response.AsJson(getEmpleoRequest(empleo));
-                    }
-                 
+                    x.Module<EmpleoModuleQuery>();
+                    x.Dependencies(_repositoryRead);
                 }
 
-                return new Response()
-                    .WithStatusCode(HttpStatusCode.BadRequest);
-            };
+                );
 
 
-            Get["/enterprise/empleos/empresa/id={rtn}"] = parameters =>
-            {
-                var rtnRequest = new RTNRequest() {RTN = parameters.rtn};
-                if (rtnRequest.isValidPost())
-                {
-                    var rtn = new RTN(rtnRequest.RTN);
-                    if (rtn.isRTNValid())
-                    {
-                        var empleos = repositoryRead.getEmpleosByEmpresa(rtn);
-                        return Response.AsJson(getEmpleosRequests(empleos));
-                    }
-                  
-                }
-                return new Response()
-                    .WithStatusCode(HttpStatusCode.BadRequest);
-            };
-        }
-        private  IEnumerable<EmpleoRequest> getEmpleosRequests(IEnumerable<Empleo> empleos)
-        {
-            return empleos.Select(getEmpleoRequest);
-        }
-        private static EmpleoRequest getEmpleoRequest(Empleo empleo)
+        };
+
+        private Because of = () => { _responseEmpleo = _browser.GetSecureJson("/enterprise/empleos/id=" + _expectedEmpleo.IdGuid).Body.DeserializeJson<EmpleoRequest>(); };
+
+        It should_return_empleo = () => _responseEmpleo.ShouldBeEquivalentTo(_expectedEmpleo);
+
+
+
+        private static EmpleoRequest getEmpleoRequests(Empleo empleo)
         {
             return new EmpleoRequest()
             {
@@ -138,6 +139,4 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
 
         }
     }
-      
-    
 }

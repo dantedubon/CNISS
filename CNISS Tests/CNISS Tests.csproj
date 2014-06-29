@@ -120,11 +120,12 @@
     <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Request\BeneficiarioRequest_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Request\DependienteRequest_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Commands\CommandInsertEmpleo_Test.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserGetEmpleoByEmpresaRTNvalid_Should_ReturnEmpleos.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserGetEmpleoByEmpresaBadRTN_returnError.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserGetEmpleoByEmpresaInvalidRTN_returnError.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserGetEmpleoByIdBadEmpty_returnError.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserGetEmpleoByIdBadId_returnError.cs" />
-    <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserGetEmpleoById_returnEmpleo.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserGetEmpleoById_Should_returnEmpleo.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserGetsAllEmpleo_Should_ReturnAllEmpleos.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserPostEmpleoValidEmpleo_Should_SaveEmpleo.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserPostEmpleoAndCommandNotExecutable_ReturnError.cs" />

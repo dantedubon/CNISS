@@ -1,6 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
@@ -14,28 +15,27 @@ using FizzWare.NBuilder;
 using FluentAssertions;
 using Machine.Specifications;
 using Moq;
-using Nancy;
 using Nancy.Testing;
-using Should;
 using It = Machine.Specifications.It;
 
 namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 {
-    [Subject(typeof(EmpleoModuleQuery))]
-    public class when_UserGetEmpleoById_returnEmpleo
+    [Subject(typeof (EmpleoModuleQuery))]
+    public class when_UserGetEmpleoByEmpresaRTNvalid_Should_ReturnEmpleos
     {
         static Browser _browser;
         static BrowserResponse _response;
         private static IEmpleoRepositoryReadOnly _repositoryRead;
-        private static Guid _idRequest;
-        private static EmpleoRequest _expectedEmpleo;
-        private static EmpleoRequest _responseEmpleo;
+        private static RTNRequest _rtnRequest;
+        private static IEnumerable<EmpleoRequest> _expectedEmpleos;
+        private static IEnumerable<EmpleoRequest> _responseEmpleos; 
 
         private Establish context = () =>
         {
-
+            _rtnRequest = new RTNRequest() { RTN = "08011985123960" };
             _repositoryRead = Mock.Of<IEmpleoRepositoryReadOnly>();
-            var empleo = Builder<Empleo>.CreateNew().WithConstructor(
+
+            var empleos = Builder<Empleo>.CreateListOfSize(10).All().WithConstructor(
                () => new Empleo(Builder<Empresa>.CreateNew().WithConstructor(
                    () => new Empresa(new RTN("08011985123960"), "empresa", new DateTime(2014, 2, 1), new GremioNull())
                    ).Build(), Builder<Sucursal>.CreateNew().WithConstructor(() => new Sucursal("Sucursal", new DireccionNull(), new FirmaAutorizadaNull())).Build(),
@@ -44,13 +44,14 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                    "Ingeniero", 12000m, Builder<TipoEmpleo>.CreateNew().Build(), new DateTime(2014, 8, 2))
 
                ).Build();
-            Mock.Get(_repositoryRead).Setup(x => x.get(empleo.Id)).Returns(empleo);
 
-            _expectedEmpleo = getEmpleoRequests(empleo);
+            _expectedEmpleos = getEmpleoRequests(empleos);
+
+            var rtn = new RTN(_rtnRequest.RTN);
+            _repositoryRead = Mock.Of<IEmpleoRepositoryReadOnly>();
+            Mock.Get(_repositoryRead).Setup(x => x.getEmpleosByEmpresa(rtn)).Returns(empleos);
 
 
-
-            _idRequest = Guid.Empty;
             _browser = new Browser(
                 x =>
                 {
@@ -60,34 +61,36 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
                 );
 
-
         };
 
-        private Because of = () => { _responseEmpleo = _browser.GetSecureJson("/enterprise/empleos/id=" + _expectedEmpleo.IdGuid).Body.DeserializeJson<EmpleoRequest>(); };
-
-        It should_return_empleo = () => _responseEmpleo.ShouldBeEquivalentTo(_expectedEmpleo);
-
-
-
-        private static EmpleoRequest getEmpleoRequests(Empleo empleo)
+        private Because of = () =>
         {
-            return new EmpleoRequest()
+            _responseEmpleos =
+                _browser.GetSecureJson("/enterprise/empleos/empresa/id=" + _rtnRequest.RTN).Body.DeserializeJson<IEnumerable<EmpleoRequest>>();
+                 
+        };
+
+        It should_return_empleos = () => _responseEmpleos.ShouldBeEquivalentTo(_expectedEmpleos);
+
+          private static IEnumerable<EmpleoRequest> getEmpleoRequests(IEnumerable<Empleo> empleos)
+        {
+            return empleos.Select(x => new EmpleoRequest()
             {
                 beneficiarioRequest = new BeneficiarioRequest()
                 {
-                    identidadRequest = new IdentidadRequest() { identidad = empleo.beneficiario.Id.identidad },
+                    identidadRequest = new IdentidadRequest() { identidad = x.beneficiario.Id.identidad},
                     nombreRequest = new NombreRequest()
                     {
-                        nombres = empleo.beneficiario.nombre.nombres,
-                        primerApellido = empleo.beneficiario.nombre.primerApellido,
-                        segundoApellido = empleo.beneficiario.nombre.segundoApellido
+                        nombres = x.beneficiario.nombre.nombres,
+                        primerApellido = x.beneficiario.nombre.primerApellido,
+                        segundoApellido = x.beneficiario.nombre.segundoApellido
                     },
-                    fechaNacimiento = empleo.beneficiario.fechaNacimiento
+                    fechaNacimiento = x.beneficiario.fechaNacimiento
 
 
                 },
-                cargo = empleo.cargo,
-                comprobantes = empleo.comprobantesPago.Select(z => new ComprobantePagoRequest()
+                cargo = x.cargo,
+                comprobantes = x.comprobantesPago.Select(z=> new ComprobantePagoRequest()
                 {
                     deducciones = z.deducciones,
                     fechaPago = z.fechaPago,
@@ -97,46 +100,47 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                 }),
                 empresaRequest = new EmpresaRequest()
                 {
-                    nombre = empleo.empresa.nombre,
-                    rtnRequest = new RTNRequest() { RTN = empleo.empresa.Id.rtn }
+                    nombre = x.empresa.nombre,
+                    rtnRequest = new RTNRequest() { RTN = x.empresa.Id.rtn}
                 },
-                fechaDeInicio = empleo.fechaDeInicio,
+                fechaDeInicio = x.fechaDeInicio,
                 horarioLaboralRequest = new HorarioLaboralRequest()
                 {
                     diasLaborablesRequest = new DiasLaborablesRequest()
                     {
-                        domingo = empleo.horarioLaboral.diasLaborables.domingo,
-                        lunes = empleo.horarioLaboral.diasLaborables.lunes,
-                        martes = empleo.horarioLaboral.diasLaborables.martes,
-                        miercoles = empleo.horarioLaboral.diasLaborables.miercoles,
-                        jueves = empleo.horarioLaboral.diasLaborables.jueves,
-                        viernes = empleo.horarioLaboral.diasLaborables.viernes,
-                        sabado = empleo.horarioLaboral.diasLaborables.sabado
+                        domingo = x.horarioLaboral.diasLaborables.domingo,
+                        lunes = x.horarioLaboral.diasLaborables.lunes,
+                        martes = x.horarioLaboral.diasLaborables.martes,
+                        miercoles = x.horarioLaboral.diasLaborables.miercoles,
+                        jueves = x.horarioLaboral.diasLaborables.jueves,
+                        viernes = x.horarioLaboral.diasLaborables.viernes,
+                        sabado = x.horarioLaboral.diasLaborables.sabado
                     },
                     horaEntrada = new HoraRequest()
                     {
-                        hora = empleo.horarioLaboral.horaEntrada.hora,
-                        minutos = empleo.horarioLaboral.horaEntrada.minutos,
-                        parte = empleo.horarioLaboral.horaEntrada.parte
+                        hora = x.horarioLaboral.horaEntrada.hora,
+                        minutos = x.horarioLaboral.horaEntrada.minutos,
+                        parte = x.horarioLaboral.horaEntrada.parte
 
                     },
                     horaSalida = new HoraRequest()
                     {
-                        hora = empleo.horarioLaboral.horaSalida.hora,
-                        minutos = empleo.horarioLaboral.horaSalida.minutos,
-                        parte = empleo.horarioLaboral.horaSalida.parte
+                        hora = x.horarioLaboral.horaSalida.hora,
+                        minutos = x.horarioLaboral.horaSalida.minutos,
+                        parte = x.horarioLaboral.horaSalida.parte
 
                     }
                 },
-                sueldo = empleo.sueldo,
+                sueldo = x.sueldo,
                 tipoEmpleoRequest = new TipoEmpleoRequest()
                 {
-                    descripcion = empleo.tipoEmpleo.descripcion,
-                    IdGuid = empleo.tipoEmpleo.Id
+                    descripcion = x.tipoEmpleo.descripcion,
+                    IdGuid = x.tipoEmpleo.Id
                 },
-                IdGuid = empleo.Id
-            };
-
+                IdGuid = x.Id
+            }
+                );
         }
+    
     }
 }

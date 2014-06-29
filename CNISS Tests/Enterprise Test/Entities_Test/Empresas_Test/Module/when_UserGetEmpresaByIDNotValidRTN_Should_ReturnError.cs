@@ -23,7 +23,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
 
 
         private Establish context = () =>
-        {
+        {   
             request = new RTNRequest() { RTN = "08011985123961" };
             _repositoryRead = Mock.Of<IEmpresaRepositoryReadOnly>();
 

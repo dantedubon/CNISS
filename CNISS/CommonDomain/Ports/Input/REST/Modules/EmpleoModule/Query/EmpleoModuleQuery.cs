@@ -6,9 +6,11 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
+using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
 using Nancy;
+using Nancy.ModelBinding;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
 {
@@ -40,6 +42,24 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                  
                 }
 
+                return new Response()
+                    .WithStatusCode(HttpStatusCode.BadRequest);
+            };
+
+
+            Get["/enterprise/empleos/empresa/id={rtn}"] = parameters =>
+            {
+                var rtnRequest = new RTNRequest() {RTN = parameters.rtn};
+                if (rtnRequest.isValidPost())
+                {
+                    var rtn = new RTN(rtnRequest.RTN);
+                    if (rtn.isRTNValid())
+                    {
+                        return new Response()
+                      .WithStatusCode(HttpStatusCode.OK);
+                    }
+                  
+                }
                 return new Response()
                     .WithStatusCode(HttpStatusCode.BadRequest);
             };

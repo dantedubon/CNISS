@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.CommonDomain.Ports.Output.Database;
+using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
@@ -27,6 +28,16 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
                 select empleo.Id
                 ).Any();
             ;
+        }
+
+        public IEnumerable<Empleo> getEmpleosByEmpresa(RTN rtn)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Empleo> getEmpleosByBeneficiario(Identidad identidad)
+        {
+            throw new NotImplementedException();
         }
     }
 }

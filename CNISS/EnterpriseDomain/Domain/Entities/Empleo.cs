@@ -9,15 +9,15 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 {
     public class Empleo:Entity<Guid>
     {
-        public virtual Empresa empresa { get; protected set; }
-        public virtual Sucursal sucursal { get; protected set; }
-        public virtual Beneficiario beneficiario { get; protected set; }
-        public virtual HorarioLaboral horarioLaboral { get; protected set; }
-        public virtual string cargo { get; protected set; }
-        public virtual decimal sueldo { get; protected set; }
-        public virtual TipoEmpleo tipoEmpleo { get; protected set; }
-        public virtual ContentFile contrato { get; protected set; }
-        public virtual DateTime fechaDeInicio { get; protected set; }
+        public virtual Empresa empresa { get;  set; }
+        public virtual Sucursal sucursal { get;  set; }
+        public virtual Beneficiario beneficiario { get;  set; }
+        public virtual HorarioLaboral horarioLaboral { get;  set; }
+        public virtual string cargo { get;  set; }
+        public virtual decimal sueldo { get;  set; }
+        public virtual TipoEmpleo tipoEmpleo { get;  set; }
+        public virtual ContentFile contrato { get;  set; }
+        public virtual DateTime fechaDeInicio { get;  set; }
         public virtual IList<ComprobantePago>  comprobantesPago { get; protected set; }
 
         public Empleo(Empresa empresa, Sucursal sucursal, Beneficiario beneficiario, HorarioLaboral horarioLaboral,

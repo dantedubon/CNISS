@@ -158,6 +158,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\EmpleoComprobantesPagoModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\EmpleoContratoModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\EmpleoModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\TipoEmpleoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\ActividadesEconomicasModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaMap.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleInsert.cs" />

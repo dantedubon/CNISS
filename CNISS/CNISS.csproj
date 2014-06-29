@@ -120,6 +120,7 @@
     <Compile Include="AutenticationDomain\Ports\Output\Database\UserRepositoryCommands.cs" />
     <Compile Include="AutenticationDomain\Ports\Output\Database\UserRepositoryReadOnly.cs" />
     <Compile Include="Bootstraper\ConfigureDataBase.cs" />
+    <Compile Include="Bootstraper\ConfigureEmpleoDependencies.cs" />
     <Compile Include="Bootstraper\ConfigureEmpresaDependencies.cs" />
     <Compile Include="Bootstraper\ConfigureEnterpriseServices.cs" />
     <Compile Include="Bootstraper\ConfigureGremioDependencies.cs" />
@@ -156,6 +157,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\EmpleoModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\EmpleoComprobantesPagoModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\EmpleoContratoModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\EmpleoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\ActividadesEconomicasModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaMap.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleInsert.cs" />

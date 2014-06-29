@@ -38,7 +38,7 @@ namespace CNISS.EnterpriseDomain.Application
 
       
 
-        public bool isExecutable(Empleo identity)
+        public override bool isExecutable(Empleo identity)
         {
             var days = _providerDays.getDays();
             var empleoReciente = !_repositoryRead.existsEmpleoRecienteParaBeneficiario(identity.fechaDeInicio, days,

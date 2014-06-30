@@ -121,6 +121,9 @@
     <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Request\DependienteRequest_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Commands\CommandUpdateEmpleo_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Commands\CommandInsertEmpleo_Test.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\Class1.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserPutEmpleoAndCommandNotExecutable_ReturnError.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserPutInvalidEmpleo_Should_ReturnError.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserGetEmpleoByBeneficiarioIDvalid_Should_ReturnEmpleos.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserGetEmpleoByEmpresaRTNvalid_Should_ReturnEmpleos.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Module\when_UserGetEmpleoByEmpresaBadRTN_returnError.cs" />

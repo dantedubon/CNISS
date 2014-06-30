@@ -16,7 +16,7 @@ using It = Machine.Specifications.It;
 namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
 {
     [Subject(typeof (EmpresaModuleInsert))]
-    public class when_UserPostValidEmpresa_Should_SaveEmpresa
+    public class when_UserPostValidEmpresaEmptyContractFile_Should_SaveEmpresa
     {
         static Browser _browser;
         static BrowserResponse _response;
@@ -60,7 +60,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
             var empresa = new EmpresaRequest()
             {
                 actividadEconomicaRequests = getActividades(),
-                contentFile = "file",
+                contentFile = "",
                 empleadosTotales = 0,
                 gremioRequest = getGremio(),
                 programaPiloto = true,

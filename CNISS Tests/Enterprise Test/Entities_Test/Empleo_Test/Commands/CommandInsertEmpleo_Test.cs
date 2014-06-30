@@ -113,6 +113,9 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
 
         }
 
+
+
+
         [Test]
         public void isExecutable_EmpresaNoExiste_returnFalse()
         {

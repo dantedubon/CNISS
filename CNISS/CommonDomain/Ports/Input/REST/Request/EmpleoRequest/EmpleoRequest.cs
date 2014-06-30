@@ -6,7 +6,7 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
 {
-    public class EmpleoRequest:IValidPost
+    public class EmpleoRequest:IValidPost, IValidPut
     {
         public Guid IdGuid { get; set; }
         public EmpresaRequest.EmpresaRequest empresaRequest { get; set; }
@@ -43,6 +43,11 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
         private bool sueldoMayorA0()
         {
             return sueldo > 0;
+        }
+
+        public bool isValidPut()
+        {
+            return IdGuid != Guid.Empty && isValidPost();
         }
     }
 }

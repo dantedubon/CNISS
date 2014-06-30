@@ -16,6 +16,7 @@ namespace CNISS.EnterpriseDomain.Application
         private readonly IProvideAllowedDaysForNewEmpleo _providerDays;
         private readonly IEmpresaRepositoryReadOnly _empresaRepositoryRead;
         private readonly ITipoDeEmpleoReadOnlyRepository _tipoDeEmpleoReadOnlyRepository;
+
         public CommandUpdateEmpleo(IRepositoryCommands<Empleo> repository, 
             Func<IUnitOfWork> unitOfWork, IEmpleoRepositoryReadOnly repositoryRead, 
             IBeneficiarioRepositoryReadOnly beneficiarioRepositoryRead,
@@ -33,7 +34,16 @@ namespace CNISS.EnterpriseDomain.Application
 
         public override bool isExecutable(Empleo identity)
         {
-            return false;
+            var existeEmpleo = _repositoryRead.exists(identity.Id);
+            var days = _providerDays.getDays();
+            var empleoReciente = !_repositoryRead.existsEmpleoRecienteParaBeneficiario(identity.fechaDeInicio, days,
+                identity.beneficiario.Id);
+
+            var beneficiarioExiste = _beneficiarioRepositoryRead.exists(identity.beneficiario.Id);
+            var empleoExiste = _empresaRepositoryRead.exists(identity.empresa.Id);
+            var tipoEmpleoExiste = _tipoDeEmpleoReadOnlyRepository.exists(identity.tipoEmpleo.Id);
+
+            return existeEmpleo && empleoReciente && beneficiarioExiste&&empleoExiste&&tipoEmpleoExiste;
         }
     }
 }

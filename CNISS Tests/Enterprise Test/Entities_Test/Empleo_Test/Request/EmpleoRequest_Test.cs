@@ -16,6 +16,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
     {
 
         private object[] badRequestForPost;
+        private object[] badRequestForPut;
 
         public EmpleoRequest_Test()
         {
@@ -85,6 +86,77 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
                     getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",25000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),null
                 },
             };
+
+            badRequestForPut = new object[]
+            {
+                new object[]
+                {
+                     Guid.Empty, getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",24000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),getGoodComprobantes()
+                },
+                 new object[]
+                {
+                   Guid.NewGuid(), new EmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",24000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),getGoodComprobantes()
+                }, 
+                new object[]
+                {
+                    Guid.NewGuid(),null,getBeneficiario(),getSucursalRequest(),"Ingeniero",24000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),getGoodComprobantes()
+                },
+                 new object[]
+                {
+                   Guid.NewGuid(), getEmpresaRequest(),new BeneficiarioRequest(),getSucursalRequest(),"Ingeniero",24000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),getGoodComprobantes()
+                },
+                   new object[]
+                {
+                    Guid.NewGuid(),getEmpresaRequest(),null,getSucursalRequest(),"Ingeniero",24000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),getGoodComprobantes()
+                },
+                new object[]
+                {
+                    Guid.NewGuid(),getEmpresaRequest(),getBeneficiario(),new SucursalRequest(),"Ingeniero",24000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),getGoodComprobantes()
+                },
+                new object[]
+                {
+                   Guid.NewGuid(), getEmpresaRequest(),getBeneficiario(),null,"Ingeniero",24000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),getGoodComprobantes()
+                },
+                new object[]
+                {
+                  Guid.NewGuid(),  getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),null,24000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),getGoodComprobantes()
+                },
+                 new object[]
+                {
+                   Guid.NewGuid(), getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"",24000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),getGoodComprobantes()
+                },
+
+                 new object[]
+                {
+                   Guid.NewGuid(), getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",0.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),getGoodComprobantes()
+                },
+                  new object[]
+                {
+                  Guid.NewGuid(),  getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",25000.0m,null,getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),getGoodComprobantes()
+                },
+              new object[]
+                {
+                   Guid.NewGuid(), getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",25000.0m,new DateTime(2014,4,1),new HorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),getGoodComprobantes()
+                },
+                new object[]
+                {
+                  Guid.NewGuid(),  getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",25000.0m,new DateTime(2014,4,1),null,"contrato",getTipoEmpleoRequest(),getGoodComprobantes()
+                },
+              
+                 new object[]
+                {
+                  Guid.NewGuid(),  getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",25000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",null,getGoodComprobantes()
+                },
+                   new object[]
+                {
+                  Guid.NewGuid(),  getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",25000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),getBadComprobantes()
+                },
+                  new object[]
+                {
+                  Guid.NewGuid(),  getEmpresaRequest(),getBeneficiario(),getSucursalRequest(),"Ingeniero",25000.0m,new DateTime(2014,4,1),getHorarioLaboralRequest(),"contrato",getTipoEmpleoRequest(),null
+                },
+              
+            };
         }
         [TestCaseSource("badRequestForPost")]
         public void isValidPost_invalidData_returnFalse(EmpresaRequest empresa,
@@ -116,6 +188,35 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
             Assert.IsFalse(respuesta);
 
         }
+
+        [TestCaseSource("badRequestForPut")]
+        public void isValidPut_invalidData_returnFalse(Guid idGuid,EmpresaRequest empresa,
+            BeneficiarioRequest beneficiario, SucursalRequest sucursal,
+            string cargo, decimal sueldo,
+            DateTime fechaDeInicio, HorarioLaboralRequest horario,
+            string contrato, TipoEmpleoRequest tipoEmpleo,
+            IEnumerable<ComprobantePagoRequest> comprobantes)
+        {
+            var empleo = new EmpleoRequest()
+            {
+                beneficiarioRequest = beneficiario,
+                cargo = cargo,
+                contrato = contrato,
+                empresaRequest = empresa,
+                fechaDeInicio = fechaDeInicio,
+                horarioLaboralRequest = horario,
+                IdGuid = idGuid,
+                sucursalRequest = sucursal,
+                sueldo = sueldo,
+                tipoEmpleoRequest = tipoEmpleo,
+                comprobantes = comprobantes
+
+            };
+
+            var respuesta = empleo.isValidPut();
+            Assert.IsFalse(respuesta);
+
+        }
         [Test]
         public void isValidPost_validData_returnTrue()
         {
@@ -140,6 +241,29 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
 
         }
 
+        [Test]
+        public void isValidPut_validData_returnTrue()
+        {
+            var empleo = new EmpleoRequest()
+            {
+                beneficiarioRequest = getBeneficiario(),
+                cargo = "ingeniero",
+                contrato = "contrato",
+                empresaRequest = getEmpresaRequest(),
+                fechaDeInicio = new DateTime(2014, 4, 2),
+                horarioLaboralRequest = getHorarioLaboralRequest(),
+                IdGuid = Guid.NewGuid(),
+                sucursalRequest = getSucursalRequest(),
+                sueldo = 12000m,
+                tipoEmpleoRequest = getTipoEmpleoRequest(),
+                comprobantes = new List<ComprobantePagoRequest>()
+
+            };
+
+            var respuesta = empleo.isValidPut();
+            Assert.IsTrue(respuesta);
+
+        }
 
 
 

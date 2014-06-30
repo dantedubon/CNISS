@@ -155,8 +155,6 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\Query\BeneficiarioModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\empleoMapping.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\EmpleoModuleInsert.cs" />
-    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\EmpleoComprobantesPagoModule.cs" />
-    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\EmpleoContratoModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\EmpleoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\TipoEmpleoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\ActividadesEconomicasModule.cs" />
@@ -165,6 +163,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Query\EmpresaModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\DepartamentoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\EnterpriseServiceModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\FilesModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\PersonRNPModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioMap.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioModuleDelete.cs" />
@@ -177,7 +176,6 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolQuery\RolModuleQuery.cs" />
-    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\EmpresaContratoModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandUpdate.cs" />

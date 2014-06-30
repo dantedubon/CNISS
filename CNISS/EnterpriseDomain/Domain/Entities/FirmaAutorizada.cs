@@ -22,7 +22,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 
         protected FirmaAutorizada()
         {
-            
+            Id = Guid.NewGuid();
         }
     }
 

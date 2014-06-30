@@ -5,9 +5,9 @@ namespace CNISS.AutenticationDomain.Domain.ValueObjects
 {
     public class Rol:ValueObject<Guid>
     {
-        public Rol() 
+        public Rol()
         {
-            Id = new Guid();
+            Id = Guid.NewGuid();
         }
 
         public Rol(string name, string description):this()

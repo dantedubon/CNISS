@@ -15,6 +15,7 @@ using CNISS_Integration_Test.Unit_Of_Work;
 using FluentAssertions;
 using Machine.Specifications;
 using NHibernate;
+using NHibernate.Mapping;
 
 namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
 {
@@ -90,6 +91,8 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
             {
                 _responseEmpleo = _session.Get<Empleo>(_expectedEmpleo.Id);
                 _responseEmpleo.empresa.gremial.empresas = new List<Empresa>();
+                _responseEmpleo.empresa.sucursales = new List<Sucursal>();
+                _expectedEmpleo.empresa.sucursales = new List<Sucursal>();
                 _responseEmpleo.ShouldBeEquivalentTo(_expectedEmpleo);
             }
         };

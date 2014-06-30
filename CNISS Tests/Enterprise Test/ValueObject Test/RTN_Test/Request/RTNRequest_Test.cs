@@ -11,7 +11,8 @@ namespace CNISS_Tests.RTN_Test.Request
                 new object[]{"0801"},
                 new object[]{string.Empty},
                 new object[]{"0801198512396D"},
-                new object[]{null}
+                new object[]{null},
+                new object[]{"08011985123XXX"}
             
             };
 

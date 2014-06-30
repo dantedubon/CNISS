@@ -1,3 +1,4 @@
+using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Application;
 using Nancy;
 
@@ -10,9 +11,17 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
             Get["/enterprise/isValidRTN={rtn}"] = parameters =>
             {
                 string RTN = parameters.RTN;
-                bool response = _serviceValidatorRtn.isValidRTN(RTN);
+                var rtn = new RTNRequest(){RTN = RTN};
+                var response= false;
+                if (rtn.isValidPost())
+                {
+                     response = _serviceValidatorRtn.isValidRTN(rtn.RTN);
+                   
+                }
+                
+
                 return Response.AsJson(response)
-                    .WithStatusCode(HttpStatusCode.OK);
+                       .WithStatusCode(HttpStatusCode.OK);
 
             };
 

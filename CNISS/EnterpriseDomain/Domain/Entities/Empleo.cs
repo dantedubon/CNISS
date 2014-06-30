@@ -39,6 +39,12 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual void addComprobante(ComprobantePago comprobantePago)
         {
             comprobantesPago.Add(comprobantePago);
+            
+        }
+
+        public virtual void removeComprobante(ComprobantePago comprobantePago)
+        {
+            comprobantesPago.Remove(comprobantePago);
         }
 
         protected Empleo()

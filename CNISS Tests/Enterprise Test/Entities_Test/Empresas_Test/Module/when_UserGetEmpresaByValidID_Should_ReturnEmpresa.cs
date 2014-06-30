@@ -109,6 +109,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                 rtnRequest = new RTNRequest() { RTN = empresa.Id.rtn},
                 sucursalRequests = empresa.sucursales.Select(x => new SucursalRequest()
                 {
+                    guid = x.Id,
                     nombre = x.nombre,
                     direccionRequest = new DireccionRequest()
                     {

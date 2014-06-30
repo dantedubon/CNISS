@@ -120,7 +120,10 @@
     <Compile Include="Repositories\BeneficiarioRepository\when_UserInsertTwoNewBeneficisarioWithCommonDependiente_Should_InsertTwoBeneficiario.cs" />
     <Compile Include="Repositories\DepartamentoRepository\when_UserAskIfMunicipioBelongDepartamento_Should_ReturnTrue.cs" />
     <Compile Include="Repositories\DireccionRepository\when_UserAskForDireccionById_Return_Direccion.cs" />
-    <Compile Include="Repositories\EmpleoRepository\Commands\when_UserUpdatesEmpleo_Should_UpdatesEmpleo.cs" />
+    <Compile Include="Repositories\EmpleoRepository\Commands\when_UserRemoveComprobantePago_Should_UpdatesEmpleo.cs" />
+    <Compile Include="Repositories\EmpleoRepository\Commands\when_UserAddComprobantePago_Should_UpdatesEmpleo.cs" />
+    <Compile Include="Repositories\EmpleoRepository\Commands\when_UserUpdatesBeneficiarioEmpleo_Should_UpdatesEmpleo.cs" />
+    <Compile Include="Repositories\EmpleoRepository\Commands\when_UserUpdatesEmpresaEmpleo_Should_UpdatesEmpleo.cs" />
     <Compile Include="Repositories\EmpleoRepository\Commands\when_UserSaveValidEmpleo_Should_SaveEmpleo.cs" />
     <Compile Include="Repositories\EmpleoRepository\ReadOnly\when_UserGetEmpleosFromBeneficiario_Should_ReturnEmpleos.cs" />
     <Compile Include="Repositories\EmpleoRepository\ReadOnly\when_UserGetEmpleosFromEmpresa_Should_ReturnEmpleos.cs" />

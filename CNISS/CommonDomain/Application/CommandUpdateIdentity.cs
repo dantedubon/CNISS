@@ -23,7 +23,7 @@ namespace CNISS.CommonDomain.Application
             }
         }
 
-        public bool isExecutable(T identity)
+        public virtual bool isExecutable(T identity)
         {
             throw new NotImplementedException();
         }

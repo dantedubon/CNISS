@@ -86,6 +86,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
                 rtnRequest = new RTNRequest() { RTN = empresa.Id.rtn },
                 sucursalRequests = empresa.sucursales.Select(x => new SucursalRequest()
                 {
+                    guid = x.Id,
                     nombre = x.nombre,
                     direccionRequest = new DireccionRequest()
                     {

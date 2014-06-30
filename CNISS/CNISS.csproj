@@ -217,6 +217,7 @@
     <Compile Include="EnterpriseDomain\Application\CommandInsertEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertEmpresa.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertGremio.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandUpdateEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateGremioDireccion.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateGremioRepresentante.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandDeleteGremio.cs" />

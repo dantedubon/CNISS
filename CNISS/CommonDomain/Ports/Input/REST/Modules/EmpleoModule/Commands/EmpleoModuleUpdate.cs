@@ -23,7 +23,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                 if (request.isValidPut())
                 {
 
-                    var empleo = _empleoMapping.getEmpleo(request);
+                    var empleo = _empleoMapping.getEmpleoForPut(request);
+                  
                     if (commandUpdate.isExecutable(empleo))
                     {
                         commandUpdate.execute(empleo);

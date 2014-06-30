@@ -16,7 +16,13 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
         {
         }
 
-        public Empleo getEmpleo(EmpleoRequest empleoRequest)
+        public Empleo getEmpleoForPut(EmpleoRequest empleoRequest)
+        {
+            var empleo = getEmpleoForPost(empleoRequest);
+            empleo.Id = empleoRequest.IdGuid;
+            return empleo;
+        }
+        public Empleo getEmpleoForPost(EmpleoRequest empleoRequest)
         {
             var empresaRequest = empleoRequest.empresaRequest;
             var beneficiarioRequest = empleoRequest.beneficiarioRequest;

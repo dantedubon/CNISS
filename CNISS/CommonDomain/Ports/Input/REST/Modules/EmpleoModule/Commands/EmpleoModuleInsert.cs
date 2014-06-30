@@ -28,7 +28,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                 var request = this.Bind<EmpleoRequest>();
                 if (request.isValidPost())
                 {
-                    var empleo = _empleoMapping.getEmpleo(request);
+                    var empleo = _empleoMapping.getEmpleoForPost(request);
                     if (command.isExecutable(empleo))
                     {
                         command.execute(empleo);

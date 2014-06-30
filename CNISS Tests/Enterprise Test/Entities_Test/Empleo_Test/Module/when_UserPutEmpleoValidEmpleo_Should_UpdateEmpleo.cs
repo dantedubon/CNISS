@@ -54,7 +54,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
             _commandUpdate = Mock.Of<ICommandUpdateIdentity<Empleo>>();
             Mock.Get(_commandUpdate).Setup(x => x.isExecutable(Moq.It.IsAny<Empleo>())).Returns(true);
 
-            _expectedEmpleo = new EmpleoMapping().getEmpleo(_request);
+            _expectedEmpleo = new EmpleoMapping().getEmpleoForPost(_request);
             _browser = new Browser(
                 x =>
                 {

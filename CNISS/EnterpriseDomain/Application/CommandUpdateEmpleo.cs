@@ -36,7 +36,7 @@ namespace CNISS.EnterpriseDomain.Application
         {
             var existeEmpleo = _repositoryRead.exists(identity.Id);
             var days = _providerDays.getDays();
-            var empleoReciente = !_repositoryRead.existsEmpleoRecienteParaBeneficiario(identity.fechaDeInicio, days,
+            var empleoReciente = !_repositoryRead.existsEmpleoRecienteParaBeneficiario(identity.Id,identity.fechaDeInicio, days,
                 identity.beneficiario.Id);
 
             var beneficiarioExiste = _beneficiarioRepositoryRead.exists(identity.beneficiario.Id);

@@ -11,7 +11,8 @@ namespace CNISS.EnterpriseDomain.Domain.Repositories
     public interface IEmpleoRepositoryReadOnly:IRepositoryReadOnly<Empleo,Guid>
     {
         bool existsEmpleoRecienteParaBeneficiario(DateTime fechaDeBusqueda, int days, Identidad identidadBeneficiario);
-
+        bool existsEmpleoRecienteParaBeneficiario(Guid idEmpleo,DateTime fechaDeBusqueda, int days, Identidad identidadBeneficiario);
+ 
         IEnumerable<Empleo> getEmpleosByEmpresa(RTN rtn);
         IEnumerable<Empleo> getEmpleosByBeneficiario(Identidad identidad);
 

@@ -30,6 +30,18 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
             ;
         }
 
+        public bool existsEmpleoRecienteParaBeneficiario(Guid idEmpleo, DateTime fechaDeBusqueda, int days,
+            Identidad identidadBeneficiario)
+        {
+            var fechaBase = fechaDeBusqueda.AddDays(-days);
+            return (from empleo in Session.Query<Empleo>()
+                    where
+                        empleo.beneficiario.Id == identidadBeneficiario && empleo.fechaDeInicio > fechaBase && empleo.Id != idEmpleo
+                    select empleo.Id
+                ).Any();
+            ;
+        }
+
         public IEnumerable<Empleo> getEmpleosByEmpresa(RTN rtn)
         {
             return (from empleo in Session.Query<Empleo>()
@@ -47,6 +59,15 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
                         empleo.beneficiario.Id == identidad
                     select empleo
                 );
+        }
+
+        public override bool exists(Guid id)
+        {
+            return (from empleo in Session.Query<Empleo>()
+                   where empleo.Id == id
+                   select empleo.Id
+                ).Any()
+            ;
         }
     }
 }

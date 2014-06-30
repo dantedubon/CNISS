@@ -55,7 +55,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
             _commandInsert = Mock.Of<ICommandInsertIdentity<Empleo>>();
             Mock.Get(_commandInsert).Setup(x => x.isExecutable(Moq.It.IsAny<Empleo>())).Returns(true);
 
-            _expectedEmpleo = new EmpleoMapping().getEmpleo(_request);
+            _expectedEmpleo = new EmpleoMapping().getEmpleoForPost(_request);
             _browser = new Browser(
                 x =>
                 {

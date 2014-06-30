@@ -24,6 +24,7 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<EmpleoRepositoryReadOnly>().As<IEmpleoRepositoryReadOnly>();
                     builder.RegisterType<EmpleoRepositoryCommands>().As<IRepositoryCommands<Empleo>>();
                     builder.RegisterType<CommandInsertEmpleo>().As<ICommandInsertIdentity<Empleo>>();
+                    builder.RegisterType<CommandUpdateEmpleo>().As<ICommandUpdateIdentity<Empleo>>();
                     builder.RegisterType<TipoDeEmpleoRepositoryReadOnly>().As<ITipoDeEmpleoReadOnlyRepository>();
                     builder.RegisterType<ProvideAllowedDaysForNewEmpleo>().As<IProvideAllowedDaysForNewEmpleo>();
 

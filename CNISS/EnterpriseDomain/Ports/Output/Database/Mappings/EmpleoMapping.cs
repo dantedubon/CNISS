@@ -48,7 +48,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
                 });
             });
             Component(x => x.contrato, z => z.Map(x => x.dataFile));
-            HasMany(x => x.comprobantesPago).Cascade.All();
+            HasMany(x => x.comprobantesPago).Cascade.AllDeleteOrphan();
         }
     }
 }

@@ -115,6 +115,12 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                     nombre = empleo.empresa.nombre,
                     rtnRequest = new RTNRequest() { RTN = empleo.empresa.Id.rtn }
                 },
+                sucursalRequest = new SucursalRequest()
+                {
+                    guid = empleo.sucursal.Id,
+                    nombre = empleo.sucursal.nombre
+                    
+                },
                 fechaDeInicio = empleo.fechaDeInicio,
                 horarioLaboralRequest = new HorarioLaboralRequest()
                 {

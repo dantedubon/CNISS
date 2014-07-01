@@ -9,7 +9,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
         {
             Id(x => x.idGuid).GeneratedBy.Assigned();
 
-            Component(x => x.Id, z => z.Map(x => x.identidad));
+            Component(x => x.Id, z => z.Map(x => x.identidad).Index("identidad_indx"));
 
             Component(x => x.nombre, z =>
             {

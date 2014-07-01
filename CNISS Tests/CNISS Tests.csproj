@@ -110,7 +110,11 @@
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetInvalidRTN_Should_ReturnFalse.cs" />
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetValidRTN_Should_ReturnTrue.cs" />
     <Compile Include="DummyUnitOfWork.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Commands\CommandUpdateBeneficiario_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Commands\CommandInsertBeneficiario_Test.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Modules\when_UserPutNewBeneficiarioWithValidData_Should_SaveBeneficiario.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Modules\when_UserPutNewBeneficiarioAndComandNotExecutable_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Modules\when_UserPutNewBeneficiarioWithInvalidData_Should_ReturnError.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Modules\when_UserGetBeneficiarioByID_Should_ReturnBeneficiario.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Modules\when_UserGetBeneficiarioByBadID_Should_ReturnError.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Beneficiario_Test\Modules\when_UserGetAllBeneficiarios_Should_ReturnAllBeneficiarios.cs" />

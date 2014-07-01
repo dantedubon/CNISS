@@ -91,6 +91,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Beneficiario_Test.Modules
                 identidadRequest = new IdentidadRequest() { identidad = beneficiario.Id.identidad },
                 dependienteRequests = beneficiario.dependientes.Select(x => new DependienteRequest()
                 {
+                    IdGuid = x.idGuid,
                     edad = x.edad,
                     identidadRequest = new IdentidadRequest() { identidad = x.Id.identidad },
                     nombreRequest = new NombreRequest()

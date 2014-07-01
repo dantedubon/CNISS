@@ -69,6 +69,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Query
                 identidadRequest = new IdentidadRequest() { identidad = beneficiario.Id.identidad },
                 dependienteRequests = beneficiario.dependientes.Select(x => new DependienteRequest()
                 {
+                    IdGuid = x.idGuid,
                     edad = x.edad,
                     identidadRequest = new IdentidadRequest() { identidad = x.Id.identidad },
                     nombreRequest = new NombreRequest()

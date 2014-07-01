@@ -44,12 +44,15 @@ namespace CNISS_Integration_Test.Repositories.BeneficiarioRepository
             var dependiente3 = getDependiente(new Identidad("0801195013366"),
                new Nombre("David", "Castillo", "Velasquez"), parentescoPadre);
 
+            var dependiente4 = getDependiente(new Identidad("0801195712396"),
+                new Nombre("Lavinia", "Dubon", "Fajardo"), parentescoMadre);
+
 
             _expectedBeneficiario.addDependiente(dependiente1);
             _expectedBeneficiario.addDependiente(dependiente2);
 
-            _expectedBeneficiario2.addDependiente(dependiente2);
             _expectedBeneficiario2.addDependiente(dependiente3);
+            _expectedBeneficiario2.addDependiente(dependiente4);
 
             prepareParentesco(parentescoHijo);
             prepareParentesco(parentescoMadre);

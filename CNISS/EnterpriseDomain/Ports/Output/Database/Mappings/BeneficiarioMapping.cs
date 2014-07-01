@@ -22,9 +22,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
                 );
 
             Map(x => x.fechaNacimiento);
-            HasManyToMany(x => x.dependientes)
-                .Cascade.All().
-                Table("DependientesBeneficiario");
+            HasMany(x => x.dependientes).Cascade.All();
         }
     }
 }

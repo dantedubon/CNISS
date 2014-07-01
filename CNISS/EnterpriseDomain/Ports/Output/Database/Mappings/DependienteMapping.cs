@@ -7,9 +7,9 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public DependienteMapping()
         {
-            CompositeId()
-                .ComponentCompositeIdentifier(x => x.Id)
-                .KeyProperty(x => x.Id.identidad);
+            Id(x => x.idGuid).GeneratedBy.Assigned();
+
+            Component(x => x.Id, z => z.Map(x => x.identidad));
 
             Component(x => x.nombre, z =>
             {

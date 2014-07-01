@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
@@ -34,11 +35,21 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Command
         {
             return
                 dependientes.Select(
-                    x =>
-                        new Dependiente(getIdentidad(x.identidadRequest), getNombre(x.nombreRequest),
-                            getParentesco(x.parentescoRequest), x.edad)).ToList();
+                    getDependiente).ToList();
         }
 
+        private Dependiente getDependiente(DependienteRequest dependienteRequest)
+        {
+            var dependiente = new Dependiente(getIdentidad(dependienteRequest.identidadRequest),
+                getNombre(dependienteRequest.nombreRequest), getParentesco(dependienteRequest.parentescoRequest),
+                dependienteRequest.edad);
+
+            if (dependienteRequest.IdGuid != Guid.Empty)
+            {
+                dependiente.idGuid = dependienteRequest.IdGuid;
+            }
+            return dependiente;
+        }
         private Parentesco getParentesco(ParentescoRequest parentesco)
         {
             var parentescoEntity = new Parentesco(parentesco.descripcion);

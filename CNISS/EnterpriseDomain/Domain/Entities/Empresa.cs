@@ -9,7 +9,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         
         public virtual  string nombre { get; set; }
         public virtual IEnumerable<ActividadEconomica> actividadesEconomicas { get; set; }
-        public virtual IEnumerable<Sucursal> sucursales { get; set; }
+        public virtual IList<Sucursal> sucursales { get; set; }
         public virtual DateTime fechaIngreso { get; set; }
         public virtual int empleadosTotales { get; set; }
         public virtual bool proyectoPiloto { get; set; }
@@ -19,6 +19,12 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         protected Empresa()
         {
             
+        }
+
+
+        public virtual void AddSucursal(Sucursal sucursal)
+        {
+           sucursales.Add(sucursal);
         }
 
         public Empresa(RTN rtnEmpresa, string nombre,DateTime fechaIngreso, Gremio gremial)

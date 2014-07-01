@@ -159,6 +159,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\EmpleoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\TipoEmpleoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\ActividadesEconomicasModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaMap.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Query\EmpresaModuleQuery.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepositoryCompoundKey.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandUpdateEmpresa.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandDeleteGremio.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertBeneficiario.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertEmpleo.cs" />

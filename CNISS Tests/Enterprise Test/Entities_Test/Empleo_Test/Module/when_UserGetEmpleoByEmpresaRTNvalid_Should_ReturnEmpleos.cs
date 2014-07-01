@@ -103,6 +103,12 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                     nombre = x.empresa.nombre,
                     rtnRequest = new RTNRequest() { RTN = x.empresa.Id.rtn}
                 },
+                sucursalRequest = new SucursalRequest()
+                {
+                    guid = x.sucursal.Id,
+                    nombre = x.sucursal.nombre
+
+                },
                 fechaDeInicio = x.fechaDeInicio,
                 horarioLaboralRequest = new HorarioLaboralRequest()
                 {

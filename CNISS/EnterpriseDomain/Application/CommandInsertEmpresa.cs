@@ -33,7 +33,7 @@ namespace CNISS.EnterpriseDomain.Application
             return !_repositoryRead.exists(identity.Id) 
                 && _repositoryActividadesRead.existsAll(identity.actividadesEconomicas)
                 && _repositoryGremiosRead.exists(identity.gremial.Id)
-                && identity.contrato.dataFile != null
+               
                 && _validadorSucursales.isValid(identity.sucursales);
         }
     }

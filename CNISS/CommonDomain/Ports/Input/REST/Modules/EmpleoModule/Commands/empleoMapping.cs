@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
@@ -64,10 +65,24 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
         {
             return
                 comprobantePagoRequests.Select(
-                    x => new ComprobantePago(x.fechaPago, x.deducciones, x.percepciones, x.total));
+                    getComprobantePago);
 
         }
 
+        private ComprobantePago getComprobantePago(ComprobantePagoRequest comprobantePagoRequest)
+        {
+            var comprobante = new ComprobantePago(comprobantePagoRequest.fechaPago, comprobantePagoRequest.deducciones,
+                comprobantePagoRequest.percepciones, comprobantePagoRequest.total);
+
+            var guiRequest = comprobantePagoRequest.guid;
+            if (Guid.Empty != guiRequest)
+            {
+                comprobante.Id = guiRequest;
+            }
+
+
+            return comprobante;
+        }
         private HorarioLaboral getHorarioLaboral(HorarioLaboralRequest horarioLaboralRequest)
         {
             var horaEntrada = new Hora(horarioLaboralRequest.horaEntrada.hora, horarioLaboralRequest.horaEntrada.minutos,

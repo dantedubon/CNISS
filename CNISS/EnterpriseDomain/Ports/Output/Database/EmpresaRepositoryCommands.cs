@@ -21,7 +21,6 @@ namespace CNISS.EnterpriseDomain.Ports.Output
         {
             var sucursales = entity.sucursales;
 
-          //  entity.gremial = getGremio(entity.gremial.Id);
             base.save(entity);
             sucursales.ToList().ForEach(saveSucursal);
 
@@ -30,11 +29,29 @@ namespace CNISS.EnterpriseDomain.Ports.Output
 
         }
 
+        public void update(Empresa entity)
+        {
+            var sucursales = entity.sucursales;
+            
+            
+            sucursales.ToList().ForEach(updateSucursal);
+
+            _session.SaveOrUpdate(entity);
+        }
+
         private Gremio getGremio(RTN rtnGremio)
         {
             return _repositoryReadGremio.get(rtnGremio);
         }
 
+        private void updateSucursal(Sucursal sucursal)
+        {
+            var direccion = sucursal.direccion;
+            var firma = sucursal.firma;
+            _session.SaveOrUpdate(direccion);
+            _session.SaveOrUpdate(firma);
+            _session.SaveOrUpdate(sucursal);
+        }
         private void saveSucursal(Sucursal sucursal)
         {
             var direccion = sucursal.direccion;

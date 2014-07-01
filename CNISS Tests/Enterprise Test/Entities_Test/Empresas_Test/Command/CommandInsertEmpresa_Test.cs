@@ -104,29 +104,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Command
 
         }
 
-        [Test]
-        public void isExecutable_contratoNulo_return_false()
-        {
-            var empresa = getEmpresa();
-            var repositoryReadOnly = Mock.Of<IEmpresaRepositoryReadOnly>();
-            var repositoryCommand = Mock.Of<IEmpresaRepositoryCommands>();
-            var repositoryActividadesRead = Mock.Of<IActividadEconomicaRepositoryReadOnly>();
-            var repositoryGremiosRead = Mock.Of<IGremioRepositoryReadOnly>();
-            var validadorSucursales = Mock.Of<IServiceSucursalesValidator>();
-            var uof = Mock.Of<Func<IUnitOfWork>>();
-            Mock.Get(uof).Setup(x => x()).Returns(new DummyUnitOfWork());
-            Mock.Get(repositoryReadOnly).Setup(x => x.exists(empresa.Id)).Returns(false);
-            Mock.Get(repositoryActividadesRead).Setup((x => x.existsAll(It.IsAny<IEnumerable<ActividadEconomica>>()))).Returns(true);
-            Mock.Get(repositoryGremiosRead).Setup(x => x.exists(It.IsAny<RTN>())).Returns(true);
-            empresa.contrato.dataFile = null;
-
-            var command = new CommandInsertEmpresa(validadorSucursales, repositoryGremiosRead, repositoryActividadesRead, repositoryReadOnly, repositoryCommand, uof);
-
-            var respuesta = command.isExecutable(empresa);
-
-            Assert.IsFalse(respuesta);
-
-        }
+       
 
         [Test]
         public void isExecutable_sucursalesInvalidas_return_false()
@@ -174,7 +152,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Command
 
         }
 
-        private IEnumerable<Sucursal> getSucursales()
+        private IList<Sucursal> getSucursales()
         {
             var municipio = new Municipio("01", "01", "Municipio");
             var departamento = new Departamento() {Id = "01", municipios =new List<Municipio>() {municipio}, nombre = "Departamento"};

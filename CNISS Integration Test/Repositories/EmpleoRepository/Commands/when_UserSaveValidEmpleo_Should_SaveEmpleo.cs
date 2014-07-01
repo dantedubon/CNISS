@@ -269,7 +269,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
 
         }
 
-        private static IEnumerable<Sucursal> getSucursales()
+        private static IList<Sucursal> getSucursales()
         {
             var municipio = new Municipio("01", "01", "Municipio");
             var departamento = new Departamento() { Id = "01", municipios = new List<Municipio>() { municipio }, nombre = "Departamento" };

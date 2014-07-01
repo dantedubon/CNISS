@@ -327,7 +327,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
 
         }
 
-        private  IEnumerable<Sucursal> getSucursales()
+        private  IList<Sucursal> getSucursales()
         {
             var municipio = new Municipio("01", "01", "Municipio");
             var departamento = new Departamento() { Id = "01", municipios = new List<Municipio>() { municipio }, nombre = "Departamento" };

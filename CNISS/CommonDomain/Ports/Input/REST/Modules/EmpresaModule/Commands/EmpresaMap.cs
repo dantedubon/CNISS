@@ -44,7 +44,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
                     x => new ActividadEconomica() {descripcion = x.descripcion, Id = x.guid}).ToList();
         }
 
-        private IEnumerable<Sucursal> getSucursales(IEnumerable<SucursalRequest> requests)
+        private IList<Sucursal> getSucursales(IEnumerable<SucursalRequest> requests)
         {
             return requests.Select(
                 getSucursal).ToList();
@@ -54,7 +54,12 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
         {
             var direccion = request.direccionRequest;
             var firma = request.firmaRequest;
-            return new Sucursal(request.nombre,getDireccion(direccion),getFirmaAutorizada(firma));
+            var sucursal = new Sucursal(request.nombre, getDireccion(direccion), getFirmaAutorizada(firma));
+            if (request.guid != Guid.Empty)
+            {
+                sucursal.Id = request.guid;
+            }
+            return sucursal;
 
         }
 
@@ -75,7 +80,10 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
                 departamentoId = request.municipioRequest.idDepartamento,
                 Id = request.municipioRequest.idMunicipio
             };
-            return new Direccion(departamento,municipio,request.descripcion);
+            var direccion = new Direccion(departamento,municipio,request.descripcion);
+            if (request.IdGuid != Guid.Empty)
+                direccion.Id = request.IdGuid;
+            return direccion;
         }
 
         private RTN getRTN(RTNRequest request)

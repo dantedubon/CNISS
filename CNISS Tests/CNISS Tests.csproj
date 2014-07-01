@@ -139,7 +139,10 @@
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Request\ComprobantePagoRequest_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Request\EmpleoRequest_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empleo_Test\Request\HoraRequest_Test.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Command\CommandUpdateEmpresa_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Command\CommandInsertEmpresa_Test.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPutValidEmpresaNoEmptyContractFile_Should_UpdateEmpresa.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPutEmpresaWithNotExecutable_Should_Return_Error.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostValidEmpresaNoEmptyContractFile_Should_SaveEmpresa.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostValidEmpresaNotEmptyContractFileFileNotExist_Should_ReturnError.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserGetEmpresaByIDBadRTN_Should_ReturnError.cs" />
@@ -148,7 +151,8 @@
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserGetEmpresaByValidID_Should_ReturnEmpresa.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostEmpresaWithNotExecutable_Should_Return_Error.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostValidEmpresaEmptyContractFile_Should_SaveEmpresa.cs" />
-    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostInvalidEmpresa_Should_Return_Error.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPostEmpresaWithInvalidData_Should_Return_Error.cs" />
+    <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Module\when_UserPutEmpresaWithInvalidData_Should_Return_Error.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Request\EmpresaRequest_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\Request\SucursalRequest_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\Empresas_Test\ServiceSucursalesValidator_Test.cs" />

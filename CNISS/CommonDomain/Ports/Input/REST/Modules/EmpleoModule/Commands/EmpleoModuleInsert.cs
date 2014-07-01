@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using CNISS.CommonDomain.Application;
@@ -20,7 +21,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
     {
         private readonly EmpleoMapping _empleoMapping;
 
-        public EmpleoModuleInsert(ICommandInsertIdentity<Empleo> command )
+        public EmpleoModuleInsert(ICommandInsertIdentity<Empleo> command , IFileGetter fileGetter)
         {
             _empleoMapping = new EmpleoMapping();
             Post["/enterprise/empleos"] = parameters =>
@@ -28,9 +29,21 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                 var request = this.Bind<EmpleoRequest>();
                 if (request.isValidPost())
                 {
+                    var file = request.contrato;
                     var empleo = _empleoMapping.getEmpleoForPost(request);
                     if (command.isExecutable(empleo))
                     {
+
+                        if (!string.IsNullOrEmpty(file))
+                        {
+                            if (!fileGetter.existsFile(@"/EmpleoContratos", file, ".pdf"))
+                            {
+                                return new Response()
+                                        .WithStatusCode(HttpStatusCode.BadRequest);
+                            }
+                            var fileContrato = fileGetter.getFile(@"/EmpleoContratos", file, ".pdf");
+                            empleo.contrato = new ContentFile(fileContrato);
+                        }
                         command.execute(empleo);
                         return new Response()
                        .WithStatusCode(HttpStatusCode.OK);

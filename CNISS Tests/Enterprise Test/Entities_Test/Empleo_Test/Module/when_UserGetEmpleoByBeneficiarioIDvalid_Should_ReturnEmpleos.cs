@@ -109,7 +109,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                     nombre = x.sucursal.nombre
 
                 },
-                fechaDeInicio = x.fechaDeInicio,
+               
+                contrato = x.contrato == null ? "" : x.contrato.Id.ToString(),
                 horarioLaboralRequest = new HorarioLaboralRequest()
                 {
                     diasLaborablesRequest = new DiasLaborablesRequest()
@@ -137,6 +138,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
                     }
                 },
+                fechaDeInicio = x.fechaDeInicio,
                 sueldo = x.sueldo,
                 tipoEmpleoRequest = new TipoEmpleoRequest()
                 {

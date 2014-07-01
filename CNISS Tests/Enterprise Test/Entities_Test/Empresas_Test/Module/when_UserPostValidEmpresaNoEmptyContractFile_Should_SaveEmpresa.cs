@@ -69,6 +69,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                 programaPiloto = true,
                 rtnRequest = getValidRTN(),
                 sucursalRequests = getGoodSucursales(),
+                fechaIngreso = new DateTime(2014,1,1),
                 nombre = "Empresa"
             };
             return empresa;

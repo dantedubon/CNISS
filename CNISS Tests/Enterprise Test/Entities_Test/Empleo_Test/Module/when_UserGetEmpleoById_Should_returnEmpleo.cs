@@ -100,6 +100,11 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                     nombre = empleo.empresa.nombre,
                     rtnRequest = new RTNRequest() { RTN = empleo.empresa.Id.rtn }
                 },
+                sucursalRequest = new SucursalRequest()
+                {
+                    guid = empleo.sucursal.Id,
+                    nombre = empleo.sucursal.nombre
+                },
                 fechaDeInicio = empleo.fechaDeInicio,
                 horarioLaboralRequest = new HorarioLaboralRequest()
                 {
@@ -128,6 +133,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
                     }
                 },
+                contrato = empleo.contrato == null ? "" : empleo.contrato.Id.ToString(),
                 sueldo = empleo.sueldo,
                 tipoEmpleoRequest = new TipoEmpleoRequest()
                 {

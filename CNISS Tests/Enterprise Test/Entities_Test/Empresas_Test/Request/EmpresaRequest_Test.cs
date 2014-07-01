@@ -21,42 +21,45 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
             {
                 new Object[]
                 {
-                    new RTNRequest(),getGremio(),getGoodSucursales(),getActividades(),"Empresa","file"
+                    new RTNRequest(),getGremio(),getGoodSucursales(),getActividades(),"Empresa","file", new DateTime(2014,12,1)
                 },
                 new Object[]
                 {
-                    null,getGremio(),getGoodSucursales(),getActividades(),"Empresa","file"
+                    null,getGremio(),getGoodSucursales(),getActividades(),"Empresa","file", new DateTime(2014,12,1)
                 },
                 new Object[]
                 {
-                    getValidRTN(),new GremioRequest(),getGoodSucursales(),getActividades(),"Empresa","file"
+                    getValidRTN(),new GremioRequest(),getGoodSucursales(),getActividades(),"Empresa","file", new DateTime(2014,12,1)
                 },
                 new Object[]
                 {
-                    getValidRTN(),null,getGoodSucursales(),getActividades(),"Empresa","file"
+                    getValidRTN(),null,getGoodSucursales(),getActividades(),"Empresa","file", new DateTime(2014,12,1)
                 },
                 new Object[]
                 {
-                    getValidRTN(),getGremio(),getBadSucursales(),getActividades(),"Empresa","file"
+                    getValidRTN(),getGremio(),getBadSucursales(),getActividades(),"Empresa","file", new DateTime(2014,12,1)
                 },
 
                 new Object[]
                 {
-                    getValidRTN(),getGremio(),null,getActividades(),"Empresa","file"
+                    getValidRTN(),getGremio(),null,getActividades(),"Empresa","file", new DateTime(2014,12,1)
                 },
                 new Object[]
                 {
-                    getValidRTN(),getGremio(),getGoodSucursales(),null,"Empresa","file"
+                    getValidRTN(),getGremio(),getGoodSucursales(),null,"Empresa","file", new DateTime(2014,12,1)
                 },
                 new Object[]
                 {
-                    getValidRTN(),getGremio(),getGoodSucursales(),getActividades(),string.Empty,"file"
+                    getValidRTN(),getGremio(),getGoodSucursales(),getActividades(),string.Empty,"file", new DateTime(2014,12,1)
                 },
                 new Object[]
                 {
-                    getValidRTN(),getGremio(),getGoodSucursales(),getActividades(),null,"file"
+                    getValidRTN(),getGremio(),getGoodSucursales(),getActividades(),null,"file", new DateTime(2014,12,1)
                 },
-              
+                 new Object[]
+                {
+                    getValidRTN(),getGremio(),getGoodSucursales(),getActividades(),"Empresa","file", null
+                },
                 
             };
 
@@ -86,7 +89,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
         [TestCaseSource("badDataForPost")]
         public void isValidPost_invalidData_returnFalse(RTNRequest rtn, GremioRequest gremio, 
             IEnumerable<SucursalRequest> sucursales,
-            IEnumerable<ActividadEconomicaRequest> actividades, string nombre,string file)
+            IEnumerable<ActividadEconomicaRequest> actividades, string nombre,string file, DateTime fechaIngreso)
         {
             var empresa = new EmpresaRequest()
             {
@@ -97,7 +100,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
                 programaPiloto = true,
                 rtnRequest = rtn,
                 sucursalRequests = sucursales,
-                nombre = nombre
+                nombre = nombre,
+                fechaIngreso = fechaIngreso
             };
 
             var respuesta = empresa.isValidPost();
@@ -118,6 +122,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
                 programaPiloto = true,
                 rtnRequest = getValidRTN(),
                 sucursalRequests = getGoodSucursales(),
+                fechaIngreso = DateTime.Now,
                 nombre = "Empresa"
             };
 

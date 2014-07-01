@@ -19,13 +19,13 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
         {
         }
 
-        public Empresa getEmpresa(EmpresaRequest request, byte[] contratoFile)
+        public Empresa getEmpresa(EmpresaRequest request)
         {
             var rtn = getRTN(request.rtnRequest);
             var gremio = getGremio(request.gremioRequest);
             var empresa = new Empresa(rtn, request.nombre, request.fechaIngreso, gremio)
             {
-                contrato = new ContentFile(contratoFile),
+                
                 empleadosTotales = request.empleadosTotales,
                 actividadesEconomicas = getActividades(request.actividadEconomicaRequests),
                 sucursales = getSucursales(request.sucursalRequests),

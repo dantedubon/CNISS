@@ -17,13 +17,13 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             
             References(x => x.gremial,"rtn_gremio").Not.Nullable();
 
-            Component(x => x.contrato, z => z.Map(x => x.dataFile).Column("Contrato").Length(int.MaxValue));//.CustomSqlType("varbinary(max)").Length(int.MaxValue));
+            
             HasMany(x => x.sucursales);
               
             HasManyToMany(x => x.actividadesEconomicas)
                 .Cascade.All()
                 .Table("ActividadesEconomicasEmpresas");
-
+            References(x => x.contrato).Cascade.All();
         }
     }
 }

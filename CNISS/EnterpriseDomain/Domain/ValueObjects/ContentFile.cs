@@ -1,6 +1,9 @@
-﻿namespace CNISS.EnterpriseDomain.Domain.ValueObjects
+﻿using System;
+using CNISS.CommonDomain.Domain;
+
+namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 {
-    public class ContentFile
+    public class ContentFile:ValueObject<Guid>
     {
         public ContentFile(byte[] data)
         {

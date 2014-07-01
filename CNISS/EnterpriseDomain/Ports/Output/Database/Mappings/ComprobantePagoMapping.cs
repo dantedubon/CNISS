@@ -16,7 +16,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             Map(x => x.percepciones);
             Map(x => x.total);
             Map(x => x.fechaPago);
-            Component(x => x.imagenComprobante, z => z.Map(x => x.dataFile).Column("imagenComprobante").Length(int.MaxValue));
+            References(x => x.imagenComprobante).Cascade.All();
         }
     }
 }

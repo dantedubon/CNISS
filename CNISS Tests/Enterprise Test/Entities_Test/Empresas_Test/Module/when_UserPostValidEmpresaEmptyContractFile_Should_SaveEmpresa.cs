@@ -65,6 +65,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                 gremioRequest = getGremio(),
                 programaPiloto = true,
                 rtnRequest = getValidRTN(),
+                fechaIngreso = new DateTime(2014,8,1),
                 sucursalRequests = getGoodSucursales(),
                 nombre = "Empresa"
             };

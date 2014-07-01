@@ -131,6 +131,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
                     }
                 },
+                contrato = x.contrato == null ? "" : x.contrato.Id.ToString(),
                 sueldo = x.sueldo,
                 tipoEmpleoRequest = new TipoEmpleoRequest()
                 {

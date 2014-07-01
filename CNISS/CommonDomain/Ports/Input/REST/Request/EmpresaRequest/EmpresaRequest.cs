@@ -25,7 +25,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest
                    && gremioRequest != null && gremioRequest.isValidPost()
                    && sucursalRequests != null && isValidSucursales()
                    && actividadEconomicaRequests != null
-                   && !string.IsNullOrEmpty(nombre);
+                   && !string.IsNullOrEmpty(nombre)
+                   &&fechaIngreso >= new DateTime(2010,1,1);
 
 
         }

@@ -285,6 +285,7 @@
     <Compile Include="EnterpriseDomain\Ports\Output\Database\BeneficiarioRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\EmpleoRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\EmpleoRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\ContentFileMapping.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\TipoDeEmpleoRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\DepartamentRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\DireccionRepositoryReadOnly.cs" />

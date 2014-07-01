@@ -5,6 +5,7 @@ using System.Web;
 using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Application;
+using CNISS.CommonDomain.Ports.Input.REST;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
@@ -55,6 +56,14 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                }           
                
            };
+           var fileGetter = Mock.Of<IFileGetter>();
+           var dataFile = new byte[] { 0, 1, 1, 1, 0, 1 };
+           Mock.Get(fileGetter)
+               .Setup(x => x.existsFile(Moq.It.IsAny<string>(), Moq.It.IsAny<string>(), Moq.It.IsAny<string>()))
+               .Returns(true);
+           Mock.Get(fileGetter)
+              .Setup(x => x.getFile(Moq.It.IsAny<string>(), Moq.It.IsAny<string>(), Moq.It.IsAny<string>()))
+              .Returns(dataFile);
 
             var command = Mock.Of<ICommandInsertIdentity<Empleo>>();
             Mock.Get(command).Setup(x => x.isExecutable(Moq.It.IsAny<Empleo>())).Returns(false);
@@ -63,7 +72,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                 x =>
                 {
                     x.Module<EmpleoModuleInsert>();
-                    x.Dependencies(command);
+                    x.Dependencies(command,fileGetter);
                 }
                 
                 );

@@ -10,12 +10,12 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual decimal deducciones { get; protected set; }
         public virtual decimal percepciones { get; protected set; }
         public virtual decimal total { get; protected set; }
-        public virtual ContentFile imagenComprobante { get; protected set; }
+        public virtual ContentFile imagenComprobante { get;  set; }
 
         protected ComprobantePago()
         {
             Id = Guid.NewGuid();
-            imagenComprobante = new ContentFile(new byte[]{0});
+           
         }
 
         public ComprobantePago(DateTime fechaPago, decimal deducciones, decimal percepciones, decimal total):this()

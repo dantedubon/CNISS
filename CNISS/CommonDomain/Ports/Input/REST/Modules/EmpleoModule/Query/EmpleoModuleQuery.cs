@@ -110,6 +110,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                     percepciones = z.percepciones,
                     total = z.total
                 }),
+                contrato = empleo.contrato==null?"":empleo.contrato.Id.ToString(),
                 empresaRequest = new EmpresaRequest()
                 {
                     nombre = empleo.empresa.nombre,

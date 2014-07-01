@@ -26,7 +26,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
                 {
                     rtnRequest = new RTNRequest() { RTN = x.Id.rtn},
                    
-                    contentFile = "",
+                    contentFile = x.contrato == null ? "": x.contrato.Id.ToString(),
                     empleadosTotales = x.empleadosTotales,
                     fechaIngreso = x.fechaIngreso,
                     actividadEconomicaRequests = new List<ActividadEconomicaRequest>(),
@@ -71,7 +71,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
                     descripcion = x.descripcion,
                     guid = x.Id
                 }),
-                contentFile = "",
+                contentFile = empresa.contrato == null? "":empresa.contrato.Id.ToString(),
                 empleadosTotales = empresa.empleadosTotales,
                 fechaIngreso = empresa.fechaIngreso,
                 gremioRequest = new GremioRequest()

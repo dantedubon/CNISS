@@ -20,7 +20,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
                 if (request.isValidPost())
                 {
                     var empresaMap = new EmpresaMap();
-                    var empresa = empresaMap.getEmpresa(request, new byte[]{0});
+                    var empresa = empresaMap.getEmpresa(request);
                     if (_commandUpdate.isExecutable(empresa))
                     {
                       

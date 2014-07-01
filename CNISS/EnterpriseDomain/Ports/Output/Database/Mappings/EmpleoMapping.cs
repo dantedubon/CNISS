@@ -27,14 +27,14 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
                     h.Map(v => v.hora,"horaEntrada");
                     h.Map(v => v.minutos,"minutosEntrada");
                     h.Map(v => v.parte, "parteEntrada");
-                    //   h.Component(v => v.parteDia, w => w.Map(d => d.parte,"parteDiaEntrada"));
+                   
                 });
                 z.Component(x => x.horaSalida, h =>
                 {
                     h.Map(v => v.hora, "horaSalida");
                     h.Map(v => v.minutos, "minutosSalida");
                     h.Map(v => v.parte, "parteSalida");
-                    //     h.Component(v => v.parteDia, w => w.Map(d => d.parte, "parteDiaSalida"));
+                   
                 });
                 z.Component(x => x.diasLaborables, h =>
                 {
@@ -47,7 +47,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
                     h.Map(v => v.domingo);
                 });
             });
-            Component(x => x.contrato, z => z.Map(x => x.dataFile));
+            References(x => x.contrato).Cascade.All();
             HasMany(x => x.comprobantesPago).Cascade.AllDeleteOrphan();
         }
     }

@@ -52,5 +52,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
             comprobantesPago = new List<ComprobantePago>();
             Id = Guid.NewGuid();
         }
+
+      
     }
 }

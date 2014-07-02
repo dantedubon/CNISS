@@ -37,6 +37,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                 getHorarioLaboral(horarioRequest),
                 empleoRequest.cargo,empleoRequest.sueldo,getTipoEmpleo(tipoEmpleo),empleoRequest.fechaDeInicio);
 
+            empleo.contrato = empleoRequest.contentFile !=null?new ContentFile(empleoRequest.contentFile) :null ;
+
             var comprobantesEmpleo = getComprobantes(comprobantes);
 
             comprobantesEmpleo.ForEach(empleo.addComprobante);
@@ -79,7 +81,9 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
             {
                 comprobante.Id = guiRequest;
             }
-
+            comprobante.imagenComprobante = comprobantePagoRequest.contentFile != null
+                ? new ContentFile(comprobantePagoRequest.contentFile)
+                : null;
 
             return comprobante;
         }

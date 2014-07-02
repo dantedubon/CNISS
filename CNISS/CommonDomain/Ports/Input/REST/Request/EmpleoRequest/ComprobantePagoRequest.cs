@@ -12,6 +12,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
         public  decimal percepciones { get;  set; }
         public  decimal total { get;  set; }
         public  string archivoComprobante { get;  set; }
+        public byte[] contentFile { get; set; }
         public Guid guid { get;  set; }
 
 

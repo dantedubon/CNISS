@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
+using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
@@ -31,9 +33,14 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
                 sucursales = getSucursales(request.sucursalRequests),
                 proyectoPiloto = request.programaPiloto
             };
-
+            empresa.auditoria = getAuditoria(request.auditoriaRequest);
 
             return empresa;
+        }
+
+        private Auditoria getAuditoria(AuditoriaRequest auditoriaRequest)
+        {
+            return new Auditoria(auditoriaRequest.usuarioCreo,auditoriaRequest.fechaCreo, auditoriaRequest.usuarioModifico, auditoriaRequest.fechaModifico);
         }
 
         private IEnumerable<ActividadEconomica> getActividades(
@@ -59,6 +66,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
             {
                 sucursal.Id = request.guid;
             }
+
+            sucursal.auditoria = getAuditoria(request.auditoriaRequest);
             return sucursal;
 
         }

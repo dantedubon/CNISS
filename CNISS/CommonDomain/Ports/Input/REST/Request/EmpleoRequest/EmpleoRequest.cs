@@ -19,8 +19,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
         public DateTime fechaDeInicio { get; set; }
         public string contrato { get; set; }
         public byte[] contentFile { get; set; }
-        public IEnumerable<ComprobantePagoRequest> comprobantes { get; set; } 
-
+        public IEnumerable<ComprobantePagoRequest> comprobantes { get; set; }
+        public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
 
         public bool isValidPost()
         {

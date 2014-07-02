@@ -11,6 +11,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest
         public  String secondName { get; set; }
         public  String password { get; set; }
         public  RolRequest userRol { get; set; }
+        public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
         public bool isValidPost()
         {
             if (userRol != null)

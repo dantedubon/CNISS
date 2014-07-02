@@ -1,6 +1,7 @@
 using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Application;
+using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using Nancy;
 using Nancy.ModelBinding;
@@ -17,9 +18,14 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.RolModule.RolCommand
                 
                 if (repositoryRead.exists(_rolRequest.idGuid))
                 {
-                    var _rol = new Rol(_rolRequest.name, _rolRequest.description);
-                    _rol.Id = _rolRequest.idGuid;
-                    commandUpdate.execute(_rol);
+                    var rol = new Rol(_rolRequest.name, _rolRequest.description);
+                    var auditoriaRequest = _rolRequest.auditoriaRequest;
+                    rol.auditoria = new Auditoria(auditoriaRequest.usuarioCreo, auditoriaRequest.fechaCreo, auditoriaRequest.usuarioModifico, auditoriaRequest.fechaModifico);
+
+
+                    rol.Id = _rolRequest.idGuid;
+                    rol.nivel = _rolRequest.nivel;
+                    commandUpdate.execute(rol);
 
                     return new Response()
                         .WithStatusCode(HttpStatusCode.OK);

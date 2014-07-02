@@ -15,6 +15,13 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             References(x => x.representanteLegal);
             References(x => x.direccion);
             HasMany(x => x.empresas).Inverse().Cascade.SaveUpdate().KeyColumn("rtn_gremio");
+            Component(x => x.auditoria, m =>
+            {
+                m.Map(x => x.usuarioCreo);
+                m.Map(x => x.fechaCreo);
+                m.Map(x => x.usuarioModifico);
+                m.Map(x => x.fechaModifico);
+            });
 
         }
     }

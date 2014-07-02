@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
+using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserQuery;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
 using FizzWare.NBuilder;
@@ -26,8 +28,9 @@ namespace CNISS_Tests.User_Test.Modules
          Establish context = () =>
          {
              var _userRol = Builder<Rol>.CreateNew().Build();
+             _userRol.auditoria = Builder<Auditoria>.CreateNew().Build();
              var _expectedUser = Builder<User>.CreateNew().With(x => x.userRol = _userRol).Build();
-
+             _expectedUser.auditoria = Builder<Auditoria>.CreateNew().Build();
              var userRepository = new DummyRepository(_expectedUser);
 
              _expectedUserResponse = new UserRequest
@@ -43,7 +46,15 @@ namespace CNISS_Tests.User_Test.Modules
                      idGuid = _expectedUser.userRol.Id,
                      name = _expectedUser.userRol.name
 
+                 },
+                 auditoriaRequest =new AuditoriaRequest()
+                 {
+                     fechaCreo = _expectedUser.auditoria.fechaCreo,
+                     fechaModifico = _expectedUser.auditoria.fechaModifico,
+                     usuarioCreo = _expectedUser.auditoria.usuarioCreo,
+                     usuarioModifico = _expectedUser.auditoria.usuarioModifico
                  }
+                 
              };
 
              _browser = new Browser(

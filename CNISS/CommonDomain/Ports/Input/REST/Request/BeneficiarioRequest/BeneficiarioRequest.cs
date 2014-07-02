@@ -12,6 +12,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest
         public IdentidadRequest identidadRequest { get; set; }
         public IEnumerable<DependienteRequest> dependienteRequests { get; set; }
         public DateTime fechaNacimiento { get; set; }
+        public AuditoriaRequest.AuditoriaRequest  auditoriaRequest { get; set; }
 
         public bool isValidPost()
         {

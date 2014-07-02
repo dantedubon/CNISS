@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
+using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserQuery;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
 using FizzWare.NBuilder;
@@ -28,7 +31,9 @@ namespace CNISS_Tests.User_Test.Modules
          Establish context = () =>
          {
              var _usersRol = Builder<Rol>.CreateNew().Build();
-             _usersCollection = Builder<User>.CreateListOfSize(10).All().With(x => x.userRol = _usersRol).Build();
+             _usersCollection = Builder<User>.CreateListOfSize(10).All().With(x => x.userRol = _usersRol)
+                 .With(x => x.auditoria = new Auditoria("",DateTime.Now.Date,"",DateTime.Now.Date))
+                 .Build();
              
 
            
@@ -70,7 +75,15 @@ namespace CNISS_Tests.User_Test.Modules
                     description = x.userRol.description,
                     name = x.userRol.name,
                     idGuid = x.userRol.Id
+                },
+                auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo = x.auditoria.fechaCreo,
+                    fechaModifico = x.auditoria.fechaModifico,
+                    usuarioCreo = x.auditoria.usuarioCreo,
+                    usuarioModifico = x.auditoria.usuarioModifico
                 }
+
             }).ToList();
         }
     }

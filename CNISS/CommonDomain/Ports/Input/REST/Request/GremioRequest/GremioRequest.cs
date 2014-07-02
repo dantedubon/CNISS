@@ -6,6 +6,9 @@
         public DireccionRequest direccionRequest { get; set; }
         public RepresentanteLegalRequest representanteLegalRequest { get; set; }
         public string nombre { get; set; }
+
+        public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
+
         public bool isValidPost()
         {
             return representanteLegalRequest!=null && representanteLegalRequest.isValidPost()

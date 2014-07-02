@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Compilation;
+using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Query;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain.Entities;
@@ -35,11 +37,11 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Beneficiario_Test.Modules
 
             var beneficiario = Builder<Beneficiario>.CreateNew().WithConstructor(
                 () => new Beneficiario(new Identidad("0801198512396"),Builder<Nombre>.CreateNew().Build(),new DateTime(1984,8,2))
-                ).Build();
+                ).With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
 
             var dependientes = Builder<Dependiente>.CreateListOfSize(10).All().WithConstructor(
                 ()=> new Dependiente(new Identidad("0501198812345"),Builder<Nombre>.CreateNew().Build(),Builder<Parentesco>.CreateNew().Build(),10)
-                ).Build();
+                ).With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
 
             foreach (var dependiente in dependientes)
             {
@@ -104,8 +106,22 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Beneficiario_Test.Modules
                     {
                         descripcion = x.parentesco.descripcion,
                         guid = x.parentesco.Id
+                    },
+                    auditoriaRequest = new AuditoriaRequest()
+                    {
+                        fechaCreo = x.auditoria.fechaCreo,
+                        fechaModifico = x.auditoria.fechaModifico,
+                        usuarioCreo = x.auditoria.usuarioCreo,
+                        usuarioModifico = x.auditoria.usuarioModifico
                     }
-                }).ToList()
+                }),
+                auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo = beneficiario.auditoria.fechaCreo,
+                    fechaModifico = beneficiario.auditoria.fechaModifico,
+                    usuarioCreo = beneficiario.auditoria.usuarioCreo,
+                    usuarioModifico = beneficiario.auditoria.usuarioModifico
+                }
 
             };
         }

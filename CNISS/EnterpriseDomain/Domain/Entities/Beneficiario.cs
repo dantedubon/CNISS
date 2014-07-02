@@ -12,6 +12,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual Nombre nombre { get; protected set; }
         public virtual DateTime fechaNacimiento { get; protected set; }
         public virtual IList<Dependiente> dependientes { get; protected set; }
+        public virtual Auditoria auditoria { get; set; }
 
         public Beneficiario(Identidad identidad,Nombre nombre, DateTime fechaNacimiento)
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Web;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain.Entities;
@@ -50,7 +51,14 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Query
                     segundoApellido = beneficiario.nombre.segundoApellido
                 },
                 fechaNacimiento = beneficiario.fechaNacimiento,
-                dependienteRequests = new List<DependienteRequest>()
+                dependienteRequests = new List<DependienteRequest>(),
+                auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo = beneficiario.auditoria.fechaCreo,
+                    fechaModifico = beneficiario.auditoria.fechaModifico,
+                    usuarioCreo = beneficiario.auditoria.usuarioCreo,
+                    usuarioModifico = beneficiario.auditoria.usuarioModifico
+                }
                 
             };
         }
@@ -82,8 +90,23 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Query
                     {
                         descripcion = x.parentesco.descripcion,
                         guid = x.parentesco.Id
+                    },
+                    auditoriaRequest = new AuditoriaRequest()
+                    {
+                        fechaCreo = x.auditoria.fechaCreo,
+                        fechaModifico = x.auditoria.fechaModifico,
+                        usuarioCreo = x.auditoria.usuarioCreo,
+                        usuarioModifico = x.auditoria.usuarioModifico
                     }
-                }).ToList()
+
+                }),
+                auditoriaRequest  = new AuditoriaRequest()
+                {
+                    fechaCreo = beneficiario.auditoria.fechaCreo,
+                    fechaModifico = beneficiario.auditoria.fechaModifico,
+                    usuarioCreo = beneficiario.auditoria.usuarioCreo,
+                    usuarioModifico = beneficiario.auditoria.usuarioModifico
+                }
 
             };
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
@@ -156,7 +157,14 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                     descripcion = empleo.tipoEmpleo.descripcion,
                     IdGuid = empleo.tipoEmpleo.Id
                 },
-                IdGuid = empleo.Id
+                IdGuid = empleo.Id,
+                auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo = empleo.auditoria.fechaCreo,
+                    fechaModifico = empleo.auditoria.fechaModifico,
+                    usuarioCreo = empleo.auditoria.usuarioCreo,
+                    usuarioModifico = empleo.auditoria.usuarioModifico
+                }
             };
 
         }

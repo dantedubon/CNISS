@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
@@ -51,7 +52,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioQuery
             var direccion = gremio.direccion;
             var departamento = direccion.departamento;
             var municipio = direccion.municipio;
-
+            var auditoria = gremio.auditoria;
             var rtn = gremio.Id;
             var representante = gremio.representanteLegal;
             var nombreGremio = gremio.nombre;
@@ -83,6 +84,13 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioQuery
                IdGuid = direccion.Id
             };
 
+            var auditoriaRequest = new AuditoriaRequest()
+            {
+                fechaCreo = auditoria.fechaCreo,
+                fechaModifico = auditoria.fechaModifico,
+                usuarioCreo = auditoria.usuarioCreo,
+                usuarioModifico = auditoria.usuarioModifico
+            };
             var gremioRequest = new GremioRequest()
             {
                 direccionRequest = direccionRequestGremio,
@@ -90,7 +98,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioQuery
                 representanteLegalRequest = representanteRequest,
                 nombre = nombreGremio
             };
-            
+            gremioRequest.auditoriaRequest = auditoriaRequest;
         
             return gremioRequest;
         }

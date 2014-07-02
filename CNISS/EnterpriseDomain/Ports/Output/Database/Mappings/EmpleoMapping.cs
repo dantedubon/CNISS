@@ -49,6 +49,13 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             });
             References(x => x.contrato).Cascade.All();
             HasMany(x => x.comprobantesPago).Cascade.AllDeleteOrphan();
+            Component(x => x.auditoria, m =>
+            {
+                m.Map(x => x.usuarioCreo);
+                m.Map(x => x.fechaCreo);
+                m.Map(x => x.usuarioModifico);
+                m.Map(x => x.fechaModifico);
+            });
         }
     }
 }

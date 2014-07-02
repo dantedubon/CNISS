@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioQuery;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
@@ -66,7 +69,17 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
                 direccionRequest = direccion1,
                 nombre = "Camara",
                 representanteLegalRequest = representante1,
-                rtnRequest = new RTNRequest() { RTN = "08011985123960" }
+                rtnRequest = new RTNRequest() { RTN = "08011985123960" },
+                auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo =  DateTime.Now.Date,
+                    fechaModifico = DateTime.Now.Date,
+                    usuarioCreo = "",
+                    usuarioModifico = ""
+                }
+
+
+               
             };
             return gremio1;
         }
@@ -77,7 +90,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
             var representante = request.representanteLegalRequest;
             var direccion = request.direccionRequest;
             var rtnGremio = new RTN(rtn.RTN);
-
+            var auditoria = request.auditoriaRequest;
             var representanteGremio = new RepresentanteLegal(new Identidad(representante.identidadRequest.identidad),
                 representante.nombre);
 
@@ -98,7 +111,12 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
             var direccionGremio = new Direccion(departamentoGremio, municipioGremio, direccion.descripcion);
             direccionGremio.Id = direccion.IdGuid;
 
-            return new Gremio(rtnGremio, representanteGremio, direccionGremio, request.nombre);
+            var auditoriaGremio = new Auditoria(auditoria.usuarioCreo, auditoria.fechaCreo, auditoria.usuarioModifico,
+                auditoria.fechaModifico);
+
+            var gremio = new Gremio(rtnGremio, representanteGremio, direccionGremio, request.nombre);
+            gremio.auditoria = auditoriaGremio;
+            return gremio;
 
         }
         private static RepresentanteLegalRequest getRepresentanteLegal(string idRepresentante, string representante)

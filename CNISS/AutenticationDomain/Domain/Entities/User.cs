@@ -12,6 +12,7 @@ namespace CNISS.AutenticationDomain.Domain.Entities
         public virtual String password { get; set; }
         public virtual String userKey { get; set; }
         public virtual Rol userRol { get; set; }
+        public virtual Auditoria auditoria { get; set; }
        
 
         protected User()

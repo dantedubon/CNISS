@@ -1,6 +1,7 @@
 ﻿using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.RolModule.RolCommand;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using FizzWare.NBuilder;
 using Machine.Specifications;
@@ -26,6 +27,7 @@ namespace CNISS_Tests.Rol_Test.Modules
          {
 
              _rolRequest = Builder<RolRequest>.CreateNew().Build();
+             _rolRequest.auditoriaRequest = Builder<AuditoriaRequest>.CreateNew().Build();
              _commandInsert = Mock.Of<ICommandInsertIdentity<Rol>>();
 
              _browser = new Browser(

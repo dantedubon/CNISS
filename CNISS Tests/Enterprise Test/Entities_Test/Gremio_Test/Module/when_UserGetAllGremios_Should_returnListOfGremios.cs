@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioQuery;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
@@ -58,6 +61,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
             var rtn = request.rtnRequest;
             var representante = request.representanteLegalRequest;
             var direccion = request.direccionRequest;
+            var auditoria = request.auditoriaRequest;
             var rtnGremio = new RTN(rtn.RTN);
 
             var representanteGremio = new RepresentanteLegal(new Identidad(representante.identidadRequest.identidad),
@@ -70,7 +74,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
                 nombre = direccion.municipioRequest.nombre
             };
 
-
+            var auditoriaGremio = new Auditoria(auditoria.usuarioCreo, auditoria.fechaCreo, auditoria.usuarioModifico,
+                auditoria.fechaModifico);
             var departamentoGremio = new Departamento()
             {
                 Id = direccion.departamentoRequest.idDepartamento,
@@ -80,7 +85,9 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
             var direccionGremio = new Direccion(departamentoGremio, municipioGremio, direccion.descripcion);
             direccionGremio.Id = direccion.IdGuid;
 
-            return new Gremio(rtnGremio, representanteGremio, direccionGremio, request.nombre);
+            var gremio = new Gremio(rtnGremio, representanteGremio, direccionGremio, request.nombre);
+            gremio.auditoria = auditoriaGremio;
+            return gremio;
 
         }
 
@@ -94,7 +101,15 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
                 direccionRequest = direccion1,
                 nombre = "Camara",
                 representanteLegalRequest = representante1,
-                rtnRequest = new RTNRequest() { RTN = "08011985123960" }
+                rtnRequest = new RTNRequest() { RTN = "08011985123960" },
+                auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo = DateTime.Now.Date,
+                    fechaModifico = DateTime.Now.Date,
+                    usuarioCreo = "",
+                    usuarioModifico = ""
+                }
+                
             };
 
             var representante2 = getRepresentanteLegal("0801198511111", "representante");
@@ -104,7 +119,14 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
                 direccionRequest = direccion2,
                 nombre = "Maquiladores",
                 representanteLegalRequest = representante2,
-                rtnRequest = new RTNRequest() { RTN = "08011985123960" }
+                rtnRequest = new RTNRequest() { RTN = "08011985123960" },
+                 auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo = DateTime.Now.Date,
+                    fechaModifico = DateTime.Now.Date,
+                    usuarioCreo = "",
+                    usuarioModifico = ""
+                }
             };
             return new List<GremioRequest>() { gremio1, gremio2 };
 

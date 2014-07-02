@@ -11,6 +11,13 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             Map(x => x.nombre);
             References(x => x.direccion);
             References(x => x.firma);
+            Component(x => x.auditoria, m =>
+            {
+                m.Map(x => x.usuarioCreo);
+                m.Map(x => x.fechaCreo);
+                m.Map(x => x.usuarioModifico);
+                m.Map(x => x.fechaModifico);
+            });
 
         }
     }

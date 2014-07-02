@@ -7,6 +7,7 @@ using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
@@ -51,9 +52,12 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                    {
                        deducciones = 15m,
                        fechaPago =new DateTime(2014,3,2),
-                       percepciones = 12m,total = 13m
+                       percepciones = 12m,total = 13m,
+                       auditoriaRequest = getAuditoriaRequest()
                    }
-               }           
+               }    ,
+               auditoriaRequest = getAuditoriaRequest()
+               
                
            };
            var fileGetter = Mock.Of<IFileGetter>();
@@ -84,7 +88,10 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
         It should_return_error = () => _response.StatusCode.ShouldBeEquivalentTo(HttpStatusCode.BadRequest);
 
-
+        private static AuditoriaRequest getAuditoriaRequest()
+        {
+            return new AuditoriaRequest(){fechaCreo = DateTime.Now,fechaModifico = DateTime.Now,usuarioCreo = "",usuarioModifico = ""};
+        }
         private static TipoEmpleoRequest getTipoEmpleoRequest()
         {
             return new TipoEmpleoRequest()

@@ -4,7 +4,9 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Compilation;
+using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain;
@@ -38,8 +40,9 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                     new Empresa(Builder<RTN>.CreateNew().Build(), "nombre", new DateTime(2014, 3, 1),
                         Builder<Gremio>.CreateNew().WithConstructor(() => new Gremio(
                            new RTN("08011985123960"), Builder<RepresentanteLegal>.CreateNew().Build(),
-                            Builder<Direccion>.CreateNew().Build(), "gremio")).Build())
-                ).Build();
+                            Builder<Direccion>.CreateNew().Build(), "gremio"))
+                            .Build())
+                ).With( x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
 
            
            
@@ -83,7 +86,15 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                 sucursalRequests = new List<SucursalRequest>(),
                 nombre = x.nombre, 
                 programaPiloto = x.proyectoPiloto,
-                rtnRequest = new RTNRequest() { RTN = x.Id.rtn}
+                rtnRequest = new RTNRequest() { RTN = x.Id.rtn},
+                auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo = x.auditoria.fechaCreo,
+                    fechaModifico = x.auditoria.fechaModifico,
+                    usuarioCreo = x.auditoria.usuarioCreo,
+                    usuarioModifico = x.auditoria.usuarioModifico
+                }
+
                 
             }
                 ).ToList();

@@ -24,6 +24,14 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
                 .Cascade.All()
                 .Table("ActividadesEconomicasEmpresas");
             References(x => x.contrato).Cascade.All();
+
+            Component(x => x.auditoria, m =>
+            {
+                m.Map(x => x.usuarioCreo);
+                m.Map(x => x.fechaCreo);
+                m.Map(x => x.usuarioModifico);
+                m.Map(x => x.fechaModifico);
+            });
         }
     }
 }

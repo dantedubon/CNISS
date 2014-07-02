@@ -17,6 +17,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest
         public RTNRequest rtnRequest { get; set; }
         public DateTime fechaIngreso { get; set; }
         public string nombre { get; set; }
+        public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
 
 
         public bool isValidPost()

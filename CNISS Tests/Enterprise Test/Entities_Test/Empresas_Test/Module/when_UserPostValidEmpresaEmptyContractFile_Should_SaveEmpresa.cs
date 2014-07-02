@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
@@ -55,6 +56,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
 
         It should_save_empresa = () => Mock.Get(_commandInsert).Verify(x => x.execute(Moq.It.Is<Empresa>(z => z.Id.rtn == _request.rtnRequest.RTN)));
 
+      
         private static EmpresaRequest getEmpresaRequest()
         {
             var empresa = new EmpresaRequest()
@@ -67,7 +69,9 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                 rtnRequest = getValidRTN(),
                 fechaIngreso = new DateTime(2014,8,1),
                 sucursalRequests = getGoodSucursales(),
-                nombre = "Empresa"
+                nombre = "Empresa",
+                auditoriaRequest = getAuditoriaRequest()
+                
             };
             return empresa;
         }
@@ -98,7 +102,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
 
         private static SucursalRequest getSucursalGood()
         {
-            return new SucursalRequest() { direccionRequest = getValidDireccion(), firmaRequest = getUserRequest(), nombre = "El centro" };
+            return new SucursalRequest() { direccionRequest = getValidDireccion(), firmaRequest = getUserRequest(), nombre = "El centro" ,auditoriaRequest = getAuditoriaRequest()};
         }
 
 
@@ -131,6 +135,17 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
             };
         }
 
+        private static AuditoriaRequest getAuditoriaRequest()
+        {
+            return new AuditoriaRequest()
+            {
+                fechaCreo = DateTime.Now,
+                fechaModifico = DateTime.Now,
+                usuarioCreo = "",
+                usuarioModifico = ""
+            
+            };
+        }
         public static GremioRequest getGremio()
         {
 
@@ -140,7 +155,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                 ,
                 nombre = "Camara",
                 representanteLegalRequest = getValidRepresentanteLegal(),
-                rtnRequest = getValidRTN()
+                rtnRequest = getValidRTN(),
+                auditoriaRequest = getAuditoriaRequest()
             };
 
         }

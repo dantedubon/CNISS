@@ -14,6 +14,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
         public  string archivoComprobante { get;  set; }
         public byte[] contentFile { get; set; }
         public Guid guid { get;  set; }
+        public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
 
 
         public bool isValidPost()

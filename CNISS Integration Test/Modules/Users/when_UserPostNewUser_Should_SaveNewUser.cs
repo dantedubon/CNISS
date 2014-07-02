@@ -8,6 +8,7 @@ using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.AutenticationDomain.Ports.Output.Database;
 using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserCommands;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
 using CNISS.CommonDomain.Ports.Output.Database;
@@ -48,7 +49,9 @@ namespace CNISS_Integration_Test.Modules.Users
 
 
              _userRequest = Builder<UserRequest>.CreateNew().Build();
+
               _userRequest.userRol = _userRol;
+             _userRequest.auditoriaRequest = Builder<AuditoriaRequest>.CreateNew().Build();
 
              
            

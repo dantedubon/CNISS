@@ -3,6 +3,7 @@ using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.RolModule.RolCommand;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using FizzWare.NBuilder;
 using Machine.Specifications;
@@ -24,6 +25,7 @@ namespace CNISS_Tests.Rol_Test.Modules
          Establish context = () =>
          {
              _rolRequest = Builder<RolRequest>.CreateNew().Build();
+             _rolRequest.auditoriaRequest = Builder<AuditoriaRequest>.CreateNew().Build();
              _commandUpdate = Mock.Of<ICommandUpdateIdentity<Rol>>();
              _repositoryRead = Mock.Of<IRolRepositoryReadOnly>();
              Mock.Get(_repositoryRead).Setup(x => x.exists(Moq.It.IsAny<Guid>())).Returns(true);

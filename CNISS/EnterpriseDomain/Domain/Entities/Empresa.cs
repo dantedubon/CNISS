@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CNISS.CommonDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 
 namespace CNISS.EnterpriseDomain.Domain.Entities
@@ -15,6 +16,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual bool proyectoPiloto { get; set; }
         public virtual Gremio gremial { get; set; }
         public virtual ContentFile contrato { get; set; }
+        public virtual Auditoria auditoria { get; set; }
 
         protected Empresa()
         {

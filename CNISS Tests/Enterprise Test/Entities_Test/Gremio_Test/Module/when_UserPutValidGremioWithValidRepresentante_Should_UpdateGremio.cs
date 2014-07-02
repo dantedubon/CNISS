@@ -1,4 +1,6 @@
-﻿using CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand;
+﻿using System;
+using CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain.Entities;
@@ -30,7 +32,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
                 direccionRequest = getDireccion(),
                 nombre = "gremio",
                 representanteLegalRequest = representanteLegal,
-                rtnRequest = rtn
+                rtnRequest = rtn,
+                auditoriaRequest = getAuditoriaRequest()
 
 
             };
@@ -70,7 +73,17 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
                 municipioRequest = municipio
             };
         }
+        private static AuditoriaRequest getAuditoriaRequest()
+        {
+            return new AuditoriaRequest()
+            {
+                fechaCreo = DateTime.Now,
+                fechaModifico = DateTime.Now,
+                usuarioCreo = "",
+                usuarioModifico = ""
 
+            };
+        }
         private Because of = () => _browser.PutSecureJson("enterprise/gremio/representante", _request);
 
         It should_save_gremio = () => Mock.Get(_commandUpdate).Verify(x => x.execute(Moq.It.Is<Gremio>(z => z.Id.rtn == _request.rtnRequest.RTN)));

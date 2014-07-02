@@ -9,6 +9,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest
         public string nombre { get; set; }
         public UserRequest.UserRequest firmaRequest { get; set; }
         public DireccionRequest direccionRequest { get; set; }
+        public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
         
 
         public bool isValidPost()

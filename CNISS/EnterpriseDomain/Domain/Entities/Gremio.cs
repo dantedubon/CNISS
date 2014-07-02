@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CNISS.CommonDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 
 namespace CNISS.EnterpriseDomain.Domain.Entities
@@ -25,6 +26,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 
         }
 
+        public virtual Auditoria auditoria { get; set; }
         public virtual string nombre { get; set; }
         public virtual RepresentanteLegal representanteLegal { get; set; }
         public virtual Direccion direccion { get; set; }

@@ -23,6 +23,14 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
 
             Map(x => x.fechaNacimiento);
             HasMany(x => x.dependientes).Cascade.All();
+
+            Component(x => x.auditoria, m =>
+            {
+                m.Map(x => x.usuarioCreo);
+                m.Map(x => x.fechaCreo);
+                m.Map(x => x.usuarioModifico);
+                m.Map(x => x.fechaModifico);
+            });
         }
     }
 }

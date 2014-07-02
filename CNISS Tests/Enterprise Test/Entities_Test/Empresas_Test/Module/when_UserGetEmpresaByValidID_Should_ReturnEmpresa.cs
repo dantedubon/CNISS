@@ -1,7 +1,9 @@
 using System;
 using System.Linq;
 using CNISS.AutenticationDomain.Domain.Entities;
+using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
@@ -43,7 +45,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                        Builder<Gremio>.CreateNew().WithConstructor(() => new Gremio(
                           new RTN("08011985123960"), Builder<RepresentanteLegal>.CreateNew().Build(),
                            Builder<Direccion>.CreateNew().Build(), "gremio")).Build())
-               ).Build();
+               ).With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
 
             empresa.actividadesEconomicas = Builder<ActividadEconomica>.CreateListOfSize(3).Build();
             empresa.sucursales = Builder<Sucursal>.CreateListOfSize(3).All().WithConstructor(
@@ -57,7 +59,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                     ()=> new FirmaAutorizada(Builder<User>.CreateNew().Build(),new DateTime(2014,3,1))
                     
                     ).Build())
-                ).Build();
+                ).With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
 
 
 
@@ -131,8 +133,22 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                     firmaRequest = new UserRequest()
                     {
                         Id = x.firma.user.Id
+                    },
+                    auditoriaRequest = new AuditoriaRequest()
+                    {
+                        fechaCreo = x.auditoria.fechaCreo,
+                        fechaModifico = x.auditoria.fechaModifico,
+                        usuarioCreo = x.auditoria.usuarioCreo,
+                        usuarioModifico = x.auditoria.usuarioModifico
                     }
-                })
+                }),
+                auditoriaRequest = new AuditoriaRequest()
+                    {
+                        fechaCreo = empresa.auditoria.fechaCreo,
+                        fechaModifico = empresa.auditoria.fechaModifico,
+                        usuarioCreo = empresa.auditoria.usuarioCreo,
+                        usuarioModifico = empresa.auditoria.usuarioModifico
+                    }
             };
             return empresaRequest;
         }

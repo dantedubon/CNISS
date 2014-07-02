@@ -2,6 +2,7 @@
 using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserCommands;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
 using FizzWare.NBuilder;
@@ -26,8 +27,9 @@ namespace CNISS_Tests.User_Test.Modules
 
             _userRequest = Builder<UserRequest>.CreateNew().Build();
             _userRol = Builder<RolRequest>.CreateNew().Build();
+            _userRequest.auditoriaRequest = Builder<AuditoriaRequest>.CreateNew().Build();
             _userRequest.userRol = _userRol;
-  
+    
             _commandInsert = Mock.Of<ICommandInsertIdentity<User>>();
             _repositoryRead = Mock.Of<IUserRepositoryReadOnly>();
             _browser = new Browser(

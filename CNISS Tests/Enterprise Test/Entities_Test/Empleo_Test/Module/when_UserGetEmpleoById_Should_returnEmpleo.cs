@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
@@ -43,7 +45,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                    Builder<HorarioLaboral>.CreateNew().WithConstructor(() => new HorarioLaboral(Builder<Hora>.CreateNew().Build(), Builder<Hora>.CreateNew().Build(), Builder<DiasLaborables>.CreateNew().Build())).Build(),
                    "Ingeniero", 12000m, Builder<TipoEmpleo>.CreateNew().Build(), new DateTime(2014, 8, 2))
 
-               ).Build();
+               ).With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
             Mock.Get(_repositoryRead).Setup(x => x.get(empleo.Id)).Returns(empleo);
 
             _expectedEmpleo = getEmpleoRequests(empleo);
@@ -99,6 +101,13 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                 {
                     nombre = empleo.empresa.nombre,
                     rtnRequest = new RTNRequest() { RTN = empleo.empresa.Id.rtn }
+                },
+                  auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo = empleo.auditoria.fechaCreo,
+                    fechaModifico = empleo.auditoria.fechaModifico,
+                    usuarioCreo = empleo.auditoria.usuarioCreo,
+                    usuarioModifico = empleo.auditoria.usuarioModifico
                 },
                 sucursalRequest = new SucursalRequest()
                 {

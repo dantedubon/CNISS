@@ -12,6 +12,8 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
       
         public virtual Guid idGuid { get; set; }
 
+        public virtual Auditoria auditoria { get; set; }
+
         public Dependiente(Identidad identidad, Nombre nombre, Parentesco parentesco, int edad)
         {
             this.Id = identidad;

@@ -2,6 +2,7 @@
 using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Application;
+using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
 using Nancy;
 using Nancy.ModelBinding;
@@ -30,6 +31,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserCommands
                             _userRequest.password,
                             _userRequest.mail,
                            _userRol);
+                        var auditoriaRequest = _userRequest.auditoriaRequest;
+                        user.auditoria = new Auditoria(auditoriaRequest.usuarioCreo,auditoriaRequest.fechaCreo,auditoriaRequest.usuarioModifico,auditoriaRequest.fechaModifico);
                         commandInsert.execute(user);
                        
                         return new Response()

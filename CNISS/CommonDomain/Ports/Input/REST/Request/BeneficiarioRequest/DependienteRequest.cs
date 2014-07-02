@@ -13,6 +13,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest
         public IdentidadRequest identidadRequest { get; set; }
         public ParentescoRequest parentescoRequest { get; set; }
         public Guid IdGuid { get; set; }
+        public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
+
 
         public int edad { get; set; }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
@@ -34,7 +35,13 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
                     sucursalRequests = new List<SucursalRequest>(),
                     nombre = x.nombre,
                     programaPiloto = x.proyectoPiloto,
-                    
+                    auditoriaRequest = new AuditoriaRequest()
+                    {
+                        fechaCreo = x.auditoria.fechaCreo,
+                        fechaModifico = x.auditoria.fechaModifico,
+                        usuarioCreo = x.auditoria.usuarioCreo,
+                        usuarioModifico = x.auditoria.usuarioModifico
+                    }
 
                 });
 
@@ -108,8 +115,22 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
                     firmaRequest = new UserRequest()
                     {
                         Id = x.firma.user.Id
+                    },
+                    auditoriaRequest = new AuditoriaRequest()
+                    {
+                        fechaCreo = x.auditoria.fechaCreo,
+                        fechaModifico = x.auditoria.fechaModifico,
+                        usuarioCreo = x.auditoria.usuarioCreo,
+                        usuarioModifico = x.auditoria.usuarioModifico
                     }
-                })
+                }),
+                auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo = empresa.auditoria.fechaCreo,
+                    fechaModifico = empresa.auditoria.fechaModifico,
+                    usuarioCreo = empresa.auditoria.usuarioCreo,
+                    usuarioModifico = empresa.auditoria.usuarioModifico
+                }
             };
             return empresaRequest;
         }

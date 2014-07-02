@@ -22,6 +22,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual string nombre { get; set; }
         public virtual Direccion direccion { get; set; }
         public virtual FirmaAutorizada firma { get; set; }
+        public virtual Auditoria auditoria { get; set; }
 
         public virtual bool Equals(Sucursal other)
         {

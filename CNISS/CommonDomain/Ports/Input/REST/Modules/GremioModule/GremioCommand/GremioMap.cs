@@ -1,3 +1,5 @@
+using CNISS.CommonDomain.Domain;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
@@ -17,14 +19,19 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand
             var rtn = getRTN(gremioRequest);
             var direccion = getDireccion(gremioRequest);
             var nombre = gremioRequest.nombre;
-            return new Gremio(rtn,representanteLegal,direccion,nombre);
+            var gremio = new Gremio(rtn,representanteLegal,direccion,nombre);
+            gremio.auditoria = getAuditoria(gremioRequest.auditoriaRequest);
+            return gremio;
 
 
 
         }
 
-       
 
+        private Auditoria getAuditoria(AuditoriaRequest auditoria)
+        {
+            return new Auditoria(auditoria.usuarioCreo,auditoria.fechaCreo, auditoria.usuarioModifico,auditoria.fechaModifico);
+        }
         private Direccion getDireccion(GremioRequest gremioRequest)
         {
             var direccionRequest = gremioRequest.direccionRequest;

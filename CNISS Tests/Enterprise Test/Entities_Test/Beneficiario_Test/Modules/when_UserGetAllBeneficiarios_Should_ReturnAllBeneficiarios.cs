@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Query;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain.Entities;
@@ -30,7 +32,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Beneficiario_Test.Modules
                 Builder<Beneficiario>.CreateListOfSize(10).All().WithConstructor(() =>
                     new Beneficiario(Builder<Identidad>.CreateNew().Build(), Builder<Nombre>.CreateNew().Build(),
                         new DateTime(1984,8,2))
-                    ).All().Build();
+                    ).All().With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
                     
                    
             _expectedResponse = getRequests(beneficiarios);
@@ -69,7 +71,14 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Beneficiario_Test.Modules
                     primerApellido = x.nombre.primerApellido,
                     segundoApellido = x.nombre.segundoApellido
                 },
-                dependienteRequests = new List<DependienteRequest>()
+                dependienteRequests = new List<DependienteRequest>(),
+                  auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo = x.auditoria.fechaCreo,
+                    fechaModifico = x.auditoria.fechaModifico,
+                    usuarioCreo = x.auditoria.usuarioCreo,
+                    usuarioModifico = x.auditoria.usuarioModifico
+                }
                 
             }
                 

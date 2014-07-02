@@ -11,6 +11,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual decimal percepciones { get; protected set; }
         public virtual decimal total { get; protected set; }
         public virtual ContentFile imagenComprobante { get;  set; }
+        public virtual Auditoria auditoria { get; set; }
 
         protected ComprobantePago()
         {

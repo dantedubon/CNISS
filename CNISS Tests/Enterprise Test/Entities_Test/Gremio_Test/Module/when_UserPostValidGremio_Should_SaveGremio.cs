@@ -1,5 +1,7 @@
-﻿using CNISS.CommonDomain.Application;
+﻿using System;
+using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using FizzWare.NBuilder;
@@ -30,8 +32,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
                  direccionRequest = direccion,
                  nombre = "gremio",
                  representanteLegalRequest = representanteLegal,
-                 rtnRequest = rtn
-
+                 rtnRequest = rtn,
+                 auditoriaRequest = getAuditoriaRequest()
 
              };
              _commandInsert = Mock.Of<ICommandInsertIdentity<Gremio>>();
@@ -68,6 +70,17 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
                 departamentoRequest = departamento,
                 descripcion = "municipio",
                 municipioRequest = municipio
+            };
+        }
+        private static AuditoriaRequest getAuditoriaRequest()
+        {
+            return new AuditoriaRequest()
+            {
+                fechaCreo = DateTime.Now,
+                fechaModifico = DateTime.Now,
+                usuarioCreo = "",
+                usuarioModifico = ""
+
             };
         }
 

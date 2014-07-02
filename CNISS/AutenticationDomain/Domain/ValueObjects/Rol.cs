@@ -18,7 +18,8 @@ namespace CNISS.AutenticationDomain.Domain.ValueObjects
         }
         public virtual string name { get; set; }
         public virtual string description { get; set; }
-      
+        public virtual int nivel { get; set; }
+        public virtual Auditoria auditoria { get; set; }
 
         
     }

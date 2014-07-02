@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CNISS.CommonDomain.Domain;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain.Entities;
@@ -28,7 +30,13 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Command
 
             Enumerable.ToArray<Dependiente>(dependientes).ForEach( beneficiario.addDependiente);
 
+            beneficiario.auditoria = getAuditoria(request.auditoriaRequest);
             return beneficiario;
+        }
+
+        private Auditoria getAuditoria(AuditoriaRequest auditoriaRequest)
+        {
+            return new Auditoria(auditoriaRequest.usuarioCreo,auditoriaRequest.fechaCreo,auditoriaRequest.usuarioModifico,auditoriaRequest.fechaModifico);
         }
 
         private IEnumerable<Dependiente> getDependientes(IEnumerable<DependienteRequest> dependientes )
@@ -48,6 +56,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Command
             {
                 dependiente.idGuid = dependienteRequest.IdGuid;
             }
+            dependiente.auditoria = getAuditoria(dependienteRequest.auditoriaRequest);
             return dependiente;
         }
         private Parentesco getParentesco(ParentescoRequest parentesco)

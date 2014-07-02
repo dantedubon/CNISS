@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Commands;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain.Entities;
@@ -30,7 +31,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Beneficiario_Test.Modules
                 dependienteRequests = getDependienteRequest(),
                 fechaNacimiento = DateTime.Now,
                 identidadRequest = getIdentidadRequest(),
-                nombreRequest = getNombreRequest()
+                nombreRequest = getNombreRequest(),
+                auditoriaRequest = getAuditoriaRequest()
             };
 
             var command = Mock.Of<ICommandUpdateIdentity<Beneficiario>>();
@@ -53,6 +55,12 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Beneficiario_Test.Modules
 
         It should_return_error = () => _response.StatusCode.ShouldEqual(HttpStatusCode.BadRequest);
 
+        private static AuditoriaRequest getAuditoriaRequest()
+        {
+            return new AuditoriaRequest() { fechaCreo = DateTime.Now, fechaModifico = DateTime.Now, usuarioCreo = "", usuarioModifico = "" };
+        }
+
+
         private static IEnumerable<DependienteRequest> getDependienteRequest()
         {
             return new List<DependienteRequest>()
@@ -61,7 +69,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Beneficiario_Test.Modules
                 {
                     identidadRequest = getIdentidadRequest(),
                     nombreRequest = getNombreRequest(),
-                    parentescoRequest = getParentescoRequest()
+                    parentescoRequest = getParentescoRequest(),
+                    auditoriaRequest = getAuditoriaRequest()
                 }
             };
         }

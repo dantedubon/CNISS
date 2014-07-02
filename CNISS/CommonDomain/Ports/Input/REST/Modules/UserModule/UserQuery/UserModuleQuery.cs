@@ -2,8 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.Repositories;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
+using FluentNHibernate.Conventions;
 using Nancy;
 using HttpStatusCode = Nancy.HttpStatusCode;
 
@@ -52,6 +54,13 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserQuery
                     description = user.userRol.description,
                     name = user.userRol.name,
                     idGuid = user.userRol.Id
+                },
+                auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo =  user.auditoria.fechaCreo,
+                    fechaModifico = user.auditoria.fechaModifico,
+                    usuarioCreo = user.auditoria.usuarioCreo,
+                    usuarioModifico = user.auditoria.usuarioModifico
                 }
             };
         }
@@ -70,6 +79,13 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserQuery
                     description = x.userRol.description,
                     name = x.userRol.name,
                     idGuid = x.userRol.Id
+                },
+                 auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo =  x.auditoria.fechaCreo,
+                    fechaModifico = x.auditoria.fechaModifico,
+                    usuarioCreo = x.auditoria.usuarioCreo,
+                    usuarioModifico = x.auditoria.usuarioModifico
                 }
             }).ToList();
         }

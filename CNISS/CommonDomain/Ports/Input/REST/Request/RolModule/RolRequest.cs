@@ -7,6 +7,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.RolModule
         public Guid idGuid { get; set; }
         public string name { get; set; }
         public string description { get; set; }
+        public int nivel { get; set; }
+        public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
 
         public bool isValidGet()
         {

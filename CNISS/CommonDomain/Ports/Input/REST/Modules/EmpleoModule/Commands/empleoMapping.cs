@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CNISS.CommonDomain.Domain;
+using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
@@ -42,10 +44,15 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
             var comprobantesEmpleo = getComprobantes(comprobantes);
 
             comprobantesEmpleo.ForEach(empleo.addComprobante);
-
-
+            empleo.auditoria = getAuditoria(empleoRequest.auditoriaRequest);
+            
             return empleo;
 
+        }
+
+        private Auditoria getAuditoria(AuditoriaRequest auditoria)
+        {
+            return new Auditoria(auditoria.usuarioCreo,auditoria.fechaCreo, auditoria.usuarioModifico, auditoria.fechaModifico);
         }
 
         private TipoEmpleo getTipoEmpleo(TipoEmpleoRequest tipoEmpleoRequest)
@@ -84,7 +91,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
             comprobante.imagenComprobante = comprobantePagoRequest.contentFile != null
                 ? new ContentFile(comprobantePagoRequest.contentFile)
                 : null;
-
+            comprobante.auditoria = getAuditoria(comprobantePagoRequest.auditoriaRequest);
             return comprobante;
         }
         private HorarioLaboral getHorarioLaboral(HorarioLaboralRequest horarioLaboralRequest)

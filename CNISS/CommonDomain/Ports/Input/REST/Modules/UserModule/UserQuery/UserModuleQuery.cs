@@ -78,7 +78,14 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserQuery
                 {
                     description = x.userRol.description,
                     name = x.userRol.name,
-                    idGuid = x.userRol.Id
+                    idGuid = x.userRol.Id,
+                    auditoriaRequest = new AuditoriaRequest()
+                    {
+                        fechaCreo = x.userRol.auditoria.fechaCreo,
+                        fechaModifico = x.userRol.auditoria.fechaModifico,
+                        usuarioCreo = x.userRol.auditoria.usuarioCreo,
+                        usuarioModifico = x.userRol.auditoria.usuarioModifico
+                    }
                 },
                  auditoriaRequest = new AuditoriaRequest()
                 {

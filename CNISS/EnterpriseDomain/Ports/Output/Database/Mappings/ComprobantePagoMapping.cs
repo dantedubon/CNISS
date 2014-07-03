@@ -16,7 +16,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             Map(x => x.percepciones);
             Map(x => x.total);
             Map(x => x.fechaPago);
-            References(x => x.imagenComprobante).Cascade.All();
+            References(x => x.imagenComprobante);
             Component(x => x.auditoria, m =>
             {
                 m.Map(x => x.usuarioCreo);

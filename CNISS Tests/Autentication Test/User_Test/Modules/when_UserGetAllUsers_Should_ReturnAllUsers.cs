@@ -30,7 +30,7 @@ namespace CNISS_Tests.User_Test.Modules
 
          Establish context = () =>
          {
-             var _usersRol = Builder<Rol>.CreateNew().Build();
+             var _usersRol = Builder<Rol>.CreateNew().With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
              _usersCollection = Builder<User>.CreateListOfSize(10).All().With(x => x.userRol = _usersRol)
                  .With(x => x.auditoria = new Auditoria("",DateTime.Now.Date,"",DateTime.Now.Date))
                  .Build();
@@ -74,7 +74,15 @@ namespace CNISS_Tests.User_Test.Modules
                 {
                     description = x.userRol.description,
                     name = x.userRol.name,
-                    idGuid = x.userRol.Id
+                    idGuid = x.userRol.Id,
+                    auditoriaRequest = new AuditoriaRequest()
+                    {
+                        fechaCreo = x.userRol.auditoria.fechaCreo,
+                        fechaModifico = x.userRol.auditoria.fechaModifico,
+                        usuarioCreo = x.userRol.auditoria.usuarioCreo,
+                        usuarioModifico = x.userRol.auditoria.usuarioModifico
+                    }
+
                 },
                 auditoriaRequest = new AuditoriaRequest()
                 {

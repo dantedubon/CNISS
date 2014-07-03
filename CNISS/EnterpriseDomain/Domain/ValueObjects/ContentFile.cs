@@ -38,4 +38,13 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
             return (dataFile != null ? Id.GetHashCode() : 0);
         }
     }
+
+    public class ContentFileNull:ContentFile
+    {
+        public ContentFileNull(Guid idGuid)
+        {
+            Id = idGuid;
+            dataFile = new byte[]{0};
+        }
+    }
 }

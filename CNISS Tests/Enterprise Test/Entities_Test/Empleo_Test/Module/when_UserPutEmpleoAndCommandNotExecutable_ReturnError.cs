@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.CommonDomain.Application;
+using CNISS.CommonDomain.Ports.Input.REST;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands;
 using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
@@ -58,12 +59,16 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
             var command = Mock.Of<ICommandUpdateIdentity<Empleo>>();
             Mock.Get(command).Setup(x => x.isExecutable(Moq.It.IsAny<Empleo>())).Returns(false);
+            var fileGetter = Mock.Of<IFileGetter>();
+            Mock.Get(fileGetter)
+                .Setup(x => x.existsFile(Moq.It.IsAny<string>(), Moq.It.IsAny<string>(), Moq.It.IsAny<string>()))
+                .Returns(true);
 
             _browser = new Browser(
                 x =>
                 {
                     x.Module<EmpleoModuleUpdate>();
-                    x.Dependencies(command);
+                    x.Dependencies(command, fileGetter);
                 }
 
                 );

@@ -39,7 +39,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                 getHorarioLaboral(horarioRequest),
                 empleoRequest.cargo,empleoRequest.sueldo,getTipoEmpleo(tipoEmpleo),empleoRequest.fechaDeInicio);
 
-            empleo.contrato = empleoRequest.contentFile !=null?new ContentFile(empleoRequest.contentFile) :null ;
+            empleo.contrato = getContrato(empleoRequest);
 
             var comprobantesEmpleo = getComprobantes(comprobantes);
 
@@ -50,6 +50,16 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
 
         }
 
+        private ContentFile getContrato(EmpleoRequest empleoRequest)
+        {
+            var contrato = empleoRequest.contrato;
+            var contenido = empleoRequest.contentFile;
+            if (!string.IsNullOrEmpty(contrato))
+            {
+                return contenido != null ? new ContentFile(contenido) : new ContentFileNull(Guid.Parse(contrato));
+            }
+            return null;
+        }
         private Auditoria getAuditoria(AuditoriaRequest auditoria)
         {
             return new Auditoria(auditoria.usuarioCreo,auditoria.fechaCreo, auditoria.usuarioModifico, auditoria.fechaModifico);

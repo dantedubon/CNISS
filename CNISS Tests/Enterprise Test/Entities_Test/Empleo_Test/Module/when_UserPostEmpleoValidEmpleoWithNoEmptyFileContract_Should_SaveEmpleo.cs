@@ -53,8 +53,9 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                        auditoriaRequest = getAuditoriaRequest()
                    }
                },
-               auditoriaRequest = getAuditoriaRequest()
-               
+               auditoriaRequest = getAuditoriaRequest(),
+               updateContrato = true,
+     
             };
 
             _commandInsert = Mock.Of<ICommandInsertIdentity<Empleo>>();
@@ -69,9 +70,12 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                .Setup(x => x.getFile(Moq.It.IsAny<string>(), Moq.It.IsAny<string>(), Moq.It.IsAny<string>()))
                .Returns(dataFile);
 
+            _request.contentFile = dataFile;
 
             _expectedEmpleo = new EmpleoMapping().getEmpleoForPost(_request);
+            
             _expectedEmpleo.contrato = new ContentFile(dataFile);
+
             _browser = new Browser(
                 x =>
                 {

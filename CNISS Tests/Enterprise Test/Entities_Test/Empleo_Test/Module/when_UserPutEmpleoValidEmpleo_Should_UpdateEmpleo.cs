@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.CommonDomain.Application;
+using CNISS.CommonDomain.Ports.Input.REST;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands;
 using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
@@ -10,6 +11,7 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.EnterpriseDomain.Domain.Entities;
+using FluentAssertions;
 using Machine.Specifications;
 using Moq;
 using Nancy.Testing;
@@ -29,12 +31,13 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
         private Establish context = () =>
         {
+            var contrato = new byte[] {1, 1, 1};
             _request = new EmpleoRequest()
             {
                 IdGuid = Guid.NewGuid(),
                 beneficiarioRequest = getBeneficiario(),
                 cargo = "ingeniero",
-                contrato = "",
+                contrato = "contrato",
                 empresaRequest = getEmpresaRequest(),
                 fechaDeInicio = new DateTime(2014, 1, 1),
                 horarioLaboralRequest = getHorarioLaboralRequest(),
@@ -51,19 +54,29 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                        auditoriaRequest = getAuditoriaRequest()
                    }
                },
-               auditoriaRequest = getAuditoriaRequest()
+               auditoriaRequest = getAuditoriaRequest(),
+               updateContrato = true,
+                contentFile = contrato
 
             };
 
             _commandUpdate = Mock.Of<ICommandUpdateIdentity<Empleo>>();
             Mock.Get(_commandUpdate).Setup(x => x.isExecutable(Moq.It.IsAny<Empleo>())).Returns(true);
+            var fileGetter = Mock.Of<IFileGetter>();
+            Mock.Get(fileGetter)
+                .Setup(x => x.existsFile(Moq.It.IsAny<string>(), Moq.It.IsAny<string>(), Moq.It.IsAny<string>()))
+                .Returns(true);
 
-            _expectedEmpleo = new EmpleoMapping().getEmpleoForPost(_request);
+            Mock.Get(fileGetter)
+                .Setup(x => x.getFile(Moq.It.IsAny<string>(), Moq.It.IsAny<string>(), Moq.It.IsAny<string>()))
+                .Returns(contrato);
+            
+            _expectedEmpleo = new EmpleoMapping().getEmpleoForPut(_request);
             _browser = new Browser(
                 x =>
                 {
                     x.Module<EmpleoModuleUpdate>();
-                    x.Dependencies(_commandUpdate);
+                    x.Dependencies(_commandUpdate, fileGetter);
                 }
 
                 );
@@ -73,7 +86,15 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
         private Because of = () => { _response = _browser.PutSecureJson("/enterprise/empleos", _request); };
 
-         It should_save_empleo = () => Mock.Get(_commandUpdate).Verify(x => x.execute(Moq.It.Is<Empleo>(z => z.empresa.Id.rtn == _expectedEmpleo.empresa.Id.rtn && z.beneficiario.Id.identidad == _expectedEmpleo.beneficiario.Id.identidad)));
+        private It should_save_empleo = () => Mock.Get(_commandUpdate).Verify(x => x.execute(Moq.It.Is<Empleo>(z =>
+            z.beneficiario.Equals(_expectedEmpleo.beneficiario) &&
+            z.empresa.Equals(_expectedEmpleo.empresa) &&
+            z.contrato.dataFile.Equals(_expectedEmpleo.contrato.dataFile) &&
+            z.cargo.Equals(_expectedEmpleo.cargo) &&
+            z.comprobantesPago.Count.Equals(_expectedEmpleo.comprobantesPago.Count)
+
+
+             )));
 
          private static AuditoriaRequest getAuditoriaRequest()
          {

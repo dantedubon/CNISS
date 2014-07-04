@@ -163,6 +163,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\EmpleoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\TipoEmpleoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\ActividadesEconomicasModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleUpdateContrato.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaMap.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleInsert.cs" />
@@ -217,6 +218,7 @@
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepositoryCompoundKey.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandUpdateEmpresaContrato.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateEmpleoContrato.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateEmpleoImagenComprobantePago.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateBeneficiario.cs" />
@@ -232,6 +234,7 @@
     <Compile Include="EnterpriseDomain\Application\ICommandDeleteGremio.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateEmpleoContrato.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateEmpleoImagenComprobantePago.cs" />
+    <Compile Include="EnterpriseDomain\Application\ICommandUpdateEmpresaContrato.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateGremioDireccion.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateGremioRepresentante.cs" />
     <Compile Include="EnterpriseDomain\Application\IProvideAllowedDaysForNewEmpleo.cs" />

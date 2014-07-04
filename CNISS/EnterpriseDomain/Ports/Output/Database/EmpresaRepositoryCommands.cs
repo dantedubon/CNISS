@@ -3,6 +3,7 @@ using CNISS.CommonDomain.Ports.Output.Database;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
+using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using NHibernate;
 
 namespace CNISS.EnterpriseDomain.Ports.Output
@@ -20,6 +21,8 @@ namespace CNISS.EnterpriseDomain.Ports.Output
         public void save(Empresa entity)
         {
             var sucursales = entity.sucursales;
+            if (entity.contrato != null)
+                saveContrato(entity.contrato);
 
             base.save(entity);
             sucursales.ToList().ForEach(saveSucursal);
@@ -27,6 +30,12 @@ namespace CNISS.EnterpriseDomain.Ports.Output
             
 
 
+        }
+
+        private void saveContrato(ContentFile contrato)
+        {
+
+            _session.Save(contrato);
         }
 
         public void update(Empresa entity)
@@ -37,6 +46,15 @@ namespace CNISS.EnterpriseDomain.Ports.Output
             sucursales.ToList().ForEach(updateSucursal);
 
             _session.SaveOrUpdate(entity);
+        }
+
+        public void updateContrato(RTN id, ContentFile nuevoContrato)
+        {
+            var empresa = _session.Get<Empresa>(id);
+            empresa.contrato = nuevoContrato;
+            _session.Save(empresa.contrato);
+            _session.Update(empresa);
+
         }
 
         private Gremio getGremio(RTN rtnGremio)

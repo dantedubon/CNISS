@@ -134,6 +134,7 @@
     <Compile Include="Repositories\EmpleoRepository\ReadOnly\when_UserGetEmpleosFromEmpresa_Should_ReturnEmpleos.cs" />
     <Compile Include="Repositories\EmpleoRepository\ReadOnly\when_UserAskNotExistingRecienteEmpleoParaBeneficiario_Should_ReturnFalse.cs" />
     <Compile Include="Repositories\EmpleoRepository\ReadOnly\when_UserAskExistingRecienteEmpleoParaBeneficiario_Should_ReturnTrue.cs" />
+    <Compile Include="Repositories\EmpresasRepository\Command\when_UserUpdateEmpresaContrato_Should_UpdateEmpresa.cs" />
     <Compile Include="Repositories\EmpresasRepository\Command\when_UserUpdatesValidEmpresaNuevaSucursal_Should_UpdateEmpresa.cs" />
     <Compile Include="Repositories\EmpresasRepository\Command\when_UserSavesValidEmpresa_Should_SaveEmpresa.cs" />
     <Compile Include="Repositories\GremioRepository\Command\when_UserUpdateGremioDireccion_Should_UpdateGremio.cs" />

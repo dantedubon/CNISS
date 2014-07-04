@@ -23,7 +23,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             HasManyToMany(x => x.actividadesEconomicas)
                 .Cascade.All()
                 .Table("ActividadesEconomicasEmpresas");
-            References(x => x.contrato).Cascade.All();
+            References(x => x.contrato);
 
             Component(x => x.auditoria, m =>
             {

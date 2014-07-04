@@ -3,6 +3,7 @@ using Autofac;
 using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule;
+using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands;
 using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
@@ -26,6 +27,7 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<ServiceSucursalesValidator>().As<IServiceSucursalesValidator>();
                     builder.RegisterType<EmpresaRespositoryReadOnly>().As<IEmpresaRepositoryReadOnly>();
                     builder.RegisterType<EmpresaRepositoryCommands>().As<IEmpresaRepositoryCommands>();
+                    builder.RegisterType<CommandUpdateEmpresaContrato>().As<ICommandUpdateEmpresaContrato>();
                     builder.RegisterType<CommandInsertEmpresa>().As<ICommandInsertIdentity<Empresa>>();
                     builder.RegisterType<CommandUpdateEmpresa>().As<ICommandUpdateIdentity<Empresa>>();
                     builder.RegisterType<ParentescoRepositoryReadOnly>().As<IParentescoReadOnlyRepository>();

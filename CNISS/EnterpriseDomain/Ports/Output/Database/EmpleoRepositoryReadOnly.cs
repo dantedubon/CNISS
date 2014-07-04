@@ -61,6 +61,12 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
                 );
         }
 
+        public bool existsComprobante(Guid empleoid, Guid comprobanteId)
+        {
+            var empleo = Session.Get<Empleo>(empleoid);
+            return empleo != null && empleo.comprobantesPago.Any(x => x.Id == comprobanteId);
+        }
+
         public override bool exists(Guid id)
         {
             return (from empleo in Session.Query<Empleo>()

@@ -155,6 +155,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\Commands\BeneficiarioModuleUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\ParentescoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\Query\BeneficiarioModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\EmpleoModuleUpdateImagenComprobantePago.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\empleoMapping.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\EmpleoModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\EmpleoModuleUpdate.cs" />

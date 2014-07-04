@@ -28,10 +28,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
 
         public void update(Empleo entity)
         {
-            if (entity.contrato != null)
-                updateContrato(entity);
-           entity.comprobantesPago.Where(x => x.imagenComprobante!= null).ForEach(updateImagenComprobantesPago);
-
+      
             _session.Update(entity);
         }
 
@@ -41,7 +38,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
            
             _session.Save(contrato);
         }
-
+        /*
         private void  updateContrato(Empleo entity)
         {
             var sameContract = (from empleo in _session.Query<Empleo>()
@@ -50,9 +47,9 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
 
             if (!sameContract)
                 saveContrato(entity.contrato);
-        }
+        }*/
 
-        private void updateImagenComprobantesPago(ComprobantePago comprobantePago)
+       /* private void updateImagenComprobantesPago(ComprobantePago comprobantePago)
         {
             var sameImage = (from comprobante in _session.Query<ComprobantePago>()
                 where
@@ -62,13 +59,33 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
 
             if (!sameImage)
                 _session.Save(comprobantePago.imagenComprobante);
-        }
+        }*/
+
+
         private void saveImagenesComprobantesPago(ComprobantePago comprobantePago)
         {
             if (comprobantePago.imagenComprobante != null)
                 _session.Save(comprobantePago.imagenComprobante);
         }
 
-        
+
+        public void updateContratoEmpleo(Guid entityId, ContentFile contrato)
+        {
+            var empleo = _session.Get<Empleo>(entityId);
+            empleo.contrato = contrato;
+            _session.Save(empleo.contrato);
+            _session.Save(empleo);
+        }
+
+        public void updateImagenComprobante(Guid entityId, Guid comprobantePagoId, ContentFile imagenComprobante)
+        {
+            var empleo = _session.Get<Empleo>(entityId);
+            var comprobante = empleo.comprobantesPago.FirstOrDefault(x => x.Id == comprobantePagoId);
+            comprobante.imagenComprobante = imagenComprobante;
+            _session.Save(comprobante.imagenComprobante);
+
+            _session.Update(empleo);
+
+        }
     }
 }

@@ -37,7 +37,6 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                 IdGuid = Guid.NewGuid(),
                 beneficiarioRequest = getBeneficiario(),
                 cargo = "ingeniero",
-                contrato = "contrato",
                 empresaRequest = getEmpresaRequest(),
                 fechaDeInicio = new DateTime(2014, 1, 1),
                 horarioLaboralRequest = getHorarioLaboralRequest(),
@@ -55,8 +54,6 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                    }
                },
                auditoriaRequest = getAuditoriaRequest(),
-               updateContrato = true,
-                contentFile = contrato
 
             };
 
@@ -67,9 +64,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                 .Setup(x => x.existsFile(Moq.It.IsAny<string>(), Moq.It.IsAny<string>(), Moq.It.IsAny<string>()))
                 .Returns(true);
 
-            Mock.Get(fileGetter)
-                .Setup(x => x.getFile(Moq.It.IsAny<string>(), Moq.It.IsAny<string>(), Moq.It.IsAny<string>()))
-                .Returns(contrato);
+ 
             
             _expectedEmpleo = new EmpleoMapping().getEmpleoForPut(_request);
             _browser = new Browser(
@@ -89,7 +84,6 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
         private It should_save_empleo = () => Mock.Get(_commandUpdate).Verify(x => x.execute(Moq.It.Is<Empleo>(z =>
             z.beneficiario.Equals(_expectedEmpleo.beneficiario) &&
             z.empresa.Equals(_expectedEmpleo.empresa) &&
-            z.contrato.dataFile.Equals(_expectedEmpleo.contrato.dataFile) &&
             z.cargo.Equals(_expectedEmpleo.cargo) &&
             z.comprobantesPago.Count.Equals(_expectedEmpleo.comprobantesPago.Count)
 

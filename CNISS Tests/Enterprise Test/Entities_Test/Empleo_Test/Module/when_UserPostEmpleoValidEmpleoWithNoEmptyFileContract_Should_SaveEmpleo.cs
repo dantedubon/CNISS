@@ -53,8 +53,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                        auditoriaRequest = getAuditoriaRequest()
                    }
                },
-               auditoriaRequest = getAuditoriaRequest(),
-               updateContrato = true,
+               auditoriaRequest = getAuditoriaRequest()
+         
      
             };
 

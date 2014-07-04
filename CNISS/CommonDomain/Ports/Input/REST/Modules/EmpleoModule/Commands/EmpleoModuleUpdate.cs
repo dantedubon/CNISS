@@ -16,9 +16,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
     {
         private readonly IFileGetter _fileGetter;
         private readonly EmpleoMapping _empleoMapping;
-        private const string DirectorioArchivosContratos = @"/EmpleoContratos";
-        private const string DirectorioArchivosVouchers = @"/EmpleoComprobantesPago";
-        private const string Extension = ".pdf";
+ 
 
         public EmpleoModuleUpdate(ICommandUpdateIdentity<Empleo> commandUpdate,IFileGetter fileGetter )
         {
@@ -31,7 +29,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                 {
 
           
-                    if (request.updateContrato)
+                /*    if (request.updateContrato)
                     {
                         var contrato = request.contrato;
                         if (!_fileGetter.existsFile(DirectorioArchivosContratos, contrato, Extension))
@@ -52,7 +50,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                                .WithStatusCode(HttpStatusCode.BadRequest);
                         }
 
-                    }
+                    }*/
                     var empleo = _empleoMapping.getEmpleoForPut(request);
                   
                     if (commandUpdate.isExecutable(empleo))

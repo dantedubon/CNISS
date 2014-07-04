@@ -88,7 +88,8 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 var repository = new EmpleoRepositoryCommands(uow.Session);
-                repository.update(_expectedEmpleo);
+                repository.updateImagenComprobante(_expectedEmpleo.Id, _comprobantePagoWithImage.Id, _imagenComprobante1);
+                repository.updateImagenComprobante(_expectedEmpleo.Id, _comprobantePagoWithOutImage.Id, _imagenComprobante2);
                 uow.commit();
             }
 

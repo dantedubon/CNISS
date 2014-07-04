@@ -50,8 +50,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                     {
                         deducciones = 15m,
                         fechaPago = new DateTime(2014, 3, 2),
-                        percepciones = 12m,
-                        total = 13m,
+                        sueldoNeto = 12m,
+                        bonificaciones = 13m,
                         archivoComprobante = "comprobantes prueba",
                         auditoriaRequest = getAuditoriaRequest()
                     },
@@ -59,8 +59,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                     {
                         deducciones = 3000m,
                         fechaPago = new DateTime(2014, 3, 2),
-                        percepciones = 1002m,
-                        total = 1300m,
+                        sueldoNeto = 1002m,
+                        bonificaciones = 1300m,
                         auditoriaRequest = getAuditoriaRequest()
                         
                     }

@@ -13,7 +13,8 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
         {
             Id(x => x.Id).GeneratedBy.Assigned();
             Map(x => x.deducciones);
-            Map(x => x.percepciones);
+            Map(x => x.sueldoNeto);
+            Map(x => x.bonificaciones);
             Map(x => x.total);
             Map(x => x.fechaPago);
             References(x => x.imagenComprobante);

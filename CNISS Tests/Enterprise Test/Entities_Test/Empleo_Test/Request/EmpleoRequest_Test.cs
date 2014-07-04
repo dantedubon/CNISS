@@ -331,8 +331,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
                 {
                     deducciones = 12m,
                     fechaPago = new DateTime(2014, 8, 2),
-                    percepciones = 5m,
-                    total = 12m
+                    sueldoNeto = 5m,
+                    bonificaciones = 12m
                 }
 
             };

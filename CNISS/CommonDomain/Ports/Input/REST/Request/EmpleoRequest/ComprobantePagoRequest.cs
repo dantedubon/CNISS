@@ -9,8 +9,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
     {
         public  DateTime fechaPago { get;  set; }
         public  decimal deducciones { get;  set; }
-        public  decimal percepciones { get;  set; }
-        public  decimal total { get;  set; }
+        public  decimal sueldoNeto { get;  set; }
+        public  decimal bonificaciones { get;  set; }
         public  string archivoComprobante { get;  set; }
         public byte[] contentFile { get; set; }
         public Guid guid { get;  set; }
@@ -20,7 +20,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
 
         public bool isValidPost()
         {
-            return esMayorA0(percepciones)&& esMayorA0(deducciones)&&esMayorA0(total)&&fechaPago> new DateTime(2012,1,1);
+            return esMayorA0(sueldoNeto)&& esMayorA0(deducciones)&&esMayorA0(bonificaciones)&&fechaPago> new DateTime(2012,1,1);
         }
 
 

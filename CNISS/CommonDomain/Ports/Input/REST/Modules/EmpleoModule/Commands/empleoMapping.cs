@@ -91,7 +91,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
         private ComprobantePago getComprobantePago(ComprobantePagoRequest comprobantePagoRequest)
         {
             var comprobante = new ComprobantePago(comprobantePagoRequest.fechaPago, comprobantePagoRequest.deducciones,
-                comprobantePagoRequest.percepciones, comprobantePagoRequest.total);
+                comprobantePagoRequest.sueldoNeto, comprobantePagoRequest.bonificaciones);
 
             var guiRequest = comprobantePagoRequest.guid;
             if (Guid.Empty != guiRequest)

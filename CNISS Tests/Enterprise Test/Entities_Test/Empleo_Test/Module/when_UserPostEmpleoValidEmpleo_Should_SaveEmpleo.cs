@@ -50,7 +50,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                    {
                        deducciones = 15m,
                        fechaPago =new DateTime(2014,3,2),
-                       percepciones = 12m,total = 13m,
+                       sueldoNeto = 12m,bonificaciones = 13m,
                        auditoriaRequest = getAuditoriaRequest()
                    }
                },

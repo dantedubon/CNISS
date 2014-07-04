@@ -97,8 +97,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                     deducciones = z.deducciones,
                     fechaPago = z.fechaPago,
                     guid = z.Id,
-                    percepciones = z.percepciones,
-                    total = z.total
+                    sueldoNeto = z.sueldoNeto,
+                    bonificaciones = z.total
                 }),
                 empresaRequest = new EmpresaRequest()
                 {

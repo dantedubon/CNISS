@@ -47,8 +47,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
             {
                 deducciones = deducciones,
                 fechaPago = fechaPago,
-                percepciones = percepciones,
-                total = total
+                sueldoNeto = percepciones,
+                bonificaciones = total
             };
 
             var respuesta = comprobante.isValidPost();
@@ -63,8 +63,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
             {
                 deducciones = 2.0m,
                 fechaPago = new DateTime(2014,1,1),
-                percepciones = 3.0m,
-                total = 3.0m
+                sueldoNeto = 3.0m,
+                bonificaciones = 3.0m
             };
 
             var respuesta = comprobante.isValidPost();

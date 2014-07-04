@@ -108,8 +108,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                     deducciones = z.deducciones,
                     fechaPago = z.fechaPago,
                     guid = z.Id,
-                    percepciones = z.percepciones,
-                    total = z.total
+                    sueldoNeto = z.sueldoNeto,
+                    bonificaciones = z.total
                 }),
                 contrato = empleo.contrato==null?"":empleo.contrato.Id.ToString(),
                 empresaRequest = new EmpresaRequest()

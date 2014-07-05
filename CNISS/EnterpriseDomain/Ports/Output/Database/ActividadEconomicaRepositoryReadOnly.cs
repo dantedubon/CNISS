@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CNISS.CommonDomain.Ports.Output.Database;
+using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using NHibernate;
@@ -22,6 +23,15 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
             var resultado = actividades.Select(x => x.Id).Except(listaExistente);
 
             return !resultado.Any();
+        }
+
+        public override bool exists(Guid id)
+        {
+            return (from actividad in Session.Query<ActividadEconomica>()
+                    where actividad.Id == id
+                    select actividad.Id
+                ).Any()
+            ;
         }
     }
 }

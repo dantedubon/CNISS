@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using CNISS.CommonDomain.Ports.Input.REST.Modules.ActividadEconomicaModule;
+using CNISS.CommonDomain.Ports.Input.REST.Modules.ActividadEconomicaModule.Query;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule;
 using CNISS.EnterpriseDomain.Domain.Repositories;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
@@ -11,7 +13,7 @@ using It = Machine.Specifications.It;
 
 namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.ActividadesEconomicas_Test.Module
 {
-    [Subject(typeof (ActividadesEconomicasModule))]
+    [Subject(typeof (ActividadesEconomicasModuleQuery))]
     public class when_UserGetAllActividadesEconomicas_Should_ReturnActividadesEconomicas
     {
         private static Browser _browser;
@@ -26,7 +28,7 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.ActividadesEconomicas_Tes
             _browser = new Browser(
                 x =>
                 {
-                    x.Module<ActividadesEconomicasModule>();
+                    x.Module<ActividadesEconomicasModuleQuery>();
                     x.Dependencies(repository);
                 }
                 );

@@ -200,7 +200,15 @@
     <Compile Include="Enterprise Test\Entities_Test\Gremio_Test\Request\GremioRequest_Test.cs" />
     <Compile Include="Enterprise Test\Modules_Test\when_UserGetExistingDocument_Should_ReturnDocument.cs" />
     <Compile Include="Enterprise Test\Modules_Test\when_UserGetNotExistingDocument_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Command\CommandUpdateActividadEconomica_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Module\Class1.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Module\when_UserPutActividadEconomicaNotExists_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Module\when_UserPutActividadEconomicaBadData_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Module\when_UserPostNewActividadEconomicaValid_Should_SaveActividadEconomica.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Module\when_UserPostNewActividadEconomicaBadData_Should_ReturnError.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Module\when_UserGetAllActividadesEconomicas_Should_ReturnActividadesEconomicas.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Request\ActividadEconomicaRequest_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Auditoria\AuditoriaRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Departamento_Test\Departamento_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Departamento_Test\Request\DepartamentoRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\DiasLaborables_Test\DiasLaborablesRequest_Test.cs" />

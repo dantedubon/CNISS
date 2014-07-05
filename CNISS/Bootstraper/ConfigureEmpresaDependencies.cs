@@ -1,12 +1,14 @@
 using System;
 using Autofac;
 using CNISS.CommonDomain.Application;
+using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands;
 using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
+using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using CNISS.EnterpriseDomain.Ports.Output;
 using CNISS.EnterpriseDomain.Ports.Output.Database;
 
@@ -36,6 +38,14 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<BeneficiarioRepositoryReadOnly>().As<IBeneficiarioRepositoryReadOnly>();
                     builder.RegisterType<BeneficiarioRepositoryCommands>().As<IBeneficiarioRepositoryCommands>();
                     builder.RegisterType<ParentescoRepositoryReadOnly>().As<IParentescoReadOnlyRepository>();
+                    builder.RegisterType<CommandInsertActividadEconomica>()
+                        .As<ICommandInsertIdentity<ActividadEconomica>>();
+                    builder.RegisterType<CommandUpdateActividadEconomica>()
+                        .As<ICommandUpdateIdentity<ActividadEconomica>>();
+
+                    builder.RegisterType<ActividadEconomicaRepositoryCommands>()
+                        .As<IRepositoryCommands<ActividadEconomica>>();
+
 
                     builder.RegisterType<ContentFileRepositoryReadOnly>().As<IContentFileRepositoryReadOnly>();
 

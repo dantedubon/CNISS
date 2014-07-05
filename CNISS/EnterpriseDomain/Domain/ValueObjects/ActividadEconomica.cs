@@ -13,9 +13,10 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 
         public ActividadEconomica()
         {
-            
+            Id = Guid.NewGuid();
         }
 
         public virtual string descripcion { get; set; }
+        public virtual Auditoria auditoria { get; set; }
     }
 }

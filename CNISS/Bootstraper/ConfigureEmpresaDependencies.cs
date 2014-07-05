@@ -37,6 +37,8 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<BeneficiarioRepositoryCommands>().As<IBeneficiarioRepositoryCommands>();
                     builder.RegisterType<ParentescoRepositoryReadOnly>().As<IParentescoReadOnlyRepository>();
 
+                    builder.RegisterType<ContentFileRepositoryReadOnly>().As<IContentFileRepositoryReadOnly>();
+
 
 
                 };

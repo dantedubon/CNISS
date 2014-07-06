@@ -50,7 +50,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Command
         {
             var dependiente = new Dependiente(getIdentidad(dependienteRequest.identidadRequest),
                 getNombre(dependienteRequest.nombreRequest), getParentesco(dependienteRequest.parentescoRequest),
-                dependienteRequest.edad);
+                dependienteRequest.fechaNacimiento);
 
             if (dependienteRequest.IdGuid != Guid.Empty)
             {

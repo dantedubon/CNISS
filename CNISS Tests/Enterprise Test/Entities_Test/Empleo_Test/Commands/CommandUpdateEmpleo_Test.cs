@@ -268,7 +268,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
 
         private Dependiente getDependiente(Identidad identidad, Nombre nombre, Parentesco parentesco)
         {
-            return new Dependiente(identidad, nombre, parentesco, 30);
+            return new Dependiente(identidad, nombre, parentesco, new DateTime(1984, 8, 2));
         }
 
         private Beneficiario getBeneficiario()

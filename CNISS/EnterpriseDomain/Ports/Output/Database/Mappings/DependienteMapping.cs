@@ -20,7 +20,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             }
                 );
 
-            Map(x => x.edad);
+            Map(x => x.fechaNacimiento);
 
             References(x => x.parentesco);
 

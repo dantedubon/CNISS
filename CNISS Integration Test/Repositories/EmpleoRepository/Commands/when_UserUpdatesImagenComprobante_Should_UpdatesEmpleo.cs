@@ -149,7 +149,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
 
         private static Dependiente getDependiente(Identidad identidad, Nombre nombre, Parentesco parentesco)
         {
-            return new Dependiente(identidad, nombre, parentesco, 30);
+            return new Dependiente(identidad, nombre, parentesco, new DateTime(1984, 8, 2));
         }
 
         private static Beneficiario getBeneficiario()

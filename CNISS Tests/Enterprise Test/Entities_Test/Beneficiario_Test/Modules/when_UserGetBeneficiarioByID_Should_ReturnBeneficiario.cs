@@ -40,7 +40,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Beneficiario_Test.Modules
                 ).With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
 
             var dependientes = Builder<Dependiente>.CreateListOfSize(10).All().WithConstructor(
-                ()=> new Dependiente(new Identidad("0501198812345"),Builder<Nombre>.CreateNew().Build(),Builder<Parentesco>.CreateNew().Build(),10)
+                ()=> new Dependiente(new Identidad("0501198812345"),Builder<Nombre>.CreateNew().Build(),Builder<Parentesco>.CreateNew().Build(),new DateTime(1984,8,2))
                 ).With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
 
             foreach (var dependiente in dependientes)
@@ -94,7 +94,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Beneficiario_Test.Modules
                 dependienteRequests = beneficiario.dependientes.Select(x => new DependienteRequest()
                 {
                     IdGuid = x.idGuid,
-                    edad = x.edad,
+                    fechaNacimiento = x.fechaNacimiento,
                     identidadRequest = new IdentidadRequest() { identidad = x.Id.identidad },
                     nombreRequest = new NombreRequest()
                     {

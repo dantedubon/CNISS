@@ -16,7 +16,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest
         public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
 
 
-        public int edad { get; set; }
+        public DateTime fechaNacimiento { get; set; }
 
 
         public bool isValidPost()

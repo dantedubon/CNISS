@@ -165,7 +165,6 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\EmpleoModuleUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\EmpleoModuleUpdateContrato.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\EmpleoModuleQuery.cs" />
-    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\TipoEmpleoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleUpdateContrato.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaMap.cs" />
@@ -187,6 +186,10 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolQuery\RolModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\TipoEmpleoModule\Commands\TipoEmpleoMapping.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\TipoEmpleoModule\Commands\TipoEmpleoModuleInsert.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\TipoEmpleoModule\Commands\TipoEmpleoModuleUpdate.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\TipoEmpleoModule\Query\TipoEmpleoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandUpdate.cs" />
@@ -201,7 +204,6 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\EmpleoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\HoraRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\HorarioLaboralRequest.cs" />
-    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\TipoEmpleoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\ActividadEconomicaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\EmpresaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\SucursalRequest.cs" />
@@ -217,11 +219,13 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Request\IValidPut.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\IValidGet.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\RolModule\RolRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\TipoEmpleoRequest\TipoEmpleoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\UserRequest\UserRequest.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateCommandRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepositoryCompoundKey.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandInsertTipoEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateActividadEconomica.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertActividadEconomica.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateEmpresaContrato.cs" />
@@ -237,6 +241,7 @@
     <Compile Include="EnterpriseDomain\Application\CommandUpdateEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateGremioDireccion.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateGremioRepresentante.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandUpdateTipoEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandDeleteGremio.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateEmpleoContrato.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateEmpleoImagenComprobantePago.cs" />
@@ -282,6 +287,7 @@
     <Compile Include="EnterpriseDomain\Domain\Repositories\IPersonRNPRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IRepresentanteLegalRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IRepresentanteLegalRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\ITipoDeEmpleoRepositoryCommand.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\ActividadEconomica.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\AM.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\ContentFile.cs" />
@@ -303,6 +309,7 @@
     <Compile Include="EnterpriseDomain\Ports\Output\Database\BeneficiarioRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\BeneficiarioRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\ActividadEconomicaRepositoryCommands.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\TipoDeEmpleoRepositoryCommand.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\ContentFileRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\EmpleoRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\EmpleoRepositoryReadOnly.cs" />

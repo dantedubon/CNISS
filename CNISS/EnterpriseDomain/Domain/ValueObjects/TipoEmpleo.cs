@@ -6,6 +6,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
     public class TipoEmpleo:ValueObject<Guid>
     {
         public virtual string descripcion { get; protected set; }
+        public virtual Auditoria auditoria { get; set; }
 
         protected TipoEmpleo()
         {

@@ -12,6 +12,7 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
+using CNISS.CommonDomain.Ports.Input.REST.Request.TipoEmpleoRequest;
 using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;

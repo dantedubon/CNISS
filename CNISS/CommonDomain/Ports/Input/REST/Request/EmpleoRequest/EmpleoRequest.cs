@@ -13,7 +13,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
         public SucursalRequest sucursalRequest { get; set; }
         public BeneficiarioRequest.BeneficiarioRequest beneficiarioRequest { get; set; }
         public HorarioLaboralRequest horarioLaboralRequest { get; set; }
-        public TipoEmpleoRequest tipoEmpleoRequest { get; set; }
+        public TipoEmpleoRequest.TipoEmpleoRequest tipoEmpleoRequest { get; set; }
         public string cargo { get; set; }
         public decimal sueldo { get; set; }
         public DateTime fechaDeInicio { get; set; }

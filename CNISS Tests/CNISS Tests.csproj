@@ -201,7 +201,7 @@
     <Compile Include="Enterprise Test\Modules_Test\when_UserGetExistingDocument_Should_ReturnDocument.cs" />
     <Compile Include="Enterprise Test\Modules_Test\when_UserGetNotExistingDocument_Should_ReturnError.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Command\CommandUpdateActividadEconomica_Test.cs" />
-    <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Module\Class1.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Module\when_UserPutActividadEconomicaValid_Should_UpdateActividad.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Module\when_UserPutActividadEconomicaNotExists_Should_ReturnError.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Module\when_UserPutActividadEconomicaBadData_Should_ReturnError.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\ActividadesEconomicas_Test\Module\when_UserPostNewActividadEconomicaValid_Should_SaveActividadEconomica.cs" />
@@ -225,6 +225,13 @@
     <Compile Include="Enterprise Test\ValueObject Test\Parentesco_Test\Module\when_UserGetAllParentesco_Should_.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\RepresentanteLegal_Test\Request\RepresentanteLegalRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\RTN_Test\Request\RTNRequest_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\TipoEmpleo_Test\Command\CommandUpdateTipoEmpleo_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\TipoEmpleo_Test\Module\when_UserPutTipoEmpleoValid_Should_UpdateTipoEmpleo.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\TipoEmpleo_Test\Module\when_UserPutTipoEmpleoNotExists_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\TipoEmpleo_Test\Module\when_UserPutTipoDeEmpleoBadData_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\TipoEmpleo_Test\Module\when_UserPostNewTipoEmpleoValidData_Should_SaveTipoEmpleo.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\TipoEmpleo_Test\Module\when_UserPostNewTipoEmpleoInvalidData_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\TipoEmpleo_Test\Request\TipoEmpleoRequest_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Autentication Test\Rol_Test\Commands\when_CommandUpdateIdentity_Shuld_UpdateIdentity.cs" />
     <Compile Include="Autentication Test\Rol_Test\Modules\when_UserDeleteNonExistingRol_ShouldReturnError.cs" />

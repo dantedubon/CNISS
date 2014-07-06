@@ -8,6 +8,7 @@ using CNISS.CommonDomain.Domain;
 using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
+using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using CNISS.EnterpriseDomain.Ports.Output.Database;
 using NHibernate.Action;
 
@@ -31,7 +32,9 @@ namespace CNISS.Bootstraper
                         .As<ICommandUpdateEmpleoImagenComprobantePago>();
                     builder.RegisterType<TipoDeEmpleoRepositoryReadOnly>().As<ITipoDeEmpleoReadOnlyRepository>();
                     builder.RegisterType<ProvideAllowedDaysForNewEmpleo>().As<IProvideAllowedDaysForNewEmpleo>();
-
+                    builder.RegisterType<CommandInsertTipoEmpleo>().As<ICommandInsertIdentity<TipoEmpleo>>();
+                    builder.RegisterType<CommandUpdateTipoEmpleo>().As<ICommandUpdateIdentity<TipoEmpleo>>();
+                    builder.RegisterType<TipoDeEmpleoRepositoryCommand>().As<IRepositoryCommands<TipoEmpleo>>();
                 };
             }
         }

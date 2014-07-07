@@ -28,7 +28,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
         private Establish context = () =>
         {
             _request = getEmpresaRequest();
-            _request.contentFile = "archivo";
+            _request.contentFile = Guid.NewGuid().ToString();
             _commandUpdate = Mock.Of<ICommandUpdateIdentity<Empresa>>();
             var fileGetter = Mock.Of<IFileGetter>();
             var dataFile = new byte[] { 0, 1, 1, 1, 1, 0 };

@@ -54,7 +54,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                         fechaPago = new DateTime(2014, 3, 2),
                         sueldoNeto = 12m,
                         bonificaciones = 13m,
-                        archivoComprobante = "comprobantes prueba",
+                        archivoComprobante = Guid.NewGuid().ToString(),
                         auditoriaRequest = getAuditoriaRequest()
                     },
                     new ComprobantePagoRequest()
@@ -63,7 +63,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                         fechaPago = new DateTime(2014, 3, 2),
                         sueldoNeto = 1002m,
                         bonificaciones = 1300m,
-                        archivoComprobante = "comprobantes prueba",
+                        archivoComprobante = Guid.NewGuid().ToString(),
                         auditoriaRequest = getAuditoriaRequest()
                     }
                 },

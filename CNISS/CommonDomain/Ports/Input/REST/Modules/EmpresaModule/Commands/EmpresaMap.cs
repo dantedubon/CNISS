@@ -31,11 +31,23 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
                 empleadosTotales = request.empleadosTotales,
                 actividadesEconomicas = getActividades(request.actividadEconomicaRequests),
                 sucursales = getSucursales(request.sucursalRequests),
-                proyectoPiloto = request.programaPiloto
+                proyectoPiloto = request.programaPiloto,
+                contrato = getContrato(request)
+                
             };
             empresa.auditoria = getAuditoria(request.auditoriaRequest);
-
+            
             return empresa;
+        }
+
+        private ContentFile getContrato(EmpresaRequest empresaRequest)
+        {
+            var contrato = empresaRequest.contentFile;
+            if (!string.IsNullOrEmpty(contrato))
+            {
+                return new ContentFileNull(Guid.Parse(contrato));
+            }
+            return null;
         }
 
         private Auditoria getAuditoria(AuditoriaRequest auditoriaRequest)

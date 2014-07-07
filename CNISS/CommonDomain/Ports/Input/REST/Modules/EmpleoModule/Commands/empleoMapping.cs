@@ -99,12 +99,25 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
             {
                 comprobante.Id = guiRequest;
             }
-            comprobante.imagenComprobante = comprobantePagoRequest.contentFile != null
-                ? new ContentFile(comprobantePagoRequest.contentFile)
-                : null;
+            comprobante.imagenComprobante = getImagenComprobante(comprobantePagoRequest);
             comprobante.auditoria = getAuditoria(comprobantePagoRequest.auditoriaRequest);
             return comprobante;
         }
+
+        private ContentFile getImagenComprobante(ComprobantePagoRequest comprobantePago)
+        {
+
+
+            var archivoComprobante = comprobantePago.archivoComprobante;
+            var contenido = comprobantePago.contentFile;
+            if (!string.IsNullOrEmpty(archivoComprobante))
+            {
+                return contenido != null ? new ContentFile(contenido) : new ContentFileNull(Guid.Parse(archivoComprobante));
+            }
+            return null;
+
+        }
+
         private HorarioLaboral getHorarioLaboral(HorarioLaboralRequest horarioLaboralRequest)
         {
             var horaEntrada = new Hora(horarioLaboralRequest.horaEntrada.hora, horarioLaboralRequest.horaEntrada.minutos,

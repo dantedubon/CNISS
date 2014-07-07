@@ -24,5 +24,9 @@ C:\CNISS\CNISS\bin\Nancy.xml
 C:\CNISS\CNISS\bin\Nancy.Hosting.Aspnet.xml
 C:\CNISS\CNISS\bin\NHibernate.xml
 C:\CNISS\CNISS\bin\nunit.framework.xml
+C:\CNISS\FirstRelease\CNISS.dll.config
+C:\CNISS\FirstRelease\CNISS.dll
+C:\CNISS\FirstRelease\CNISS.pdb
+C:\CNISS\CNISS\obj\Release\CNISS.csprojResolveAssemblyReference.cache
 C:\CNISS\CNISS\obj\Release\CNISS.dll
 C:\CNISS\CNISS\obj\Release\CNISS.pdb

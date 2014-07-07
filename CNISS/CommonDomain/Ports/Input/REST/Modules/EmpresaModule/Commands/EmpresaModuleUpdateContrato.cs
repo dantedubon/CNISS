@@ -32,7 +32,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
                             var contentFile = new ContentFile(data);
                             command.execute(rtnEmpresa,contentFile);
 
-                            return new Response()
+                            return  Response.AsJson(contentFile.Id)
                   .WithStatusCode(HttpStatusCode.OK);
                         }
                         

@@ -7,5 +7,6 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 {
     public class Visitas
     {
+        
     }
 }

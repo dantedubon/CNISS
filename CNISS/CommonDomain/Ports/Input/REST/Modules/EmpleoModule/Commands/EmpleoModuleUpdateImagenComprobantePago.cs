@@ -30,7 +30,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
 
                         var contentFile = new ContentFile(data);
                         command.execute(empleoId,comprobanteId,contentFile);
-                        return new Response()
+                        return Response.AsJson(contentFile.Id)
                     .WithStatusCode(HttpStatusCode.OK);
                     }
                     

@@ -20,7 +20,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
 
         public bool isValidPost()
         {
-            return esMayorA0(sueldoNeto)&& esMayorA0(deducciones)&&esMayorA0(bonificaciones)&&fechaPago> new DateTime(2012,1,1);
+            return esMayorA0(sueldoNeto)&&fechaPago> new DateTime(2012,1,1);
         }
 
 

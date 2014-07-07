@@ -267,6 +267,7 @@
     <Compile Include="EnterpriseDomain\Domain\Entities\PersonRNP.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\RepresentanteLegal.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\Sucursal.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Entities\Visita.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IActividadEconomicaRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IContentFileRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IActividadEconomicaRepositoryReadOnly.cs" />

@@ -21,14 +21,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
                 {
                     0.0m,2000m,3000m,new DateTime(2014,4,1)
                 },
-                new object[]
-                {
-                    200.0m,0.0m,3000m,new DateTime(2014,4,1)
-                },
-                new object[]
-                {
-                    200.0m,200.0m,0m,new DateTime(2014,4,1)
-                },
+                
                 new object[]
                 {
                     200.0m,200.0m,2000m,null
@@ -41,14 +34,14 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
 
 
         [TestCaseSource("badRequestForPost")]
-        public void isValidPost_invalidData_returnFalse(decimal percepciones, decimal deducciones, decimal total, DateTime fechaPago)
+        public void isValidPost_invalidData_returnFalse(decimal percepciones, decimal deducciones, decimal bonificaciones, DateTime fechaPago)
         {
             var comprobante = new ComprobantePagoRequest()
             {
                 deducciones = deducciones,
                 fechaPago = fechaPago,
                 sueldoNeto = percepciones,
-                bonificaciones = total
+                bonificaciones = bonificaciones
             };
 
             var respuesta = comprobante.isValidPost();

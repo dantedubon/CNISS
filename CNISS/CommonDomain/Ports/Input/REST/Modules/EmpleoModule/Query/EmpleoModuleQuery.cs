@@ -112,7 +112,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                     sueldoNeto = z.sueldoNeto,
                     
                     bonificaciones = z.bonificaciones,
-                    archivoComprobante =  z.imagenComprobante.Id == null ?"": z.imagenComprobante.ToString()
+                    archivoComprobante =  z.imagenComprobante== null ?"": z.imagenComprobante.Id.ToString()
                 }),
                 contrato = empleo.contrato==null?"":empleo.contrato.Id.ToString(),
                 empresaRequest = new EmpresaRequest()

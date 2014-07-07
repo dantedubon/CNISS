@@ -1,0 +1,47 @@
+C:\CNISS\CNISS Integration Test\bin\Release\CNISS Integration Test.dll.config
+C:\CNISS\CNISS Integration Test\bin\Release\CNISS Integration Test.dll
+C:\CNISS\CNISS Integration Test\bin\Release\CNISS Integration Test.pdb
+C:\CNISS\CNISS Integration Test\bin\Release\CNISS.dll
+C:\CNISS\CNISS Integration Test\bin\Release\CsQuery.dll
+C:\CNISS\CNISS Integration Test\bin\Release\EntityFramework.dll
+C:\CNISS\CNISS Integration Test\bin\Release\EntityFramework.SqlServer.dll
+C:\CNISS\CNISS Integration Test\bin\Release\FizzWare.NBuilder.dll
+C:\CNISS\CNISS Integration Test\bin\Release\FluentAssertions.Core.dll
+C:\CNISS\CNISS Integration Test\bin\Release\FluentAssertions.dll
+C:\CNISS\CNISS Integration Test\bin\Release\FluentNHibernate.dll
+C:\CNISS\CNISS Integration Test\bin\Release\Iesi.Collections.dll
+C:\CNISS\CNISS Integration Test\bin\Release\Machine.Specifications.Clr4.dll
+C:\CNISS\CNISS Integration Test\bin\Release\Machine.Specifications.dll
+C:\CNISS\CNISS Integration Test\bin\Release\Moq.dll
+C:\CNISS\CNISS Integration Test\bin\Release\Nancy.dll
+C:\CNISS\CNISS Integration Test\bin\Release\Nancy.Testing.dll
+C:\CNISS\CNISS Integration Test\bin\Release\NHibernate.dll
+C:\CNISS\CNISS Integration Test\bin\Release\nunit.framework.dll
+C:\CNISS\CNISS Integration Test\bin\Release\Should.Fluent.dll
+C:\CNISS\CNISS Integration Test\bin\Release\System.Data.SQLite.dll
+C:\CNISS\CNISS Integration Test\bin\Release\System.Data.SQLite.EF6.dll
+C:\CNISS\CNISS Integration Test\bin\Release\System.Data.SQLite.Linq.dll
+C:\CNISS\CNISS Integration Test\bin\Release\Autofac.dll
+C:\CNISS\CNISS Integration Test\bin\Release\Nancy.Bootstrappers.Autofac.dll
+C:\CNISS\CNISS Integration Test\bin\Release\log4net.dll
+C:\CNISS\CNISS Integration Test\bin\Release\CNISS.pdb
+C:\CNISS\CNISS Integration Test\bin\Release\CsQuery.xml
+C:\CNISS\CNISS Integration Test\bin\Release\EntityFramework.xml
+C:\CNISS\CNISS Integration Test\bin\Release\EntityFramework.SqlServer.xml
+C:\CNISS\CNISS Integration Test\bin\Release\FluentAssertions.pdb
+C:\CNISS\CNISS Integration Test\bin\Release\FluentAssertions.xml
+C:\CNISS\CNISS Integration Test\bin\Release\FluentAssertions.Core.pdb
+C:\CNISS\CNISS Integration Test\bin\Release\FluentAssertions.Core.xml
+C:\CNISS\CNISS Integration Test\bin\Release\FluentNHibernate.xml
+C:\CNISS\CNISS Integration Test\bin\Release\Iesi.Collections.xml
+C:\CNISS\CNISS Integration Test\bin\Release\Moq.xml
+C:\CNISS\CNISS Integration Test\bin\Release\Nancy.xml
+C:\CNISS\CNISS Integration Test\bin\Release\Nancy.Testing.xml
+C:\CNISS\CNISS Integration Test\bin\Release\NHibernate.xml
+C:\CNISS\CNISS Integration Test\bin\Release\nunit.framework.xml
+C:\CNISS\CNISS Integration Test\bin\Release\System.Data.SQLite.xml
+C:\CNISS\CNISS Integration Test\bin\Release\Autofac.xml
+C:\CNISS\CNISS Integration Test\bin\Release\log4net.xml
+C:\CNISS\CNISS Integration Test\obj\Release\CNISS Integration Test.csprojResolveAssemblyReference.cache
+C:\CNISS\CNISS Integration Test\obj\Release\CNISS Integration Test.dll
+C:\CNISS\CNISS Integration Test\obj\Release\CNISS Integration Test.pdb

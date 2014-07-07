@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\DeployCNISS</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Autofac.Configuration.dll">
+      <publishTime>06/02/2014 19:49:28</publishTime>
+    </File>
+    <File Include="bin/Autofac.dll">
+      <publishTime>06/02/2014 19:49:28</publishTime>
+    </File>
+    <File Include="bin/CNISS.dll">
+      <publishTime>07/07/2014 16:33:58</publishTime>
+    </File>
+    <File Include="bin/FluentNHibernate.dll">
+      <publishTime>06/02/2014 23:13:55</publishTime>
+    </File>
+    <File Include="bin/Iesi.Collections.dll">
+      <publishTime>06/02/2014 23:13:15</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>06/05/2014 17:12:01</publishTime>
+    </File>
+    <File Include="bin/Machine.Specifications.Clr4.dll">
+      <publishTime>06/02/2014 17:51:07</publishTime>
+    </File>
+    <File Include="bin/Machine.Specifications.dll">
+      <publishTime>06/02/2014 17:51:07</publishTime>
+    </File>
+    <File Include="bin/Machine.Specifications.Should.dll">
+      <publishTime>06/02/2014 17:51:08</publishTime>
+    </File>
+    <File Include="bin/Moq.dll">
+      <publishTime>06/02/2014 17:51:08</publishTime>
+    </File>
+    <File Include="bin/Nancy.Bootstrappers.Autofac.dll">
+      <publishTime>06/02/2014 17:51:08</publishTime>
+    </File>
+    <File Include="bin/Nancy.dll">
+      <publishTime>06/02/2014 17:51:08</publishTime>
+    </File>
+    <File Include="bin/Nancy.Hosting.Aspnet.dll">
+      <publishTime>06/02/2014 17:51:08</publishTime>
+    </File>
+    <File Include="bin/NHibernate.dll">
+      <publishTime>06/02/2014 23:13:15</publishTime>
+    </File>
+    <File Include="bin/nunit.framework.dll">
+      <publishTime>06/02/2014 17:51:08</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>06/05/2014 17:12:03</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/07/2014 16:33:59</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

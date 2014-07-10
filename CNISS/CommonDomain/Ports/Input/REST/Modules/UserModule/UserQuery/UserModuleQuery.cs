@@ -13,22 +13,28 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserQuery
 {
     public class UserModuleQuery:NancyModule
     {
+        private readonly UserMapping _userMapping;
+
         public UserModuleQuery(IUserRepositoryReadOnly repository)
         {
+            _userMapping = new UserMapping();
             Get["/user"] = parameters =>
             {
                 var userResponse = repository.getAll();
-                return Response.AsJson(convertToRequest(userResponse))
+
+
+                return Response.AsJson(_userMapping.convertToRequest(userResponse))
                     .WithStatusCode(HttpStatusCode.OK);
             };
 
+            
             Get["/user/id={id}"] = parameters =>
             {
                 string idUser = parameters.id;
                 if (!string.IsNullOrEmpty(idUser))
                 {
                     var user = repository.get(idUser);
-                    UserRequest response = convertToRequest(user);
+                    UserRequest response = _userMapping.convertToRequest(user);
                     return Response.AsJson(response)
                         .WithStatusCode(HttpStatusCode.OK); 
                 }
@@ -37,31 +43,6 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserQuery
 
 
 
-            };
-        }
-
-        private UserRequest convertToRequest(User user)
-        {
-            return new UserRequest
-            {
-                firstName = user.firstName,
-                secondName = user.secondName,
-                Id = user.Id,
-                mail = user.mail,
-                password = "",
-                userRol = new RolRequest
-                {
-                    description = user.userRol.description,
-                    name = user.userRol.name,
-                    idGuid = user.userRol.Id
-                },
-                auditoriaRequest = new AuditoriaRequest()
-                {
-                    fechaCreo =  user.auditoria.fechaCreo,
-                    fechaModifico = user.auditoria.fechaModifico,
-                    usuarioCreo = user.auditoria.usuarioCreo,
-                    usuarioModifico = user.auditoria.usuarioModifico
-                }
             };
         }
 

@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Domain;
-using CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserQuery;
+using CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query;
 using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
+using CNISS.EnterpriseDomain.Domain.Repositories;
+using CsQuery.ExtensionMethods;
 using FizzWare.NBuilder;
 using FluentAssertions;
 using Machine.Specifications;
@@ -16,61 +19,68 @@ using Moq;
 using Nancy.Testing;
 using It = Machine.Specifications.It;
 
-namespace CNISS_Tests.User_Test.Modules
+namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Query
 {
-    [Subject(typeof (UserModuleQuery))]
-    public class when_UserGetAllUsers_Should_ReturnAllUsers
+    [Subject(typeof (SupervisorAvailableModuleQuery))]
+    public class when_UserGetAvailableSupervisor_Should_ReturnUsersAvailable
     {
         static Browser _browser;
-        static IEnumerable<User> _usersCollection;
-       
+        static IEnumerable<UserRequest> _expectedUserResponse;
+         static IEnumerable<UserRequest> _userResponse;
+        static IVisitaRepositoryReadOnly _repositoryReadOnly;
         static BrowserResponse _response;
-        static IEnumerable<UserRequest> _usersResponse;
-        static IEnumerable<UserRequest> _usersExpected;
+        private static DateTime _fechaInicial;
+        private static DateTime _fechaFinal;
 
-         Establish context = () =>
-         {
+        private Establish context = () =>
+        {
+            _fechaInicial = new DateTime(2014,5,1);
+            _fechaFinal = new DateTime(2014,5,30);
              var _usersRol = Builder<Rol>.CreateNew().With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
-             _usersCollection = Builder<User>.CreateListOfSize(10).All().With(x => x.userRol = _usersRol)
+             var usersCollection = Builder<User>.CreateListOfSize(10).All().With(x => x.userRol = _usersRol)
                  .With(x => x.auditoria = new Auditoria("",DateTime.Now.Date,"",DateTime.Now.Date))
                  .Build();
-             
 
-           
-             var _userRepositoryReadOnly = Mock.Of<IUserRepositoryReadOnly>();
-             Mock.Get(_userRepositoryReadOnly).Setup(x => x.getAll()).Returns(_usersCollection);
+            _repositoryReadOnly = Mock.Of<IVisitaRepositoryReadOnly>();
+            Mock.Get(_repositoryReadOnly)
+                .Setup(x => x.usuariosSinVisitaAgendada(_fechaInicial, _fechaFinal))
+                .Returns(usersCollection);
 
-             _usersExpected = convertToRequest(_usersCollection);
-             _browser = new Browser(
-                x =>
-                {
-                    x.Module<UserModuleQuery>();
-                    x.Dependency(_userRepositoryReadOnly);
+            _expectedUserResponse = convertToRequest(usersCollection);
 
-                }
-            );
+            _browser = new Browser(x =>
+            {
+                x.Module<SupervisorAvailableModuleQuery>();
+                x.Dependencies(_repositoryReadOnly);
+
+            });
 
 
-         };
 
-         Because of = () =>
-         {
-             _usersResponse = _browser.GetSecureJson("/user").Body.DeserializeJson<IEnumerable<UserRequest>>();
-         };
 
-        It should_return_all_users = () => _usersResponse.ShouldAllBeEquivalentTo(_usersExpected);
+        };
+
+        private Because of = () =>
+        {
+            _userResponse =
+                _browser.GetSecureJson("/visita/supervisores/available/" + _fechaInicial.ToString("yyyy-MM-dd") + "/" + _fechaFinal.ToString("yyyy-MM-dd"))
+                    .Body.DeserializeJson<IEnumerable<UserRequest>>();
+        };
+
+        It should_return_usersAvailable = () => _userResponse.ShouldBeEquivalentTo(_expectedUserResponse);
+
 
         private static IEnumerable<UserRequest> convertToRequest(IEnumerable<User> users)
         {
-          return   users.Select(x => new UserRequest
+            return users.Select(x => new UserRequest
             {
                 firstName = x.firstName,
                 secondName = x.secondName,
                 Id = x.Id,
                 mail = x.mail,
                 password = "",
-                
-                 userRol = new RolRequest
+
+                userRol = new RolRequest
                 {
                     description = x.userRol.description,
                     name = x.userRol.name,

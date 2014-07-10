@@ -16,6 +16,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Infraestructure
             addBootstrapperTask(new ConfigureGremioDependencies());
             addBootstrapperTask(new ConfigureEmpresaDependencies());
             addBootstrapperTask(new ConfigureEmpleoDependencies());
+            addBootstrapperTask(new ConfigureVisitaDependencies());
         }
         protected override void RequestStartup(Autofac.ILifetimeScope container, Nancy.Bootstrapper.IPipelines pipelines, NancyContext context)
         {

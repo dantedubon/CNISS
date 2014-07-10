@@ -125,6 +125,7 @@
     <Compile Include="Bootstraper\ConfigureEnterpriseServices.cs" />
     <Compile Include="Bootstraper\ConfigureGremioDependencies.cs" />
     <Compile Include="Bootstraper\ConfigureUserDependencies.cs" />
+    <Compile Include="Bootstraper\ConfigureVisitaDependencies.cs" />
     <Compile Include="Bootstraper\IBootstrapperTask.cs" />
     <Compile Include="Bootstraper\ConfigureRoleDependencies.cs" />
     <Compile Include="Bootstraper\StoreConfiguration.cs" />
@@ -193,7 +194,9 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandUpdate.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserQuery\UserMapping.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserQuery\UserModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Query\SupervisorAvailableModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\AuditoriaRequest\AuditoriaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\BeneficiarioRequest\BeneficiarioRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\BeneficiarioRequest\DependienteRequest.cs" />
@@ -291,6 +294,8 @@
     <Compile Include="EnterpriseDomain\Domain\Repositories\IRepresentanteLegalRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IRepresentanteLegalRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\ITipoDeEmpleoRepositoryCommand.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\IVisitaRepositoryCommand.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\IVisitaRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\ActividadEconomica.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\AM.cs" />
     <Compile Include="EnterpriseDomain\Domain\ValueObjects\ContentFile.cs" />
@@ -312,6 +317,9 @@
     <Compile Include="EnterpriseDomain\Ports\Output\Database\BeneficiarioRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\BeneficiarioRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\ActividadEconomicaRepositoryCommands.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\LugarVisitaMappig.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\SupervisorMapping.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\VisitaMapping.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\TipoDeEmpleoRepositoryCommand.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\ContentFileRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\EmpleoRepositoryCommands.cs" />
@@ -346,6 +354,8 @@
     <Compile Include="EnterpriseDomain\Ports\Output\Database\DireccionRepositoryCommand.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\RepresentanteLegalRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\RepresentanteLegalRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\VisitaRepositoryCommand.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\VisitaRepositoryReadOnly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

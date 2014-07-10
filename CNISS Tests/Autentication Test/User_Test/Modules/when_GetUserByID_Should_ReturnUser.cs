@@ -44,7 +44,9 @@ namespace CNISS_Tests.User_Test.Modules
                  {
                      description = _expectedUser.userRol.description,
                      idGuid = _expectedUser.userRol.Id,
-                     name = _expectedUser.userRol.name
+                     name = _expectedUser.userRol.name,
+                     nivel = _expectedUser.userRol.nivel
+                     
 
                  },
                  auditoriaRequest =new AuditoriaRequest()

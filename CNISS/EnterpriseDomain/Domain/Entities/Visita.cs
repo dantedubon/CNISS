@@ -11,7 +11,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual string nombre { get; protected set; }
         public virtual DateTime fechaInicial { get; protected set; }
         public virtual DateTime fechaFinal { get; protected set; }
-        public virtual Auditoria auditoria { get; protected set; }
+        public virtual Auditoria auditoria { get;  set; }
         public virtual IList<Supervisor> supervisores { get; protected set; }
 
 
@@ -25,6 +25,12 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public Visita()
         {
             Id = Guid.NewGuid();
+            supervisores = new List<Supervisor>();
+        }
+
+        public virtual  void addSupervisor(Supervisor supervisor)
+        {
+            supervisores.Add(supervisor);
         }
 
     }

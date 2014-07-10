@@ -28,16 +28,18 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest
                    && actividadEconomicaRequests != null
                    && !string.IsNullOrEmpty(nombre)
                    &&fechaIngreso >= new DateTime(2010,1,1);
-
+                
 
         }
 
-        public bool isValidPostForEmpleo()
+        public bool isValidPostForBasicData()
         {
             return rtnRequest != null && rtnRequest.isValidPost() && !string.IsNullOrEmpty(nombre);
 
 
         }
+
+       
 
         private bool isValidSucursales()
         {

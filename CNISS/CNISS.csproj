@@ -196,6 +196,9 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserQuery\UserMapping.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserQuery\UserModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Command\VisitaMapping.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Command\VisitaModuleInsert.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Query\VisitaModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Query\SupervisorAvailableModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\AuditoriaRequest\AuditoriaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\BeneficiarioRequest\BeneficiarioRequest.cs" />
@@ -207,6 +210,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\EmpleoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\HoraRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\HorarioLaboralRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\TipoEmpleoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\ActividadEconomicaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\EmpresaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\SucursalRequest.cs" />
@@ -222,13 +226,16 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Request\IValidPut.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\IValidGet.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\RolModule\RolRequest.cs" />
-    <Compile Include="CommonDomain\Ports\Input\REST\Request\TipoEmpleoRequest\TipoEmpleoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\UserRequest\UserRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\VisitaRequest\VisitaRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\VisitaRequest\SupervisorRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\VisitaRequest\LugarVisitaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateCommandRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepositoryCompoundKey.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertTipoEmpleo.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandInsertVisita.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateActividadEconomica.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertActividadEconomica.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateEmpresaContrato.cs" />

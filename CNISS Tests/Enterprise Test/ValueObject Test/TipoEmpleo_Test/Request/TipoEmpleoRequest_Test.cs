@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
-using CNISS.CommonDomain.Ports.Input.REST.Request.TipoEmpleoRequest;
 using NUnit.Framework;
 
 namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.TipoEmpleo_Test.Request

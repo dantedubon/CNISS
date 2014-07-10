@@ -5,7 +5,7 @@ using System.Web;
 using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.TipoEmpleoModule.Commands;
 using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
-using CNISS.CommonDomain.Ports.Input.REST.Request.TipoEmpleoRequest;
+using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using Machine.Specifications;
 using Moq;

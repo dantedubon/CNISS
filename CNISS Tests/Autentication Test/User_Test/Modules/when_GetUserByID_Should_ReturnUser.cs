@@ -45,7 +45,14 @@ namespace CNISS_Tests.User_Test.Modules
                      description = _expectedUser.userRol.description,
                      idGuid = _expectedUser.userRol.Id,
                      name = _expectedUser.userRol.name,
-                     nivel = _expectedUser.userRol.nivel
+                     nivel = _expectedUser.userRol.nivel,
+                     auditoriaRequest = new AuditoriaRequest()
+                     {
+                         fechaCreo = _expectedUser.userRol.auditoria.fechaCreo,
+                         fechaModifico = _expectedUser.userRol.auditoria.fechaModifico,
+                         usuarioCreo = _expectedUser.userRol.auditoria.usuarioCreo,
+                         usuarioModifico = _expectedUser.userRol.auditoria.usuarioModifico
+                     }
                      
 
                  },

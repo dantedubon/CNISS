@@ -82,7 +82,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
                  nombre = nombre
              };
 
-             var respuesta = sucursal.isValidForPostEmpleo();
+             var respuesta = sucursal.isValidForPostBasicData();
 
              Assert.IsFalse(respuesta);
          }
@@ -97,7 +97,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
                  nombre = "Sucursal"
              };
 
-             var respuesta = sucursal.isValidForPostEmpleo();
+             var respuesta = sucursal.isValidForPostBasicData();
 
              Assert.IsTrue(respuesta);
          }

@@ -9,7 +9,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
     {
         public virtual User usuario { get; protected set; }
         public virtual Auditoria auditoria { get;  set; }
-        public virtual IList<LugarVisita> lugaresVisitas { get; protected set; }
+        public virtual IList<LugarVisita> lugaresVisitas { get;  set; }
 
         protected Supervisor()
         {

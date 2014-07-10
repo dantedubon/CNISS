@@ -19,7 +19,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest
                 && nombre!=null &&!string.IsNullOrEmpty(nombre);
         }
 
-        public bool isValidForPostEmpleo()
+        public bool isValidForPostBasicData()
         {
             return guid != Guid.Empty 
                 && nombre != null && !string.IsNullOrEmpty(nombre);

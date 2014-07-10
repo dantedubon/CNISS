@@ -13,7 +13,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
         public SucursalRequest sucursalRequest { get; set; }
         public BeneficiarioRequest.BeneficiarioRequest beneficiarioRequest { get; set; }
         public HorarioLaboralRequest horarioLaboralRequest { get; set; }
-        public TipoEmpleoRequest.TipoEmpleoRequest tipoEmpleoRequest { get; set; }
+        public TipoEmpleoRequest tipoEmpleoRequest { get; set; }
         public string cargo { get; set; }
         public decimal sueldo { get; set; }
         public DateTime fechaDeInicio { get; set; }
@@ -25,9 +25,9 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
 
         public bool isValidPost()
         {
-            return empresaRequest != null && empresaRequest.isValidPostForEmpleo()
+            return empresaRequest != null && empresaRequest.isValidPostForBasicData()
                    && beneficiarioRequest != null && beneficiarioRequest.isValidPost()
-                   && sucursalRequest != null && sucursalRequest.isValidForPostEmpleo()
+                   && sucursalRequest != null && sucursalRequest.isValidForPostBasicData()
                    && !string.IsNullOrEmpty(cargo) && cargo != null && sueldoMayorA0()
                    && fechaDeInicio >= new DateTime(2012, 1, 1)
                    && horarioLaboralRequest != null && horarioLaboralRequest.isValidPost()

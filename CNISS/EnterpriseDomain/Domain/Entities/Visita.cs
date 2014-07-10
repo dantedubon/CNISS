@@ -12,7 +12,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual DateTime fechaInicial { get; protected set; }
         public virtual DateTime fechaFinal { get; protected set; }
         public virtual Auditoria auditoria { get;  set; }
-        public virtual IList<Supervisor> supervisores { get; protected set; }
+        public virtual IList<Supervisor> supervisores { get;  set; }
 
 
         public Visita(string nombre, DateTime fechaInicial, DateTime fechaFinal):this()

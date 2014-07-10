@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.CommonDomain.Application;
-using CNISS.CommonDomain.Ports.Input.REST.Request.TipoEmpleoRequest;
+using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using Nancy;
 using Nancy.ModelBinding;

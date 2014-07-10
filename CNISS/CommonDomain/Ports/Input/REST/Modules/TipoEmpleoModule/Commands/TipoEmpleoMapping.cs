@@ -1,4 +1,4 @@
-using CNISS.CommonDomain.Ports.Input.REST.Request.TipoEmpleoRequest;
+using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.TipoEmpleoModule.Commands

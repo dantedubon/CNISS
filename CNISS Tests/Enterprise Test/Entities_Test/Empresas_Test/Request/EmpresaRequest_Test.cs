@@ -143,7 +143,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
                 nombre = nombre
             };
 
-            var respuesta = empresa.isValidPostForEmpleo();
+            var respuesta = empresa.isValidPostForBasicData();
 
             Assert.IsFalse(respuesta);
 
@@ -160,7 +160,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
                 nombre = "Empresa"
             };
 
-            var respuesta = empresa.isValidPostForEmpleo();
+            var respuesta = empresa.isValidPostForBasicData();
 
             Assert.IsTrue(respuesta);
 

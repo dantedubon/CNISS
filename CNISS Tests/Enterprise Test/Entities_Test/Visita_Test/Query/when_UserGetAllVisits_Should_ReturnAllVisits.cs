@@ -2,34 +2,95 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using CNISS.AutenticationDomain.Domain.Entities;
+using CNISS.AutenticationDomain.Domain.ValueObjects;
+using CNISS.CommonDomain.Domain;
+using CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query;
 using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.VisitaRequest;
+using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
-using Nancy;
+using CNISS.EnterpriseDomain.Domain.ValueObjects;
+using FluentAssertions;
+using Machine.Specifications;
+using Moq;
+using Nancy.Testing;
+using NHibernate.Mapping;
+using It = Machine.Specifications.It;
 
-namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query
+namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Query
 {
-    public class VisitaModuleQuery:NancyModule
+    [Subject(typeof (VisitaModuleQuery))]
+    public class when_UserGetAllVisits_Should_ReturnAllVisits
     {
-        public VisitaModuleQuery(IVisitaRepositoryReadOnly repository)
+
+        static Browser _browser;
+        static IEnumerable<VisitaRequest> _expectedVisitaRequests;
+        static IEnumerable<VisitaRequest> _visitaResponse;
+       
+        static BrowserResponse _response;
+
+        private Establish context = () =>
         {
-            Get["/visita"] = parameters =>
+            var visita = new Visita("Gira Prueba", new DateTime(2014, 8, 1), new DateTime(2014, 8, 30))
             {
-
-                var visitas = repository.getAll();
-
-                return Response.AsJson(visitas.Select(getVisitaRequest));
-
+                auditoria = new Auditoria("UsuarioCreo",new DateTime(2014,7,1),"UsuarioModifico",new DateTime(2014,7,30)),
+                supervisores = new List<Supervisor>()
+                {
+                    new Supervisor(new User("DRCD","Dante","Castillo","XXX","XXX",new Rol("Rol Prueba","Rol Prueba")))
+                    {
+                        auditoria = new Auditoria("UsuarioCreo",new DateTime(2014,7,1),"UsuarioModifico",new DateTime(2014,7,30)),
+                        lugaresVisitas = new List<LugarVisita>()
+                        {
+                            new LugarVisita(new Empresa(new RTN("08011985123960"), "XYZ",new DateTime(2014,7,15),new GremioNull()),new Sucursal("El Centro",new DireccionNull(), new FirmaAutorizadaNull()) )
+                            {
+                                auditoria = new Auditoria("UsuarioCreo",new DateTime(2014,7,1),"UsuarioModifico",new DateTime(2014,7,30))
+                            }
+                        }
+                    }
+                }
             };
-        }
 
 
-        private  VisitaRequest getVisitaRequest(Visita visita)
+            _expectedVisitaRequests = new List<VisitaRequest>() {getVisitaRequest(visita)};
+            var repository = Mock.Of<IVisitaRepositoryReadOnly>();
+            Mock.Get(repository).Setup(x => x.getAll()).Returns(new List<Visita>() {visita});
+
+
+
+            _browser = new Browser(
+
+                x =>
+                {
+                    x.Module<VisitaModuleQuery>();
+                    x.Dependencies(repository);
+                }
+            );
+
+
+
+
+        };
+
+        private Because of = () =>
+        {
+            _visitaResponse = _browser.GetSecureJson("/visita").Body.DeserializeJson<IEnumerable<VisitaRequest>>();
+        };
+
+        It should_return_allVisits = () => _visitaResponse.ShouldBeEquivalentTo(_expectedVisitaRequests);
+
+
+
+       
+
+
+        #region Metodos de Mapeo
+        private static VisitaRequest getVisitaRequest(Visita visita)
         {
             var visitaRequest = new VisitaRequest()
             {
@@ -51,7 +112,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query
         }
 
 
-        private  IList<SupervisorRequest> getSupervisoresRequests(IEnumerable<Supervisor> supervisores)
+        private static IList<SupervisorRequest> getSupervisoresRequests(IEnumerable<Supervisor> supervisores)
         {
             return supervisores.Select(x => new SupervisorRequest()
             {
@@ -73,8 +134,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query
                     password = "XXX",
                     userRol = new RolRequest()
                     {
-                        idGuid = x.usuario.userRol.Id,
-
+                        idGuid = x.usuario.userRol.Id
+                        
                     }
 
                 },
@@ -105,6 +166,6 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query
                 }).ToList()
             }).ToList();
         } 
-        
+        #endregion
     }
 }

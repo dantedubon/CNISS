@@ -17,7 +17,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Command
         {
         }
 
-        public Visita getVisitaRequest(VisitaRequest visitaRequest)
+        public Visita getVisita(VisitaRequest visitaRequest)
         {
             var auditoria = new Auditoria(visitaRequest.auditoriaRequest.usuarioCreo,
                 visitaRequest.auditoriaRequest.fechaCreo, visitaRequest.auditoriaRequest.usuarioModifico,

@@ -7,6 +7,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.VisitaRequest
 {
     public class SupervisorRequest:IValidPost
     {
+        public Guid guid { get; set; }
         public UserRequest.UserRequest userRequest { get; set; }
         public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
         public IList<LugarVisitaRequest> lugarVisitaRequests { get; set; }

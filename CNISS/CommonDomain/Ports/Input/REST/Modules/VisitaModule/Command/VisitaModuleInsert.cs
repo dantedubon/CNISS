@@ -28,7 +28,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Command
                 var visitaRequest = this.Bind<VisitaRequest>();
                 if (visitaRequest.isValidPost())
                 {
-                    var visita = _visitaMapping.getVisitaRequest(visitaRequest);
+                    var visita = _visitaMapping.getVisita(visitaRequest);
                     command.execute(visita);
                     return new Response()
                    .WithStatusCode(HttpStatusCode.OK);

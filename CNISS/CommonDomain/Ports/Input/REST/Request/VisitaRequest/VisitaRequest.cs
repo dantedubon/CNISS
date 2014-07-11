@@ -7,6 +7,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.VisitaRequest
 {
     public class VisitaRequest:IValidPost
     {
+        public Guid guid { get; set; }
         public string nombre { get; set; }
         public DateTime fechaInicial { get; set; }
         public DateTime fechaFinal { get; set; }

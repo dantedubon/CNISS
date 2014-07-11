@@ -21,7 +21,7 @@ namespace CNISS.EnterpriseDomain.Application
 
         public override bool isExecutable(Visita identity)
         {
-            return base.isExecutable(identity);
+            return _repositoryRead.exists(identity.Id) && identity.fechaInicial < identity.fechaFinal;
         }
     }
 }

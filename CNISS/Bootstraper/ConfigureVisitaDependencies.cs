@@ -23,6 +23,7 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<VisitaRepositoryReadOnly>().As<IVisitaRepositoryReadOnly>();
                     builder.RegisterType<VisitaRepositoryCommand>().As<IRepositoryCommands<Visita>>();
                     builder.RegisterType<CommandInsertVisita>().As<ICommandInsertIdentity<Visita>>();
+                    builder.RegisterType<CommandUpdateVisita>().As<ICommandUpdateIdentity<Visita>>();
                 };
             } 
         }

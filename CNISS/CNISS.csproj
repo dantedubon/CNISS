@@ -198,6 +198,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserQuery\UserModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Command\VisitaMapping.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Command\VisitaModuleInsert.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Command\VisitaModuleUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Query\VisitaModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Query\SupervisorAvailableModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\AuditoriaRequest\AuditoriaRequest.cs" />

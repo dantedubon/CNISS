@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query;
 using CNISS.EnterpriseDomain.Domain.Repositories;
 using FluentAssertions;
@@ -11,7 +8,7 @@ using Nancy;
 using Nancy.Testing;
 using It = Machine.Specifications.It;
 
-namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Query
+namespace CNISS_Tests.Entities_Test.Visita_Test.Module.Query
 {
     [Subject(typeof(SupervisorAvailableModuleQuery))]
     public class when_UserGetAvailableSupervisorBadDate_Should_Return_error

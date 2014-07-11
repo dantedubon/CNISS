@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Domain;
@@ -20,26 +19,25 @@ using FluentAssertions;
 using Machine.Specifications;
 using Moq;
 using Nancy.Testing;
-using NHibernate.Mapping;
 using It = Machine.Specifications.It;
 
-namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Query
+namespace CNISS_Tests.Entities_Test.Visita_Test.Module.Query
 {
-    [Subject(typeof (VisitaModuleQuery))]
-    public class when_UserGetAllVisits_Should_ReturnAllVisits
+    [Subject(typeof(VisitaModuleQuery))]
+    public class when_UserGetVisitByID_Should_ReturnVisit
     {
 
         static Browser _browser;
-        static IEnumerable<VisitaRequest> _expectedVisitaRequests;
-        static IEnumerable<VisitaRequest> _visitaResponse;
-       
+        static VisitaRequest _expectedVisitaRequests;
+        static VisitaRequest _visitaResponse;
+
         static BrowserResponse _response;
 
         private Establish context = () =>
         {
             var visita = new Visita("Gira Prueba", new DateTime(2014, 8, 1), new DateTime(2014, 8, 30))
             {
-                auditoria = new Auditoria("UsuarioCreo",new DateTime(2014,7,1),"UsuarioModifico",new DateTime(2014,7,30)),
+                auditoria = new Auditoria("UsuarioCreo", new DateTime(2014, 7, 1), "UsuarioModifico", new DateTime(2014, 7, 30)),
                 supervisores = new List<Supervisor>()
                 {
                     new Supervisor(new User("DRCD","Dante","Castillo","XXX","XXX",new Rol("Rol Prueba","Rol Prueba")))
@@ -57,16 +55,16 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Query
             };
 
 
-            _expectedVisitaRequests = new List<VisitaRequest>() {getVisitaRequest(visita)};
+            _expectedVisitaRequests =  getVisitaRequest(visita);
             var repository = Mock.Of<IVisitaRepositoryReadOnly>();
-            Mock.Get(repository).Setup(x => x.getAll()).Returns(new List<Visita>() {visita});
+            Mock.Get(repository).Setup(x => x.get(visita.Id)).Returns( visita );
 
 
 
             _browser = new Browser(
-
                 x =>
                 {
+                    
                     x.Module<VisitaModuleQuery>();
                     x.Dependencies(repository);
                 }
@@ -79,14 +77,14 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Query
 
         private Because of = () =>
         {
-            _visitaResponse = _browser.GetSecureJson("/visita").Body.DeserializeJson<IEnumerable<VisitaRequest>>();
+            _visitaResponse = _browser.GetSecureJson("/visita/"+_expectedVisitaRequests.guid).Body.DeserializeJson<VisitaRequest>();
         };
 
-        It should_return_allVisits = () => _visitaResponse.ShouldBeEquivalentTo(_expectedVisitaRequests);
+        It should_return_visit = () => _visitaResponse.ShouldBeEquivalentTo(_expectedVisitaRequests);
 
 
 
-       
+
 
 
         #region Metodos de Mapeo
@@ -135,7 +133,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Query
                     userRol = new RolRequest()
                     {
                         idGuid = x.usuario.userRol.Id
-                        
+
                     }
 
                 },
@@ -146,7 +144,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Query
                     {
                         rtnRequest = new RTNRequest() { RTN = z.empresa.Id.rtn },
                         nombre = z.empresa.nombre
-                        
+
                     },
                     sucursalRequest = new SucursalRequest()
                     {
@@ -165,7 +163,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Query
 
                 }).ToList()
             }).ToList();
-        } 
+        }
         #endregion
     }
 }

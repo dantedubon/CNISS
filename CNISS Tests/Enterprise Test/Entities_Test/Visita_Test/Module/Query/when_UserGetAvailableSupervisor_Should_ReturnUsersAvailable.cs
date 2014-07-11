@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using CNISS.AutenticationDomain.Domain.Entities;
-using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query;
@@ -11,7 +9,6 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
 using CNISS.EnterpriseDomain.Domain.Repositories;
-using CsQuery.ExtensionMethods;
 using FizzWare.NBuilder;
 using FluentAssertions;
 using Machine.Specifications;
@@ -19,7 +16,7 @@ using Moq;
 using Nancy.Testing;
 using It = Machine.Specifications.It;
 
-namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Query
+namespace CNISS_Tests.Entities_Test.Visita_Test.Module.Query
 {
     [Subject(typeof (SupervisorAvailableModuleQuery))]
     public class when_UserGetAvailableSupervisor_Should_ReturnUsersAvailable

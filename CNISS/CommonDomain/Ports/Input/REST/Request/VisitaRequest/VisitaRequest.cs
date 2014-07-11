@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Request.VisitaRequest
 {
-    public class VisitaRequest:IValidPost
+    public class VisitaRequest:IValidPost,IValidPut
     {
         public Guid guid { get; set; }
         public string nombre { get; set; }
@@ -31,6 +31,11 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.VisitaRequest
         private bool validSupervisor()
         {
             return supervisoresRequests.All(x => x.isValidPost());
+        }
+
+        public bool isValidPut()
+        {
+            return Guid.Empty != guid && isValidPost();
         }
     }
 }

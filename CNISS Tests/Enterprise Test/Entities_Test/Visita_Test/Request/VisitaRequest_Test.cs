@@ -16,6 +16,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Request
     public class VisitaRequest_Test
     {
         private object[] badDataForPost;
+        private object[] badDataForPut;
 
         public VisitaRequest_Test()
         {
@@ -59,6 +60,51 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Request
                     "Gira San Pedro",new DateTime(2014,8,1),new DateTime(2014,8,30),getAuditoriaRequest(),null
                 }
             };
+
+            badDataForPut = new object[]
+            {
+                 new object[]
+                {
+                   null, "Gira San Pedro",new DateTime(2014,8,1),new DateTime(2014,8,30),getAuditoriaRequest(),getSupervisorRequests()
+                },
+                 new object[]
+                {
+                    Guid.NewGuid(),"",new DateTime(2014,8,1),new DateTime(2014,8,30),getAuditoriaRequest(),getSupervisorRequests()
+                },
+                new object[]
+                {
+                   Guid.NewGuid(), null,new DateTime(2014,8,1),new DateTime(2014,8,30),getAuditoriaRequest(),getSupervisorRequests()
+                },
+                new object[]
+                {
+                    Guid.NewGuid(),"Gira San Pedro",null,new DateTime(2014,8,30),getAuditoriaRequest(),getSupervisorRequests()
+                },
+                new object[]
+                {
+                    Guid.NewGuid(),"Gira San Pedro",new DateTime(2014,8,1),null,getAuditoriaRequest(),getSupervisorRequests()
+                },
+                new object[]
+                {
+                   Guid.NewGuid(), "Gira San Pedro",new DateTime(2014,9,1),new DateTime(2014,8,30),getAuditoriaRequest(),getSupervisorRequests()
+                },
+                new object[]
+                {
+                    Guid.NewGuid(),"Gira San Pedro",new DateTime(2014,8,1),new DateTime(2014,8,30),new AuditoriaRequest(),getSupervisorRequests()
+                },
+                  new object[]
+                {
+                  Guid.NewGuid(),  "Gira San Pedro",new DateTime(2014,8,1),new DateTime(2014,8,30),null,getSupervisorRequests()
+                },
+                new object[]
+                {
+                  Guid.NewGuid(),  "Gira San Pedro",new DateTime(2014,8,1),new DateTime(2014,8,30),getAuditoriaRequest(),new List<SupervisorRequest>(){new SupervisorRequest()}
+                }
+                ,
+                new object[]
+                {
+                   Guid.NewGuid(), "Gira San Pedro",new DateTime(2014,8,1),new DateTime(2014,8,30),getAuditoriaRequest(),null
+                }
+            };
         }
 
 
@@ -69,6 +115,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Request
 
             var visita = new VisitaRequest()
             {
+                
                 auditoriaRequest = auditoria,
                 fechaFinal = fechaFinal,
                 fechaInicial = fechaInicial,
@@ -81,6 +128,27 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Request
 
 
         }
+
+         [TestCaseSource("badDataForPut")]
+         public void isValidPut_invalidData_returnFalse(Guid idGuid,string nombre, DateTime fechaInicial, DateTime fechaFinal, AuditoriaRequest auditoria, IList<SupervisorRequest> supervisoresRequests)
+         {
+
+
+             var visita = new VisitaRequest()
+             {
+                 guid = idGuid,
+                 auditoriaRequest = auditoria,
+                 fechaFinal = fechaFinal,
+                 fechaInicial = fechaInicial,
+                 nombre = nombre,
+                 supervisoresRequests = supervisoresRequests
+             };
+
+             var respuesta = visita.isValidPut();
+             Assert.IsFalse(respuesta);
+
+
+         }
 
          [Test]
          public void isValidPost_validData_returnTrue()

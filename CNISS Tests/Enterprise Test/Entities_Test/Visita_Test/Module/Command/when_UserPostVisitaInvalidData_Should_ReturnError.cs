@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using CNISS.CommonDomain.Application;
-using CNISS.CommonDomain.Domain;
+﻿using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Command;
 using CNISS.CommonDomain.Ports.Input.REST.Request.VisitaRequest;
 using CNISS.EnterpriseDomain.Domain.Entities;
@@ -14,7 +9,7 @@ using Nancy;
 using Nancy.Testing;
 using It = Machine.Specifications.It;
 
-namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Command
+namespace CNISS_Tests.Entities_Test.Visita_Test.Module.Command
 {
     [Subject(typeof (VisitaModuleInsert))]
     public class when_UserPostVisitaInvalidData_Should_ReturnError

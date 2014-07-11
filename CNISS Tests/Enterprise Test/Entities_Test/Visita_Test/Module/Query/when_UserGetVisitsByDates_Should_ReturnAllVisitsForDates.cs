@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Domain;
@@ -22,7 +21,7 @@ using Moq;
 using Nancy.Testing;
 using It = Machine.Specifications.It;
 
-namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Query
+namespace CNISS_Tests.Entities_Test.Visita_Test.Module.Query
 {
     [Subject(typeof(VisitaModuleQuery))]
     public class when_UserGetVisitsByDates_Should_ReturnAllVisitsForDates

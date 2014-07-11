@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Application;
@@ -16,14 +15,12 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.VisitaRequest;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
-using FluentAssertions;
 using Machine.Specifications;
 using Moq;
-using Nancy;
 using Nancy.Testing;
 using It = Machine.Specifications.It;
 
-namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Command
+namespace CNISS_Tests.Entities_Test.Visita_Test.Module.Command
 {
     [Subject(typeof(VisitaModuleInsert))]
     public class when_UserPostVisitaValidData_Should_SaveVisita

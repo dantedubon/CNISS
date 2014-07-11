@@ -11,5 +11,6 @@ namespace CNISS.EnterpriseDomain.Domain.Repositories
     public interface IVisitaRepositoryReadOnly:IRepositoryReadOnly<Visita,Guid>
     {
         IEnumerable<User> usuariosSinVisitaAgendada(DateTime fechaInicial, DateTime fechaFinal);
+        IEnumerable<Visita> visitasEntreFechas(DateTime fechaInicial, DateTime fechaFinal);
     }
 }

@@ -158,6 +158,7 @@
     <Compile Include="Repositories\RolRepository\ReadOnly\RolRepositoryReadOnlyTest.cs" />
     <Compile Include="Repositories\RolRepository\ReadOnly\when_GetSpecificRolById_Should_ReturnRol.cs" />
     <Compile Include="Repositories\RolRepository\ReadOnly\when_ListAllRol_Should_ReturnFromDB.cs" />
+    <Compile Include="Repositories\VisitaRepository\ReadOnly\when_UserAskVisitasBetweenDates_Should_ReturnVisitas.cs" />
     <Compile Include="Repositories\VisitaRepository\ReadOnly\when_UserAskUsersNoSupervisores_Should_ReturnUsersNoSupervisores.cs" />
     <Compile Include="Repositories\VisitaRepository\ReadOnly\when_UserAskExistingVisita_Should_ReturnTrue.cs" />
     <Compile Include="SecureBrowserExtensions.cs" />

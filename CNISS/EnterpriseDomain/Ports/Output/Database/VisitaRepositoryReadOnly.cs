@@ -27,6 +27,14 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
                     select visita.Id).Any();
         }
 
+        public IEnumerable<Visita> visitasEntreFechas(DateTime fechaInicial, DateTime fechaFinal)
+        {
+            var visitas =
+                Session.Query<Visita>()
+                    .Where(visita => visita.fechaInicial < fechaFinal && fechaInicial < visita.fechaFinal);
+            return visitas.ToList();
+        }
+
         public IEnumerable<User> usuariosSinVisitaAgendada(DateTime fechaInicial, DateTime fechaFinal)
         {
        

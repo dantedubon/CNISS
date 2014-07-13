@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using Autofac;
 using CNISS.Bootstraper;
+using Nancy;
+using Nancy.Authentication.Token;
+using Nancy.Bootstrapper;
 using Nancy.Bootstrappers.Autofac;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Infraestructure
@@ -16,6 +19,9 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Infraestructure
 
             };
         }
+
+      
+
 
         protected void addBootstrapperTask(IBootstrapperTask<ContainerBuilder> bootstrapper)
         {

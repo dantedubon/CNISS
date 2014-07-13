@@ -6,6 +6,7 @@ using CNISS.AutenticationDomain.Domain.Repositories;
 using CNISS.AutenticationDomain.Domain.Services;
 using CNISS.AutenticationDomain.Ports.Output.Database;
 using CNISS.CommonDomain.Application;
+using Nancy.Authentication.Token;
 using Nancy.Cryptography;
 
 namespace CNISS.Bootstraper
@@ -26,7 +27,13 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<CryptoService>().As<ICryptoService>();
                     builder.RegisterType<CommandUpdateUser>().As<ICommandUpdateIdentity<User>>();
                     builder.RegisterType<CommandDeleteUser>().As<ICommandDeleteIdentity<User>>();
-
+                    builder.Register(c => new Tokenizer(configurator => configurator.TokenExpiration(()=> new TimeSpan(1,0,0,0))))
+                        .As<ITokenizer>();
+                    builder.Register(
+                        c =>
+                            new AuthenticateUser(c.Resolve<IUserRepositoryReadOnly>(), (x) => new UserKeyRecovery(x),
+                                generator => new DefaultHmacProvider(generator),
+                                (generator, func) => new CryptoService(generator, func))).As<IAuthenticateUser>();
 
 
                 };

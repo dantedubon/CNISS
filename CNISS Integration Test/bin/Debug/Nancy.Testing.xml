@@ -88,18 +88,20 @@
             Provides the capability of executing a request with Nancy, using a specific configuration provided by an <see cref="T:Nancy.Bootstrapper.INancyBootstrapper"/> instance.
             </summary>
         </member>
-        <member name="M:Nancy.Testing.Browser.#ctor(System.Action{Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator})">
+        <member name="M:Nancy.Testing.Browser.#ctor(System.Action{Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator},System.Action{Nancy.Testing.BrowserContext})">
             <summary>
             Initializes a new instance of the <see cref="T:Nancy.Testing.Browser"/> class, with the
             provided <see cref="T:Nancy.Testing.ConfigurableBootstrapper"/> configuration.
             </summary>
             <param name="action">The <see cref="T:Nancy.Testing.ConfigurableBootstrapper"/> configuration that should be used by the bootstrapper.</param>
+            <param name="defaults">The default <see cref="T:Nancy.Testing.BrowserContext"/> that should be used in a all requests through this browser object.</param>
         </member>
-        <member name="M:Nancy.Testing.Browser.#ctor(Nancy.Bootstrapper.INancyBootstrapper)">
+        <member name="M:Nancy.Testing.Browser.#ctor(Nancy.Bootstrapper.INancyBootstrapper,System.Action{Nancy.Testing.BrowserContext})">
             <summary>
             Initializes a new instance of the <see cref="T:Nancy.Testing.Browser"/> class.
             </summary>
             <param name="bootstrapper">A <see cref="T:Nancy.Bootstrapper.INancyBootstrapper"/> instance that determines the Nancy configuration that should be used by the browser.</param>
+            <param name="defaults">The default <see cref="T:Nancy.Testing.BrowserContext"/> that should be used in a all requests through this browser object.</param>
         </member>
         <member name="M:Nancy.Testing.Browser.Delete(System.String,System.Action{Nancy.Testing.BrowserContext})">
             <summary>
@@ -257,6 +259,11 @@
             Gets or sets the querystring
             </summary>
         </member>
+        <member name="P:Nancy.Testing.IBrowserContextValues.HostName">
+            <summary>
+            Gets or sets the basePath string
+            </summary>
+        </member>
         <member name="P:Nancy.Testing.IBrowserContextValues.UserHostAddress">
             <summary>
             Gets or sets the user host address
@@ -326,6 +333,12 @@
             Sets the user host address.
             </summary>
         </member>
+        <member name="M:Nancy.Testing.BrowserContext.HostName(System.String)">
+            <summary>
+            Sets the host name.
+            </summary>
+            <param name="hostName">is the host name of request url string</param>
+        </member>
         <member name="M:Nancy.Testing.BrowserContext.Certificate">
             <summary>
             Sets the ClientCertificate to a default embedded certificate
@@ -368,6 +381,11 @@
         <member name="P:Nancy.Testing.BrowserContext.Nancy#Testing#IBrowserContextValues#QueryString">
             <summary>
             Gets or sets the querystring
+            </summary>
+        </member>
+        <member name="P:Nancy.Testing.BrowserContext.Nancy#Testing#IBrowserContextValues#HostName">
+            <summary>
+            Gets or sets the user host name
             </summary>
         </member>
         <member name="P:Nancy.Testing.BrowserContext.Nancy#Testing#IBrowserContextValues#UserHostAddress">
@@ -662,6 +680,29 @@
             <param name="location">The location that should have been redirected to.</param>
             <param name="stringComparer">The string comparer that should be used by the assertion. The default value is <see cref="F:System.StringComparison.InvariantCulture"/>.</param>
         </member>
+        <member name="T:Nancy.Testing.StaticConfigurationContext">
+            <summary>
+            Helper class for running tests with <see cref="T:Nancy.StaticConfiguration"/> setup in a certain way. This
+            class was designed to be used with a using-statement. Upon disposable the previous static configuration
+            values will be reset, leaving it in the state is was before the test.
+            </summary>
+        </member>
+        <member name="M:Nancy.Testing.StaticConfigurationContext.#ctor(System.Action{Nancy.Testing.StaticConfigurationContext.StaticConfigurationValues})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Nancy.Testing.StaticConfigurationContext"/> class.
+            </summary>
+            <param name="closure">The configuration context.</param>
+        </member>
+        <member name="M:Nancy.Testing.StaticConfigurationContext.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="T:Nancy.Testing.StaticConfigurationContext.StaticConfigurationValues">
+            <summary>
+            Helper class used to persist state of <see cref="T:Nancy.StaticConfiguration"/> members.
+            </summary>
+        </member>
         <member name="T:Nancy.Testing.TestingViewBrowserResponseExtensions">
             <summary>
             Extension methods for easy access of the properties
@@ -826,11 +867,17 @@
             </summary>
             <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance containing <see cref="T:Nancy.Bootstrapper.IApplicationStartup"/> instances. </returns>
         </member>
-        <member name="M:Nancy.Testing.ConfigurableBootstrapper.GetApplicationRegistrationTasks">
+        <member name="M:Nancy.Testing.ConfigurableBootstrapper.RegisterAndGetRequestStartupTasks(Nancy.TinyIoc.TinyIoCContainer,System.Type[])">
+            <summary>
+            Gets all registered request startup tasks
+            </summary>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance containing <see cref="T:Nancy.Bootstrapper.IRequestStartup"/> instances.</returns>
+        </member>
+        <member name="M:Nancy.Testing.ConfigurableBootstrapper.GetRegistrationTasks">
             <summary>
             Gets all registered application registration tasks
             </summary>
-            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance containing <see cref="T:Nancy.Bootstrapper.IApplicationRegistrations"/> instances.</returns>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance containing <see cref="T:Nancy.Bootstrapper.IRegistrations"/> instances.</returns>
         </member>
         <member name="M:Nancy.Testing.ConfigurableBootstrapper.RegisterBootstrapperTypes(Nancy.TinyIoc.TinyIoCContainer)">
             <summary>
@@ -1151,6 +1198,20 @@
             <typeparam name="T">The type of the <see cref="T:Nancy.ViewEngines.IRenderContextFactory"/> that the bootstrapper should use.</typeparam>
             <returns>A reference to the current <see cref="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator"/>.</returns>
         </member>
+        <member name="M:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator.RequestTraceFactory(Nancy.Diagnostics.IRequestTraceFactory)">
+            <summary>
+            Configures the bootstrapper to use the provided instance of <see cref="T:Nancy.Diagnostics.IRequestTraceFactory"/>.
+            </summary>
+            <param name="requestTraceFactory">The <see cref="T:Nancy.Diagnostics.IRequestTraceFactory"/> instance that should be used by the bootstrapper.</param>
+            <returns>A reference to the current <see cref="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator"/>.</returns>
+        </member>
+        <member name="M:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator.RequestTraceFactory``1">
+            <summary>
+            Configures the bootstrapper to create an <see cref="T:Nancy.Diagnostics.IRequestTraceFactory"/> instance of the specified type.
+            </summary>
+            <typeparam name="T">The type of the <see cref="T:Nancy.Diagnostics.IRequestTraceFactory"/> that the bootstrapper should use.</typeparam>
+            <returns>A reference to the current <see cref="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator"/>.</returns>
+        </member>
         <member name="M:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator.ResponseFormatterFactory(Nancy.IResponseFormatterFactory)">
             <summary>
             Configures the bootstrapper to use the provided instance of <see cref="T:Nancy.IResponseFormatterFactory"/>.
@@ -1317,6 +1378,34 @@
             Configures the bootstrapper to use the provided instance of <see cref="T:Nancy.Routing.IRouteDescriptionProvider"/>.
             </summary>
             <param name="routeDescriptionProvider">The <see cref="T:Nancy.Routing.IRouteDescriptionProvider"/> instance that should be used by the bootstrapper.</param>
+            <returns>A reference to the current <see cref="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator"/>.</returns>
+        </member>
+        <member name="M:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator.RouteMetadataProvider(Nancy.Routing.IRouteMetadataProvider)">
+            <summary>
+            Configures the bootstrapper to use the provided instance of <see cref="T:Nancy.Routing.IRouteMetadataProvider"/>.
+            </summary>
+            <param name="routeMetadataProviders">The <see cref="T:Nancy.Routing.IRouteMetadataProvider"/> instance that should be used by the bootstrapper.</param>
+            <returns>A reference to the current <see cref="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator"/>.</returns>
+        </member>
+        <member name="M:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator.RouteMetadataProvider``1">
+            <summary>
+            Configures the bootstrapper to create an <see cref="T:Nancy.Routing.IRouteMetadataProvider"/> instance of the specified type.
+            </summary>
+            <typeparam name="T">The type of the <see cref="T:Nancy.Routing.IRouteMetadataProvider"/> that the bootstrapper should use.</typeparam>
+            <returns>A reference to the current <see cref="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator"/>.</returns>
+        </member>
+        <member name="M:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator.RouteMetadataProviders(System.Type[])">
+            <summary>
+            Configures the bootstrapper to use the provided <see cref="T:Nancy.Routing.IRouteMetadataProvider"/> types.
+            </summary>
+            <param name="routeMetadataProviders">The <see cref="T:Nancy.Routing.IRouteMetadataProvider"/> types that should be used by the bootstrapper.</param>
+            <returns>A reference to the current <see cref="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator"/>.</returns>
+        </member>
+        <member name="M:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator.RouteMetadataProviders(Nancy.Routing.IRouteMetadataProvider[])">
+            <summary>
+            Configures the bootstrapper to use the provided instances of <see cref="T:Nancy.Routing.IRouteMetadataProvider"/>.
+            </summary>
+            <param name="routeMetadataProviders">The <see cref="T:Nancy.Routing.IRouteMetadataProvider"/> types that should be used by the bootstrapper.</param>
             <returns>A reference to the current <see cref="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator"/>.</returns>
         </member>
         <member name="M:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator.RouteSegmentExtractor``1">
@@ -1569,6 +1658,34 @@
             Configures the bootstrapper to create an <see cref="T:Nancy.Routing.Trie.ITrieNodeFactory"/> instance of the specified type.
             </summary>
             <typeparam name="T">The type of the <see cref="T:Nancy.Routing.Trie.ITrieNodeFactory"/> that the bootstrapper should use.</typeparam>
+            <returns>A reference to the current <see cref="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator"/>.</returns>
+        </member>
+        <member name="M:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator.RouteSegmentConstraint``1">
+            <summary>
+            Configures the bootstrapper to create an <see cref="T:Nancy.Routing.Constraints.IRouteSegmentConstraint"/> instance of the specified type.
+            </summary>
+            <typeparam name="T">The type of the <see cref="T:Nancy.Routing.Constraints.IRouteSegmentConstraint"/> that the bootstrapper should use.</typeparam>
+            <returns>A reference to the current <see cref="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator"/>.</returns>
+        </member>
+        <member name="M:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator.RouteSegmentConstraints(System.Type[])">
+            <summary>
+            Configures the bootstrapper to use specific route segment constraints.
+            </summary>
+            <param name="types">Collection of route segment constraint types.</param>
+            <returns>A reference to the current <see cref="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator"/>.</returns>
+        </member>
+        <member name="M:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator.ResponseNegotiator(Nancy.Responses.Negotiation.IResponseNegotiator)">
+            <summary>
+            Configures the bootstrapper to use the provided instance of <see cref="T:Nancy.Responses.Negotiation.IResponseNegotiator"/>.
+            </summary>
+            <param name="negotiator">The <see cref="T:Nancy.Responses.Negotiation.IResponseNegotiator"/> instance that should be used by the bootstrapper.</param>
+            <returns>A reference to the current <see cref="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator"/>.</returns>
+        </member>
+        <member name="M:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator.ResponseNegotiator``1">
+            <summary>
+            Configures the bootstrapper to create an <see cref="T:Nancy.Responses.Negotiation.IResponseNegotiator"/> instance of the specified type.
+            </summary>
+            <typeparam name="T">The type of the <see cref="T:Nancy.Responses.Negotiation.IResponseNegotiator"/> that the bootstrapper should use.</typeparam>
             <returns>A reference to the current <see cref="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableBootstrapperConfigurator"/>.</returns>
         </member>
         <member name="T:Nancy.Testing.ConfigurableBootstrapper.ConfigurableModuleCatalog">
@@ -1862,7 +1979,7 @@
         </member>
         <member name="P:Nancy.Testing.IndexHelper`2.Item(`0)">
             <summary>
-            Gets the <see cref="!:TValue"/> with the specified key.
+            Gets the <typeparamref name="TValue"/> with the specified key.
             </summary>
             <value>The value of the indexer.</value>
         </member>

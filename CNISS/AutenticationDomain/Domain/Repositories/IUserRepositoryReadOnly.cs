@@ -5,5 +5,6 @@ namespace CNISS.AutenticationDomain.Domain.Repositories
 {
     public interface IUserRepositoryReadOnly : IRepositoryReadOnly<User, string>
     {
+     
     }
 }

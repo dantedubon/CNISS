@@ -7,6 +7,12 @@ namespace CNISS_Tests.User_Test.Modules
 {
     public class UserRequestTest:TestFixtureAttribute
     {
+        public object[] badRequestForAuthenticate =
+        {
+            new object[] {"", "password"},
+            new object[] {"user", ""}
+        };
+
         public object[] badRequestForPost =
         {
            new object[] {null,null,null,null,null,null},
@@ -40,6 +46,20 @@ namespace CNISS_Tests.User_Test.Modules
             
         }
 
+
+        [TestCaseSource("badRequestForAuthenticate")]
+        public void isValidForAuthenticate_InvalidData_ReturnsFalse(string id, string password)
+        {
+            var request = new UserRequest()
+            {
+                Id = id,
+                password = password
+
+
+            };
+
+            Assert.IsFalse(request.isValidForAuthenticate());
+        }
         [Test]
         public void isValidPost_ValidData_ReturnTrue()
         {

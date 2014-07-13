@@ -13,13 +13,15 @@ namespace CNISS.AutenticationDomain.Domain.Services
         {
             _keyGenerator = keyGenerator;
             _hmacProvider = hmacProvider(_keyGenerator);
-            
+
+
         }
 
       
 
         public string getEncryptedText(string text)
         {
+            
             var data = _hmacProvider.GenerateHmac(text);
             return Convert.ToBase64String(data);
         }
@@ -27,6 +29,21 @@ namespace CNISS.AutenticationDomain.Domain.Services
         public string getKey()
         {
             return Convert.ToBase64String(_keyGenerator.GetBytes(1));
+        }
+    }
+
+    public class CrytoUserKeyRecoveryService: ICryptoService
+    {
+
+
+        public string getEncryptedText(string text)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string getKey()
+        {
+            throw new NotImplementedException();
         }
     }
 }

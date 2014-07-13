@@ -29,6 +29,10 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest
 
         }
 
+        public bool isValidForAuthenticate()
+        {
+            return !string.IsNullOrEmpty(Id) && !string.IsNullOrEmpty(password);   
+        }
        
         public bool isValidDelete()
         {

@@ -23,6 +23,7 @@ C:\CNISS\CNISS Integration Test\bin\Debug\System.Data.SQLite.EF6.dll
 C:\CNISS\CNISS Integration Test\bin\Debug\System.Data.SQLite.Linq.dll
 C:\CNISS\CNISS Integration Test\bin\Debug\Autofac.dll
 C:\CNISS\CNISS Integration Test\bin\Debug\Nancy.Bootstrappers.Autofac.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\Nancy.Authentication.Token.dll
 C:\CNISS\CNISS Integration Test\bin\Debug\log4net.dll
 C:\CNISS\CNISS Integration Test\bin\Debug\CNISS.pdb
 C:\CNISS\CNISS Integration Test\bin\Debug\CsQuery.xml
@@ -41,6 +42,7 @@ C:\CNISS\CNISS Integration Test\bin\Debug\NHibernate.xml
 C:\CNISS\CNISS Integration Test\bin\Debug\nunit.framework.xml
 C:\CNISS\CNISS Integration Test\bin\Debug\System.Data.SQLite.xml
 C:\CNISS\CNISS Integration Test\bin\Debug\Autofac.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\Nancy.Authentication.Token.xml
 C:\CNISS\CNISS Integration Test\bin\Debug\log4net.xml
 C:\CNISS\CNISS Integration Test\obj\Debug\CNISS Integration Test.csprojResolveAssemblyReference.cache
 C:\CNISS\CNISS Integration Test\obj\Debug\CNISS Integration Test.dll

@@ -1,6 +1,8 @@
 ﻿using System;
+using Autofac;
 using CNISS.Bootstraper;
 using Nancy;
+using Nancy.Authentication.Token;
 using Nancy.Conventions;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Infraestructure
@@ -17,16 +19,21 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Infraestructure
             addBootstrapperTask(new ConfigureEmpresaDependencies());
             addBootstrapperTask(new ConfigureEmpleoDependencies());
             addBootstrapperTask(new ConfigureVisitaDependencies());
+
+       
+
+
         }
         protected override void RequestStartup(Autofac.ILifetimeScope container, Nancy.Bootstrapper.IPipelines pipelines, NancyContext context)
         {
-
+            TokenAuthentication.Enable(pipelines, new TokenAuthenticationConfiguration(container.Resolve<ITokenizer>()));
             pipelines.AfterRequest.AddItemToEndOfPipeline(AddCorsHeaders());
 
             pipelines.OnError.AddItemToEndOfPipeline((ctx, err) =>
                 HandleExceptions(err, ctx)
                 );
 
+        
             base.RequestStartup(container, pipelines, context);
         }
 

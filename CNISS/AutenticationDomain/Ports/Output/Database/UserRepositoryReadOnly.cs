@@ -26,6 +26,6 @@ namespace CNISS.AutenticationDomain.Ports.Output.Database
                 .Any();
         }
 
-        
+      
     }
 }

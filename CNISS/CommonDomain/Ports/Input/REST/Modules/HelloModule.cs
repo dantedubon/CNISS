@@ -7,6 +7,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules
         public HelloModule()
         {
             Get["/"] = parameters => "Hello World";
+            
         }
 
     }

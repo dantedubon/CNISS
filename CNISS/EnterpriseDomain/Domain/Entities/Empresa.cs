@@ -20,7 +20,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 
         protected Empresa()
         {
-            
+            sucursales = new List<Sucursal>();
         }
 
 
@@ -29,7 +29,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
            sucursales.Add(sucursal);
         }
 
-        public Empresa(RTN rtnEmpresa, string nombre,DateTime fechaIngreso, Gremio gremial)
+        public Empresa(RTN rtnEmpresa, string nombre,DateTime fechaIngreso, Gremio gremial):this()
         {
             this.nombre = nombre;
             this.fechaIngreso = fechaIngreso;

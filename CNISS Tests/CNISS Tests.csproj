@@ -114,7 +114,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Autentication Test\User_Test\Cryptography\AuthenticateUser_Test.cs" />
-    <Compile Include="Autentication Test\User_Test\Modules\Class1.cs" />
+    <Compile Include="Autentication Test\User_Test\Modules\when_MovilUserGetLugaresVisitasUserNotHaveAgenda_Should_ReturnError.cs" />
+    <Compile Include="Autentication Test\User_Test\Modules\when_MovilUserGetLugaresVisitas_Should_ReturnLugaresVisita.cs" />
     <Compile Include="Autentication Test\User_Test\Modules\when_UserAuthenticateUserValid_Should_ReturnToken.cs" />
     <Compile Include="Autentication Test\User_Test\Modules\when_UserAuthenticateUserInvalid_Should_ReturnError.cs" />
     <Compile Include="Autentication Test\User_Test\Modules\when_UserAuthenticateWithBadUserInfo_Should_ReturnError.cs" />

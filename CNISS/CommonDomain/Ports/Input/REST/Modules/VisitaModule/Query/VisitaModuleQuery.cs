@@ -107,7 +107,25 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query
                     sucursalRequest = new SucursalRequest()
                     {
                         guid = z.sucursal.Id,
-                        nombre = z.sucursal.nombre
+                        nombre = z.sucursal.nombre,
+                        direccionRequest = new DireccionRequest()
+                        {
+                            departamentoRequest = new DepartamentoRequest()
+                            {
+                                idDepartamento = z.sucursal.direccion.departamento.Id,
+                                nombre = z.sucursal.direccion.departamento.nombre
+                            },
+                            municipioRequest = new MunicipioRequest()
+                            {
+                                idDepartamento = z.sucursal.direccion.municipio.departamentoId,
+                                idMunicipio = z.sucursal.direccion.municipio.Id,
+                                nombre = z.sucursal.direccion.municipio.nombre
+                            },
+                            descripcion = z.sucursal.direccion.referenciaDireccion
+
+
+                        }
+                        
                     },
                     auditoriaRequest = new AuditoriaRequest()
                     {

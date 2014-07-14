@@ -155,7 +155,6 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\ActividadEconomicaModule\Commands\ActividadEconomicaModuleUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\ActividadEconomicaModule\Query\ActividadesEconomicasModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\ActividadEconomicaModule\Commands\ActividadEconomicaModuleInsert.cs" />
-    <Compile Include="CommonDomain\Ports\Input\REST\Modules\AuthModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\Commands\BeneficiarioMap.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\Commands\BeneficiarioModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\Commands\BeneficiarioModuleUpdate.cs" />
@@ -192,15 +191,17 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\TipoEmpleoModule\Commands\TipoEmpleoModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\TipoEmpleoModule\Commands\TipoEmpleoModuleUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\TipoEmpleoModule\Query\TipoEmpleoModuleQuery.cs" />
-    <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserIdentityMovil.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\AuthModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserCommands\UserModuleCommandUpdate.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserIdentityMovil.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserQuery\UserMapping.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\UserModule\UserQuery\UserModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Command\VisitaMapping.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Command\VisitaModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Command\VisitaModuleUpdate.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Query\SupervisorLugaresVisitaModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Query\VisitaModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\VisitaModule\Query\SupervisorAvailableModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\AuditoriaRequest\AuditoriaRequest.cs" />

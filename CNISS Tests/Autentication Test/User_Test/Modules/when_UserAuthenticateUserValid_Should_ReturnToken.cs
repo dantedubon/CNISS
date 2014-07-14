@@ -6,6 +6,7 @@ using CNISS.AutenticationDomain.Domain.Entities;
 using CNISS.AutenticationDomain.Domain.Services;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Ports.Input.REST.Modules;
+using CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
 using Machine.Specifications;
 using Machine.Specifications.Factories;
@@ -43,7 +44,7 @@ namespace CNISS_Tests.Autentication_Test.User_Test.Modules
             var user = new User(_userRequest.Id, _userRequest.firstName, _userRequest.secondName, _userRequest.password,
                 _userRequest.mail, new RolNull());
            
-            Mock.Get(authenticator).Setup(x => x.isValidUser(user, 1)).Returns(true);
+            Mock.Get(authenticator).Setup(x => x.isValidUser(user, 2)).Returns(true);
             Mock.Get(tokenizer)
                 .Setup(x => x.Tokenize(Moq.It.IsAny<IUserIdentity>(),Moq.It.IsAny<NancyContext>() ))
                 .Returns(_expectedToken);

@@ -114,9 +114,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Autentication Test\User_Test\Cryptography\AuthenticateUser_Test.cs" />
+    <Compile Include="Autentication Test\User_Test\Modules\Class1.cs" />
     <Compile Include="Autentication Test\User_Test\Modules\when_UserAuthenticateUserValid_Should_ReturnToken.cs" />
     <Compile Include="Autentication Test\User_Test\Modules\when_UserAuthenticateUserInvalid_Should_ReturnError.cs" />
     <Compile Include="Autentication Test\User_Test\Modules\when_UserAuthenticateWithBadUserInfo_Should_ReturnError.cs" />
+    <Compile Include="DummyUserIdentityMovil.cs" />
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetPersonGiveInvalidID_Should_Return_Error.cs" />
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetPersonGiveValidId_Should_ReturnPersonInformation.cs" />
     <Compile Include="Enterprise Test\DomainServices\Modules\when_UserGetInvalidRTN_Should_ReturnFalse.cs" />

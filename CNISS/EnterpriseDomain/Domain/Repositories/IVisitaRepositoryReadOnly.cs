@@ -12,5 +12,6 @@ namespace CNISS.EnterpriseDomain.Domain.Repositories
     {
         IEnumerable<User> usuariosSinVisitaAgendada(DateTime fechaInicial, DateTime fechaFinal);
         IEnumerable<Visita> visitasEntreFechas(DateTime fechaInicial, DateTime fechaFinal);
+        Supervisor getAgendaSupervisor(User user);
     }
 }

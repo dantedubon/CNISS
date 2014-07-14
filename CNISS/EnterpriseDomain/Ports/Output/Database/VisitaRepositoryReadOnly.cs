@@ -35,6 +35,18 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
             return visitas.ToList();
         }
 
+        public Supervisor getAgendaSupervisor(User user)
+        {
+            var fechaActual = DateTime.Now.Date;
+            var supervisoresActuales = Session.Query<Visita>()
+                .Where(visita => visita.fechaInicial <= fechaActual && visita.fechaFinal >= fechaActual)
+                .SelectMany(users => users.supervisores).ToFuture();
+
+            var resultado = supervisoresActuales.FirstOrDefault(supervisor => supervisor.usuario.Id == user.Id);
+            return resultado;
+        }
+
+
         public IEnumerable<User> usuariosSinVisitaAgendada(DateTime fechaInicial, DateTime fechaFinal)
         {
        

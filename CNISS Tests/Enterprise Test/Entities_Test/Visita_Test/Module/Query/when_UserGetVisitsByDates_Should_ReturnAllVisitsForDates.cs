@@ -49,7 +49,7 @@ namespace CNISS_Tests.Entities_Test.Visita_Test.Module.Query
                         auditoria = new Auditoria("UsuarioCreo",new DateTime(2014,7,1),"UsuarioModifico",new DateTime(2014,7,30)),
                         lugaresVisitas = new List<LugarVisita>()
                         {
-                            new LugarVisita(new Empresa(new RTN("08011985123960"), "XYZ",new DateTime(2014,7,15),new GremioNull()),new Sucursal("El Centro",new DireccionNull(), new FirmaAutorizadaNull()) )
+                            new LugarVisita(new Empresa(new RTN("08011985123960"), "XYZ",new DateTime(2014,7,15),new GremioNull()),new Sucursal("El Centro",new Direccion(new Departamento(){Id = "01",nombre = "Francisco Morazan"},new Municipio("01","01","Distrito Central"),"Barrio Abajo"), new FirmaAutorizadaNull()) )
                             {
                                 auditoria = new Auditoria("UsuarioCreo",new DateTime(2014,7,1),"UsuarioModifico",new DateTime(2014,7,30))
                             }
@@ -153,7 +153,24 @@ namespace CNISS_Tests.Entities_Test.Visita_Test.Module.Query
                     sucursalRequest = new SucursalRequest()
                     {
                         guid = z.sucursal.Id,
-                        nombre = z.sucursal.nombre
+                        nombre = z.sucursal.nombre,
+                        direccionRequest = new DireccionRequest()
+                        {
+                            departamentoRequest = new DepartamentoRequest()
+                            {
+                                idDepartamento = z.sucursal.direccion.departamento.Id,
+                                nombre = z.sucursal.direccion.departamento.nombre
+                            },
+                            municipioRequest = new MunicipioRequest()
+                            {
+                                idDepartamento = z.sucursal.direccion.municipio.departamentoId,
+                                idMunicipio = z.sucursal.direccion.municipio.Id,
+                                nombre = z.sucursal.direccion.municipio.nombre
+                            },
+                            descripcion = z.sucursal.direccion.referenciaDireccion
+
+
+                        }
                     },
                     auditoriaRequest = new AuditoriaRequest()
                     {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using CNISS.AutenticationDomain.Domain.Services;
 using CNISS.CommonDomain.Ports.Input.REST.Modules;
+using CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
 using Machine.Specifications;
 using Moq;

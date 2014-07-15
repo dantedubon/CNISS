@@ -256,6 +256,13 @@
     <Compile Include="Enterprise Test\ValueObject Test\Identidad_Test\Identidad_Test.cs" />
     <Compile Include="Enterprise Test\Entities_Test\RepresentanteLegal\RepresentanteLegal_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Identidad_Test\Request\IdentidadRequest_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\MotivoDespido_Test\Command\CommandUpdateMotivoDespido_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\MotivoDespido_Test\Module\when_UserPostNewMotivoDespidoInvalidData_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\MotivoDespido_Test\Module\when_UserPostNewMotivoDespidoValidData_Should_SaveTipoEmpleo.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\MotivoDespido_Test\Module\when_UserPutMotivoDespidoBadData_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\MotivoDespido_Test\Module\when_UserPutMotivoDespidoNotExists_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\MotivoDespido_Test\Module\when_UserPutTipoEmpleoValid_Should_UpdateTipoEmpleo.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\MotivoDespido_Test\Request\MotivoDespidoRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Municipio_Test\Request\MunicipioRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Nombre_Test\NombreRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Parentesco_Test\Module\when_UserGetAllParentesco_Should_.cs" />

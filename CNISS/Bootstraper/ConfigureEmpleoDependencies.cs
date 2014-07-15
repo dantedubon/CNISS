@@ -31,10 +31,15 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<CommandUpdateEmpleoImagenComprobantePago>()
                         .As<ICommandUpdateEmpleoImagenComprobantePago>();
                     builder.RegisterType<TipoDeEmpleoRepositoryReadOnly>().As<ITipoDeEmpleoReadOnlyRepository>();
+
+                    builder.RegisterType<MotivoDespidoRepositoryReadOnly>().As<IMotivoDespidoRepositoryReadOnly>();
                     builder.RegisterType<ProvideAllowedDaysForNewEmpleo>().As<IProvideAllowedDaysForNewEmpleo>();
                     builder.RegisterType<CommandInsertTipoEmpleo>().As<ICommandInsertIdentity<TipoEmpleo>>();
+                    builder.RegisterType<CommandInsertMotivoDespido>().As<ICommandInsertIdentity<MotivoDespido>>();
                     builder.RegisterType<CommandUpdateTipoEmpleo>().As<ICommandUpdateIdentity<TipoEmpleo>>();
+                    builder.RegisterType<CommandUpdateMotivoDespido>().As<ICommandUpdateIdentity<MotivoDespido>>();
                     builder.RegisterType<TipoDeEmpleoRepositoryCommand>().As<IRepositoryCommands<TipoEmpleo>>();
+                    builder.RegisterType<MotivoDespidoRepositoryCommands>().As<IRepositoryCommands<MotivoDespido>>();
                 };
             }
         }

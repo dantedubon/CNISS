@@ -23,7 +23,8 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
 
             Map(x => x.fechaNacimiento);
             HasMany(x => x.dependientes).Cascade.All();
-
+            Map(x => x.telefonoCelular);
+            Map((x => x.telefonoFijo));
             Component(x => x.auditoria, m =>
             {
                 m.Map(x => x.usuarioCreo);

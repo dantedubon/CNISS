@@ -26,11 +26,16 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
             _sucursalGuid = Guid.NewGuid();
 
             var repository = Mock.Of<IEmpleoRepositoryReadOnly>();
+            var userIdentityMovil = new DummyUserIdentityMovil("DRCD");
 
             _browser = new Browser(x =>
             {
                 x.Module<EmpleoModuleQuery>();
                 x.Dependencies(repository);
+                x.RequestStartup((container, pipelines, context) =>
+                {
+                    context.CurrentUser = userIdentityMovil;
+                });
             });
         };
 

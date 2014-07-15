@@ -74,6 +74,40 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
         It should_return_empleos = () => _responseEmpleos.ShouldBeEquivalentTo(_expectedEmpleos);
 
+        private static IEnumerable<DependienteRequest> getDependienteRequests(IEnumerable<Dependiente> dependientes)
+        {
+            var dependientesRequest = new List<DependienteRequest>();
+            if (dependientes != null)
+            {
+                dependientesRequest = dependientes.Select(x => new DependienteRequest()
+                {
+                    IdGuid = x.idGuid,
+                    identidadRequest = new IdentidadRequest() { identidad = x.Id.identidad },
+                    fechaNacimiento = x.fechaNacimiento,
+                    nombreRequest = new NombreRequest()
+                    {
+                        nombres = x.nombre.nombres,
+                        primerApellido = x.nombre.primerApellido,
+                        segundoApellido = x.nombre.segundoApellido
+                    },
+                    parentescoRequest = new ParentescoRequest()
+                    {
+                        descripcion = x.parentesco.descripcion,
+                        guid = x.parentesco.Id
+                    },
+                    auditoriaRequest = new AuditoriaRequest()
+                    {
+                        fechaCreo = x.auditoria.fechaCreo,
+                        fechaModifico = x.auditoria.fechaModifico,
+                        usuarioCreo = x.auditoria.usuarioCreo,
+                        usuarioModifico = x.auditoria.usuarioModifico
+                    }
+                }).ToList();
+            }
+
+            return dependientesRequest;
+        }
+
         private static IEnumerable<EmpleoRequest> getEmpleoRequests(IEnumerable<Empleo> empleos)
         {
             return empleos.Select(x => new EmpleoRequest()
@@ -87,7 +121,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                         primerApellido = x.beneficiario.nombre.primerApellido,
                         segundoApellido = x.beneficiario.nombre.segundoApellido
                     },
-                    fechaNacimiento = x.beneficiario.fechaNacimiento
+                    fechaNacimiento = x.beneficiario.fechaNacimiento,
+                    dependienteRequests = getDependienteRequests(x.beneficiario.dependientes)
 
 
                 },

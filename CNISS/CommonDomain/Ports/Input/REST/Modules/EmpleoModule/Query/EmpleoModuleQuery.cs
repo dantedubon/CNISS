@@ -13,6 +13,7 @@ using CNISS.EnterpriseDomain.Domain.Repositories;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using Nancy;
 using Nancy.ModelBinding;
+using Nancy.Security;
 using NUnit.Framework.Constraints;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
@@ -80,12 +81,83 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                 return new Response()
                .WithStatusCode(HttpStatusCode.BadRequest);
             };
+
+            Get["/movil/empleo/id={identidad}/rtn={rtn}/sucursal={sucursal}"] = parameters =>
+            {
+                this.RequiresClaims(new[] { "movil" });
+                string identidadFromClient = parameters.identidad;
+                var identidadRequest = new IdentidadRequest() {identidad = identidadFromClient};
+
+                if (identidadRequest.isValidPost())
+                {
+                    string rtnFromClient = parameters.rtn;
+                    var rtnRequest = new RTNRequest() {RTN = rtnFromClient};
+                    if (rtnRequest.isValidPost())
+                    {
+                        Guid idSucursal;
+                        
+                        if (Guid.TryParse(parameters.sucursal, out idSucursal))
+                        {
+                            if (idSucursal != Guid.Empty)
+                            {
+                                var identidad = new Identidad(identidadRequest.identidad);
+                                var empleo = repositoryRead.getEmpleoMasRecienteBeneficiario(identidad);
+                                if (empleo.empresa.Id.rtn == rtnRequest.RTN)
+                                {
+                                    if (empleo.sucursal.Id == idSucursal)
+                                    return Response.AsJson(getEmpleoRequest(empleo));
+                                }
+                            }
+                          
+                            
+                        }
+       
+                    }
+           
+                }
+                return new Response()
+                    .WithStatusCode(HttpStatusCode.BadRequest);
+            };
         }
         private  IEnumerable<EmpleoRequest> getEmpleosRequests(IEnumerable<Empleo> empleos)
         {
             return empleos.Select(getEmpleoRequest);
         }
-        private static EmpleoRequest getEmpleoRequest(Empleo empleo)
+
+        private IEnumerable<DependienteRequest> getDependienteRequests(IEnumerable<Dependiente> dependientes)
+        {
+            var dependientesRequest = new List<DependienteRequest>();
+            if (dependientes != null)
+            {
+                dependientesRequest = dependientes.Select(x => new DependienteRequest()
+                {
+                    IdGuid = x.idGuid,
+                    identidadRequest = new IdentidadRequest() { identidad = x.Id.identidad},
+                    fechaNacimiento = x.fechaNacimiento,
+                    nombreRequest = new NombreRequest() { 
+                        nombres = x.nombre.nombres,
+                        primerApellido = x.nombre.primerApellido,
+                        segundoApellido = x.nombre.segundoApellido
+                    },
+                    parentescoRequest = new ParentescoRequest()
+                    {
+                        descripcion = x.parentesco.descripcion,
+                        guid = x.parentesco.Id
+                    },
+                    auditoriaRequest = new AuditoriaRequest()
+                    {
+                        fechaCreo = x.auditoria.fechaCreo,
+                        fechaModifico = x.auditoria.fechaModifico,
+                        usuarioCreo = x.auditoria.usuarioCreo,
+                        usuarioModifico = x.auditoria.usuarioModifico
+                    }
+                }).ToList();
+            }
+
+            return dependientesRequest;
+        }
+       
+        private  EmpleoRequest getEmpleoRequest(Empleo empleo)
         {
             return new EmpleoRequest()
             {
@@ -98,7 +170,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                         primerApellido = empleo.beneficiario.nombre.primerApellido,
                         segundoApellido = empleo.beneficiario.nombre.segundoApellido
                     },
-                    fechaNacimiento = empleo.beneficiario.fechaNacimiento
+                    fechaNacimiento = empleo.beneficiario.fechaNacimiento,
+                    dependienteRequests = getDependienteRequests(empleo.beneficiario.dependientes)
 
 
                 },

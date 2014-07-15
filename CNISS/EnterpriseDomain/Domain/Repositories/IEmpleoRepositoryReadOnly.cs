@@ -15,6 +15,8 @@ namespace CNISS.EnterpriseDomain.Domain.Repositories
  
         IEnumerable<Empleo> getEmpleosByEmpresa(RTN rtn);
         IEnumerable<Empleo> getEmpleosByBeneficiario(Identidad identidad);
+        Empleo getEmpleoMasRecienteBeneficiario(Identidad identidad);
+        
 
         bool existsComprobante(Guid empleoid, Guid comprobanteId);
     }

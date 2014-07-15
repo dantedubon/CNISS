@@ -8,6 +8,7 @@ using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using NHibernate;
+using NHibernate.Criterion;
 using NHibernate.Linq;
 
 namespace CNISS.EnterpriseDomain.Ports.Output.Database
@@ -57,8 +58,30 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
             return (from empleo in Session.Query<Empleo>()
                     where
                         empleo.beneficiario.Id == identidad
+                       
                     select empleo
+                    
                 );
+        }
+
+        public Empleo getEmpleoMasRecienteBeneficiario(Identidad identidad)
+        {
+          /*  return (from empleo in Session.Query<Empleo>()
+                where
+                    empleo.beneficiario.Id == identidad
+             
+                select empleo
+
+                ).FirstOrDefault();*/
+
+           return (Session.QueryOver<Empleo>()
+
+                .Where(x => x.beneficiario.Id == identidad)
+                .OrderBy(x => x.fechaDeInicio).Desc
+                .List<Empleo>()).FirstOrDefault();
+
+
+
         }
 
         public bool existsComprobante(Guid empleoid, Guid comprobanteId)

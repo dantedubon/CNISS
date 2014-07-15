@@ -73,7 +73,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.ReadOnly
             }
         };
 
-        It should_return_true = () =>
+        It should_return_empleos = () =>
         {
             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {

@@ -15,6 +15,8 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual Auditoria auditoria { get; set; }
         public virtual string telefonoFijo { get; set; }
         public virtual string  telefonoCelular { get; set; }
+        public virtual ContentFile fotografiaBeneficiario { get; set; }
+        public virtual Direccion direccion { get; set; }
 
         public Beneficiario(Identidad identidad,Nombre nombre, DateTime fechaNacimiento)
         {

@@ -284,9 +284,11 @@
     <Compile Include="EnterpriseDomain\Domain\Entities\Dependiente.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\Empleo.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\Empresa.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Entities\FichaSupervisionEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\FirmaAutorizada.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\Gremio.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\LugarVisita.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Entities\NotaDespido.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\PersonRNP.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\RepresentanteLegal.cs" />
     <Compile Include="EnterpriseDomain\Domain\Entities\Sucursal.cs" />
@@ -339,8 +341,10 @@
     <Compile Include="EnterpriseDomain\Ports\Output\Database\BeneficiarioRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\BeneficiarioRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\ActividadEconomicaRepositoryCommands.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\FichaSupervisionEmpleoMapping.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\LugarVisitaMappig.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\MotivoDespidoMapping.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\NotaDespidoMapping.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\SupervisorMapping.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\VisitaMapping.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\MotivoDespidoRepositoryCommands.cs" />

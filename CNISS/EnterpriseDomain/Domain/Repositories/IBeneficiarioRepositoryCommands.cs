@@ -5,5 +5,6 @@ namespace CNISS.EnterpriseDomain.Domain.Repositories
 {
     public interface IBeneficiarioRepositoryCommands:IRepositoryCommands<Beneficiario>
     {
+        void updateInformationFromMovil(Beneficiario beneficiario);
     }
 }

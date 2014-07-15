@@ -21,5 +21,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
         {
             return (Session.Query<Beneficiario>().Where(beneficiario => beneficiario.Id == id).Select(beneficiario => beneficiario.Id)).Any();
         }
+
+      
     }
 }

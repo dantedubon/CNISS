@@ -56,7 +56,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
             _expectedEmpleo.addComprobante(getComprobantePago());
 
             _comprobantePagoNuevo = getComprobantePago2();
-
+            _expectedEmpleo.fichasSupervisionEmpleos = new List<FichaSupervisionEmpleo>();
 
             prepareBeneficiario(beneficiario);
             prepareTipoEmpleo(tipoEmpleo);

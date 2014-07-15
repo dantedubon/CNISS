@@ -51,7 +51,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
             var tipoEmpleo = new TipoEmpleo("Empleo Mensual");
             _expectedEmpleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 25000, tipoEmpleo,new DateTime(2014,8,2));
             _expectedEmpleo.addComprobante(getComprobantePago());
-            
+            _expectedEmpleo.fichasSupervisionEmpleos = new List<FichaSupervisionEmpleo>();
             prepareBeneficiario(beneficiario);
             prepareTipoEmpleo(tipoEmpleo);
 

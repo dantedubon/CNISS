@@ -16,6 +16,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             Map(x => x.cargo);
             Map(x => x.sueldo);
             Map(x => x.fechaDeInicio);
+            Map(x => x.supervisado);
             References(x => x.tipoEmpleo);
             References(x => x.empresa,"rtn_empresa");
             References(x => x.beneficiario,"identidad_beneficiario");
@@ -48,7 +49,9 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
                 });
             });
             References(x => x.contrato);
+            References(x => x.notaDespido).Cascade.All();
             HasMany(x => x.comprobantesPago).Cascade.All();
+            HasMany(x => x.fichasSupervisionEmpleos).Cascade.All();
             Component(x => x.auditoria, m =>
             {
                 m.Map(x => x.usuarioCreo);

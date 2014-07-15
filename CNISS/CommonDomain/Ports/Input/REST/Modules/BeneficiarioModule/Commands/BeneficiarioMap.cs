@@ -28,9 +28,12 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Command
 
             var dependientes = getDependientes(request.dependienteRequests);
 
-            Enumerable.ToArray<Dependiente>(dependientes).ForEach( beneficiario.addDependiente);
+            dependientes.ToArray().ForEach( beneficiario.addDependiente);
 
             beneficiario.auditoria = getAuditoria(request.auditoriaRequest);
+            beneficiario.telefonoCelular = request.telefonoCelular;
+            beneficiario.telefonoFijo = request.telefonoFijo;
+            beneficiario.fotografiaBeneficiario = getFotografia(request);
             return beneficiario;
         }
 
@@ -44,6 +47,16 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Command
             return
                 dependientes.Select(
                     getDependiente).ToList();
+        }
+
+        private ContentFile getFotografia(BeneficiarioRequest beneficiarioRequest)
+        {
+            var fotografiaBeneficiario = beneficiarioRequest.fotografiaBeneficiario;
+            if (!string.IsNullOrEmpty(fotografiaBeneficiario))
+            {
+                return new ContentFileNull(Guid.Parse(fotografiaBeneficiario));
+            }
+            return null;
         }
 
         private Dependiente getDependiente(DependienteRequest dependienteRequest)

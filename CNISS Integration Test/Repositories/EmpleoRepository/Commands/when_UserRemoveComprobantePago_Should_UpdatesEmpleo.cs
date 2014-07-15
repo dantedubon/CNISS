@@ -56,7 +56,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
 
             _comprobantePagoToRemove = getComprobantePago();
             _expectedEmpleo.addComprobante(_comprobantePagoToRemove);
-
+            _expectedEmpleo.fichasSupervisionEmpleos = new List<FichaSupervisionEmpleo>();
            
 
 

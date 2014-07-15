@@ -10,5 +10,6 @@ namespace CNISS.EnterpriseDomain.Domain.Repositories
 {
     public interface IBeneficiarioRepositoryReadOnly:IRepositoryReadOnly<Beneficiario,Identidad>
     {
+       
     }
 }

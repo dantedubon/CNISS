@@ -16,5 +16,23 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
         }
 
       
+
+
+        public void updateInformationFromMovil(Beneficiario beneficiario)
+        {
+            if (beneficiario.fotografiaBeneficiario != null)
+            {
+                saveFotografia(beneficiario.fotografiaBeneficiario);
+            }
+
+            
+            update(beneficiario);
+        }
+
+        private void saveFotografia(ContentFile fotografia)
+        {
+
+            _session.Save(fotografia);
+        }
     }
 }

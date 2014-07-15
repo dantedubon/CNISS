@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using CNISS.CommonDomain.Domain;
@@ -19,7 +20,10 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual ContentFile contrato { get;  set; }
         public virtual DateTime fechaDeInicio { get;  set; }
         public virtual IList<ComprobantePago>  comprobantesPago { get; protected set; }
+        public virtual IList<FichaSupervisionEmpleo> fichasSupervisionEmpleos { get; set; }
         public virtual Auditoria auditoria { get; set; }
+        public virtual NotaDespido notaDespido { get; set; }
+        public virtual bool supervisado { get; set; }
 
         public Empleo(Empresa empresa, Sucursal sucursal, Beneficiario beneficiario, HorarioLaboral horarioLaboral,
             string cargo, decimal sueldo, TipoEmpleo tipoEmpleo, DateTime fechaDeInicio)
@@ -34,7 +38,9 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
             this.contrato = contrato;
             this.fechaDeInicio = fechaDeInicio;
             comprobantesPago = new List<ComprobantePago>();
+            fichasSupervisionEmpleos = new List<FichaSupervisionEmpleo>();
             Id = Guid.NewGuid();
+            supervisado = false;
         }
 
         public virtual void addComprobante(ComprobantePago comprobantePago)

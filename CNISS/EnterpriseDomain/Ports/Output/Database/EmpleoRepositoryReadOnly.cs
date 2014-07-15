@@ -66,13 +66,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
 
         public Empleo getEmpleoMasRecienteBeneficiario(Identidad identidad)
         {
-          /*  return (from empleo in Session.Query<Empleo>()
-                where
-                    empleo.beneficiario.Id == identidad
-             
-                select empleo
 
-                ).FirstOrDefault();*/
 
            return (Session.QueryOver<Empleo>()
 

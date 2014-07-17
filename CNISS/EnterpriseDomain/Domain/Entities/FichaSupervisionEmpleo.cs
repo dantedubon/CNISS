@@ -27,7 +27,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 
         public FichaSupervisionEmpleo(Supervisor supervisor, FirmaAutorizada firma, string posicionGps, string cargo, 
             string funciones, string telefonoFijo, string telefonoCelular, int desempeñoEmpleado, 
-            ContentFile fotografiaBeneficiario)
+            ContentFile fotografiaBeneficiario):this()
         {
             this.supervisor = supervisor;
             this.firma = firma;

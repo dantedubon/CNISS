@@ -9,17 +9,19 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
 {
     public class FichaSupervisionEmpleoRequest:IValidPost
     {
-        public virtual Guid fotografiaBeneficiario { get; set; }
-        public virtual string posicionGPS { get; set; }
-        public virtual string cargo { get; set; }
-        public virtual string funciones { get; set; }
-        public virtual string telefonoFijo { get; set; }
-        public virtual string telefonoCelular { get; set; }
-        public virtual FirmaAutorizadaRequest firma { get; set; }
-        public virtual int desempeñoEmpleado { get; set; }
-        public virtual SupervisorRequest supervisor { get; set; }
-        public virtual Guid empleoId { get; set; }
+        public  Guid fotografiaBeneficiario { get; set; }
+        public  string posicionGPS { get; set; }
+        public  string cargo { get; set; }
+        public  string funciones { get; set; }
+        public  string telefonoFijo { get; set; }
+        public  string telefonoCelular { get; set; }
+        public  FirmaAutorizadaRequest firma { get; set; }
+        public  int desempeñoEmpleado { get; set; }
+        public  SupervisorRequest supervisor { get; set; }
+        public  Guid empleoId { get; set; }
+        public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
 
+        public BeneficiarioRequest.BeneficiarioRequest beneficiarioRequest { get; set; }
 
         public bool isValidPost()
         {
@@ -35,6 +37,9 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
                    && supervisor.isValidPostFichaSupervision()
                    && Guid.Empty!= fotografiaBeneficiario
                    && Guid.Empty!=empleoId
+                   && auditoriaRequest.isValidPost()
+                   && beneficiarioRequest!=null 
+                   &&beneficiarioRequest.isValidPost()
                ;
         }
 

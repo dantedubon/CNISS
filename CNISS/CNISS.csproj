@@ -165,6 +165,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\EmpleoModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\EmpleoModuleUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\EmpleoModuleUpdateContrato.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\FichaEmpleoSupervisionModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\EmpleoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleUpdateContrato.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleUpdate.cs" />
@@ -268,6 +269,7 @@
     <Compile Include="EnterpriseDomain\Application\CommandUpdateTipoEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateVisita.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandDeleteGremio.cs" />
+    <Compile Include="EnterpriseDomain\Application\ICommandInsertFichaDeSupervision.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateEmpleoContrato.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateEmpleoImagenComprobantePago.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateEmpresaContrato.cs" />

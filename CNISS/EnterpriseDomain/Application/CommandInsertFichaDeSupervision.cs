@@ -10,7 +10,7 @@ using CNISS.EnterpriseDomain.Domain.Repositories;
 
 namespace CNISS.EnterpriseDomain.Application
 {
-    public class CommandInsertFichaDeSupervision:ICommand<FichaSupervisionEmpleo>
+    public class CommandInsertFichaDeSupervision:ICommandInsertFichaDeSupervision
     {
         private readonly IEmpleoRepositoryReadOnly _empleoRepositoryRead;
         private readonly IEmpleoRepositoryCommands _empleoRepositoryCommands;
@@ -46,15 +46,7 @@ namespace CNISS.EnterpriseDomain.Application
             }
         }
 
-        public void execute(FichaSupervisionEmpleo identity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool isExecutable(FichaSupervisionEmpleo identity)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public bool isExecutable(FichaSupervisionEmpleo ficha, Beneficiario beneficiario, Guid idEmpleo)
         {
@@ -65,6 +57,7 @@ namespace CNISS.EnterpriseDomain.Application
         }
 
 
+     
 
         public string message { get; set; }
     }

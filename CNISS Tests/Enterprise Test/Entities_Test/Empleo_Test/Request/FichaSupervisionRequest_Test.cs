@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
+using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
+using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.VisitaRequest;
@@ -23,73 +25,86 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
             {
                 new object[]
                 {
-                    "","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid()
+                    "","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 },
                 new object[]
                 {
-                    "cargo","","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid()
+                    "cargo","","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 }
                 ,
                 new object[]
                 {
-                    "cargo","GPS","","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid()
+                    "cargo","GPS","","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 },
                 new object[]
                 {
-                    "cargo","GPS","Funciones","","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid()
+                    "cargo","GPS","Funciones","","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 },
                  new object[]
                 {
-                    "cargo","GPS","Funciones","XXX","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid()
+                    "cargo","GPS","Funciones","XXX","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 },
                  new object[]
                 {
-                    "cargo","GPS","Funciones","3180443","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid()
+                    "cargo","GPS","Funciones","3180443","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 },
                   new object[]
                 {
-                    "cargo","GPS","Funciones","31804433","",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid()
+                    "cargo","GPS","Funciones","31804433","",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 },
                  new object[]
                 {
-                    "cargo","GPS","Funciones","31804433","XX",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid()
+                    "cargo","GPS","Funciones","31804433","XX",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 },
                  new object[]
                 {
-                    "cargo","GPS","Funciones","31804433","31804",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid()
+                    "cargo","GPS","Funciones","31804433","31804",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 },
 
                 new object[]
                 {
-                    "cargo","GPS","Funciones","31804433","31804433",new FirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid()
+                    "cargo","GPS","Funciones","31804433","31804433",new FirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 },
                 new object[]
                 {
-                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),-1,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid()
+                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),-1,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 },
 
                  new object[]
                 {
-                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),11,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid()
+                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),11,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 },
                 new object[]
                 {
-                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,new SupervisorRequest(),Guid.NewGuid(), Guid.NewGuid()
+                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,new SupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 },
                 new object[]
                 {
-                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.Empty, Guid.NewGuid()
+                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.Empty, Guid.NewGuid(),getAuditoriaRequest(),getBeneficiarioRequest()
                 },
                 new object[]
                 {
-                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.Empty
+                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.Empty,getAuditoriaRequest(),getBeneficiarioRequest()
                 },
+                new object[]
+                {
+                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(), new AuditoriaRequest(), getBeneficiarioRequest()
+                },
+                 new object[]
+                {
+                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(), getAuditoriaRequest(), new BeneficiarioRequest()
+                }
+                ,
+                 new object[]
+                {
+                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(), getAuditoriaRequest(), null
+                }
             };
         }
 
 
         [TestCaseSource("badDataForPost")]
-        public void isValidPost_DataInvalid_ReturnFalse(string cargo, string posicionGps, string funciones, string telefonoFijo, string telefonoCelular, FirmaAutorizadaRequest userRequest, int desempeñoEmpleado, SupervisorRequest supervisor, Guid fotografia, Guid empleoId)
+        public void isValidPost_DataInvalid_ReturnFalse(string cargo, string posicionGps, string funciones, string telefonoFijo, string telefonoCelular, FirmaAutorizadaRequest userRequest, int desempeñoEmpleado, SupervisorRequest supervisor, Guid fotografia, Guid empleoId, AuditoriaRequest auditoriaRequest,BeneficiarioRequest beneficiarioRequest)
         {
             var ficha = new FichaSupervisionEmpleoRequest()
             {
@@ -102,9 +117,9 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
                 supervisor = supervisor,
                 firma = userRequest,
                 fotografiaBeneficiario = fotografia,
-                empleoId = empleoId
-                
-
+                empleoId = empleoId,
+                auditoriaRequest = auditoriaRequest,
+                beneficiarioRequest = beneficiarioRequest
             };
 
             var response = ficha.isValidPost();
@@ -125,12 +140,26 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
                 supervisor = getSupervisorRequest(),
                 firma = getFirmaAutorizadaRequest(),
                 fotografiaBeneficiario = Guid.NewGuid(),
-                empleoId = Guid.NewGuid()
+                empleoId = Guid.NewGuid(),
+                auditoriaRequest = getAuditoriaRequest(),
+                beneficiarioRequest = getBeneficiarioRequest()
 
             };
 
             var response = ficha.isValidPost();
             Assert.IsTrue(response);
+        }
+
+        private BeneficiarioRequest getBeneficiarioRequest()
+        {
+            var beneficiario = new BeneficiarioRequest()
+            {
+                dependienteRequests = getDependienteRequest(),
+                fechaNacimiento = DateTime.Now.Date,
+                identidadRequest = getIdentidadRequest(),
+                nombreRequest = getNombreRequest()
+            };
+            return beneficiario;
         }
 
         private FirmaAutorizadaRequest getFirmaAutorizadaRequest()
@@ -143,6 +172,17 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
             };
         }
 
+
+        private AuditoriaRequest getAuditoriaRequest()
+        {
+            return new AuditoriaRequest()
+            {
+                fechaCreo = new DateTime(2014, 8, 2),
+                usuarioCreo = "usuarioCreo",
+                fechaModifico = new DateTime(2014, 8, 2),
+                usuarioModifico = "usuarioModifico"
+            };
+        }
         private SupervisorRequest getSupervisorRequest()
         {
             return new SupervisorRequest()
@@ -168,6 +208,45 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
                 Id = "User",
                 password = "xxxx",
                
+            };
+        }
+
+        private IEnumerable<DependienteRequest> getDependienteRequest()
+        {
+            return new List<DependienteRequest>()
+            {
+                new DependienteRequest()
+                {
+                    identidadRequest = getIdentidadRequest(),
+                    nombreRequest = getNombreRequest(),
+                    parentescoRequest = getParentescoRequest()
+                }
+            };
+        }
+
+        private NombreRequest getNombreRequest()
+        {
+            return new NombreRequest()
+            {
+                nombres = "Dante Ruben",
+                primerApellido = "Castillo",
+                segundoApellido = "Dubon"
+            };
+        }
+
+        private IdentidadRequest getIdentidadRequest()
+        {
+            return new IdentidadRequest()
+            {
+                identidad = "0801198512396"
+            };
+        }
+
+        private ParentescoRequest getParentescoRequest()
+        {
+            return new ParentescoRequest()
+            {
+                descripcion = "Esposo"
             };
         }
     }

@@ -40,6 +40,7 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<CommandUpdateMotivoDespido>().As<ICommandUpdateIdentity<MotivoDespido>>();
                     builder.RegisterType<TipoDeEmpleoRepositoryCommand>().As<IRepositoryCommands<TipoEmpleo>>();
                     builder.RegisterType<MotivoDespidoRepositoryCommands>().As<IRepositoryCommands<MotivoDespido>>();
+                    builder.RegisterType<CommandInsertFichaDeSupervision>().As<ICommandInsertFichaDeSupervision>();
                 };
             }
         }

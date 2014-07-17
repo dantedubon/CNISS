@@ -42,6 +42,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                         var ficha = getFichaSupervisionEmpleo(fichaRequest, imageFile);
                         if (command.isExecutable(ficha, beneficiario, fichaRequest.empleoId))
                         {
+                            beneficiario.fotografiaBeneficiario = imageFile;
                             command.execute(ficha,beneficiario,fichaRequest.empleoId);
                             return new Response().WithStatusCode(HttpStatusCode.OK);
 

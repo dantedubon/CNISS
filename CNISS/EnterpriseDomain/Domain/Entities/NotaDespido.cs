@@ -15,6 +15,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual string posicionGPS { get; set; }
         public virtual Supervisor supervisor { get; set; }
         public virtual FirmaAutorizada firmaAutorizada { get; set; }
+        public virtual Auditoria auditoria { get; set; }
 
         protected NotaDespido()
         {

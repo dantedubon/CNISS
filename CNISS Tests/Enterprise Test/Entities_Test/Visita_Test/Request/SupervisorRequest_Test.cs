@@ -16,6 +16,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Request
     public class SupervisorRequest_Test
     {
         private object[] badDataForPost;
+        private object[] badDataForPostFichaSupervision;
 
         public SupervisorRequest_Test()
         {
@@ -46,6 +47,23 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Request
                     getUserRequest(),getLugarVisitaRequests(),null
                 }
             };
+
+            badDataForPostFichaSupervision = new object[]
+            {
+                new object[]
+                {
+                    null,Guid.NewGuid()
+                },
+                 new object[]
+                {
+                    new UserRequest(),Guid.NewGuid()
+                }
+                ,
+                 new object[]
+                {
+                    getUserRequest(),null
+                }
+            };
         }
 
          [TestCaseSource("badDataForPost")]
@@ -64,6 +82,21 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Request
             Assert.IsFalse(response);
 
 
+        }
+
+        [TestCaseSource("badDataForPostFichaSupervision")]
+        public void isValidPostFichaSupervision_badDataForPost_returnFalse(UserRequest userRequest, Guid idGuid)
+        {
+            var supervisor = new SupervisorRequest()
+            {
+                guid = idGuid,
+                userRequest = userRequest
+               
+            };
+
+            var response = supervisor.isValidPostFichaSupervision();
+
+            Assert.IsFalse(response);   
         }
 
         private IList<LugarVisitaRequest> getLugarVisitaRequests()

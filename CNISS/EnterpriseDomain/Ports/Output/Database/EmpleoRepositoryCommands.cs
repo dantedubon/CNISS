@@ -38,28 +38,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
            
             _session.Save(contrato);
         }
-        /*
-        private void  updateContrato(Empleo entity)
-        {
-            var sameContract = (from empleo in _session.Query<Empleo>()
-                where empleo.Id == entity.Id && empleo.contrato.Id == entity.contrato.Id
-                select empleo.Id).Any();
 
-            if (!sameContract)
-                saveContrato(entity.contrato);
-        }*/
-
-       /* private void updateImagenComprobantesPago(ComprobantePago comprobantePago)
-        {
-            var sameImage = (from comprobante in _session.Query<ComprobantePago>()
-                where
-                    comprobante.Id == comprobantePago.Id &&
-                    comprobante.imagenComprobante.Id == comprobantePago.imagenComprobante.Id
-                select comprobante.Id).Any();
-
-            if (!sameImage)
-                _session.Save(comprobantePago.imagenComprobante);
-        }*/
 
 
         private void saveImagenesComprobantesPago(ComprobantePago comprobantePago)
@@ -85,6 +64,32 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
             _session.Save(comprobante.imagenComprobante);
 
             _session.Update(empleo);
+
+        }
+
+        public void updateFromMovilNotaDespido(Guid empleoId, NotaDespido notaDespido)
+        {
+            var empleo = _session.Get<Empleo>(empleoId);
+            empleo.notaDespido = notaDespido;
+            if (notaDespido.documentoDespido != null)
+                _session.Save(notaDespido.documentoDespido);
+            empleo.supervisado = true;
+            update(empleo);
+        }
+
+        public void updateFromMovilVisitaSupervision(Guid empleoId, FichaSupervisionEmpleo fichaSupervision)
+        {
+            var empleo = _session.Get<Empleo>(empleoId);
+
+            if (fichaSupervision.fotografiaBeneficiario != null)
+            {
+                _session.Save(fichaSupervision.fotografiaBeneficiario);
+            }
+            empleo.addFichaSupervision(fichaSupervision);
+
+
+            empleo.supervisado = true;
+            update(empleo);
 
         }
     }

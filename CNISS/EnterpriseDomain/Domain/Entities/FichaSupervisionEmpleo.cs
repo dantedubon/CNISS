@@ -18,6 +18,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public virtual FirmaAutorizada firma { get; set; }
         public virtual int desempeñoEmpleado { get; set; }
         public virtual Supervisor supervisor { get; set; }
+        public virtual Auditoria auditoria { get; set; }
 
         protected FichaSupervisionEmpleo()
         {

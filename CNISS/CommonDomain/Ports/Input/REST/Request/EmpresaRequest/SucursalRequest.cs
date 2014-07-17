@@ -7,14 +7,15 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest
     {
         public Guid guid { get; set; }
         public string nombre { get; set; }
-        public UserRequest.UserRequest firmaRequest { get; set; }
+        public UserRequest.UserRequest userFirmaRequest { get; set; }
         public DireccionRequest direccionRequest { get; set; }
         public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
+        public FirmaAutorizadaRequest firmaAutorizadaRequest { get; set; }
         
 
         public bool isValidPost()
         {
-            return firmaRequest!=null && firmaRequest.isValidPost() 
+            return userFirmaRequest!=null && userFirmaRequest.isValidPost() 
                 && direccionRequest!=null && direccionRequest.isValidPost()
                 && nombre!=null &&!string.IsNullOrEmpty(nombre);
         }

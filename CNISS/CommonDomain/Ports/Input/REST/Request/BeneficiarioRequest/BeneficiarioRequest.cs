@@ -16,6 +16,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest
         public string telefonoFijo { get; set; }
         public string telefonoCelular { get; set; }
         public string fotografiaBeneficiario { get; set; }
+        public DireccionRequest direccionRequest { get; set; }
 
         public bool isValidPost()
         {

@@ -128,6 +128,8 @@
     <Compile Include="Repositories\BeneficiarioRepository\when_UserInsertTwoNewBeneficisarioWithCommonDependiente_Should_InsertTwoBeneficiario.cs" />
     <Compile Include="Repositories\DepartamentoRepository\when_UserAskIfMunicipioBelongDepartamento_Should_ReturnTrue.cs" />
     <Compile Include="Repositories\DireccionRepository\when_UserAskForDireccionById_Return_Direccion.cs" />
+    <Compile Include="Repositories\EmpleoRepository\Commands\when_UseAddFichaSupervisionFromMovilInformation_Should_UpdateEmpleo.cs" />
+    <Compile Include="Repositories\EmpleoRepository\Commands\when_UserUpdateFromMovilInformation_Should_UpdateEmpleo.cs" />
     <Compile Include="Repositories\EmpleoRepository\Commands\when_UserUpdatesImagenComprobante_Should_UpdatesEmpleo.cs" />
     <Compile Include="Repositories\EmpleoRepository\Commands\when_UserUpdatesContrato_Should_UpdatesEmpleo.cs" />
     <Compile Include="Repositories\EmpleoRepository\Commands\when_UserSaveValidEmpleoWithContract_Should_SaveEmpleo.cs" />

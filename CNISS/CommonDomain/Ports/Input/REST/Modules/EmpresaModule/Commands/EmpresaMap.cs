@@ -72,7 +72,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
         private Sucursal getSucursal(SucursalRequest request)
         {
             var direccion = request.direccionRequest;
-            var firma = request.firmaRequest;
+            var firma = request.userFirmaRequest;
             var sucursal = new Sucursal(request.nombre, getDireccion(direccion), getFirmaAutorizada(firma));
             if (request.guid != Guid.Empty)
             {

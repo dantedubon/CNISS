@@ -199,12 +199,12 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
 
         private SucursalRequest getSucursalGood()
         {
-            return new SucursalRequest(){direccionRequest = getValidDireccion(),firmaRequest = getUserRequest(),nombre = "El centro"};
+            return new SucursalRequest(){direccionRequest = getValidDireccion(),userFirmaRequest = getUserRequest(),nombre = "El centro"};
         }
 
         private SucursalRequest getSucursalBad()
         {
-            return new SucursalRequest() { direccionRequest = getValidDireccion(), firmaRequest = new UserRequest(), nombre = "El centro" };
+            return new SucursalRequest() { direccionRequest = getValidDireccion(), userFirmaRequest = new UserRequest(), nombre = "El centro" };
         }
 
         private UserRequest getUserRequest()

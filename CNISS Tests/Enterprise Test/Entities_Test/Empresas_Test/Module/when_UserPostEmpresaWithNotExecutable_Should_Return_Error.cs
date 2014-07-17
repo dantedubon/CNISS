@@ -93,7 +93,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
 
         private static SucursalRequest getSucursalGood()
         {
-            return new SucursalRequest() { direccionRequest = getValidDireccion(), firmaRequest = getUserRequest(), nombre = "El centro" };
+            return new SucursalRequest() { direccionRequest = getValidDireccion(), userFirmaRequest = getUserRequest(), nombre = "El centro" };
         }
 
 

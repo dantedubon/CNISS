@@ -130,7 +130,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                         }
 
                     },
-                    firmaRequest = new UserRequest()
+                    userFirmaRequest = new UserRequest()
                     {
                         Id = x.firma.user.Id
                     },

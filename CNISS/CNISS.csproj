@@ -216,11 +216,13 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\ComprobantePagoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\DiasLaborablesRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\EmpleoRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\FichaSupervisionEmpleoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\HoraRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\HorarioLaboralRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\TipoEmpleoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\ActividadEconomicaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\EmpresaRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\FirmaAutorizadaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\SucursalRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\DepartamentoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\GremioRequest\DireccionRequest.cs" />
@@ -243,6 +245,7 @@
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepository.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateReadOnlyRepositoryCompoundKey.cs" />
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandInsertFichaDeSupervision.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertMotivoDespido.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertTipoEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertVisita.cs" />

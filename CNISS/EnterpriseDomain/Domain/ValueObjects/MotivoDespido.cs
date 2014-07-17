@@ -5,10 +5,10 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 {
     public class MotivoDespido : ValueObject<Guid>
     {
-        public MotivoDespido(string descripcion)
+        public MotivoDespido(string descripcion):this()
         {
             this.descripcion = descripcion;
-            Id = Guid.NewGuid();
+          
         }
 
         public MotivoDespido()

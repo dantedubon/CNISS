@@ -105,7 +105,7 @@ namespace CNISS_Tests.Autentication_Test.User_Test.Modules
                             },
                             descripcion = x.sucursal.direccion.referenciaDireccion
                         },
-                        firmaRequest = new UserRequest()
+                        userFirmaRequest = new UserRequest()
                         {
                             Id = x.sucursal.firma.user.Id
                         }

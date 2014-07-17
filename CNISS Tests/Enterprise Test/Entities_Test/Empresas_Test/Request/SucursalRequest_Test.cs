@@ -65,7 +65,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
         public void isValidPost_invalidData_returnFalse(DireccionRequest direccion,UserRequest firma,string nombre)
         {
           
-            var sucursal = new SucursalRequest() {direccionRequest = direccion, firmaRequest = firma, nombre = nombre};
+            var sucursal = new SucursalRequest() {direccionRequest = direccion, userFirmaRequest = firma, nombre = nombre};
 
             var respuesta = sucursal.isValidPost();
 
@@ -110,7 +110,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Request
             var sucursal = new SucursalRequest()
             {
                 direccionRequest = direccion,
-                firmaRequest = firma,
+                userFirmaRequest = firma,
                 nombre = "Sucursal"
             };
 

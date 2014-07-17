@@ -100,7 +100,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
             return new SucursalRequest()
             {
                 direccionRequest = getValidDireccion(),
-                firmaRequest = getUserRequest(),
+                userFirmaRequest = getUserRequest(),
                 nombre = "El centro"
             };
         }

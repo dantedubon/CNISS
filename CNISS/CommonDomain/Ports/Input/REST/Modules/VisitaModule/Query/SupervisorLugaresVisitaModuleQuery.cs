@@ -65,7 +65,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query
                             },
                             descripcion = x.sucursal.direccion.referenciaDireccion
                         },
-                        firmaRequest = new UserRequest()
+                        userFirmaRequest = new UserRequest()
                         {
                             Id = x.sucursal.firma.user.Id
                         }

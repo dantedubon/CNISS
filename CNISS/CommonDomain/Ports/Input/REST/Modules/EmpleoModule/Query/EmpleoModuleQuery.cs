@@ -7,6 +7,7 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
+using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
@@ -156,7 +157,33 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
 
             return dependientesRequest;
         }
-       
+
+        private DireccionRequest getDireccionRequest(Beneficiario beneficiario)
+        {
+            var direccion = beneficiario.direccion;
+            if (direccion == null)
+            {
+                return new DireccionRequest();
+            }
+            var departamentoRequest = new DepartamentoRequest()
+            {
+                idDepartamento = direccion.departamento.Id,
+                nombre = direccion.departamento.nombre
+            };
+            var municipioRequest = new MunicipioRequest()
+            {
+                idMunicipio = direccion.municipio.Id,
+                idDepartamento = direccion.municipio.Id,
+                nombre = direccion.municipio.nombre
+            };
+            return new DireccionRequest()
+            {
+                departamentoRequest = departamentoRequest,
+                municipioRequest = municipioRequest,
+                descripcion = direccion.referenciaDireccion,
+                IdGuid = direccion.Id
+            };
+        }
         private  EmpleoRequest getEmpleoRequest(Empleo empleo)
         {
             return new EmpleoRequest()
@@ -171,7 +198,12 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                         segundoApellido = empleo.beneficiario.nombre.segundoApellido
                     },
                     fechaNacimiento = empleo.beneficiario.fechaNacimiento,
-                    dependienteRequests = getDependienteRequests(empleo.beneficiario.dependientes)
+                    dependienteRequests = getDependienteRequests(empleo.beneficiario.dependientes),
+                    telefonoCelular = empleo.beneficiario.telefonoCelular ?? "",
+                    telefonoFijo = empleo.beneficiario.telefonoFijo ?? "",
+                    direccionRequest = getDireccionRequest(empleo.beneficiario)
+
+
 
 
                 },
@@ -195,7 +227,17 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                 sucursalRequest = new SucursalRequest()
                 {
                     guid = empleo.sucursal.Id,
-                    nombre = empleo.sucursal.nombre
+                    nombre = empleo.sucursal.nombre,
+                    firmaAutorizadaRequest = new FirmaAutorizadaRequest()
+                    {
+                        IdGuid = empleo.sucursal.firma.Id,
+                        fechaCreacion = empleo.sucursal.firma.fechaCreacion,
+                        userRequest = new UserRequest()
+                        {
+                            Id = empleo.sucursal.firma.user.Id
+                        }
+                    }
+                    
                     
                 },
                 fechaDeInicio = empleo.fechaDeInicio,

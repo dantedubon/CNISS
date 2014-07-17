@@ -112,7 +112,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
                         }
 
                     },
-                    firmaRequest = new UserRequest()
+                    userFirmaRequest = new UserRequest()
                     {
                         Id = x.firma.user.Id
                     },

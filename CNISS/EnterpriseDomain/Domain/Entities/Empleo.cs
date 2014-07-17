@@ -49,6 +49,12 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
             
         }
 
+        public virtual void addFichaSupervision(FichaSupervisionEmpleo fichaSupervision)
+        {
+            fichasSupervisionEmpleos.Add(fichaSupervision);
+        }
+
+
         public virtual void removeComprobante(ComprobantePago comprobantePago)
         {
             comprobantesPago.Remove(comprobantePago);

@@ -34,7 +34,26 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Command
             beneficiario.telefonoCelular = request.telefonoCelular;
             beneficiario.telefonoFijo = request.telefonoFijo;
             beneficiario.fotografiaBeneficiario = getFotografia(request);
+            beneficiario.direccion = getDireccion(request);
             return beneficiario;
+        }
+
+        private Direccion getDireccion(BeneficiarioRequest beneficiarioRequest)
+        {
+            if (beneficiarioRequest.direccionRequest == null)
+            {
+                return null;
+            }
+            var direccionRequest = beneficiarioRequest.direccionRequest;
+            var departamento = new Departamento()
+            {
+                Id = direccionRequest.departamentoRequest.idDepartamento,
+                nombre = direccionRequest.departamentoRequest.nombre
+            };
+
+            var municipio = new Municipio(direccionRequest.municipioRequest.idMunicipio,
+                direccionRequest.municipioRequest.idDepartamento, direccionRequest.municipioRequest.nombre);
+            return new Direccion(departamento, municipio, direccionRequest.descripcion);
         }
 
         private Auditoria getAuditoria(AuditoriaRequest auditoriaRequest)

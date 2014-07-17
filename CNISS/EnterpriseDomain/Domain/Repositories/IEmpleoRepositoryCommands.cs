@@ -14,6 +14,8 @@ namespace CNISS.EnterpriseDomain.Domain.Repositories
 
         void updateContratoEmpleo(Guid entityId, ContentFile contrato);
         void updateImagenComprobante(Guid entityId, Guid comprobantePagoId, ContentFile imagenComprobante);
+        void updateFromMovilNotaDespido(Guid empleoId, NotaDespido notaDespido);
+        void updateFromMovilVisitaSupervision(Guid empleoId, FichaSupervisionEmpleo fichaSupervision);
 
     }
 }

@@ -84,6 +84,15 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
             return empleo != null && empleo.comprobantesPago.Any(x => x.Id == comprobanteId);
         }
 
+        public bool existsEmpleoAndFechaInicioMenorAFechaProporcionada(Guid empleoId, DateTime fecha)
+        {
+            return (from empleo in Session.Query<Empleo>()
+                    where empleo.Id == empleoId && empleo.fechaDeInicio < fecha
+                    select empleo.Id
+                ).Any()
+            ;
+        }
+
         public override bool exists(Guid id)
         {
             return (from empleo in Session.Query<Empleo>()

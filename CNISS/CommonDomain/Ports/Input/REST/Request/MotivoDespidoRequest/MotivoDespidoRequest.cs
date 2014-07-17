@@ -19,5 +19,10 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.MotivoDespidoRequest
         {
             return Guid.Empty != IdGuid && isValidPost();
         }
+
+        public bool isValidPostNotaDespido()
+        {
+            return Guid.Empty != IdGuid;
+        }
     }
 }

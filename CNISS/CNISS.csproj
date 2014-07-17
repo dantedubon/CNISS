@@ -220,6 +220,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\FichaSupervisionEmpleoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\HoraRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\HorarioLaboralRequest.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\NotaDespidoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpleoRequest\TipoEmpleoRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\ActividadEconomicaRequest.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Request\EmpresaRequest\EmpresaRequest.cs" />
@@ -248,6 +249,7 @@
     <Compile Include="CommonDomain\Ports\Output\Database\NHibernateUnitOfWork.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertFichaDeSupervision.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertMotivoDespido.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandInsertNotaDespido.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertTipoEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertVisita.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateActividadEconomica.cs" />
@@ -270,6 +272,7 @@
     <Compile Include="EnterpriseDomain\Application\CommandUpdateVisita.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandDeleteGremio.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandInsertFichaDeSupervision.cs" />
+    <Compile Include="EnterpriseDomain\Application\ICommandInsertNotaDespido.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateEmpleoContrato.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateEmpleoImagenComprobantePago.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandUpdateEmpresaContrato.cs" />

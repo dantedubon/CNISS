@@ -19,5 +19,6 @@ namespace CNISS.EnterpriseDomain.Domain.Repositories
         
 
         bool existsComprobante(Guid empleoid, Guid comprobanteId);
+        bool existsEmpleoAndFechaInicioMenorAFechaProporcionada(Guid empleoId, DateTime fecha);
     }
 }

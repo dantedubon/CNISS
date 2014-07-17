@@ -82,6 +82,28 @@ namespace CNISS_Tests.MotivoDespido_Test.Request
             Assert.IsFalse(motivoDespidoRequest.isValidPost());
         }
 
+        [Test]
+        public void isValidPostNotaDespido_invalidData_returnFalse()
+        {
+            var motivoDespidoRequest = new MotivoDespidoRequest();
+         
+
+            Assert.IsFalse(motivoDespidoRequest.isValidPostNotaDespido());
+        }
+
+
+        [Test]
+        public void isValidPostNotaDespido_validData_returnFalse()
+        {
+            var motivoDespidoRequest = new MotivoDespidoRequest()
+            {
+                IdGuid = Guid.NewGuid()
+            };
+
+
+            Assert.IsTrue(motivoDespidoRequest.isValidPostNotaDespido());
+        }
+ 
         private AuditoriaRequest getAuditoriaRequest()
         {
             return new AuditoriaRequest()

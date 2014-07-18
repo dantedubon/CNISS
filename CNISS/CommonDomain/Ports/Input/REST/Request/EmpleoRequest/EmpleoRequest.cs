@@ -24,6 +24,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
         public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
         public IEnumerable<FichaSupervisionEmpleoRequest> fichaSupervisionEmpleoRequests { get; set; }
         public NotaDespidoRequest notaDespidoRequest { get; set; }
+        public bool supervisado { get; set; }
 
         public EmpleoRequest()
         {

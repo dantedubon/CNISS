@@ -163,6 +163,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                 },
                 contrato = x.contrato == null ? "" : x.contrato.Id.ToString(),
                 cargo = x.cargo,
+                supervisado = x.supervisado,
                 comprobantes = x.comprobantesPago.Select(z=> new ComprobantePagoRequest()
                 {
                     deducciones = z.deducciones,

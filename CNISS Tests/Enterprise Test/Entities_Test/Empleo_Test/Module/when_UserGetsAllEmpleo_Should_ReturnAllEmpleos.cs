@@ -154,6 +154,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
                 },
                 cargo = x.cargo,
+                supervisado = x.supervisado,
                 comprobantes = x.comprobantesPago.Select(z=> new ComprobantePagoRequest()
                 {
                     deducciones = z.deducciones,

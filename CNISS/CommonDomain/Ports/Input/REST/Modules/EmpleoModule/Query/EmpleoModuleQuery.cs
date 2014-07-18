@@ -312,6 +312,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
 
                 },
                 cargo = empleo.cargo,
+                supervisado = empleo.supervisado,
                 comprobantes = empleo.comprobantesPago.Select(z => new ComprobantePagoRequest()
                 {
                     deducciones = z.deducciones,

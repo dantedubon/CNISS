@@ -96,7 +96,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
         public override bool exists(Guid id)
         {
             return (from empleo in Session.Query<Empleo>()
-                   where empleo.Id == id
+                   where empleo.Id == id 
                    select empleo.Id
                 ).Any()
             ;

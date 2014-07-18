@@ -1,5 +1,6 @@
 ﻿using CNISS.EnterpriseDomain.Domain.Repositories;
 using Nancy;
+using Nancy.Security;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
 {
@@ -9,6 +10,15 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
         {
             Get["enterprise/departaments"] = parameters =>
             {
+                var result = repository.getAll();
+                return Response.AsJson(result)
+                    .WithStatusCode(HttpStatusCode.OK);
+
+            };
+
+            Get["movil/departaments"] = parameters =>
+            {
+                this.RequiresClaims(new[] { "movil" });
                 var result = repository.getAll();
                 return Response.AsJson(result)
                     .WithStatusCode(HttpStatusCode.OK);

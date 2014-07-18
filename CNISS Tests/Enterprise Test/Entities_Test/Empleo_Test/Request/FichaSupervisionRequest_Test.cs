@@ -98,6 +98,25 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
                  new object[]
                 {
                     "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(), getAuditoriaRequest(), null
+                },
+                new object[]
+                {
+                    "cargo","GPS","Funciones","31804433","31804433",null,9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(), getAuditoriaRequest(), getBeneficiarioRequest()
+                }
+                ,
+                new object[]
+                {
+                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,null,Guid.NewGuid(), Guid.NewGuid(), getAuditoriaRequest(), getBeneficiarioRequest()
+                }
+                ,
+                new object[]
+                {
+                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(), null, getBeneficiarioRequest()
+                }
+                  ,
+                new object[]
+                {
+                    "cargo","GPS","Funciones","31804433","31804433",getFirmaAutorizadaRequest(),9,getSupervisorRequest(),Guid.NewGuid(), Guid.NewGuid(), getAuditoriaRequest(), null
                 }
             };
         }

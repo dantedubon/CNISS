@@ -32,11 +32,14 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
                    && !string.IsNullOrEmpty(telefonoCelular)
                    && telefonosNumeric()
                    && telefonosLength()
+                   && firma != null
                   && firma.isValidPostForFichaSupervision()
                    && desempeñoEmpleado > 0 && desempeñoEmpleado <=10
+                   &&supervisor != null
                    && supervisor.isValidPostFichaSupervision()
                    && Guid.Empty!= fotografiaBeneficiario
                    && Guid.Empty!=empleoId
+                   && auditoriaRequest != null
                    && auditoriaRequest.isValidPost()
                    && beneficiarioRequest!=null 
                    &&beneficiarioRequest.isValidPost()

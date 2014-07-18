@@ -138,6 +138,8 @@
     <Compile Include="Repositories\EmpleoRepository\Commands\when_UserUpdatesBeneficiarioEmpleo_Should_UpdatesEmpleo.cs" />
     <Compile Include="Repositories\EmpleoRepository\Commands\when_UserUpdatesEmpresaEmpleo_Should_UpdatesEmpleo.cs" />
     <Compile Include="Repositories\EmpleoRepository\Commands\when_UserSaveValidEmpleo_Should_SaveEmpleo.cs" />
+    <Compile Include="Repositories\EmpleoRepository\ReadOnly\Class1.cs" />
+    <Compile Include="Repositories\EmpleoRepository\ReadOnly\when_UserAskEmpleoForNotaDespido_Should_ReturnTrue.cs" />
     <Compile Include="Repositories\EmpleoRepository\ReadOnly\when_UserGetMostRecenteEmpleoFromBeneficiario_Should_ReturnEmpleo.cs" />
     <Compile Include="Repositories\EmpleoRepository\ReadOnly\when_UserAsksExistingComprobanteNotExistingEmpleo_Should_ReturnFalse.cs" />
     <Compile Include="Repositories\EmpleoRepository\ReadOnly\when_UserAsksExistingComprobante_Should_ReturnTrue.cs" />

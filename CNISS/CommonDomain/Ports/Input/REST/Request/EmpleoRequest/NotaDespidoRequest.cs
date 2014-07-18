@@ -9,6 +9,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
 {
     public class NotaDespidoRequest:IValidPost
     {
+        public Guid guid { get; set; }
         public MotivoDespidoRequest.MotivoDespidoRequest motivoDespidoRequest { get; set; }
         public DateTime fechaDespido { get; set; }
         public Guid imagenNotaDespido { get; set; }

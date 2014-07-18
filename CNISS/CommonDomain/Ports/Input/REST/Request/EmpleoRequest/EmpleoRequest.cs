@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
+using NHibernate.Mapping;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
 {
@@ -21,8 +22,13 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
         public byte[] contentFile { get; set; }
         public IEnumerable<ComprobantePagoRequest> comprobantes { get; set; }
         public AuditoriaRequest.AuditoriaRequest auditoriaRequest { get; set; }
-      
+        public IEnumerable<FichaSupervisionEmpleoRequest> fichaSupervisionEmpleoRequests { get; set; }
+        public NotaDespidoRequest notaDespidoRequest { get; set; }
 
+        public EmpleoRequest()
+        {
+            fichaSupervisionEmpleoRequests = new List<FichaSupervisionEmpleoRequest>();
+        }
         public bool isValidPost()
         {
             return empresaRequest != null && empresaRequest.isValidPostForBasicData()

@@ -29,6 +29,22 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
                     .WithStatusCode(HttpStatusCode.OK);
 
             };
+
+            Get["/enterprise/Images/{id:guid}"] = parameters =>
+            {
+                Guid id = parameters.id;
+
+                var fileData = repositoryReadOnly.get(id);
+                if (fileData == null)
+                    return new Response()
+                        .WithStatusCode(HttpStatusCode.NotFound);
+
+
+                return Response.FromStream(() => new MemoryStream(fileData.dataFile), "image/jpeg")
+
+                    .WithStatusCode(HttpStatusCode.OK);
+
+            };
         }
     }
 }

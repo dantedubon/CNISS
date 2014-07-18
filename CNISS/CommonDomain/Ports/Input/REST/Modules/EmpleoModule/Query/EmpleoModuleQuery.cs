@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
+using CNISS.CommonDomain.Ports.Input.REST.Request.MotivoDespidoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
+using CNISS.CommonDomain.Ports.Input.REST.Request.VisitaRequest;
 using CNISS.EnterpriseDomain.Domain;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
@@ -184,6 +187,107 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                 IdGuid = direccion.Id
             };
         }
+
+        private IEnumerable<FichaSupervisionEmpleoRequest> getFichaSupervisionEmpleos(
+            IEnumerable<FichaSupervisionEmpleo> fichasSupervision)
+        {
+           
+            return fichasSupervision.Select(x => new FichaSupervisionEmpleoRequest()
+            {
+                telefonoCelular = x.telefonoCelular,
+                telefonoFijo = x.telefonoFijo,
+                fotografiaBeneficiario = x.fotografiaBeneficiario.Id,
+                cargo = x.cargo,
+                funciones = x.funciones,
+                desempeñoEmpleado = x.desempeñoEmpleado,
+                posicionGPS = x.posicionGPS,
+                supervisor = new SupervisorRequest()
+                {
+                    guid = x.supervisor.Id,
+                    userRequest = new UserRequest()
+                    {
+                        Id = x.supervisor.usuario.Id,
+                        firstName = x.supervisor.usuario.firstName,
+                        secondName = x.supervisor.usuario.secondName,
+                        mail = x.supervisor.usuario.mail
+                    }
+   
+                },
+                auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo = x.auditoria.fechaCreo,
+                    fechaModifico = x.auditoria.fechaModifico,
+                    usuarioCreo = x.auditoria.usuarioCreo,
+                    usuarioModifico = x.auditoria.usuarioModifico
+                },
+                firma = new FirmaAutorizadaRequest()
+                {
+                    IdGuid = x.firma.Id,
+                    userRequest = new UserRequest()
+                    {
+                        Id = x.firma.user.Id,
+                        firstName = x.firma.user.firstName,
+                        mail = x.firma.user.mail,
+                        secondName = x.firma.user.secondName
+                        
+                    }
+
+
+                }
+            }).ToList();
+        }
+
+        private NotaDespidoRequest getNotaDespidoRequest(NotaDespido notaDespido)
+        {
+            if (notaDespido == null)
+                return null;
+            return new NotaDespidoRequest()
+            {
+                guid = notaDespido.Id,
+                fechaDespido = notaDespido.fechaDespido,
+                imagenNotaDespido = notaDespido.documentoDespido.Id,
+                firmaAutorizadaRequest = new FirmaAutorizadaRequest()
+                {
+                    IdGuid = notaDespido.firmaAutorizada.Id,
+                    userRequest = new UserRequest()
+                    {
+                        Id = notaDespido.firmaAutorizada.user.Id,
+                        firstName = notaDespido.firmaAutorizada.user.firstName,
+                        mail = notaDespido.firmaAutorizada.user.mail,
+                        secondName = notaDespido.firmaAutorizada.user.secondName
+                        
+                    }
+
+
+                },
+                auditoriaRequest = new AuditoriaRequest()
+                {
+                    fechaCreo = notaDespido.auditoria.fechaCreo,
+                    fechaModifico = notaDespido.auditoria.fechaModifico,
+                    usuarioCreo = notaDespido.auditoria.usuarioCreo,
+                    usuarioModifico = notaDespido.auditoria.usuarioModifico
+                },
+                motivoDespidoRequest = new MotivoDespidoRequest()
+                {
+                    IdGuid = notaDespido.motivoDespido.Id,
+                    descripcion = notaDespido.motivoDespido.descripcion
+                },
+                posicionGPS = notaDespido.posicionGPS,
+                supervisorRequest = new SupervisorRequest()
+                {
+                    guid = notaDespido.supervisor.Id,
+                    userRequest = new UserRequest()
+                    {
+                        Id = notaDespido.supervisor.usuario.Id,
+                        firstName = notaDespido.supervisor.usuario.firstName,
+                        secondName = notaDespido.supervisor.usuario.secondName,
+                        mail = notaDespido.supervisor.usuario.mail
+                    }
+
+                }
+            };
+        }
+
         private  EmpleoRequest getEmpleoRequest(Empleo empleo)
         {
             return new EmpleoRequest()
@@ -275,13 +379,16 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                     IdGuid = empleo.tipoEmpleo.Id
                 },
                 IdGuid = empleo.Id,
+                notaDespidoRequest = getNotaDespidoRequest(empleo.notaDespido),
+                fichaSupervisionEmpleoRequests = getFichaSupervisionEmpleos(empleo.fichasSupervisionEmpleos),
                 auditoriaRequest = new AuditoriaRequest()
                 {
                     fechaCreo = empleo.auditoria.fechaCreo,
                     fechaModifico = empleo.auditoria.fechaModifico,
                     usuarioCreo = empleo.auditoria.usuarioCreo,
                     usuarioModifico = empleo.auditoria.usuarioModifico
-                }
+                },
+                
             };
 
         }

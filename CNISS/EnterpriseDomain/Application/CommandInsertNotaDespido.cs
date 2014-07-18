@@ -32,7 +32,7 @@ namespace CNISS.EnterpriseDomain.Application
             var userFirma = notaDespido.firmaAutorizada.user;
             const int nivelFirma = 1;
             return _authenticateUser.isValidUser(userFirma,nivelFirma) 
-                && _empleoRepositoryRead.existsEmpleoAndFechaInicioMenorAFechaProporcionada(idEmpleo, fechaNotaDespido);
+                && _empleoRepositoryRead.existsEmpleoForNotaDespido(idEmpleo, fechaNotaDespido);
         }
 
         public void execute(Guid idEmpleo, NotaDespido notaDespido)

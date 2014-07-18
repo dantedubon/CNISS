@@ -23,9 +23,13 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest
             return !string.IsNullOrEmpty(posicionGPS) 
                 && fechaDespido > new DateTime(2014,1,1)
                 && Guid.Empty != imagenNotaDespido
+                && supervisorRequest != null
                 && supervisorRequest.isValidPostFichaSupervision()
+                && firmaAutorizadaRequest != null
                 && firmaAutorizadaRequest.isValidPostForFichaSupervision()
+                && auditoriaRequest!=null
                 && auditoriaRequest.isValidPost()
+                && motivoDespidoRequest != null
                 && motivoDespidoRequest.isValidPostNotaDespido()
                 && Guid.Empty != empleoId;
         }

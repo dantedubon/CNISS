@@ -56,6 +56,18 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Request
                 {
                     "GPS",DateTime.Now.Date,Guid.NewGuid(),getSupervisorRequest(),getFirmaAutorizadaRequest(),getAuditoriaRequest(),getMotivoDespidoRequest(), null
                 },
+                new object[]
+                {
+                    "GPS",DateTime.Now.Date,Guid.NewGuid(),null,getFirmaAutorizadaRequest(),getAuditoriaRequest(),getMotivoDespidoRequest(), Guid.NewGuid()
+                },
+                new object[]
+                {
+                    "GPS",DateTime.Now.Date,Guid.NewGuid(),getSupervisorRequest(),null,getAuditoriaRequest(),getMotivoDespidoRequest(), Guid.NewGuid()
+                },
+                new object[]
+                {
+                    "GPS",DateTime.Now.Date,Guid.NewGuid(),getSupervisorRequest(),getFirmaAutorizadaRequest(),getAuditoriaRequest(),null, Guid.NewGuid()
+                },
             };
         }
 

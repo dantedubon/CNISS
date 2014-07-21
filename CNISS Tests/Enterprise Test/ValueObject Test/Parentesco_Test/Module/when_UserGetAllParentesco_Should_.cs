@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule;
+using CNISS.CommonDomain.Ports.Input.REST.Modules.ParentescoModule.Query;
 using CNISS.EnterpriseDomain.Domain.Repositories;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using FizzWare.NBuilder;

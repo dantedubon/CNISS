@@ -278,7 +278,14 @@
     <Compile Include="Enterprise Test\ValueObject Test\MotivoDespido_Test\Request\MotivoDespidoRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Municipio_Test\Request\MunicipioRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Nombre_Test\NombreRequest_Test.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Parentesco_Test\Command\CommandUpdateParentesco_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\Parentesco_Test\Module\when_UserGetAllParentesco_Should_.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Parentesco_Test\Module\when_UserPostNewParentescoInvalidData_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Parentesco_Test\Module\when_UserPostNewParentescoValidData_Should_SaveParentesco.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Parentesco_Test\Module\when_UserPutParentescoBadData_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Parentesco_Test\Module\when_UserPutParentescoNotExists_Should_ReturnError.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Parentesco_Test\Module\when_UserPutParentescoValid_Should_UpdateTipoEmpleo.cs" />
+    <Compile Include="Enterprise Test\ValueObject Test\Parentesco_Test\Request\TipoEmpleoRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\RepresentanteLegal_Test\Request\RepresentanteLegalRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\RTN_Test\Request\RTNRequest_Test.cs" />
     <Compile Include="Enterprise Test\ValueObject Test\TipoEmpleo_Test\Command\CommandUpdateTipoEmpleo_Test.cs" />

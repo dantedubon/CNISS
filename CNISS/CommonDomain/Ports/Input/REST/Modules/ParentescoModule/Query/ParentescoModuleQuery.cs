@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using CNISS.EnterpriseDomain.Domain.Repositories;
+﻿using CNISS.EnterpriseDomain.Domain.Repositories;
 using Nancy;
 
-namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule
+namespace CNISS.CommonDomain.Ports.Input.REST.Modules.ParentescoModule.Query
 {
     public class ParentescoModuleQuery:NancyModule
     {

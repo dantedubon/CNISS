@@ -158,7 +158,6 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\Commands\BeneficiarioMap.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\Commands\BeneficiarioModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\Commands\BeneficiarioModuleUpdate.cs" />
-    <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\ParentescoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\BeneficiarioModule\Query\BeneficiarioModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\EmpleoModuleUpdateImagenComprobantePago.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\empleoMapping.cs" />
@@ -189,6 +188,10 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\MotivoDespidoModule\Commands\MotivoDespidoModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\MotivoDespidoModule\Commands\MotivoDespidoModuleUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\MotivoDespidoModule\Query\MotivoDespidoModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\ParentescoModule\Commands\ParentescoMapping.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\ParentescoModule\Commands\ParentescoModuleInsert.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\ParentescoModule\Commands\ParentescoModuleUpdate.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\ParentescoModule\Query\ParentescoModuleQuery.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\RolModule\RolCommand\RolModuleCommandUpdate.cs" />
@@ -251,6 +254,7 @@
     <Compile Include="EnterpriseDomain\Application\CommandInsertFichaDeSupervision.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertMotivoDespido.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertNotaDespido.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandInsertParentesco.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertTipoEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandInsertVisita.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateActividadEconomica.cs" />
@@ -269,6 +273,7 @@
     <Compile Include="EnterpriseDomain\Application\CommandUpdateGremioDireccion.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateGremioRepresentante.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateMotivoDespido.cs" />
+    <Compile Include="EnterpriseDomain\Application\CommandUpdateParentesco.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateTipoEmpleo.cs" />
     <Compile Include="EnterpriseDomain\Application\CommandUpdateVisita.cs" />
     <Compile Include="EnterpriseDomain\Application\ICommandDeleteGremio.cs" />
@@ -320,6 +325,7 @@
     <Compile Include="EnterpriseDomain\Domain\Repositories\IMotivoDespidoRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IMotivoDespidoRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IMunicipioRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Domain\Repositories\IParentescoRepositoryCommand.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\ITipoDeEmpleoReadOnlyRepository.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IParentescoReadOnlyRepository.cs" />
     <Compile Include="EnterpriseDomain\Domain\Repositories\IPersonRNPRepositoryReadOnly.cs" />
@@ -358,6 +364,7 @@
     <Compile Include="EnterpriseDomain\Ports\Output\Database\Mappings\VisitaMapping.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\MotivoDespidoRepositoryCommands.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\MotivoDespidoRepositoryReadOnly.cs" />
+    <Compile Include="EnterpriseDomain\Ports\Output\Database\ParentescoRepositoryCommand.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\TipoDeEmpleoRepositoryCommand.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\ContentFileRepositoryReadOnly.cs" />
     <Compile Include="EnterpriseDomain\Ports\Output\Database\EmpleoRepositoryCommands.cs" />

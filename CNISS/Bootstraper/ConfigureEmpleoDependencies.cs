@@ -36,12 +36,19 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<ProvideAllowedDaysForNewEmpleo>().As<IProvideAllowedDaysForNewEmpleo>();
                     builder.RegisterType<CommandInsertTipoEmpleo>().As<ICommandInsertIdentity<TipoEmpleo>>();
                     builder.RegisterType<CommandInsertMotivoDespido>().As<ICommandInsertIdentity<MotivoDespido>>();
+                    builder.RegisterType<CommandInsertParentesco>().As<ICommandInsertIdentity<Parentesco>>();
+
                     builder.RegisterType<CommandUpdateTipoEmpleo>().As<ICommandUpdateIdentity<TipoEmpleo>>();
                     builder.RegisterType<CommandUpdateMotivoDespido>().As<ICommandUpdateIdentity<MotivoDespido>>();
+                    builder.RegisterType<CommandUpdateParentesco>().As<ICommandUpdateIdentity<Parentesco>>();
+
                     builder.RegisterType<TipoDeEmpleoRepositoryCommand>().As<IRepositoryCommands<TipoEmpleo>>();
+                    builder.RegisterType<ParentescoRepositoryCommand>().As<IRepositoryCommands<Parentesco>>();
                     builder.RegisterType<MotivoDespidoRepositoryCommands>().As<IRepositoryCommands<MotivoDespido>>();
                     builder.RegisterType<CommandInsertFichaDeSupervision>().As<ICommandInsertFichaDeSupervision>();
                     builder.RegisterType<CommandInsertNotaDespido>().As<ICommandInsertNotaDespido>();
+                    
+
                 };
             }
         }

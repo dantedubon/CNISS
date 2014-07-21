@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Default Web Site/" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\CNISS\\CNISS\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\CNISS\\CNISS\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="CENSS_SQL-Web.config Connection String" description="" value="Server=WIN-4GUBUKEQKNL\SQLEXPRESS;Database=ACCION_SOCIAL;Trusted_Connection=Yes;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\CNISS\\CNISS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CENSS_SQL']/@connectionString" />
+  </parameter>
+</parameters>

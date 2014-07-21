@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="CENSS_SQL-Web.config Connection String" description="CENSS_SQL Connection String used in web.config by the application to access the database." defaultValue="Server=WIN-4GUBUKEQKNL\SQLEXPRESS;Database=ACCION_SOCIAL;Trusted_Connection=Yes;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\CNISS\\CNISS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CENSS_SQL']/@connectionString" />
+  </parameter>
+</parameters>

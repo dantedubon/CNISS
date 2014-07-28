@@ -28,9 +28,11 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule
                 {
                     return HttpStatusCode.Unauthorized;
                 }
+                
                 var userIdentity = new UserIdentityMovil(user);
 
                 var token = tokenizer.Tokenize(userIdentity, Context);
+                
 
                 return new
                 {

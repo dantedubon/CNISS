@@ -22,8 +22,10 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query
             Get["/movil/supervisor/lugaresVisita"] = _ =>
             {
                this.RequiresClaims(new[] { "movil" });
+                
                 var actualUser = this.Context.CurrentUser.UserName;
                 var user = new User(actualUser, "", "", "", "", new RolNull());
+                
                 var supervisor = repository.getAgendaSupervisor(user);
                 return supervisor == null ? HttpStatusCode.NotFound : Response.AsJson(getSupervisorRequest(supervisor));
             };

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Autofac;
+using CNISS.AutenticationDomain.Domain.Services;
 using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Domain;
+using CNISS.CommonDomain.Ports;
 using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
@@ -47,7 +49,9 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<MotivoDespidoRepositoryCommands>().As<IRepositoryCommands<MotivoDespido>>();
                     builder.RegisterType<CommandInsertFichaDeSupervision>().As<ICommandInsertFichaDeSupervision>();
                     builder.RegisterType<CommandInsertNotaDespido>().As<ICommandInsertNotaDespido>();
-                    
+
+                    builder.RegisterType<SerializerRequest>().As<ISerializeJsonRequest>();
+                    builder.RegisterType<RequestEncrypterRijndael>().As<IEncrytRequestProvider>();
 
                 };
             }

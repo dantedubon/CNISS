@@ -4,10 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using CNISS.AutenticationDomain.Domain.Entities;
+using CNISS.AutenticationDomain.Domain.Services;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Application;
 using CNISS.CommonDomain.Domain;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Commands;
+using CNISS.CommonDomain.Ports.Input.REST.Request;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.VisitaRequest;
@@ -15,6 +17,7 @@ using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using Nancy;
+using Nancy.Authentication.Token;
 using Nancy.Json;
 using Nancy.ModelBinding;
 using Nancy.Security;
@@ -26,13 +29,26 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
         private const string directorioImagenes = @"/ImagenesMoviles";
         private const string extensionImagenes = ".jpeg";
 
-        public FichaEmpleoSupervisionModuleInsert(ICommandInsertFichaDeSupervision command, IFileGetter fileGetter)
+        public FichaEmpleoSupervisionModuleInsert(ISerializeJsonRequest serializerJson,Func<string,IEncrytRequestProvider> encryptRequestProvider, ITokenizer tokenizer,ICommandInsertFichaDeSupervision command, IFileGetter fileGetter)
         {
             Post["/movil/fichaSupervision/"] = parameters =>
             {
-                this.RequiresClaims(new[] { "movil" });
-               
-                var fichaRequest = this.Bind<FichaSupervisionEmpleoRequest>();
+                
+
+                var movilRequest = this.Bind<MovilRequest>();
+                var userId = tokenizer.Detokenize(movilRequest.token,Context);
+                if (userId == null)
+                {
+                    return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
+                }
+
+                var desencrypter = encryptRequestProvider(movilRequest.token);
+                var fichaString = desencrypter.decryptString(movilRequest.data);
+
+
+                var fichaRequest = serializerJson.fromJson<FichaSupervisionEmpleoRequest>(fichaString);
+
+             
                
                 if (fichaRequest.isValidPost())
                 {

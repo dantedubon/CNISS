@@ -15,6 +15,7 @@ using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using Nancy;
+using Nancy.Json;
 using Nancy.ModelBinding;
 using Nancy.Security;
 
@@ -30,7 +31,9 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
             Post["/movil/fichaSupervision/"] = parameters =>
             {
                 this.RequiresClaims(new[] { "movil" });
-                var fichaRequest = this.Bind<FichaSupervisionEmpleoRequest>();
+               
+               // var fichaRequest = this.Bind<FichaSupervisionEmpleoRequest>();
+                var fichaRequest = new JavaScriptSerializer().Deserialize<FichaSupervisionEmpleoRequest>(returnJson());
                 if (fichaRequest.isValidPost())
                 {
                     var archivoImagen = fichaRequest.fotografiaBeneficiario.ToString();
@@ -56,6 +59,147 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                 
             };
         }
+
+        private string returnJson()
+        {
+            string cosa = @"{
+    ""fotografiaBeneficiario"": ""91324018-fd56-499d-9803-f3d9abe1f9f2"",
+    ""posicionGPS"": ""posicion"",
+    ""cargo"": ""cargo"",
+    ""funciones"": ""funciones"",
+    ""telefonoFijo"": ""31804422"",
+    ""telefonoCelular"": ""31804422"",
+    ""desempeñoEmpleado"": ""9"",
+    ""supervisor"": {
+        ""guid"": ""61305CBC-52E8-41BD-AB28-1ECFF0071DD8"",
+		 ""auditoriaRequest"": null,
+		  ""lugarVisitaRequests"": null,
+        ""userRequest"": {
+            ""Id"": ""DRCDF"",
+            ""firstName"": """",
+            ""secondName"": """",
+            ""mail"": """",
+            ""password"": ""12345678"",
+            ""userRol"": {
+                ""idGuid"": null,
+                ""name"": null,
+                ""description"": null,
+                ""nivel"": 0,
+                ""auditoriaRequest"": null
+            },
+            ""auditoriaRequest"": null
+        }
+    },
+    ""empleoId"": ""B5D09572-E626-40E6-B347-A35C0172169D"",
+    ""auditoriaRequest"": {
+        ""usuarioCreo"": ""dcastillo"",
+        ""fechaCreo"": ""2014-06-23T16: 56: 50"",
+        ""usuarioModifico"": ""dcastillo"",
+        ""fechaModifico"": ""2014-06-23T16: 56: 50""
+    },
+    ""firma"": {
+        ""IdGuid"": ""722d7afb-3ad2-48ca-86bf-a27c459a8a01"",
+        ""userRequest"": {
+            ""Id"": ""DRCDFirma"",
+            ""firstName"": """",
+            ""secondName"": """",
+            ""mail"": """",
+            ""password"": ""12345678"",
+            ""userRol"": {
+                ""idGuid"": null,
+                ""name"": null,
+                ""description"": null,
+                ""nivel"": 0,
+                ""auditoriaRequest"": null
+            },
+            ""auditoriaRequest"": null
+        }
+    },
+	""beneficiarioRequest"":{
+	 ""telefonoFijo"": ""31804422"",
+    ""telefonoCelular"": ""31804422"",
+	""direccionRequest"": {
+            ""idGuid"": ""00000000-0000-0000-0000-000000000000"",
+            ""municipioRequest"": {
+                ""idMunicipio"": ""01"",
+                ""idDepartamento"": ""01"",
+                ""nombre"": ""municipio""
+            },
+            ""departamentoRequest"": {
+                ""idDepartamento"": ""01"",
+                ""nombre"": ""departamento""
+            },
+            ""descripcion"": ""Barrio Abajo""
+        },
+    ""nombreRequest"": {
+        ""nombres"": ""Dante"",
+        ""primerApellido"": ""Castillo"",
+        ""segundoApellido"": ""Dubón""
+    },
+    ""identidadRequest"": {
+        ""identidad"": ""0801198512395""
+    },
+    ""dependienteRequests"": [
+        {
+            ""nombreRequest"": {
+                ""nombres"": ""Lavinia"",
+                ""primerApellido"": ""Dubón"",
+                ""segundoApellido"": ""Fajardo""
+            },
+            ""identidadRequest"": {
+                ""identidad"": ""0801195732456""
+            },
+            ""auditoriaRequest"": {
+        ""usuarioCreo"": ""dcastillo"",
+        ""fechaCreo"": ""2014-06-23T16: 56: 50"",
+        ""usuarioModifico"": ""dcastillo"",
+        ""fechaModifico"": ""2014-06-23T16: 56: 50""
+    },
+            ""parentescoRequest"": {
+                ""guid"": ""97574753-22C8-443F-96CC-40C3CD417A06"",
+                ""descripcion"": ""Madre""
+            },
+             ""fechaNacimiento"": ""1984-08-02T00:00:00""
+        },
+        {
+            ""nombreRequest"": {
+                ""nombres"": ""Martha"",
+                ""primerApellido"": ""Fajardo"",
+                ""segundoApellido"": ""Sabillon""
+            },
+          ""auditoriaRequest"": {
+        ""usuarioCreo"": ""dcastillo"",
+        ""fechaCreo"": ""2014-06-23T16: 56: 50"",
+        ""usuarioModifico"": ""dcastillo"",
+        ""fechaModifico"": ""2014-06-23T16: 56: 50""
+    },
+            ""identidadRequest"": {
+                ""identidad"": ""0801193032456""
+            },
+            ""parentescoRequest"": {
+                ""guid"": ""97574753-22C8-443F-96CC-40C3CD417A06"",
+                ""descripcion"": ""Madre""
+            },
+             ""fechaNacimiento"": ""1984-08-02T00:00:00""
+        }
+    ],
+  ""auditoriaRequest"": {
+        ""usuarioCreo"": ""dcastillo"",
+        ""fechaCreo"": ""2014-06-23T16: 56: 50"",
+        ""usuarioModifico"": ""dcastillo"",
+        ""fechaModifico"": ""2014-06-23T16: 56: 50""
+    },
+    ""fechaNacimiento"": ""1984-08-02T00:00:00""
+}
+	
+	
+}";
+
+            return cosa;
+
+
+        }
+        
 
         private  FichaSupervisionEmpleo getFichaSupervisionEmpleo(
             FichaSupervisionEmpleoRequest fichaSupervisionEmpleoRequest, ContentFile imagen)

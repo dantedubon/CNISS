@@ -1,3 +1,5 @@
+C:\CNISS\CNISS\obj\Debug\CNISS.pdb
+C:\CNISS\CNISS\obj\Debug\CNISS.csprojResolveAssemblyReference.cache
 C:\CNISS\CNISS\bin\CNISS.dll.config
 C:\CNISS\CNISS\bin\CNISS.dll
 C:\CNISS\CNISS\bin\CNISS.pdb
@@ -25,6 +27,6 @@ C:\CNISS\CNISS\bin\Nancy.Authentication.Token.xml
 C:\CNISS\CNISS\bin\Nancy.Hosting.Aspnet.xml
 C:\CNISS\CNISS\bin\NHibernate.xml
 C:\CNISS\CNISS\bin\nunit.framework.xml
-C:\CNISS\CNISS\obj\Debug\CNISS.csprojResolveAssemblyReference.cache
 C:\CNISS\CNISS\obj\Debug\CNISS.dll
-C:\CNISS\CNISS\obj\Debug\CNISS.pdb
+C:\CNISS\CNISS\bin\Newtonsoft.Json.dll
+C:\CNISS\CNISS\bin\Newtonsoft.Json.xml

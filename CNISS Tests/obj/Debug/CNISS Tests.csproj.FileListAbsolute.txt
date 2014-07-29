@@ -1,3 +1,4 @@
+C:\CNISS\CNISS Tests\obj\Debug\CNISS Tests.csprojResolveAssemblyReference.cache
 C:\CNISS\CNISS Tests\bin\CNISS Tests.dll.config
 C:\CNISS\CNISS Tests\bin\CNISS Tests.dll
 C:\CNISS\CNISS Tests\bin\CNISS Tests.pdb
@@ -37,6 +38,7 @@ C:\CNISS\CNISS Tests\bin\nunit.framework.xml
 C:\CNISS\CNISS Tests\bin\FluentNHibernate.xml
 C:\CNISS\CNISS Tests\bin\Autofac.xml
 C:\CNISS\CNISS Tests\bin\log4net.xml
-C:\CNISS\CNISS Tests\obj\Debug\CNISS Tests.csprojResolveAssemblyReference.cache
 C:\CNISS\CNISS Tests\obj\Debug\CNISS Tests.dll
 C:\CNISS\CNISS Tests\obj\Debug\CNISS Tests.pdb
+C:\CNISS\CNISS Tests\bin\Newtonsoft.Json.dll
+C:\CNISS\CNISS Tests\bin\Newtonsoft.Json.xml

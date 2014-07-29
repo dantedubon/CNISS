@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CNISS Tests", "CNISS Tests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CNISS Integration Test", "CNISS Integration Test\CNISS Integration Test.csproj", "{A6678C73-4191-4ABE-BF12-6BC5A9EFCBE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEncrypter", "TestEncrypter\TestEncrypter.csproj", "{5BC2AC16-86DD-46BA-913F-C790D9296965}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A6678C73-4191-4ABE-BF12-6BC5A9EFCBE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6678C73-4191-4ABE-BF12-6BC5A9EFCBE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6678C73-4191-4ABE-BF12-6BC5A9EFCBE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BC2AC16-86DD-46BA-913F-C790D9296965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BC2AC16-86DD-46BA-913F-C790D9296965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BC2AC16-86DD-46BA-913F-C790D9296965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BC2AC16-86DD-46BA-913F-C790D9296965}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

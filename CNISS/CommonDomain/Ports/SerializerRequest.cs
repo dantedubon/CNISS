@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace CNISS.CommonDomain.Ports
 {
     public class SerializerRequest:ISerializeJsonRequest

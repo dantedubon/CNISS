@@ -4,11 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Json;
 using System.Web;
+using CNISS.CommonDomain.Ports;
 using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.RolModule;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
 using FluentAssertions;
-using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace CNISS_Tests.Autentication_Test
@@ -17,7 +17,7 @@ namespace CNISS_Tests.Autentication_Test
     public class RequestMovilSerializer_Test
     {
         [Test]
-        public void SerializeRequest_ObjectSend_ObjectSerializedToJsonString()
+        public void SerializeRequest_ObjectSend_ObjectSerializedToJsonStringAndReturnedToObject()
         {
 
             var user = new UserRequest()
@@ -63,20 +63,5 @@ namespace CNISS_Tests.Autentication_Test
 
 
        
-    }
-
-    public class SerializerRequest
-    {
-        public string toJson<T>(T instance)
-        {
-            return JsonConvert.SerializeObject(instance,Formatting.Indented);
-        }
-
-        public T fromJson<T>(string json)
-        {
-            return JsonConvert.DeserializeObject<T>(json);
-        }
-            
-    
     }
 }

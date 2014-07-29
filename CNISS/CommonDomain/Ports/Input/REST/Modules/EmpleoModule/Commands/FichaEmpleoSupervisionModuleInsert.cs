@@ -32,8 +32,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
             {
                 this.RequiresClaims(new[] { "movil" });
                
-               // var fichaRequest = this.Bind<FichaSupervisionEmpleoRequest>();
-                var fichaRequest = new JavaScriptSerializer().Deserialize<FichaSupervisionEmpleoRequest>(returnJson());
+                var fichaRequest = this.Bind<FichaSupervisionEmpleoRequest>();
+               
                 if (fichaRequest.isValidPost())
                 {
                     var archivoImagen = fichaRequest.fotografiaBeneficiario.ToString();

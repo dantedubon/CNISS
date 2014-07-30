@@ -29,7 +29,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
         private const string directorioImagenes = @"/ImagenesMoviles";
         private const string extensionImagenes = ".jpeg";
 
-        public FichaEmpleoSupervisionModuleInsert(ISerializeJsonRequest serializerJson,Func<string,IEncrytRequestProvider> encryptRequestProvider, ITokenizer tokenizer,ICommandInsertFichaDeSupervision command, IFileGetter fileGetter)
+        public FichaEmpleoSupervisionModuleInsert(ISerializeJsonRequest serializerJson,Func<string,IEncrytRequestProvider> encryptRequestProvider, 
+            ITokenizer tokenizer,ICommandInsertFichaDeSupervision command, IFileGetter fileGetter)
         {
             Post["/movil/fichaSupervision/"] = parameters =>
             {

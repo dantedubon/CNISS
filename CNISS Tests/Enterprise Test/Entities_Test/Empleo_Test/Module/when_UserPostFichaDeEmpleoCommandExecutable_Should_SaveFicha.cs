@@ -41,7 +41,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
         private static Beneficiario _beneficiario;
         private static Guid _idEmpleo;
         private static ICommandInsertFichaDeSupervision _command;
-        static MovilRequest _dummyMovilRequest;
+        private static MovilRequest _dummyMovilRequest;
 
 
         private Establish context = () =>
@@ -103,7 +103,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                 x.MappedDependencies(new[]
                                      {
                                          new Tuple<Type, object>(typeof(ISerializeJsonRequest),serializerJson),
-                                         new Tuple<Type, object>(typeof(Func<string,IEncrytRequestProvider>),getEncrypter()),
+                                         new Tuple<Type, object>(typeof(Func<string,IEncrytRequestProvider>),encryptRequestProvider),
                                         new Tuple<Type, object>(typeof(ITokenizer),tokenizer),
                                         new Tuple<Type, object>(typeof(ICommandInsertFichaDeSupervision),_command),
                                         new Tuple<Type, object>(typeof(IFileGetter),fileGetter)

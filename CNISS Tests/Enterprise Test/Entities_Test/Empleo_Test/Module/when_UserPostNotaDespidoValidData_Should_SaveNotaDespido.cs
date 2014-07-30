@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.AutenticationDomain.Domain.Entities;
+using CNISS.AutenticationDomain.Domain.Services;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
+using CNISS.CommonDomain.Ports;
 using CNISS.CommonDomain.Ports.Input.REST;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands;
+using CNISS.CommonDomain.Ports.Input.REST.Request;
 using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
@@ -18,6 +21,7 @@ using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using Machine.Specifications;
 using Moq;
 using Nancy;
+using Nancy.Authentication.Token;
 using Nancy.Testing;
 using Should;
 using It = Machine.Specifications.It;
@@ -32,6 +36,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
         private static NotaDespidoRequest _notaDespidoRequest;
         private static ICommandInsertNotaDespido _command;
         private static NotaDespido _notaDespido;
+        private static MovilRequest _dummyMovilRequest;
 
         private Establish context = () =>
         {
@@ -49,6 +54,20 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
             var userIdentityMovil = new DummyUserIdentityMovil("DRCD");
             _notaDespido = getNotaDespido(_notaDespidoRequest);
 
+
+            _dummyMovilRequest = new MovilRequest()
+            {
+                token = "token",
+                data = "data"
+            };
+
+            var tokenizer = Mock.Of<ITokenizer>();
+            Mock.Get(tokenizer)
+                .Setup(x => x.Detokenize(Moq.It.IsAny<string>(), Moq.It.IsAny<NancyContext>()))
+                .Returns(userIdentityMovil);
+            var serializerJson = Mock.Of<ISerializeJsonRequest>();
+            var encryptRequestProvider = getEncrypter();
+
             _command = Mock.Of<ICommandInsertNotaDespido>();
             var fileGetter = Mock.Of<IFileGetter>();
             Mock.Get(fileGetter)
@@ -61,21 +80,30 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                 .Setup(x => x.isExecutable(_notaDespidoRequest.empleoId, Moq.It.IsAny<NotaDespido>()))
                 .Returns(true);
 
+            Mock.Get(serializerJson)
+                .Setup(x => x.fromJson<NotaDespidoRequest>(Moq.It.IsAny<string>()))
+                .Returns(_notaDespidoRequest);
+
             _browser = new Browser(x =>
             {
                 x.Module<NotaDespidoModuleInsert>();
-                x.Dependencies(_command, fileGetter);
-                x.RequestStartup((container, pipelines, context) =>
-                {
-                    context.CurrentUser = userIdentityMovil;
-                });
+                x.MappedDependencies(new[]
+                                     {
+                                         new Tuple<Type, object>(typeof(ISerializeJsonRequest),serializerJson),
+                                         new Tuple<Type, object>(typeof(Func<string,IEncrytRequestProvider>),encryptRequestProvider),
+                                        new Tuple<Type, object>(typeof(ITokenizer),tokenizer),
+                                        new Tuple<Type, object>(typeof(ICommandInsertNotaDespido),_command),
+                                        new Tuple<Type, object>(typeof(IFileGetter),fileGetter)
+                                       
+                                     });
+               
             });
 
 
 
         };
 
-        private Because of = () => { _response = _browser.PostSecureJson("/movil/notaDespido", _notaDespidoRequest); };
+        private Because of = () => { _response = _browser.PostSecureJson("/movil/notaDespido", _dummyMovilRequest); };
 
         It should_save_notaDespido = () => Mock.Get(_command).Verify(x =>
             x.execute(_notaDespidoRequest.empleoId,Moq.It.Is<NotaDespido>(
@@ -84,6 +112,13 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
             && z.motivoDespido.Id == _notaDespido.motivoDespido.Id
             && z.posicionGPS == _notaDespido.posicionGPS
             && z.supervisor.Id == _notaDespido.supervisor.Id)));
+
+        private static Func<string, IEncrytRequestProvider> getEncrypter()
+        {
+            var x = new Func<string, IEncrytRequestProvider>(z => new DummyEncrytRequestProvider());
+            return x;
+        }
+
 
           private static NotaDespido getNotaDespido(NotaDespidoRequest notaDespidoRequest)
         {

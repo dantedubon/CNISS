@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.AutenticationDomain.Domain.Entities;
+using CNISS.AutenticationDomain.Domain.Services;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Domain;
+using CNISS.CommonDomain.Ports.Input.REST.Request;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.MotivoDespidoRequest;
@@ -13,6 +15,7 @@ using CNISS.EnterpriseDomain.Application;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using Nancy;
+using Nancy.Authentication.Token;
 using Nancy.ModelBinding;
 using Nancy.Security;
 
@@ -23,12 +26,36 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
         private const string directorioImagenes = @"/ImagenesMoviles";
         private const string extensionImagenes = ".jpeg";
 
-        public NotaDespidoModuleInsert(ICommandInsertNotaDespido command, IFileGetter fileGetter)
+        public NotaDespidoModuleInsert(ISerializeJsonRequest serializerJson,Func<string,IEncrytRequestProvider> encryptRequestProvider, 
+            ITokenizer tokenizer,ICommandInsertNotaDespido command, IFileGetter fileGetter)
         {
             Post["/movil/notaDespido"] = parameters =>
             {
-                this.RequiresClaims(new[] { "movil" });
-                var notaDespidoRequest = this.Bind<NotaDespidoRequest>();
+               
+
+                var movilRequest = this.Bind<MovilRequest>();
+                var userId = tokenizer.Detokenize(movilRequest.token, Context);
+                if (userId == null)
+                {
+                    return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
+                }
+
+                string notaDespidoString;
+                NotaDespidoRequest notaDespidoRequest;
+                try
+                {
+                    var desencrypter = encryptRequestProvider(movilRequest.token);
+                    notaDespidoString = desencrypter.decryptString(movilRequest.data);
+                    notaDespidoRequest = serializerJson.fromJson<NotaDespidoRequest>(notaDespidoString);
+                }
+                catch (Exception e)
+                {
+                    return new Response().WithStatusCode(HttpStatusCode.BadRequest);
+                }
+
+
+
+                
                 if (notaDespidoRequest.isValidPost())
                 {
                     var archivoNotaDespido = notaDespidoRequest.imagenNotaDespido.ToString();

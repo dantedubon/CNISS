@@ -1,0 +1,51 @@
+C:\CNISS\CNISS Integration Test\bin\Debug\CNISS Integration Test.dll.config
+C:\CNISS\CNISS Integration Test\bin\Debug\CNISS Integration Test.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\CNISS Integration Test.pdb
+C:\CNISS\CNISS Integration Test\bin\Debug\CNISS.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\CsQuery.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\EntityFramework.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\EntityFramework.SqlServer.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\FizzWare.NBuilder.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\FluentAssertions.Core.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\FluentAssertions.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\FluentNHibernate.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\Iesi.Collections.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\Machine.Specifications.Clr4.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\Machine.Specifications.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\Moq.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\Nancy.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\Nancy.Testing.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\Newtonsoft.Json.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\NHibernate.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\nunit.framework.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\Should.Fluent.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\System.Data.SQLite.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\System.Data.SQLite.EF6.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\System.Data.SQLite.Linq.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\Autofac.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\Nancy.Bootstrappers.Autofac.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\Nancy.Authentication.Token.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\log4net.dll
+C:\CNISS\CNISS Integration Test\bin\Debug\CNISS.pdb
+C:\CNISS\CNISS Integration Test\bin\Debug\CsQuery.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\EntityFramework.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\EntityFramework.SqlServer.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\FluentAssertions.pdb
+C:\CNISS\CNISS Integration Test\bin\Debug\FluentAssertions.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\FluentAssertions.Core.pdb
+C:\CNISS\CNISS Integration Test\bin\Debug\FluentAssertions.Core.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\FluentNHibernate.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\Iesi.Collections.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\Moq.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\Nancy.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\Nancy.Testing.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\Newtonsoft.Json.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\NHibernate.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\nunit.framework.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\System.Data.SQLite.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\Autofac.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\Nancy.Authentication.Token.xml
+C:\CNISS\CNISS Integration Test\bin\Debug\log4net.xml
+C:\CNISS\CNISS Integration Test\obj\Debug\CNISS Integration Test.csprojResolveAssemblyReference.cache
+C:\CNISS\CNISS Integration Test\obj\Debug\CNISS Integration Test.dll
+C:\CNISS\CNISS Integration Test\obj\Debug\CNISS Integration Test.pdb

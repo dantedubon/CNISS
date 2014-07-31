@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.AutenticationDomain.Domain.Entities;
+using CNISS.AutenticationDomain.Domain.Services;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
+using CNISS.CommonDomain.Ports;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query;
+using CNISS.CommonDomain.Ports.Input.REST.Request;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
@@ -17,6 +20,7 @@ using FluentAssertions;
 using Machine.Specifications;
 using Moq;
 using Nancy;
+using Nancy.Authentication.Token;
 using Nancy.Responses.Negotiation;
 using Nancy.Testing;
 using Should;
@@ -29,46 +33,73 @@ namespace CNISS_Tests.Autentication_Test.User_Test.Modules
     {
         private static Browser _browser;
         private static BrowserResponse _response;
-        private static SupervisorRequest _expectedSupervisor;
-        private static SupervisorRequest _responseSupervisor;
-        
+        private static string _expectedSupervisor;
+        private static string _responseSupervisor;
+        static string _responseEncrypted;
+        private static MovilRequest _dummyMovilRequest;
         
         private Establish context = () =>
         {
 
             var userIdentityMovil = new DummyUserIdentityMovil("DRCD");
 
+            _dummyMovilRequest = new MovilRequest()
+            {
+                token = "token",
+              
+            };
+
+            var tokenizer = Mock.Of<ITokenizer>();
+            Mock.Get(tokenizer)
+                .Setup(x => x.Detokenize(Moq.It.IsAny<string>(), Moq.It.IsAny<NancyContext>()))
+                .Returns(userIdentityMovil);
+           
+            var encryptRequestProvider = getEncrypter();
+
             var repository = Mock.Of<IVisitaRepositoryReadOnly>();
 
               var user = new User("DRCD", "Dante", "Ruben", "XXXX", "XXXX", new RolNull());
             var supervisor = getSupervisor(user);
-            _expectedSupervisor = getSupervisorRequest(supervisor);
+            var serializer = new SerializerRequest();
+            
+            _expectedSupervisor = serializer.toJson(getSupervisorRequest(supervisor));
             Mock.Get(repository).Setup(x => x.getAgendaSupervisor(Moq.It.Is<User>(z => z.Id == user.Id ))).Returns(supervisor);
 
            _browser = new Browser(x =>
            {
                x.Module<SupervisorLugaresVisitaModuleQuery>();
                
-               x.Dependencies(repository);
-               x.RequestStartup((container, pipelines, context) =>
-               {
-                   context.CurrentUser = userIdentityMovil;
-               });
+
+               x.MappedDependencies(new[]
+                                    {
+                                        new Tuple<Type, object>(typeof (ISerializeJsonRequest), new SerializerRequest()),
+                                        new Tuple<Type, object>(typeof (Func<string, IEncrytRequestProvider>),
+                                            encryptRequestProvider),
+                                        new Tuple<Type, object>(typeof (ITokenizer), tokenizer),
+                                        new Tuple<Type, object>(typeof(IVisitaRepositoryReadOnly),repository)
+                                    });
 
 
            });
         };
 
         private Because of = () =>
-        {
-            _responseSupervisor = _browser.GetSecureJson("/movil/supervisor/lugaresVisita").Body.DeserializeJson<SupervisorRequest>();
+                             {
+                                 _responseEncrypted =
+                                     _browser.PostSecureJson("/movil/supervisor/lugaresVisita", _dummyMovilRequest).Body.AsString();
 
 
-        };
+                             };
 
-         It should_return_lugares_visita = () => _responseSupervisor.ShouldBeEquivalentTo(_expectedSupervisor);
+         It should_return_lugares_visita = () => _responseEncrypted.ShouldBeEquivalentTo(_expectedSupervisor);
 
+         private static Func<string, IEncrytRequestProvider> getEncrypter()
+         {
+             var x = new Func<string, IEncrytRequestProvider>(z => new DummyEncrytRequestProvider());
+             return x;
+         }
 
+      
         private static SupervisorRequest getSupervisorRequest(Supervisor supervisor)
         {
             return new SupervisorRequest()

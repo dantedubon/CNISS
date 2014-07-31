@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.AutenticationDomain.Domain.Entities;
+using CNISS.AutenticationDomain.Domain.Services;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
+using CNISS.CommonDomain.Ports.Input.REST.Request;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpresaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.GremioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.UserRequest;
@@ -11,23 +13,42 @@ using CNISS.CommonDomain.Ports.Input.REST.Request.VisitaRequest;
 using CNISS.EnterpriseDomain.Domain.Entities;
 using CNISS.EnterpriseDomain.Domain.Repositories;
 using Nancy;
+using Nancy.Authentication.Token;
+using Nancy.ModelBinding;
 using Nancy.Security;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query
 {
     public class SupervisorLugaresVisitaModuleQuery:NancyModule
     {
-        public SupervisorLugaresVisitaModuleQuery(IVisitaRepositoryReadOnly repository)
+        public SupervisorLugaresVisitaModuleQuery(ISerializeJsonRequest serializerJson,Func<string,IEncrytRequestProvider> encryptRequestProvider, 
+            ITokenizer tokenizer,IVisitaRepositoryReadOnly repository)
         {
-            Get["/movil/supervisor/lugaresVisita"] = _ =>
+            Post["/movil/supervisor/lugaresVisita/"] = _ =>
             {
-               this.RequiresClaims(new[] { "movil" });
-                
-                var actualUser = this.Context.CurrentUser.UserName;
+               
+
+               var movilRequest = this.Bind<MovilRequest>();
+               var userId = tokenizer.Detokenize(movilRequest.token, Context);
+               if (userId == null)
+               {
+                   return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
+               }
+
+
+
+                var actualUser = userId.UserName;
                 var user = new User(actualUser, "", "", "", "", new RolNull());
-                
-                var supervisor = repository.getAgendaSupervisor(user);
-                return supervisor == null ? HttpStatusCode.NotFound : Response.AsJson(getSupervisorRequest(supervisor));
+                 var supervisor = repository.getAgendaSupervisor(user);
+                if (supervisor == null)
+                    return new Response().WithStatusCode(HttpStatusCode.NotFound);
+
+                var agenda = getSupervisorRequest(supervisor);
+                var agendaString = serializerJson.toJson(agenda);
+                var respuestaEncryptada = encryptRequestProvider(movilRequest.token).encryptString(agendaString);
+                return respuestaEncryptada;
+
+
             };
         }
 

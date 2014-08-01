@@ -173,6 +173,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\FichaEmpleoSupervisionModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Commands\NotaDespidoModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\EmpleoModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpleoModule\Query\EmpleoModuleQueryMovil.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleUpdateContrato.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaModuleUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EmpresaModule\Commands\EmpresaMap.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\EnterpriseServiceModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\DocumentsQueryModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\FilesPostModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\ImagesPostMovilModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\PersonRNPModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioMap.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioModuleDelete.cs" />
@@ -194,6 +196,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\MotivoDespidoModule\Commands\MotivoDespidoModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\MotivoDespidoModule\Commands\MotivoDespidoModuleUpdate.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\MotivoDespidoModule\Query\MotivoDespidoModuleQuery.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\MotivoDespidoModule\Query\MotivoDespidoModuleQueryMovil.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\ParentescoModule\Commands\ParentescoMapping.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\ParentescoModule\Commands\ParentescoModuleInsert.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\ParentescoModule\Commands\ParentescoModuleUpdate.cs" />

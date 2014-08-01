@@ -86,42 +86,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                .WithStatusCode(HttpStatusCode.BadRequest);
             };
 
-            Get["/movil/empleo/id={identidad}/rtn={rtn}/sucursal={sucursal}"] = parameters =>
-            {
-                this.RequiresClaims(new[] { "movil" });
-                string identidadFromClient = parameters.identidad;
-                var identidadRequest = new IdentidadRequest() {identidad = identidadFromClient};
-
-                if (identidadRequest.isValidPost())
-                {
-                    string rtnFromClient = parameters.rtn;
-                    var rtnRequest = new RTNRequest() {RTN = rtnFromClient};
-                    if (rtnRequest.isValidPost())
-                    {
-                        Guid idSucursal;
-                        
-                        if (Guid.TryParse(parameters.sucursal, out idSucursal))
-                        {
-                            if (idSucursal != Guid.Empty)
-                            {
-                                var identidad = new Identidad(identidadRequest.identidad);
-                                var empleo = repositoryRead.getEmpleoMasRecienteBeneficiario(identidad);
-                                if (empleo.empresa.Id.rtn == rtnRequest.RTN)
-                                {
-                                    if (empleo.sucursal.Id == idSucursal)
-                                    return Response.AsJson(getEmpleoRequest(empleo));
-                                }
-                            }
-                          
-                            
-                        }
-       
-                    }
            
-                }
-                return new Response()
-                    .WithStatusCode(HttpStatusCode.BadRequest);
-            };
         }
         private  IEnumerable<EmpleoRequest> getEmpleosRequests(IEnumerable<Empleo> empleos)
         {

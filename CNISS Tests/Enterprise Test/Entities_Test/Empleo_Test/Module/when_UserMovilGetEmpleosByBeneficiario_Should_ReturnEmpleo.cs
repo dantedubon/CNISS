@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CNISS.AutenticationDomain.Domain.Entities;
+using CNISS.AutenticationDomain.Domain.Services;
 using CNISS.AutenticationDomain.Domain.ValueObjects;
 using CNISS.CommonDomain.Domain;
+using CNISS.CommonDomain.Ports;
 using CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query;
 using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
@@ -20,6 +22,7 @@ using FluentAssertions;
 using Machine.Specifications;
 using Moq;
 using Nancy;
+using Nancy.Authentication.Token;
 using Nancy.Testing;
 using Should;
 using It = Machine.Specifications.It;
@@ -36,6 +39,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
         private static Guid _sucursalGuid;
         private static EmpleoRequest _empleoExpected;
         private static EmpleoRequest _empleoResponse;
+        static string _empleoExpectedString;
+        static string _empleoResponseString;
 
         private Establish context = () =>
         {
@@ -57,30 +62,49 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
            
             _empleoExpected = getEmpleoRequests(empleo);
 
+            var tokenizer = Mock.Of<ITokenizer>();
+            Mock.Get(tokenizer)
+                .Setup(x => x.Detokenize(Moq.It.IsAny<string>(), Moq.It.IsAny<NancyContext>()))
+                .Returns(userIdentityMovil);
+      
+            var encryptRequestProvider = getEncrypter();
 
             var repository = Mock.Of<IEmpleoRepositoryReadOnly>();
             Mock.Get(repository).Setup(x => x.getEmpleoMasRecienteBeneficiario(empleo.beneficiario.Id)).Returns(empleo);
 
+
+            var serializer = new SerializerRequest();
+            _empleoExpectedString = serializer.toJson(_empleoExpected);
+
             _browser = new Browser(x =>
             {
-                x.Module<EmpleoModuleQuery>();
-                x.Dependencies(repository);
-                x.RequestStartup((container, pipelines, context) =>
-                {
-                    context.CurrentUser = userIdentityMovil;
-                });
+                x.Module<EmpleoModuleQueryMovil>();
+                
+                x.MappedDependencies(new[]
+                                    {
+                                        new Tuple<Type, object>(typeof (ISerializeJsonRequest), new SerializerRequest()),
+                                        new Tuple<Type, object>(typeof (Func<string, IEncrytRequestProvider>),
+                                            encryptRequestProvider),
+                                        new Tuple<Type, object>(typeof (ITokenizer), tokenizer),
+                                        new Tuple<Type, object>(typeof(IEmpleoRepositoryReadOnly),repository)
+                                    });
             });
         };
 
         private Because of = () =>
         {
-            _empleoResponse =
-                _browser.GetSecureJson("/movil/empleo/id=" + _Id + "/rtn=" + _rtn + "/sucursal=" +
-                                       _sucursalGuid).Body.DeserializeJson<EmpleoRequest>();
+            _empleoResponseString =
+                _browser.GetSecureJsonWithQueryString("/movil/empleo/id=" + _Id + "/rtn=" + _rtn + "/sucursal=" +
+                                       _sucursalGuid,null,"token","123").Body.AsString();
         };
 
-        It should_return_empleo = () => _empleoResponse.ShouldBeEquivalentTo(_empleoExpected);
+        It should_return_empleo = () => _empleoResponseString.ShouldBeEquivalentTo(_empleoExpectedString);
 
+        private static Func<string, IEncrytRequestProvider> getEncrypter()
+        {
+            var x = new Func<string, IEncrytRequestProvider>(z => new DummyEncrytRequestProvider());
+            return x;
+        }
 
         private static DireccionRequest getDireccionRequest(Beneficiario beneficiario)
         {

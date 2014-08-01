@@ -10,11 +10,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.MotivoDespidoModule.Query
         {
             Get["/enterprise/motivoDespido"] = parameters => Response.AsJson(readOnlyRepository.getAll());
 
-            Get["/movil/motivosDespido"] = parameters =>
-            {
-                this.RequiresClaims(new[] {"movil"});
-                return Response.AsJson(readOnlyRepository.getAll());
-            };
+            
         }
     }
 }

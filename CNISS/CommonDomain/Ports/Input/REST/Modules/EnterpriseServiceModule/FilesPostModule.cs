@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
+using CNISS.CommonDomain.Ports.Input.REST.Request;
 using Nancy;
+using Nancy.ModelBinding;
 using Nancy.Security;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
@@ -33,13 +35,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
                 return FileProcessor(filePersister, file, @"/EmpleoContratos", ".pdf");
 
             };
-            Post["/movil/imagenes"] = parameters =>
-            {
-                this.RequiresClaims(new[] { "movil" });
-                var file = Request.Files.FirstOrDefault();
-                return FileProcessor(filePersister, file, @"/ImagenesMoviles", ".jpeg");
-
-            };
+            
         }
 
         private dynamic FileProcessor(IFilePersister filePersister, HttpFile file, string directory, string extension)

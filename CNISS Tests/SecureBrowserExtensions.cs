@@ -19,6 +19,20 @@ namespace CNISS_Tests
             });
         }
 
+        public static BrowserResponse GetSecureJsonWithQueryString(this Browser browser, string resource, object payload, string nameQuery, string valueQuery)
+        {
+            return browser.Get(resource, with =>
+            {
+                with.HttpsRequest();
+                with.Accept(MediaRange.FromString("application/json"));
+                with.Query(nameQuery,valueQuery);
+                if (payload != null)
+                    payload.GetType().GetProperties().ToList()
+                           .ForEach(
+                               x => with.Query(x.Name, x.GetValue(payload).ToString()));
+            });
+        }
+
         public static BrowserResponse PostSecureJson(this Browser browser, string resource, object payload)
         {
             return browser.Post(resource, with =>

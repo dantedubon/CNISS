@@ -185,6 +185,7 @@
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\FilesPostModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\ImagesPostMovilModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\PersonRNPModule.cs" />
+    <Compile Include="CommonDomain\Ports\Input\REST\Modules\EnterpriseServiceModule\PersonRNPMovilModule.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioMap.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioModuleDelete.cs" />
     <Compile Include="CommonDomain\Ports\Input\REST\Modules\GremioModule\GremioCommand\GremioModuleInsert.cs" />

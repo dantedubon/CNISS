@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.AutenticationDomain.Domain.Services;
+using CNISS.CommonDomain.Ports.Input.REST.Request;
 using CNISS.CommonDomain.Ports.Input.REST.Request.AuditoriaRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.BeneficiarioRequest;
 using CNISS.CommonDomain.Ports.Input.REST.Request.EmpleoRequest;
@@ -16,6 +17,7 @@ using CNISS.EnterpriseDomain.Domain.Repositories;
 using CNISS.EnterpriseDomain.Domain.ValueObjects;
 using Nancy;
 using Nancy.Authentication.Token;
+using Nancy.ModelBinding;
 using Nancy.Security;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
@@ -25,22 +27,22 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
         public EmpleoModuleQueryMovil(ISerializeJsonRequest serializerJson,Func<string,IEncrytRequestProvider> encryptRequestProvider, 
             ITokenizer tokenizer,IEmpleoRepositoryReadOnly repositoryRead)
         {
-            Get["/movil/empleo/id={identidad}/rtn={rtn}/sucursal={sucursal}"] = parameters =>
+            Post["/movil/empleo/id={identidad}/rtn={rtn}/sucursal={sucursal}"] = parameters =>
             {
-                var query = Request.Query.ToDictionary();
-                string token = query["token"];
-                 try
+                var movilRequest = this.Bind<MovilRequest>();
+                try
                 {
-                    var  userId = tokenizer.Detokenize(token, Context);
-                     if (userId == null)
-                     {
-                         return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
-                     }
+                    var userId = tokenizer.Detokenize(movilRequest.token, Context);
+                    if (userId == null)
+                    {
+                        return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
+                    }
                 }
-                 catch (Exception e)
-                 {
-                     return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
-                 }
+                catch (Exception e)
+                {
+                    return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
+                }
+                var token = movilRequest.token;
                 
                 string identidadFromClient = parameters.identidad;
                 var identidadRequest = new IdentidadRequest() { identidad = identidadFromClient };

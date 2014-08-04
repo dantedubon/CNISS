@@ -94,8 +94,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
         private Because of = () =>
         {
             _empleoResponseString =
-                _browser.GetSecureJsonWithQueryString("/movil/empleo/id=" + _Id + "/rtn=" + _rtn + "/sucursal=" +
-                                       _sucursalGuid,null,"token","123").Body.AsString();
+                _browser.Post("/movil/empleo/id=" + _Id + "/rtn=" + _rtn + "/sucursal=" +
+                                       _sucursalGuid).Body.AsString();
         };
 
         It should_return_empleo = () => _empleoResponseString.ShouldBeEquivalentTo(_empleoExpectedString);

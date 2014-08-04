@@ -91,8 +91,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
         private Because of = () =>
         {
             _browserResponse =
-                _browser.GetSecureJsonWithQueryString("/movil/empleo/id=" + _Id + "/rtn=" + _rtn + "/sucursal=" +
-                                       _sucursalGuid, null, "token", "123");
+                _browser.Post("/movil/empleo/id=" + _Id + "/rtn=" + _rtn + "/sucursal=" +
+                                       _sucursalGuid);
         };
 
          It should_return_error =

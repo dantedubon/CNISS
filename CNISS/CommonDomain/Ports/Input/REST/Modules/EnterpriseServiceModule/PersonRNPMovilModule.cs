@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CNISS.AutenticationDomain.Domain.Services;
+using CNISS.CommonDomain.Ports.Input.REST.Request;
 using CNISS.EnterpriseDomain.Domain.Repositories;
 using Nancy;
 using Nancy.Authentication.Token;
+using Nancy.ModelBinding;
 
 namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
 {
@@ -14,13 +16,13 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
         public PersonRNPMovilModule(ISerializeJsonRequest serializerJson,Func<string,IEncrytRequestProvider> encryptRequestProvider, 
             ITokenizer tokenizer,IPersonRNPRepositoryReadOnly repository)
         {
-            Get["/movil/enterprise/Person/id={id}"] = parameters =>
+            Post["/movil/enterprise/Person/id={id}"] = parameters =>
             {
-                var query = Request.Query.ToDictionary();
-                string token = query["token"];
+
+                var movilRequest = this.Bind<MovilRequest>();
                 try
                 {
-                    var userId = tokenizer.Detokenize(token, Context);
+                    var userId = tokenizer.Detokenize(movilRequest.token, Context);
                     if (userId == null)
                     {
                         return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
@@ -30,6 +32,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
                 {
                     return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
                 }
+
+               var token = movilRequest.token;
 
                 string id = parameters.id;
                 if (!string.IsNullOrEmpty(id))

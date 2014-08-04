@@ -28,3 +28,5 @@ C:\CNISS\CNISS\bin\nunit.framework.xml
 C:\CNISS\CNISS\obj\Release\CNISS.csprojResolveAssemblyReference.cache
 C:\CNISS\CNISS\obj\Release\CNISS.dll
 C:\CNISS\CNISS\obj\Release\CNISS.pdb
+C:\CNISS\CNISS\bin\Newtonsoft.Json.dll
+C:\CNISS\CNISS\bin\Newtonsoft.Json.xml

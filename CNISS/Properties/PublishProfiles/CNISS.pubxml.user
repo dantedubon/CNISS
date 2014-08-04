@@ -16,7 +16,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/31/2014 22:48:33</publishTime>
     </File>
     <File Include="bin/CNISS.dll">
-      <publishTime>08/01/2014 15:55:36</publishTime>
+      <publishTime>08/04/2014 14:34:24</publishTime>
     </File>
     <File Include="bin/FluentNHibernate.dll">
       <publishTime>07/31/2014 22:48:32</publishTime>

@@ -16,22 +16,21 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
         {
             Post["/movil/imagenes"] = parameters =>
             {
-                
-                var query = Request.Query.ToDictionary();
-                var token = query["token"];
-            
+
+                var movilRequest = this.Bind<MovilRequest>();
                 try
                 {
-                    var  userId = tokenizer.Detokenize(token, Context);
-                     if (userId == null)
-                     {
-                         return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
-                     }
+                    var userId = tokenizer.Detokenize(movilRequest.token, Context);
+                    if (userId == null)
+                    {
+                        return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
+                    }
                 }
                 catch (Exception e)
                 {
                     return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
                 }
+
                 
                 var file = Request.Files.FirstOrDefault();
                 return FileProcessor(filePersister, file, @"/ImagenesMoviles", ".jpeg");

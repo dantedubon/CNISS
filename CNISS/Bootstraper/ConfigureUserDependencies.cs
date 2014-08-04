@@ -28,7 +28,7 @@ namespace CNISS.Bootstraper
                     builder.RegisterType<CommandUpdateUser>().As<ICommandUpdateIdentity<User>>();
                     builder.RegisterType<CommandDeleteUser>().As<ICommandDeleteIdentity<User>>();
 
-                    builder.Register(c => new Tokenizer(configurator => configurator.TokenExpiration(() =>TimeSpan.FromHours(6) ))).As<ITokenizer>();
+                    builder.Register(c => new Tokenizer(configurator => configurator.TokenExpiration(() =>TimeSpan.FromMinutes(10) ))).As<ITokenizer>();
                     builder.Register(
                         c =>
                             new AuthenticateUser(c.Resolve<IUserRepositoryReadOnly>(), (x) => new UserKeyRecovery(x),

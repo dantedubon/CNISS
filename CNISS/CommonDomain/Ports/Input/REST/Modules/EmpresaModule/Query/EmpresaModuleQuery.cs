@@ -67,7 +67,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
 
             };
 
-            Get["/enterprise/gremio/id="] = parameters =>
+            Get["/enterprise/by/gremio/id="] = parameters =>
             {
                 var rtn = this.Bind<RTNRequest>();
                 if (rtn.isValidPost())

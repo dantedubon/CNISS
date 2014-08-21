@@ -17,7 +17,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
 {
     public class EmpresaModuleQuery:NancyModule
     {
-        public EmpresaModuleQuery(IEmpresaRepositoryReadOnly repositoryRead)
+        public EmpresaModuleQuery(IEmpresaRepositoryReadOnly repositoryRead,IGremioRepositoryReadOnly gremioRepositoryRead)
         {
             Get["/enterprise"] = parameters =>
             {
@@ -66,6 +66,48 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
                     .WithStatusCode(HttpStatusCode.BadRequest);
 
             };
+
+            Get["/enterprise/gremio/id="] = parameters =>
+            {
+                var rtn = this.Bind<RTNRequest>();
+                if (rtn.isValidPost())
+                {
+                    var rtnGremio = new RTN(rtn.RTN);
+                    if (rtnGremio.isRTNValid())
+                    {
+                        var empresas = gremioRepositoryRead.get(rtnGremio).empresas;
+                        var response = empresas.Select(x => new EmpresaRequest()
+                        {
+                            rtnRequest = new RTNRequest() { RTN = x.Id.rtn },
+
+                            contentFile = x.contrato == null ? "" : x.contrato.Id.ToString(),
+                            empleadosTotales = x.empleadosTotales,
+                            fechaIngreso = x.fechaIngreso,
+                            actividadEconomicaRequests = new List<ActividadEconomicaRequest>(),
+                            gremioRequest = new GremioRequest(),
+                            sucursalRequests = new List<SucursalRequest>(),
+                            nombre = x.nombre,
+                            programaPiloto = x.proyectoPiloto,
+                            auditoriaRequest = new AuditoriaRequest()
+                            {
+                                fechaCreo = x.auditoria.fechaCreo,
+                                fechaModifico = x.auditoria.fechaModifico,
+                                usuarioCreo = x.auditoria.usuarioCreo,
+                                usuarioModifico = x.auditoria.usuarioModifico
+                            }
+
+                        });
+
+                        return Response.AsJson(response);
+                    }
+
+                }
+                return new Response()
+                    .WithStatusCode(HttpStatusCode.BadRequest);
+
+            };
+
+          
         }
 
         private  EmpresaRequest getEmpresaRequest(Empresa empresa)

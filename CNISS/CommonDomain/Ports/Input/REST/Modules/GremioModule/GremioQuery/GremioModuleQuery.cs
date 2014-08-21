@@ -57,6 +57,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioQuery
             var representante = gremio.representanteLegal;
             var nombreGremio = gremio.nombre;
 
+            
             var representanteRequest = new RepresentanteLegalRequest()
             {
                 identidadRequest = new IdentidadRequest() {identidad = representante.Id.identidad},

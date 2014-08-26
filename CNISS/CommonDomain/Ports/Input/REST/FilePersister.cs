@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Configuration;
+using System.IO;
 using Nancy;
 
 namespace CNISS.CommonDomain.Ports.Input.REST
@@ -6,6 +7,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST
     public class FilePersister:IFilePersister
     {
         private readonly IRootPathProvider _rootPath;
+        private readonly string _root = ConfigurationManager.AppSettings["RootFiles"];
 
 
         public FilePersister(IRootPathProvider rootPath)
@@ -15,7 +17,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST
 
         public void saveFile(string directory, HttpFile file, string fileExtension, string fileName)
         {
-            var directoryPath = _rootPath.GetRootPath() + directory;
+            var directoryPath = _root + directory;
             ensureDirectory(directoryPath);
             var fileNameWithPath = Path.Combine(directoryPath, fileName + fileExtension);
             writeFile(fileNameWithPath,file);
@@ -27,6 +29,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST
             using (var fileStream = new FileStream(fileName,FileMode.Create))
             {
                 file.Value.CopyTo(fileStream);
+               
             }
         }
         private void ensureDirectory(string directoryPath)

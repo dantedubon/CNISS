@@ -31,12 +31,12 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
         {
             request = new RTNRequest(){RTN = "RTN Malo"};
             _repositoryRead = Mock.Of<IEmpresaRepositoryReadOnly>();
-
+            var _repositorioGremio = Mock.Of<IGremioRepositoryReadOnly>();
             _browser = new Browser(
                 x =>
                 {
                     x.Module<EmpresaModuleQuery>();
-                    x.Dependencies(_repositoryRead);
+                    x.Dependencies(_repositoryRead, _repositorioGremio);
                 }
                 
                 );

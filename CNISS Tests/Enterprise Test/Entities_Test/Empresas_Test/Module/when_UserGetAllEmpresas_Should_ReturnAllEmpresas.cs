@@ -52,13 +52,13 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
 
             _repositoryRead = Mock.Of<IEmpresaRepositoryReadOnly>();
             Mock.Get(_repositoryRead).Setup(x => x.getAll()).Returns(empresas);
-
+            var _repositorioGremio = Mock.Of<IGremioRepositoryReadOnly>();
 
             _browser = new Browser(
                 x =>
                 {
                     x.Module<EmpresaModuleQuery>();
-                    x.Dependencies(_repositoryRead);
+                    x.Dependencies(_repositoryRead, _repositorioGremio);
                 }
 
                 );

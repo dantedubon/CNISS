@@ -62,6 +62,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                     if (command.isExecutable(empleo))
                     {             
                         command.execute(empleo);
+                        deleteFiles(request);
                         return new Response()
                        .WithStatusCode(HttpStatusCode.OK);
                     }
@@ -92,6 +93,12 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                     x => _fileGetter.existsFile(DirectorioArchivosVouchers, x.archivoComprobante, Extension));
 
 
+        }
+
+        private void deleteFiles(EmpleoRequest request)
+        {
+            var comprobantesConArchivo = request.comprobantes.Where(x => !string.IsNullOrEmpty(x.archivoComprobante));
+            comprobantesConArchivo.ForEach(x =>  _fileGetter.deleteFile(DirectorioArchivosVouchers, x.archivoComprobante, Extension));
         }
 
         private void setFileContentRequest(EmpleoRequest request)

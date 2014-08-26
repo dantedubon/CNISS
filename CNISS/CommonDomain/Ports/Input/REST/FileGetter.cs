@@ -22,11 +22,29 @@ namespace CNISS.CommonDomain.Ports.Input.REST
 
         }
 
+        public bool deleteFile(string directory, string name, string fileExtension)
+        {
+            var fileToSearch = Path.Combine(_root + directory, name + fileExtension);
+
+            try
+            {
+                File.Delete(fileToSearch);
+                return true;
+            }
+            catch (IOException)
+            {
+                return false;
+            }
+        }
+
         public byte[] getFile(string directory, string name, string fileExtension)
         {
             var fileToSearch = Path.Combine(_root + directory, name + fileExtension);
             var file = File.ReadAllBytes(fileToSearch);
+            
             return file;
+
+
         }
     }
 }

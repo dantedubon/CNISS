@@ -30,6 +30,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
 
                         var contentFile = new ContentFile(data);
                         command.execute(empleoId,comprobanteId,contentFile);
+                        fileGetter.deleteFile(DirectorioArchivosVouchers, imagenId.ToString(), Extension);
                         return Response.AsJson(contentFile.Id)
                     .WithStatusCode(HttpStatusCode.OK);
                     }

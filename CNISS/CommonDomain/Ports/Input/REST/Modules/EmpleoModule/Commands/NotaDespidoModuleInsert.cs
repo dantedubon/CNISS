@@ -68,7 +68,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                             var imageFile = new ContentFile(dataImage);
                             notaDespido.documentoDespido = imageFile;
                             command.execute(notaDespidoRequest.empleoId,notaDespido);
-
+                            fileGetter.deleteFile(directorioImagenes, archivoNotaDespido, extensionImagenes);
                             return new Response()
      .WithStatusCode(HttpStatusCode.OK);
                         }

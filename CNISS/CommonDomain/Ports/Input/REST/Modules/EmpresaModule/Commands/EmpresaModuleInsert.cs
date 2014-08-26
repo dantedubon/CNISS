@@ -39,6 +39,9 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
 
 
                         _commandInsert.execute(empresa);
+
+
+                        fileGetter.deleteFile(@"/EmpresasContratos", file, ".pdf");
                         return new Response()
                             .WithStatusCode(HttpStatusCode.OK);
                         

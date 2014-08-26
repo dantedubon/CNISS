@@ -74,6 +74,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                         {
                             beneficiario.fotografiaBeneficiario = imageFile;
                             command.execute(ficha,beneficiario,fichaRequest.empleoId);
+                            fileGetter.deleteFile(directorioImagenes, archivoImagen, extensionImagenes);
                             return new Response().WithStatusCode(HttpStatusCode.OK);
 
                         }

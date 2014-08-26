@@ -27,6 +27,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                         var data = fileGetter.getFile(DirectorioArchivosContratos, contract.ToString(), Extension);
                         var contractFile = new ContentFile(data);
                         command.execute(empleoId,contractFile);
+                        fileGetter.deleteFile(DirectorioArchivosContratos, contract.ToString(), Extension);
                         return Response.AsJson(contractFile.Id)
                   .WithStatusCode(HttpStatusCode.OK);
                     }

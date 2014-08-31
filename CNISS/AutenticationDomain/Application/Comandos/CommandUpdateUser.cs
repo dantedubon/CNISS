@@ -22,8 +22,8 @@ namespace CNISS.AutenticationDomain.Application.Comandos
 
         public override void execute(User user)
         {
-            user.password = _cryptoService.getEncryptedText(user.password);
-            user.userKey = _cryptoService.getKey();
+            user.Password = _cryptoService.getEncryptedText(user.Password);
+            user.UserKey = _cryptoService.getKey();
             base.execute(user);
 
         }

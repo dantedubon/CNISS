@@ -51,17 +51,17 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query
             var visitaRequest = new VisitaRequest()
             {
                 guid = visita.Id,
-                fechaInicial = visita.fechaInicial,
-                fechaFinal = visita.fechaFinal,
-                nombre = visita.nombre,
+                fechaInicial = visita.FechaInicial,
+                fechaFinal = visita.FechaFinal,
+                nombre = visita.Nombre,
                 auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo = visita.auditoria.fechaCreo,
-                    fechaModifico = visita.auditoria.fechaModifico,
-                    usuarioCreo = visita.auditoria.usuarioCreo,
-                    usuarioModifico = visita.auditoria.usuarioModifico
+                    fechaCreo = visita.Auditoria.FechaCreacion,
+                    fechaModifico = visita.Auditoria.FechaActualizacion,
+                    usuarioCreo = visita.Auditoria.CreadoPor,
+                    usuarioModifico = visita.Auditoria.ActualizadoPor
                 },
-                supervisoresRequests = getSupervisoresRequests(visita.supervisores)
+                supervisoresRequests = getSupervisoresRequests(visita.Supervisores)
             };
 
             return visitaRequest;
@@ -75,53 +75,53 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query
                 guid = x.Id,
                 auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo = x.auditoria.fechaCreo,
-                    fechaModifico = x.auditoria.fechaModifico,
-                    usuarioCreo = x.auditoria.usuarioCreo,
-                    usuarioModifico = x.auditoria.usuarioModifico
+                    fechaCreo = x.Auditoria.FechaCreacion,
+                    fechaModifico = x.Auditoria.FechaActualizacion,
+                    usuarioCreo = x.Auditoria.CreadoPor,
+                    usuarioModifico = x.Auditoria.ActualizadoPor
                 },
 
                 userRequest = new UserRequest()
                 {
-                    Id = x.usuario.Id,
-                    firstName = x.usuario.firstName,
-                    mail = x.usuario.mail,
-                    secondName = x.usuario.secondName,
+                    Id = x.Usuario.Id,
+                    firstName = x.Usuario.FirstName,
+                    mail = x.Usuario.Mail,
+                    secondName = x.Usuario.SecondName,
                     password = "XXX",
                     userRol = new RolRequest()
                     {
-                        idGuid = x.usuario.userRol.Id,
+                        idGuid = x.Usuario.UserRol.Id,
 
                     }
 
                 },
-                lugarVisitaRequests = x.lugaresVisitas.Select(z => new LugarVisitaRequest()
+                lugarVisitaRequests = x.LugaresVisitas.Select(z => new LugarVisitaRequest()
                 {
                     guid = z.Id,
                     empresaRequest = new EmpresaRequest()
                     {
-                        rtnRequest = new RTNRequest() { RTN = z.empresa.Id.rtn },
-                        nombre = z.empresa.nombre
+                        rtnRequest = new RTNRequest() { RTN = z.Empresa.Id.Rtn },
+                        nombre = z.Empresa.Nombre
                         
                     },
                     sucursalRequest = new SucursalRequest()
                     {
-                        guid = z.sucursal.Id,
-                        nombre = z.sucursal.nombre,
+                        guid = z.Sucursal.Id,
+                        nombre = z.Sucursal.Nombre,
                         direccionRequest = new DireccionRequest()
                         {
                             departamentoRequest = new DepartamentoRequest()
                             {
-                                idDepartamento = z.sucursal.direccion.departamento.Id,
-                                nombre = z.sucursal.direccion.departamento.nombre
+                                idDepartamento = z.Sucursal.Direccion.Departamento.Id,
+                                nombre = z.Sucursal.Direccion.Departamento.Nombre
                             },
                             municipioRequest = new MunicipioRequest()
                             {
-                                idDepartamento = z.sucursal.direccion.municipio.departamentoId,
-                                idMunicipio = z.sucursal.direccion.municipio.Id,
-                                nombre = z.sucursal.direccion.municipio.nombre
+                                idDepartamento = z.Sucursal.Direccion.Municipio.DepartamentoId,
+                                idMunicipio = z.Sucursal.Direccion.Municipio.Id,
+                                nombre = z.Sucursal.Direccion.Municipio.Nombre
                             },
-                            descripcion = z.sucursal.direccion.referenciaDireccion
+                            descripcion = z.Sucursal.Direccion.ReferenciaDireccion
 
 
                         }
@@ -129,10 +129,10 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Query
                     },
                     auditoriaRequest = new AuditoriaRequest()
                     {
-                        fechaCreo = z.auditoria.fechaCreo,
-                        fechaModifico = z.auditoria.fechaModifico,
-                        usuarioCreo = z.auditoria.usuarioCreo,
-                        usuarioModifico = z.auditoria.usuarioModifico
+                        fechaCreo = z.Auditoria.FechaCreacion,
+                        fechaModifico = z.Auditoria.FechaActualizacion,
+                        usuarioCreo = z.Auditoria.CreadoPor,
+                        usuarioModifico = z.Auditoria.ActualizadoPor
                     },
 
 

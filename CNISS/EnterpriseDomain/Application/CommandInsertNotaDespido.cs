@@ -28,8 +28,8 @@ namespace CNISS.EnterpriseDomain.Application
 
         public bool isExecutable(Guid idEmpleo, NotaDespido notaDespido)
         {
-            var fechaNotaDespido = notaDespido.fechaDespido;
-            var userFirma = notaDespido.firmaAutorizada.user;
+            var fechaNotaDespido = notaDespido.FechaDespido;
+            var userFirma = notaDespido.FirmaAutorizada.User;
             const int nivelFirma = 1;
             return _authenticateUser.isValidUser(userFirma,nivelFirma) 
                 && _empleoRepositoryRead.existsEmpleoForNotaDespido(idEmpleo, fechaNotaDespido);

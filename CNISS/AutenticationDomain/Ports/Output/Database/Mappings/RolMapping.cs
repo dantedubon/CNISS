@@ -8,15 +8,15 @@ namespace CNISS.AutenticationDomain.Ports.Output.Database.Mappings
         public RolMapping()
         {
             Id(x => x.Id).GeneratedBy.Assigned();
-            Map(x => x.name);
-            Map(x => x.description);
-            Map(x => x.nivel);
-            Component(x => x.auditoria, m =>
+            Map(x => x.Name);
+            Map(x => x.Description);
+            Map(x => x.Nivel);
+            Component(x => x.Auditoria, m =>
             {
-                m.Map(x => x.usuarioCreo);
-                m.Map(x => x.fechaCreo);
-                m.Map(x => x.usuarioModifico);
-                m.Map(x => x.fechaModifico);
+                m.Map(x => x.CreadoPor);
+                m.Map(x => x.FechaCreacion);
+                m.Map(x => x.ActualizadoPor);
+                m.Map(x => x.FechaActualizacion);
             });
 
 

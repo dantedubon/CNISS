@@ -6,7 +6,7 @@ namespace CNISS.EnterpriseDomain.Domain
 {
     public class RTN:IDomainObjectNotIdentified, IEquatable<RTN>
     {
-        public virtual string rtn { get; set; }
+        public virtual string Rtn { get; set; }
 
         protected RTN()
         {
@@ -18,7 +18,7 @@ namespace CNISS.EnterpriseDomain.Domain
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return string.Equals(rtn, other.rtn);
+            return string.Equals(Rtn, other.Rtn);
         }
 
         public override bool Equals(object obj)
@@ -31,21 +31,21 @@ namespace CNISS.EnterpriseDomain.Domain
 
         public override int GetHashCode()
         {
-            return (rtn != null ? rtn.GetHashCode() : 0);
+            return (Rtn != null ? Rtn.GetHashCode() : 0);
         }
 
         public RTN(string rtn)
         {
-            this.rtn = rtn;
+            this.Rtn = rtn;
         }
 
         public bool isRTNValid()
         {
            
-            if (string.IsNullOrEmpty(rtn)) throw new ArgumentNullException("rtn");
-            if (rtn == @"00000000000000") return false;
-            if (rtn.Length != 14) return false;
-            var rucArray = new StringBuilder(rtn);
+            if (string.IsNullOrEmpty(Rtn)) throw new ArgumentNullException("rtn");
+            if (Rtn == @"00000000000000") return false;
+            if (Rtn.Length != 14) return false;
+            var rucArray = new StringBuilder(Rtn);
             if (!Char.IsDigit(rucArray[0]))
                 return false;
             var verificadorOriginal = Convert.ToUInt32(rucArray[13].ToString());

@@ -11,10 +11,10 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             ReadOnly();
             LazyLoad();
             Id(x => x.Id).Column("NumeroIdentidad");
-            Map(x => x.names).Column("NombresBeneficiario");
-            Map(x => x.firstSurname).Column("PrimerApellido");
-            Map(x => x.secondSurname).Column("SegundoApellido");
-            Map(x => x.dateBirth).Column("FechaDeNacimiento");
+            Map(x => x.Names).Column("NombresBeneficiario");
+            Map(x => x.FirstSurname).Column("PrimerApellido");
+            Map(x => x.SecondSurname).Column("SegundoApellido");
+            Map(x => x.DateBirth).Column("FechaDeNacimiento");
         }
     }
 }

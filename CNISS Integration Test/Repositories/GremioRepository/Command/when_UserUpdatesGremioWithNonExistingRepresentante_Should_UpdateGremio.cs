@@ -54,7 +54,7 @@ namespace CNISS_Integration_Test.Repositories.GremioRepository.Command
 
         private Because of = () =>
         {
-            _originalGremio.representanteLegal = _representanteLegalNuevo;
+            _originalGremio.RepresentanteLegal = _representanteLegalNuevo;
             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
                 var representanteRepository = new RepresentanteLegalRepositoryReadOnly(uow.Session);
@@ -92,7 +92,7 @@ namespace CNISS_Integration_Test.Repositories.GremioRepository.Command
         {
             var municipio = Builder<Municipio>.CreateNew()
                 .With(x => x.Id = idMunicipio)
-                .With(x => x.departamentoId = idDepartamento)
+                .With(x => x.DepartamentoId = idDepartamento)
                 .Build();
             return municipio;
         }
@@ -101,7 +101,7 @@ namespace CNISS_Integration_Test.Repositories.GremioRepository.Command
         {
             var departamento = Builder<Departamento>.CreateNew()
                 .With(x => x.Id = idDepartamento)
-                .With(x => x.municipios = new List<Municipio>
+                .With(x => x.Municipios = new List<Municipio>
                 {
                     municipio
                 })

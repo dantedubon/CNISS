@@ -33,7 +33,7 @@ namespace CNISS.EnterpriseDomain.Application
         public override void execute(Gremio identity)
         {
             var gremio = _repositoryRead.get(identity.Id);
-            gremio.representanteLegal = identity.representanteLegal;
+            gremio.RepresentanteLegal = identity.RepresentanteLegal;
 
             var _uow = _factory();
 

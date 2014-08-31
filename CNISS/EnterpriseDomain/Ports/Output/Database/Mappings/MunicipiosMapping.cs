@@ -10,9 +10,9 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             Table("Municipios");
             ReadOnly();
 
-            CompositeId().KeyProperty(x => x.departamentoId, "CodigoDepartamento")
+            CompositeId().KeyProperty(x => x.DepartamentoId, "CodigoDepartamento")
                 .KeyProperty( x => x.Id,"CodigoMunicipio");
-            Map(x => x.nombre).Column("DescripcionMunicipio");
+            Map(x => x.Nombre).Column("DescripcionMunicipio");
             
 
 

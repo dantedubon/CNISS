@@ -29,7 +29,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output
 
         public void updateRepresentante(Gremio entity)
         {
-            var representante = entity.representanteLegal;
+            var representante = entity.RepresentanteLegal;
          
             _session.SaveOrUpdate(representante);
             update(entity);
@@ -37,7 +37,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output
 
         public void updateDireccion(Gremio entity)
         {
-            var direccion = entity.direccion;
+            var direccion = entity.Direccion;
             _session.SaveOrUpdate(direccion);
 
             update(entity);
@@ -46,9 +46,9 @@ namespace CNISS.EnterpriseDomain.Ports.Output
 
         public void save(Gremio entity)
         {
-            var direccion = entity.direccion;
+            var direccion = entity.Direccion;
 
-            var representante = entity.representanteLegal;
+            var representante = entity.RepresentanteLegal;
             if (!isRepresentantExisting(representante.Id))
                 _session.Save(representante);
             _session.Save(direccion);

@@ -13,51 +13,51 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
         public EmpleoMapping()
         {
             Id(x => x.Id);
-            Map(x => x.cargo);
-            Map(x => x.sueldo);
-            Map(x => x.fechaDeInicio);
-            Map(x => x.supervisado);
-            References(x => x.tipoEmpleo);
-            References(x => x.empresa,"rtn_empresa");
-            References(x => x.beneficiario,"identidad_beneficiario");
-            References(x => x.sucursal);
-            Component(x => x.horarioLaboral, z =>
+            Map(x => x.Cargo);
+            Map(x => x.Sueldo);
+            Map(x => x.FechaDeInicio);
+            Map(x => x.Supervisado);
+            References(x => x.TipoEmpleo);
+            References(x => x.Empresa,"rtn_empresa");
+            References(x => x.Beneficiario,"identidad_beneficiario");
+            References(x => x.Sucursal);
+            Component(x => x.HorarioLaboral, z =>
             {
-                z.Component(x => x.horaEntrada, h =>
+                z.Component(x => x.HoraEntrada, h =>
                 {
-                    h.Map(v => v.hora,"horaEntrada");
-                    h.Map(v => v.minutos,"minutosEntrada");
-                    h.Map(v => v.parte, "parteEntrada");
+                    h.Map(v => v.HoraEntera,"horaEntrada");
+                    h.Map(v => v.Minutos,"minutosEntrada");
+                    h.Map(v => v.Parte, "parteEntrada");
                    
                 });
-                z.Component(x => x.horaSalida, h =>
+                z.Component(x => x.HoraSalida, h =>
                 {
-                    h.Map(v => v.hora, "horaSalida");
-                    h.Map(v => v.minutos, "minutosSalida");
-                    h.Map(v => v.parte, "parteSalida");
+                    h.Map(v => v.HoraEntera, "horaSalida");
+                    h.Map(v => v.Minutos, "minutosSalida");
+                    h.Map(v => v.Parte, "parteSalida");
                    
                 });
-                z.Component(x => x.diasLaborables, h =>
+                z.Component(x => x.DiasLaborables, h =>
                 {
-                    h.Map(v => v.lunes);
-                    h.Map(v => v.martes);
-                    h.Map(v => v.miercoles);
-                    h.Map(v => v.jueves);
-                    h.Map(v => v.viernes);
-                    h.Map(v => v.sabado);
-                    h.Map(v => v.domingo);
+                    h.Map(v => v.Lunes);
+                    h.Map(v => v.Martes);
+                    h.Map(v => v.Miercoles);
+                    h.Map(v => v.Jueves);
+                    h.Map(v => v.Viernes);
+                    h.Map(v => v.Sabado);
+                    h.Map(v => v.Domingo);
                 });
             });
-            References(x => x.contrato);
-            References(x => x.notaDespido).Cascade.All();
-            HasMany(x => x.comprobantesPago).Cascade.All();
-            HasMany(x => x.fichasSupervisionEmpleos).Cascade.All();
-            Component(x => x.auditoria, m =>
+            References(x => x.Contrato);
+            References(x => x.NotaDespido).Cascade.All();
+            HasMany(x => x.ComprobantesPago).Cascade.All();
+            HasMany(x => x.FichasSupervisionEmpleos).Cascade.All();
+            Component(x => x.Auditoria, m =>
             {
-                m.Map(x => x.usuarioCreo);
-                m.Map(x => x.fechaCreo);
-                m.Map(x => x.usuarioModifico);
-                m.Map(x => x.fechaModifico);
+                m.Map(x => x.CreadoPor);
+                m.Map(x => x.FechaCreacion);
+                m.Map(x => x.ActualizadoPor);
+                m.Map(x => x.FechaActualizacion);
             });
         }
     }

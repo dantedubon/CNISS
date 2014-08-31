@@ -50,30 +50,30 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserQuery
         {
             return users.Select(x => new UserRequest
             {
-                firstName = x.firstName,
-                secondName = x.secondName,
+                firstName = x.FirstName,
+                secondName = x.SecondName,
                 Id = x.Id,
-                mail = x.mail,
+                mail = x.Mail,
                 password = "",
                 userRol = new RolRequest
                 {
-                    description = x.userRol.description,
-                    name = x.userRol.name,
-                    idGuid = x.userRol.Id,
+                    description = x.UserRol.Description,
+                    name = x.UserRol.Name,
+                    idGuid = x.UserRol.Id,
                     auditoriaRequest = new AuditoriaRequest()
                     {
-                        fechaCreo = x.userRol.auditoria.fechaCreo,
-                        fechaModifico = x.userRol.auditoria.fechaModifico,
-                        usuarioCreo = x.userRol.auditoria.usuarioCreo,
-                        usuarioModifico = x.userRol.auditoria.usuarioModifico
+                        fechaCreo = x.UserRol.Auditoria.FechaCreacion,
+                        fechaModifico = x.UserRol.Auditoria.FechaActualizacion,
+                        usuarioCreo = x.UserRol.Auditoria.CreadoPor,
+                        usuarioModifico = x.UserRol.Auditoria.ActualizadoPor
                     }
                 },
                  auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo =  x.auditoria.fechaCreo,
-                    fechaModifico = x.auditoria.fechaModifico,
-                    usuarioCreo = x.auditoria.usuarioCreo,
-                    usuarioModifico = x.auditoria.usuarioModifico
+                    fechaCreo =  x.Auditoria.FechaCreacion,
+                    fechaModifico = x.Auditoria.FechaActualizacion,
+                    usuarioCreo = x.Auditoria.CreadoPor,
+                    usuarioModifico = x.Auditoria.ActualizadoPor
                 }
             }).ToList();
         }

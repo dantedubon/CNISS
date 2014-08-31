@@ -67,6 +67,6 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
         };
 
         private It should_return_error = () => Mock.Get(_command)
-            .Verify(x => x.execute(_empleoId, Moq.It.Is<ContentFile>(z => z.dataFile.Equals(_contentFile.dataFile))));
+            .Verify(x => x.execute(_empleoId, Moq.It.Is<ContentFile>(z => z.DataFile.Equals(_contentFile.DataFile))));
     }
 }

@@ -36,12 +36,12 @@ namespace CNISS.EnterpriseDomain.Application
         {
             var existeEmpleo = _repositoryRead.exists(identity.Id);
             var days = _providerDays.getDays();
-            var empleoReciente = !_repositoryRead.existsEmpleoRecienteParaBeneficiario(identity.Id,identity.fechaDeInicio, days,
-                identity.beneficiario.Id);
+            var empleoReciente = !_repositoryRead.existsEmpleoRecienteParaBeneficiario(identity.Id,identity.FechaDeInicio, days,
+                identity.Beneficiario.Id);
 
-            var beneficiarioExiste = _beneficiarioRepositoryRead.exists(identity.beneficiario.Id);
-            var empleoExiste = _empresaRepositoryRead.exists(identity.empresa.Id);
-            var tipoEmpleoExiste = _tipoDeEmpleoReadOnlyRepository.exists(identity.tipoEmpleo.Id);
+            var beneficiarioExiste = _beneficiarioRepositoryRead.exists(identity.Beneficiario.Id);
+            var empleoExiste = _empresaRepositoryRead.exists(identity.Empresa.Id);
+            var tipoEmpleoExiste = _tipoDeEmpleoReadOnlyRepository.exists(identity.TipoEmpleo.Id);
 
             return existeEmpleo && empleoReciente && beneficiarioExiste&&empleoExiste&&tipoEmpleoExiste;
         }

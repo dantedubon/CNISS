@@ -69,13 +69,13 @@ namespace CNISS_Tests.Parentesco_Test.Module
                                 Moq.It.Is<Parentesco>(
                                     z =>
                                         z.Id == _expectedParentesco.Id &&
-                                        z.descripcion == _expectedParentesco.descripcion)));
+                                        z.Descripcion == _expectedParentesco.Descripcion)));
 
         private static Parentesco getParentesco(ParentescoRequest parentescoRequest)
         {
             var parentesco = new Parentesco(parentescoRequest.descripcion)
             {
-                auditoria = new CNISS.CommonDomain.Domain.Auditoria(
+                Auditoria = new CNISS.CommonDomain.Domain.Auditoria(
                     parentescoRequest.auditoriaRequest.usuarioCreo,
                     parentescoRequest.auditoriaRequest.fechaCreo,
                     parentescoRequest.auditoriaRequest.usuarioModifico,

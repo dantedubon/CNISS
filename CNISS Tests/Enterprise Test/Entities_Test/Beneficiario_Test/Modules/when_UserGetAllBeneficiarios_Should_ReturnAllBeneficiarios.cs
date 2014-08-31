@@ -32,7 +32,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Beneficiario_Test.Modules
                 Builder<Beneficiario>.CreateListOfSize(10).All().WithConstructor(() =>
                     new Beneficiario(Builder<Identidad>.CreateNew().Build(), Builder<Nombre>.CreateNew().Build(),
                         new DateTime(1984,8,2))
-                    ).All().With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
+                    ).All().With(x => x.Auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
                     
                    
             _expectedResponse = getRequests(beneficiarios);
@@ -64,20 +64,20 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Beneficiario_Test.Modules
             return beneficiarios.Select(x=> new BeneficiarioRequest()
             {
                 identidadRequest = new IdentidadRequest() { identidad = x.Id.identidad},
-                fechaNacimiento = x.fechaNacimiento,
+                fechaNacimiento = x.FechaNacimiento,
                 nombreRequest = new NombreRequest()
                 {
-                    nombres = x.nombre.nombres,
-                    primerApellido = x.nombre.primerApellido,
-                    segundoApellido = x.nombre.segundoApellido
+                    nombres = x.Nombre.Nombres,
+                    primerApellido = x.Nombre.PrimerApellido,
+                    segundoApellido = x.Nombre.SegundoApellido
                 },
                 dependienteRequests = new List<DependienteRequest>(),
                   auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo = x.auditoria.fechaCreo,
-                    fechaModifico = x.auditoria.fechaModifico,
-                    usuarioCreo = x.auditoria.usuarioCreo,
-                    usuarioModifico = x.auditoria.usuarioModifico
+                    fechaCreo = x.Auditoria.FechaCreacion,
+                    fechaModifico = x.Auditoria.FechaActualizacion,
+                    usuarioCreo = x.Auditoria.CreadoPor,
+                    usuarioModifico = x.Auditoria.ActualizadoPor
                 }
                 
             }

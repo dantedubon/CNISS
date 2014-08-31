@@ -72,7 +72,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                         var ficha = getFichaSupervisionEmpleo(fichaRequest, imageFile);
                         if (command.isExecutable(ficha, beneficiario, fichaRequest.empleoId))
                         {
-                            beneficiario.fotografiaBeneficiario = imageFile;
+                            beneficiario.FotografiaBeneficiario = imageFile;
                             command.execute(ficha,beneficiario,fichaRequest.empleoId);
                             fileGetter.deleteFile(directorioImagenes, archivoImagen, extensionImagenes);
                             return new Response().WithStatusCode(HttpStatusCode.OK);
@@ -103,7 +103,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                 fichaSupervisionEmpleoRequest.desempeñoEmpleado, imagen);
 
             var auditoriaRequest = fichaSupervisionEmpleoRequest.auditoriaRequest;
-            ficha.auditoria = new Auditoria(auditoriaRequest.usuarioCreo, auditoriaRequest.fechaCreo,
+            ficha.Auditoria = new Auditoria(auditoriaRequest.usuarioCreo, auditoriaRequest.fechaCreo,
                 auditoriaRequest.usuarioModifico, auditoriaRequest.fechaModifico);
             return ficha;
         }

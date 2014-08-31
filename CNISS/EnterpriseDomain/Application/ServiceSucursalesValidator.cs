@@ -25,8 +25,8 @@ namespace CNISS.EnterpriseDomain.Application
         public bool isValid(IEnumerable<Sucursal> sucursales)
         {
             var enumerable = sucursales as Sucursal[] ?? sucursales.ToArray();
-            return enumerable.All(x => _direccionValidator.isValidDireccion(x.direccion))
-                   && enumerable.All(x => _userRepository.exists(x.firma.user.Id));
+            return enumerable.All(x => _direccionValidator.isValidDireccion(x.Direccion))
+                   && enumerable.All(x => _userRepository.exists(x.Firma.User.Id));
         }
     }
 }

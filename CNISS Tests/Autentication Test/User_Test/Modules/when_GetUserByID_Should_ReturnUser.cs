@@ -28,40 +28,40 @@ namespace CNISS_Tests.User_Test.Modules
          Establish context = () =>
          {
              var _userRol = Builder<Rol>.CreateNew().Build();
-             _userRol.auditoria = Builder<Auditoria>.CreateNew().Build();
-             var _expectedUser = Builder<User>.CreateNew().With(x => x.userRol = _userRol).Build();
-             _expectedUser.auditoria = Builder<Auditoria>.CreateNew().Build();
+             _userRol.Auditoria = Builder<Auditoria>.CreateNew().Build();
+             var _expectedUser = Builder<User>.CreateNew().With(x => x.UserRol = _userRol).Build();
+             _expectedUser.Auditoria = Builder<Auditoria>.CreateNew().Build();
              var userRepository = new DummyRepository(_expectedUser);
 
              _expectedUserResponse = new UserRequest
              {
                  Id = _expectedUser.Id,
-                 firstName = _expectedUser.firstName,
-                 mail = _expectedUser.mail,
+                 firstName = _expectedUser.FirstName,
+                 mail = _expectedUser.Mail,
                  password = "",
-                 secondName = _expectedUser.secondName,
+                 secondName = _expectedUser.SecondName,
                  userRol = new RolRequest
                  {
-                     description = _expectedUser.userRol.description,
-                     idGuid = _expectedUser.userRol.Id,
-                     name = _expectedUser.userRol.name,
-                     nivel = _expectedUser.userRol.nivel,
+                     description = _expectedUser.UserRol.Description,
+                     idGuid = _expectedUser.UserRol.Id,
+                     name = _expectedUser.UserRol.Name,
+                     nivel = _expectedUser.UserRol.Nivel,
                      auditoriaRequest = new AuditoriaRequest()
                      {
-                         fechaCreo = _expectedUser.userRol.auditoria.fechaCreo,
-                         fechaModifico = _expectedUser.userRol.auditoria.fechaModifico,
-                         usuarioCreo = _expectedUser.userRol.auditoria.usuarioCreo,
-                         usuarioModifico = _expectedUser.userRol.auditoria.usuarioModifico
+                         fechaCreo = _expectedUser.UserRol.Auditoria.FechaCreacion,
+                         fechaModifico = _expectedUser.UserRol.Auditoria.FechaActualizacion,
+                         usuarioCreo = _expectedUser.UserRol.Auditoria.CreadoPor,
+                         usuarioModifico = _expectedUser.UserRol.Auditoria.ActualizadoPor
                      }
                      
 
                  },
                  auditoriaRequest =new AuditoriaRequest()
                  {
-                     fechaCreo = _expectedUser.auditoria.fechaCreo,
-                     fechaModifico = _expectedUser.auditoria.fechaModifico,
-                     usuarioCreo = _expectedUser.auditoria.usuarioCreo,
-                     usuarioModifico = _expectedUser.auditoria.usuarioModifico
+                     fechaCreo = _expectedUser.Auditoria.FechaCreacion,
+                     fechaModifico = _expectedUser.Auditoria.FechaActualizacion,
+                     usuarioCreo = _expectedUser.Auditoria.CreadoPor,
+                     usuarioModifico = _expectedUser.Auditoria.ActualizadoPor
                  }
                  
              };

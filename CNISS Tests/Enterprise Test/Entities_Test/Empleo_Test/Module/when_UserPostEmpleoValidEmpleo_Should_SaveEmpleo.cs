@@ -86,7 +86,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
         private Because of = () => { _response = _browser.PostSecureJson("/enterprise/empleos", _request); };
 
-        private It should_save_empleo = () => Mock.Get(_commandInsert).Verify(x => x.execute(Moq.It.Is<Empleo>(z => z.empresa.Id.rtn== _expectedEmpleo.empresa.Id.rtn && z.beneficiario.Id.identidad == _expectedEmpleo.beneficiario.Id.identidad)));
+        private It should_save_empleo = () => Mock.Get(_commandInsert).Verify(x => x.execute(Moq.It.Is<Empleo>(z => z.Empresa.Id.Rtn== _expectedEmpleo.Empresa.Id.Rtn && z.Beneficiario.Id.identidad == _expectedEmpleo.Beneficiario.Id.identidad)));
 
         private static AuditoriaRequest getAuditoriaRequest()
         {

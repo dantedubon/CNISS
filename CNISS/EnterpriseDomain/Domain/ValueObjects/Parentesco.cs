@@ -5,12 +5,12 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 {
     public class Parentesco : ValueObject<Guid>
     {
-        public virtual string descripcion { get; protected set; }
-        public virtual Auditoria auditoria { get; set; }
+        public virtual string Descripcion { get; protected set; }
+        public virtual Auditoria Auditoria { get; set; }
 
         public Parentesco(string descripcion):this()
         {
-            this.descripcion = descripcion;
+            this.Descripcion = descripcion;
         }
 
         protected Parentesco()

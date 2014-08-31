@@ -70,11 +70,11 @@ namespace CNISS_Integration_Test.Repositories.EmpresasRepository.Command
 
         private static void prepareDependenciesInDataBase(Empresa empresa)
         {
-            var gremio = empresa.gremial;
-            var sucursales = empresa.sucursales;
-            var actividades = empresa.actividadesEconomicas;
+            var gremio = empresa.Gremial;
+            var sucursales = empresa.Sucursales;
+            var actividades = empresa.ActividadesEconomicas;
             prepareGremio(gremio);
-            sucursales.ToList().ForEach(x => prepareUser(x.firma.user));
+            sucursales.ToList().ForEach(x => prepareUser(x.Firma.User));
             actividades.ToList().ForEach(prepareActividades);
 
         }
@@ -92,8 +92,8 @@ namespace CNISS_Integration_Test.Repositories.EmpresasRepository.Command
 
         private static void prepareGremio(Gremio gremio)
         {
-            var direccion = gremio.direccion;
-            saveDepartamentoMunicipio(direccion.departamento,direccion.municipio);
+            var direccion = gremio.Direccion;
+            saveDepartamentoMunicipio(direccion.Departamento,direccion.Municipio);
 
             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
@@ -124,7 +124,7 @@ namespace CNISS_Integration_Test.Repositories.EmpresasRepository.Command
 
         private static void prepareUser(User user)
         {
-            var rol = user.userRol;
+            var rol = user.UserRol;
             _session = _sessionFactory.OpenSession();
             using (var tx = _session.BeginTransaction())
             {
@@ -143,9 +143,9 @@ namespace CNISS_Integration_Test.Repositories.EmpresasRepository.Command
             var fechaIngreso =  DateTime.ParseExact(DateTime.Now.ToString("g"),"g",null);
             var rtn = new RTN("08011985123960");
             var empresa = new Empresa(rtn,"La Holgazana", fechaIngreso, gremio);
-            empresa.actividadesEconomicas = actividades;
-            empresa.sucursales = sucursales;
-            empresa.contrato = getContrato();
+            empresa.ActividadesEconomicas = actividades;
+            empresa.Sucursales = sucursales;
+            empresa.Contrato = getContrato();
             return empresa;
         }
 
@@ -161,7 +161,7 @@ namespace CNISS_Integration_Test.Repositories.EmpresasRepository.Command
         private static Gremio getGremio()
         {
             var municipio = new Municipio("01", "01", "Municipio");
-            var departamento = new Departamento() { Id = "01", municipios = new List<Municipio>() { municipio }, nombre = "Departamento" };
+            var departamento = new Departamento() { Id = "01", Municipios = new List<Municipio>() { municipio }, Nombre = "Departamento" };
             var direccion = new Direccion(departamento, municipio, "direccion gremio");
 
             var RTN = new RTN("08011985123960");
@@ -175,7 +175,7 @@ namespace CNISS_Integration_Test.Repositories.EmpresasRepository.Command
         private static IList<Sucursal> getSucursales()
         {
             var municipio = new Municipio("01", "01", "Municipio");
-            var departamento = new Departamento() { Id = "01", municipios = new List<Municipio>() { municipio }, nombre = "Departamento" };
+            var departamento = new Departamento() { Id = "01", Municipios = new List<Municipio>() { municipio }, Nombre = "Departamento" };
             var direccion = new Direccion(departamento, municipio, "direccion");
             var fechaDeCreacionFirma = DateTime.ParseExact(DateTime.Now.ToString("g"), "g", null);
 

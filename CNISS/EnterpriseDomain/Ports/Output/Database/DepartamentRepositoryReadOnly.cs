@@ -36,12 +36,12 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
         private bool isValidMunicipio(string idMunicipio, string departamentoId)
         {
             var departamento = Session.Get<Departamento>(departamentoId);
-            return departamento != null && departamento.municipios.Any(x => x.Id == idMunicipio && x.departamentoId == departamentoId);
+            return departamento != null && departamento.Municipios.Any(x => x.Id == idMunicipio && x.DepartamentoId == departamentoId);
         }
 
         public bool isValidMunicipio(Municipio _municipio)
         {
-            return isValidMunicipio(_municipio.Id, _municipio.departamentoId);
+            return isValidMunicipio(_municipio.Id, _municipio.DepartamentoId);
         }
     }
 }

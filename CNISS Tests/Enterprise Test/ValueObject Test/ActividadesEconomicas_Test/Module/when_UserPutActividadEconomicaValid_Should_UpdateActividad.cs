@@ -62,7 +62,7 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.ActividadesEconomicas_Tes
             _response = _browser.PutSecureJson("/enterprise/actividades", actividadEconomicaRequest);
         };
 
-        It should_update_actividad = () => Mock.Get(_command).Verify(x => x.execute(Moq.It.Is<ActividadEconomica>(z => z.descripcion == _expectedActividadEconomica.descripcion
+        It should_update_actividad = () => Mock.Get(_command).Verify(x => x.execute(Moq.It.Is<ActividadEconomica>(z => z.Descripcion == _expectedActividadEconomica.Descripcion
             && z.Id == _expectedActividadEconomica.Id
             )));
 
@@ -71,7 +71,7 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.ActividadesEconomicas_Tes
         {
             var actividad = new ActividadEconomica(actividadEconomicaRequest.descripcion)
             {
-                auditoria = new CNISS.CommonDomain.Domain.Auditoria(
+                Auditoria = new CNISS.CommonDomain.Domain.Auditoria(
                     actividadEconomicaRequest.auditoriaRequest.usuarioCreo,
                     actividadEconomicaRequest.auditoriaRequest.fechaCreo,
                     actividadEconomicaRequest.auditoriaRequest.usuarioModifico,

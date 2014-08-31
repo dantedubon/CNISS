@@ -12,23 +12,23 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
         public FichaSupervisionEmpleoMapping()
         {
             Id(x => x.Id).GeneratedBy.Assigned();
-            Map(x => x.cargo);
-            Map(x => x.funciones);
-            Map(x => x.telefonoCelular);
-            Map(x => x.telefonoFijo);
-            Map(x => x.posicionGPS);
-            Map(x => x.desempeñoEmpleado);
-            References(x => x.supervisor);
-            References(x => x.firma);
+            Map(x => x.Cargo);
+            Map(x => x.Funciones);
+            Map(x => x.TelefonoCelular);
+            Map(x => x.TelefonoFijo);
+            Map(x => x.PosicionGps);
+            Map(x => x.DesempeñoEmpleado);
+            References(x => x.Supervisor);
+            References(x => x.Firma);
 
-            References(x => x.fotografiaBeneficiario);
+            References(x => x.FotografiaBeneficiario);
 
-            Component(x => x.auditoria, m =>
+            Component(x => x.Auditoria, m =>
             {
-                m.Map(x => x.usuarioCreo);
-                m.Map(x => x.fechaCreo);
-                m.Map(x => x.usuarioModifico);
-                m.Map(x => x.fechaModifico);
+                m.Map(x => x.CreadoPor);
+                m.Map(x => x.FechaCreacion);
+                m.Map(x => x.ActualizadoPor);
+                m.Map(x => x.FechaActualizacion);
             });
         }
     }

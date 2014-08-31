@@ -69,13 +69,13 @@ namespace CNISS_Tests.MotivoDespido_Test.Module
                                 Moq.It.Is<MotivoDespido>(
                                     z =>
                                         z.Id == _expectedMotivoDespido.Id &&
-                                        z.descripcion == _expectedMotivoDespido.descripcion)));
+                                        z.Descripcion == _expectedMotivoDespido.Descripcion)));
 
         private static MotivoDespido getTipoEmpleo(MotivoDespidoRequest tipoEmpleoRequest)
         {
             var tipoEmpleo = new MotivoDespido(tipoEmpleoRequest.descripcion)
             {
-                auditoria = new CNISS.CommonDomain.Domain.Auditoria(
+                Auditoria = new CNISS.CommonDomain.Domain.Auditoria(
                     tipoEmpleoRequest.auditoriaRequest.usuarioCreo,
                     tipoEmpleoRequest.auditoriaRequest.fechaCreo,
                     tipoEmpleoRequest.auditoriaRequest.usuarioModifico,

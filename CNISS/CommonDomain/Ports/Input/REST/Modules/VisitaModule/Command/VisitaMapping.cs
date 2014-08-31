@@ -34,8 +34,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Command
 
             return new Visita(visitaRequest.nombre, visitaRequest.fechaInicial, visitaRequest.fechaFinal)
             {
-                auditoria = auditoria,
-                supervisores = getSupervisores(visitaRequest.supervisoresRequests)
+                Auditoria = auditoria,
+                Supervisores = getSupervisores(visitaRequest.supervisoresRequests)
 
             };
         }
@@ -49,10 +49,10 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Command
                         x.userRequest.password, x.userRequest.mail,
                         new Rol(x.userRequest.userRol.name, x.userRequest.userRol.description)))
                     {
-                        auditoria =
+                        Auditoria =
                             new Auditoria(x.auditoriaRequest.usuarioCreo, x.auditoriaRequest.fechaCreo,
                                 x.auditoriaRequest.usuarioModifico, x.auditoriaRequest.fechaModifico),
-                        lugaresVisitas = getLugaresVisitas(x.lugarVisitaRequests)
+                        LugaresVisitas = getLugaresVisitas(x.lugarVisitaRequests)
 
 
                     }).ToList();
@@ -66,7 +66,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.VisitaModule.Command
                 lugarVisitaRequests.Select(
                     x => new LugarVisita(getEmpresa(x.empresaRequest), getSucursal(x.sucursalRequest))
                     {
-                        auditoria = new Auditoria(x.auditoriaRequest.usuarioCreo,x.auditoriaRequest.fechaCreo,x.auditoriaRequest.usuarioModifico,x.auditoriaRequest.fechaModifico)
+                        Auditoria = new Auditoria(x.auditoriaRequest.usuarioCreo,x.auditoriaRequest.fechaCreo,x.auditoriaRequest.usuarioModifico,x.auditoriaRequest.fechaModifico)
                     }).ToList();
         }
 

@@ -59,16 +59,16 @@ namespace CNISS_Integration_Test.Repositories.BeneficiarioRepository
 
             var numeroCelular = "31000000";
             var numeroFijo = "31000000";
-            var direccion = new Direccion(new Departamento() { Id = "01", nombre = "Francisco Morazan", municipios = new List<Municipio>() { new Municipio("01", "01", "Distrito Central") } },
+            var direccion = new Direccion(new Departamento() { Id = "01", Nombre = "Francisco Morazan", Municipios = new List<Municipio>() { new Municipio("01", "01", "Distrito Central") } },
                 new Municipio("01", "01", "Distrito Central"), "Barrio Abajo");
 
-            saveDepartamentoMunicipio(direccion.departamento,direccion.municipio);
+            saveDepartamentoMunicipio(direccion.Departamento,direccion.Municipio);
 
             var fotografia = new ContentFile(new byte[] { 1, 1 });
-            _expectedBeneficiario.telefonoCelular = numeroCelular;
-            _expectedBeneficiario.telefonoFijo = numeroFijo;
-            _expectedBeneficiario.direccion = direccion;
-            _expectedBeneficiario.fotografiaBeneficiario = fotografia;
+            _expectedBeneficiario.TelefonoCelular = numeroCelular;
+            _expectedBeneficiario.TelefonoFijo = numeroFijo;
+            _expectedBeneficiario.Direccion = direccion;
+            _expectedBeneficiario.FotografiaBeneficiario = fotografia;
 
             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {

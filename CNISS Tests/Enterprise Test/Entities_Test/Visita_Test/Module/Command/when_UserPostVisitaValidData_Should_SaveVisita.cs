@@ -60,10 +60,10 @@ namespace CNISS_Tests.Entities_Test.Visita_Test.Module.Command
 
         private Because of = () => { _response = _browser.PostSecureJson("/visita", _request); };
 
-        It should_save_visita= () => Mock.Get(_command).Verify(x => x.execute(Moq.It.Is<Visita>(z => z.nombre == _expectedVisita.nombre 
-                                                                                                       && z.fechaInicial == _expectedVisita.fechaInicial 
-                                                                                                       && z.fechaFinal == _expectedVisita.fechaFinal
-                                                                                                       && z.supervisores.FirstOrDefault().usuario.Id == _expectedVisita.supervisores.FirstOrDefault().usuario.Id)));
+        It should_save_visita= () => Mock.Get(_command).Verify(x => x.execute(Moq.It.Is<Visita>(z => z.Nombre == _expectedVisita.Nombre 
+                                                                                                       && z.FechaInicial == _expectedVisita.FechaInicial 
+                                                                                                       && z.FechaFinal == _expectedVisita.FechaFinal
+                                                                                                       && z.Supervisores.FirstOrDefault().Usuario.Id == _expectedVisita.Supervisores.FirstOrDefault().Usuario.Id)));
 
 
         private static Visita getVisitaRequest(VisitaRequest visitaRequest)
@@ -77,8 +77,8 @@ namespace CNISS_Tests.Entities_Test.Visita_Test.Module.Command
 
             return new Visita(visitaRequest.nombre,visitaRequest.fechaInicial,visitaRequest.fechaFinal)
             {
-                auditoria = auditoria,
-                supervisores = getSupervisores(visitaRequest.supervisoresRequests)
+                Auditoria = auditoria,
+                Supervisores = getSupervisores(visitaRequest.supervisoresRequests)
                 
             };
         }
@@ -92,10 +92,10 @@ namespace CNISS_Tests.Entities_Test.Visita_Test.Module.Command
                         x.userRequest.password, x.userRequest.mail,
                         new Rol(x.userRequest.userRol.name, x.userRequest.userRol.description)))
                     {
-                        auditoria =
+                        Auditoria =
                             new Auditoria(x.auditoriaRequest.usuarioCreo, x.auditoriaRequest.fechaCreo,
                                 x.auditoriaRequest.usuarioModifico, x.auditoriaRequest.fechaModifico),
-                        lugaresVisitas = getLugaresVisitas(x.lugarVisitaRequests)
+                        LugaresVisitas = getLugaresVisitas(x.lugarVisitaRequests)
                         
 
                     }).ToList();

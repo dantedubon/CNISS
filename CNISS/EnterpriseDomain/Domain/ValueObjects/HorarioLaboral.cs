@@ -2,9 +2,9 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 {
     public class HorarioLaboral
     {
-        public Hora horaEntrada { get; protected set; }
-        public Hora horaSalida { get; protected set; }
-        public DiasLaborables diasLaborables { get; protected set; }
+        public Hora HoraEntrada { get; protected set; }
+        public Hora HoraSalida { get; protected set; }
+        public DiasLaborables DiasLaborables { get; protected set; }
 
         protected HorarioLaboral()
         {
@@ -12,9 +12,9 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
         }
         public HorarioLaboral(Hora horaEntrada, Hora horaSalida, DiasLaborables diasLaborables)
         {
-            this.horaSalida = horaSalida;
-            this.horaEntrada = horaEntrada;
-            this.diasLaborables = diasLaborables;
+            this.HoraSalida = horaSalida;
+            this.HoraEntrada = horaEntrada;
+            this.DiasLaborables = diasLaborables;
         }
     }
 }

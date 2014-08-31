@@ -6,13 +6,13 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 {
     public class ComprobantePago:Entity<Guid>
     {
-        public virtual DateTime fechaPago { get; protected set; }
-        public virtual decimal deducciones { get; protected set; }
-        public virtual decimal sueldoNeto { get; protected set; }
-        public virtual decimal bonificaciones { get; set; }
-        public virtual decimal total { get; protected set; }
-        public virtual ContentFile imagenComprobante { get;  set; }
-        public virtual Auditoria auditoria { get; set; }
+        public virtual DateTime FechaPago { get; protected set; }
+        public virtual decimal Deducciones { get; protected set; }
+        public virtual decimal SueldoNeto { get; protected set; }
+        public virtual decimal Bonificaciones { get; set; }
+        public virtual decimal Total { get; protected set; }
+        public virtual ContentFile ImagenComprobante { get;  set; }
+        public virtual Auditoria Auditoria { get; set; }
 
 
         protected ComprobantePago()
@@ -23,10 +23,10 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 
         public ComprobantePago(DateTime fechaPago, decimal deducciones, decimal sueldoNeto, decimal bonificaciones):this()
         {
-            this.fechaPago = fechaPago;
-            this.deducciones = deducciones;
-            this.sueldoNeto = sueldoNeto;
-            this.bonificaciones = bonificaciones;
+            this.FechaPago = fechaPago;
+            this.Deducciones = deducciones;
+            this.SueldoNeto = sueldoNeto;
+            this.Bonificaciones = bonificaciones;
             getTotal(deducciones, sueldoNeto, bonificaciones);
 
 
@@ -34,7 +34,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 
         private void getTotal(decimal deducciones, decimal sueldoNeto, decimal bonificaciones)
         {
-            total = (sueldoNeto + bonificaciones) - deducciones;
+            Total = (sueldoNeto + bonificaciones) - deducciones;
         }
     }
 }

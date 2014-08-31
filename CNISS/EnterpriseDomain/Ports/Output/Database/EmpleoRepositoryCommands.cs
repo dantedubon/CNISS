@@ -19,9 +19,9 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
 
         public void save(Empleo entity)
         {
-           if(entity.contrato!=null)
-              saveContrato(entity.contrato);
-            entity.comprobantesPago.ForEach(saveImagenesComprobantesPago);
+           if(entity.Contrato!=null)
+              saveContrato(entity.Contrato);
+            entity.ComprobantesPago.ForEach(saveImagenesComprobantesPago);
             _session.Save(entity);
            
         }
@@ -43,25 +43,25 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
 
         private void saveImagenesComprobantesPago(ComprobantePago comprobantePago)
         {
-            if (comprobantePago.imagenComprobante != null)
-                _session.Save(comprobantePago.imagenComprobante);
+            if (comprobantePago.ImagenComprobante != null)
+                _session.Save(comprobantePago.ImagenComprobante);
         }
 
 
         public void updateContratoEmpleo(Guid entityId, ContentFile contrato)
         {
             var empleo = _session.Get<Empleo>(entityId);
-            empleo.contrato = contrato;
-            _session.Save(empleo.contrato);
+            empleo.Contrato = contrato;
+            _session.Save(empleo.Contrato);
             _session.Save(empleo);
         }
 
         public void updateImagenComprobante(Guid entityId, Guid comprobantePagoId, ContentFile imagenComprobante)
         {
             var empleo = _session.Get<Empleo>(entityId);
-            var comprobante = empleo.comprobantesPago.FirstOrDefault(x => x.Id == comprobantePagoId);
-            comprobante.imagenComprobante = imagenComprobante;
-            _session.Save(comprobante.imagenComprobante);
+            var comprobante = empleo.ComprobantesPago.FirstOrDefault(x => x.Id == comprobantePagoId);
+            comprobante.ImagenComprobante = imagenComprobante;
+            _session.Save(comprobante.ImagenComprobante);
 
             _session.Update(empleo);
 
@@ -70,10 +70,10 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
         public void updateFromMovilNotaDespido(Guid empleoId, NotaDespido notaDespido)
         {
             var empleo = _session.Get<Empleo>(empleoId);
-            empleo.notaDespido = notaDespido;
-            if (notaDespido.documentoDespido != null)
-                _session.Save(notaDespido.documentoDespido);
-            empleo.supervisado = true;
+            empleo.NotaDespido = notaDespido;
+            if (notaDespido.DocumentoDespido != null)
+                _session.Save(notaDespido.DocumentoDespido);
+            empleo.Supervisado = true;
             update(empleo);
         }
 
@@ -81,14 +81,14 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
         {
             var empleo = _session.Get<Empleo>(empleoId);
 
-            if (fichaSupervision.fotografiaBeneficiario != null)
+            if (fichaSupervision.FotografiaBeneficiario != null)
             {
-                _session.Save(fichaSupervision.fotografiaBeneficiario);
+                _session.Save(fichaSupervision.FotografiaBeneficiario);
             }
             empleo.addFichaSupervision(fichaSupervision);
 
 
-            empleo.supervisado = true;
+            empleo.Supervisado = true;
             update(empleo);
 
         }

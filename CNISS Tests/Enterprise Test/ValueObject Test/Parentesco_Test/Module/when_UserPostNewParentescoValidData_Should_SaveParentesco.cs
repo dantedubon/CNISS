@@ -61,13 +61,13 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.TipoEmpleo_Test.Module
 
 
          It should_save_parentesco = () => Mock.Get(_command)
-            .Verify(x => x.execute(Moq.It.Is<Parentesco>(z => z.descripcion == _tipoEmpleoExpected.descripcion)));
+            .Verify(x => x.execute(Moq.It.Is<Parentesco>(z => z.Descripcion == _tipoEmpleoExpected.Descripcion)));
 
         private static Parentesco getParentesco(ParentescoRequest parentescoRequest)
         {
             var parentesco = new Parentesco(parentescoRequest.descripcion)
             {
-                auditoria = new CNISS.CommonDomain.Domain.Auditoria(
+                Auditoria = new CNISS.CommonDomain.Domain.Auditoria(
                     parentescoRequest.auditoriaRequest.usuarioCreo,
                     parentescoRequest.auditoriaRequest.fechaCreo,
                     parentescoRequest.auditoriaRequest.usuarioModifico,

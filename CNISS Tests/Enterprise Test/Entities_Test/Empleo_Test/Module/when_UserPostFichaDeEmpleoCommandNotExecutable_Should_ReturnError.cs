@@ -135,7 +135,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                 fichaSupervisionEmpleoRequest.desempeñoEmpleado, imagen);
 
             var auditoriaRequest = fichaSupervisionEmpleoRequest.auditoriaRequest;
-            ficha.auditoria = new Auditoria(auditoriaRequest.usuarioCreo, auditoriaRequest.fechaCreo,
+            ficha.Auditoria = new Auditoria(auditoriaRequest.usuarioCreo, auditoriaRequest.fechaCreo,
                 auditoriaRequest.usuarioModifico, auditoriaRequest.fechaModifico);
             return ficha;
         }

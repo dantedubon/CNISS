@@ -27,7 +27,7 @@ namespace CNISS_Integration_Test.Repositories.MunicipioRepository
             _repositoryRead = new MunicipioRepositoryReadOnly(_session);
 
             var departamentoMunicipio = Builder<Departamento>.CreateNew().Build();
-            _expectedMunicipio = Builder<Municipio>.CreateNew().With(x => x.departamentoId = departamentoMunicipio.Id)
+            _expectedMunicipio = Builder<Municipio>.CreateNew().With(x => x.DepartamentoId = departamentoMunicipio.Id)
                .Build();
 
             using (var tx = _session.BeginTransaction())
@@ -44,7 +44,7 @@ namespace CNISS_Integration_Test.Repositories.MunicipioRepository
 
          Because of = () =>
          {
-             _responseMunicipio = _repositoryRead.get(_expectedMunicipio.departamentoId, _expectedMunicipio.Id);
+             _responseMunicipio = _repositoryRead.get(_expectedMunicipio.DepartamentoId, _expectedMunicipio.Id);
          };
 
         It should_return_municipio = () => _responseMunicipio.ShouldBeEquivalentTo(_expectedMunicipio);

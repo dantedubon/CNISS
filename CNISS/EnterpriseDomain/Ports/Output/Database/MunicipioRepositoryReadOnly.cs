@@ -15,7 +15,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
 
         public override Municipio get(string departamentoId, string municipioId)
         {
-         return   Session.Get<Municipio>(new Municipio() { departamentoId = departamentoId, Id = municipioId });
+         return   Session.Get<Municipio>(new Municipio() { DepartamentoId = departamentoId, Id = municipioId });
 
         }
 

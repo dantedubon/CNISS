@@ -38,7 +38,7 @@ namespace CNISS_Integration_Test.Repositories.GremioRepository
 
             var rtn = new RTN("08011985123960");
             _expectedGremio = new Gremio(rtn,representante,direccion,"Camara");
-            _expectedGremio.empresas = new List<Empresa>();
+            _expectedGremio.Empresas = new List<Empresa>();
 
 
 
@@ -63,7 +63,7 @@ namespace CNISS_Integration_Test.Repositories.GremioRepository
         {
             var municipio = Builder<Municipio>.CreateNew()
                 .With(x => x.Id = idMunicipio)
-                .With(x => x.departamentoId = idDepartamento)
+                .With(x => x.DepartamentoId = idDepartamento)
                 .Build();
             return municipio;
         }
@@ -72,7 +72,7 @@ namespace CNISS_Integration_Test.Repositories.GremioRepository
         {
             var departamento = Builder<Departamento>.CreateNew()
                 .With(x => x.Id = idDepartamento)
-                .With(x => x.municipios = new List<Municipio>
+                .With(x => x.Municipios = new List<Municipio>
                 {
                     municipio
                 })

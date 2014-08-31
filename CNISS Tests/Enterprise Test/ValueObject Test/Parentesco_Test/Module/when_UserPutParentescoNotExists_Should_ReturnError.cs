@@ -73,7 +73,7 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.TipoEmpleo_Test.Module
         {
             var parentesco = new Parentesco(parentescoRequest.descripcion)
             {
-                auditoria = new CNISS.CommonDomain.Domain.Auditoria(
+                Auditoria = new CNISS.CommonDomain.Domain.Auditoria(
                     parentescoRequest.auditoriaRequest.usuarioCreo,
                     parentescoRequest.auditoriaRequest.fechaCreo,
                     parentescoRequest.auditoriaRequest.usuarioModifico,

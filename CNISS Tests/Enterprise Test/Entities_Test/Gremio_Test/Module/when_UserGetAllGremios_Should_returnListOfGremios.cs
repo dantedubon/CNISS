@@ -69,9 +69,9 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
 
             var municipioGremio = new Municipio()
             {
-                departamentoId = direccion.departamentoRequest.idDepartamento,
+                DepartamentoId = direccion.departamentoRequest.idDepartamento,
                 Id = direccion.municipioRequest.idMunicipio,
-                nombre = direccion.municipioRequest.nombre
+                Nombre = direccion.municipioRequest.nombre
             };
 
             var auditoriaGremio = new Auditoria(auditoria.usuarioCreo, auditoria.fechaCreo, auditoria.usuarioModifico,
@@ -79,14 +79,14 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
             var departamentoGremio = new Departamento()
             {
                 Id = direccion.departamentoRequest.idDepartamento,
-                municipios = new List<Municipio>() { municipioGremio },
-                nombre = direccion.departamentoRequest.nombre
+                Municipios = new List<Municipio>() { municipioGremio },
+                Nombre = direccion.departamentoRequest.nombre
             };
             var direccionGremio = new Direccion(departamentoGremio, municipioGremio, direccion.descripcion);
             direccionGremio.Id = direccion.IdGuid;
 
             var gremio = new Gremio(rtnGremio, representanteGremio, direccionGremio, request.nombre);
-            gremio.auditoria = auditoriaGremio;
+            gremio.Auditoria = auditoriaGremio;
             return gremio;
 
         }

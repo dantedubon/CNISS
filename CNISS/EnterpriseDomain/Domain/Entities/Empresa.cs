@@ -8,32 +8,32 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
     public class Empresa:EnterpriseEntities, IEquatable<Empresa>
     {
         
-        public virtual  string nombre { get; set; }
-        public virtual IEnumerable<ActividadEconomica> actividadesEconomicas { get; set; }
-        public virtual IList<Sucursal> sucursales { get; set; }
-        public virtual DateTime fechaIngreso { get; set; }
-        public virtual int empleadosTotales { get; set; }
-        public virtual bool proyectoPiloto { get; set; }
-        public virtual Gremio gremial { get; set; }
-        public virtual ContentFile contrato { get; set; }
-        public virtual Auditoria auditoria { get; set; }
+        public virtual  string Nombre { get; set; }
+        public virtual IEnumerable<ActividadEconomica> ActividadesEconomicas { get; set; }
+        public virtual IList<Sucursal> Sucursales { get; set; }
+        public virtual DateTime FechaIngreso { get; set; }
+        public virtual int EmpleadosTotales { get; set; }
+        public virtual bool ProyectoPiloto { get; set; }
+        public virtual Gremio Gremial { get; set; }
+        public virtual ContentFile Contrato { get; set; }
+        public virtual Auditoria Auditoria { get; set; }
 
         protected Empresa()
         {
-            sucursales = new List<Sucursal>();
+            Sucursales = new List<Sucursal>();
         }
 
 
         public virtual void AddSucursal(Sucursal sucursal)
         {
-           sucursales.Add(sucursal);
+           Sucursales.Add(sucursal);
         }
 
         public Empresa(RTN rtnEmpresa, string nombre,DateTime fechaIngreso, Gremio gremial):this()
         {
-            this.nombre = nombre;
-            this.fechaIngreso = fechaIngreso;
-            this.gremial = gremial;
+            this.Nombre = nombre;
+            this.FechaIngreso = fechaIngreso;
+            this.Gremial = gremial;
             Id = rtnEmpresa;
         }
 
@@ -56,7 +56,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         {
             unchecked
             {
-                int hashCode = (Id != null ? nombre.GetHashCode() : 0);
+                int hashCode = (Id != null ? Nombre.GetHashCode() : 0);
               
                 return hashCode;
             }

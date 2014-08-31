@@ -86,6 +86,6 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
 
         private Because of = () => _browser.PostSecureJson("enterprise/gremio",_request);
 
-        It should_save_gremio = () => Mock.Get(_commandInsert).Verify( x=> x.execute(Moq.It.Is<Gremio>(z => z.Id.rtn == _request.rtnRequest.RTN)));
+        It should_save_gremio = () => Mock.Get(_commandInsert).Verify( x=> x.execute(Moq.It.Is<Gremio>(z => z.Id.Rtn == _request.rtnRequest.RTN)));
     }
 }

@@ -12,7 +12,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
         public ContentFileMapping()
         {
             Id(x => x.Id).GeneratedBy.Assigned();
-            Map(x => x.dataFile).Length(int.MaxValue);
+            Map(x => x.DataFile).Length(int.MaxValue);
         }
     }
 }

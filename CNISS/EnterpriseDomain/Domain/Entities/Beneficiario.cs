@@ -9,31 +9,31 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 {
     public class Beneficiario:Entity<Identidad>, IEquatable<Beneficiario>
     {
-        public virtual Nombre nombre { get; protected set; }
-        public virtual DateTime fechaNacimiento { get; protected set; }
-        public virtual IList<Dependiente> dependientes { get; protected set; }
-        public virtual Auditoria auditoria { get; set; }
-        public virtual string telefonoFijo { get; set; }
-        public virtual string  telefonoCelular { get; set; }
-        public virtual ContentFile fotografiaBeneficiario { get; set; }
-        public virtual Direccion direccion { get; set; }
+        public virtual Nombre Nombre { get; protected set; }
+        public virtual DateTime FechaNacimiento { get; protected set; }
+        public virtual IList<Dependiente> Dependientes { get; protected set; }
+        public virtual Auditoria Auditoria { get; set; }
+        public virtual string TelefonoFijo { get; set; }
+        public virtual string  TelefonoCelular { get; set; }
+        public virtual ContentFile FotografiaBeneficiario { get; set; }
+        public virtual Direccion Direccion { get; set; }
 
         public Beneficiario(Identidad identidad,Nombre nombre, DateTime fechaNacimiento)
         {
             this.Id = identidad;
-            this.nombre = nombre;
-            this.fechaNacimiento = fechaNacimiento;
-            dependientes = new List<Dependiente>();
+            this.Nombre = nombre;
+            this.FechaNacimiento = fechaNacimiento;
+            Dependientes = new List<Dependiente>();
         }
 
         public Beneficiario()
         {
-            dependientes = new List<Dependiente>();
+            Dependientes = new List<Dependiente>();
         }
 
         public virtual void addDependiente(Dependiente dependiente)
         {
-            dependientes.Add(dependiente);
+            Dependientes.Add(dependiente);
         }
 
         public virtual bool Equals(Beneficiario other)
@@ -53,7 +53,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 
         public override int GetHashCode()
         {
-            return (nombre != null ? Id.GetHashCode() : 0);
+            return (Nombre != null ? Id.GetHashCode() : 0);
         }
     }
 }

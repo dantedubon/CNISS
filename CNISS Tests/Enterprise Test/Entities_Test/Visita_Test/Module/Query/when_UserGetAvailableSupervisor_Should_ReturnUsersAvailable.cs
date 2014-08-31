@@ -33,9 +33,9 @@ namespace CNISS_Tests.Entities_Test.Visita_Test.Module.Query
         {
             _fechaInicial = new DateTime(2014,5,1);
             _fechaFinal = new DateTime(2014,5,30);
-             var _usersRol = Builder<Rol>.CreateNew().With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
-             var usersCollection = Builder<User>.CreateListOfSize(10).All().With(x => x.userRol = _usersRol)
-                 .With(x => x.auditoria = new Auditoria("",DateTime.Now.Date,"",DateTime.Now.Date))
+             var _usersRol = Builder<Rol>.CreateNew().With(x => x.Auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
+             var usersCollection = Builder<User>.CreateListOfSize(10).All().With(x => x.UserRol = _usersRol)
+                 .With(x => x.Auditoria = new Auditoria("",DateTime.Now.Date,"",DateTime.Now.Date))
                  .Build();
 
             _repositoryReadOnly = Mock.Of<IVisitaRepositoryReadOnly>();
@@ -71,33 +71,33 @@ namespace CNISS_Tests.Entities_Test.Visita_Test.Module.Query
         {
             return users.Select(x => new UserRequest
             {
-                firstName = x.firstName,
-                secondName = x.secondName,
+                firstName = x.FirstName,
+                secondName = x.SecondName,
                 Id = x.Id,
-                mail = x.mail,
+                mail = x.Mail,
                 password = "",
 
                 userRol = new RolRequest
                 {
-                    description = x.userRol.description,
-                    name = x.userRol.name,
-                    idGuid = x.userRol.Id,
-                    nivel = x.userRol.nivel,
+                    description = x.UserRol.Description,
+                    name = x.UserRol.Name,
+                    idGuid = x.UserRol.Id,
+                    nivel = x.UserRol.Nivel,
                     auditoriaRequest = new AuditoriaRequest()
                     {
-                        fechaCreo = x.userRol.auditoria.fechaCreo,
-                        fechaModifico = x.userRol.auditoria.fechaModifico,
-                        usuarioCreo = x.userRol.auditoria.usuarioCreo,
-                        usuarioModifico = x.userRol.auditoria.usuarioModifico
+                        fechaCreo = x.UserRol.Auditoria.FechaCreacion,
+                        fechaModifico = x.UserRol.Auditoria.FechaActualizacion,
+                        usuarioCreo = x.UserRol.Auditoria.CreadoPor,
+                        usuarioModifico = x.UserRol.Auditoria.ActualizadoPor
                     }
 
                 },
                 auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo = x.auditoria.fechaCreo,
-                    fechaModifico = x.auditoria.fechaModifico,
-                    usuarioCreo = x.auditoria.usuarioCreo,
-                    usuarioModifico = x.auditoria.usuarioModifico
+                    fechaCreo = x.Auditoria.FechaCreacion,
+                    fechaModifico = x.Auditoria.FechaActualizacion,
+                    usuarioCreo = x.Auditoria.CreadoPor,
+                    usuarioModifico = x.Auditoria.ActualizadoPor
                 }
 
             }).ToList();

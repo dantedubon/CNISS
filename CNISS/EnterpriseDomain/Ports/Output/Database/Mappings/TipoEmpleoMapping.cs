@@ -12,13 +12,13 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
         public TipoEmpleoMapping()
         {
             Id(x => x.Id);
-            Map(x => x.descripcion);
-            Component(x => x.auditoria, m =>
+            Map(x => x.Descripcion);
+            Component(x => x.Auditoria, m =>
             {
-                m.Map(x => x.usuarioCreo);
-                m.Map(x => x.fechaCreo);
-                m.Map(x => x.usuarioModifico);
-                m.Map(x => x.fechaModifico);
+                m.Map(x => x.CreadoPor);
+                m.Map(x => x.FechaCreacion);
+                m.Map(x => x.ActualizadoPor);
+                m.Map(x => x.FechaActualizacion);
             });
         }
     }

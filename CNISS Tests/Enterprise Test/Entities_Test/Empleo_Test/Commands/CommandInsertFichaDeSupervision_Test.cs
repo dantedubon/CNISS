@@ -34,7 +34,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
             var beneficiaro = getBeneficiario();
             var idEmpleo = Guid.NewGuid();
 
-            Mock.Get(authenticateUser).Setup(x => x.isValidUser(ficha.firma.user, 1)).Returns(false);
+            Mock.Get(authenticateUser).Setup(x => x.isValidUser(ficha.Firma.User, 1)).Returns(false);
 
             var commando = new CommandInsertFichaDeSupervision(repositoryEmpleoRead, repositoryEmpleoCommand,
                 repositoryBeneficiarioRead, repositoryBeneficarioCommand, authenticateUser,uow);
@@ -60,7 +60,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
             var beneficiaro = getBeneficiario();
             var idEmpleo = Guid.NewGuid();
 
-            Mock.Get(authenticateUser).Setup(x => x.isValidUser(ficha.firma.user, 1)).Returns(true);
+            Mock.Get(authenticateUser).Setup(x => x.isValidUser(ficha.Firma.User, 1)).Returns(true);
             Mock.Get(repositoryBeneficiarioRead).Setup(x => x.exists(beneficiaro.Id)).Returns(false);
 
             var commando = new CommandInsertFichaDeSupervision(repositoryEmpleoRead, repositoryEmpleoCommand,
@@ -87,7 +87,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
             var beneficiaro = getBeneficiario();
             var idEmpleo = Guid.NewGuid();
 
-            Mock.Get(authenticateUser).Setup(x => x.isValidUser(ficha.firma.user, 1)).Returns(true);
+            Mock.Get(authenticateUser).Setup(x => x.isValidUser(ficha.Firma.User, 1)).Returns(true);
             Mock.Get(repositoryBeneficiarioRead).Setup(x => x.exists(beneficiaro.Id)).Returns(true);
             Mock.Get(repositoryEmpleoRead).Setup(x => x.exists(idEmpleo)).Returns(false);
 
@@ -114,7 +114,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
             var beneficiaro = getBeneficiario();
             var idEmpleo = Guid.NewGuid();
 
-            Mock.Get(authenticateUser).Setup(x => x.isValidUser(ficha.firma.user, 1)).Returns(true);
+            Mock.Get(authenticateUser).Setup(x => x.isValidUser(ficha.Firma.User, 1)).Returns(true);
             Mock.Get(repositoryBeneficiarioRead).Setup(x => x.exists(beneficiaro.Id)).Returns(true);
             Mock.Get(repositoryEmpleoRead).Setup(x => x.exists(idEmpleo)).Returns(true);
 
@@ -141,7 +141,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
             var beneficiaro = getBeneficiario();
             var idEmpleo = Guid.NewGuid();
 
-            Mock.Get(authenticateUser).Setup(x => x.isValidUser(ficha.firma.user, 1)).Returns(true);
+            Mock.Get(authenticateUser).Setup(x => x.isValidUser(ficha.Firma.User, 1)).Returns(true);
             Mock.Get(repositoryBeneficiarioRead).Setup(x => x.exists(beneficiaro.Id)).Returns(true);
             Mock.Get(repositoryEmpleoRead).Setup(x => x.exists(idEmpleo)).Returns(true);
 

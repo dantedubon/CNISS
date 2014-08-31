@@ -38,21 +38,21 @@ namespace CNISS.AutenticationDomain.Domain.Services
             {
                 return false;
             }
-            if (existingUser.userRol.nivel != nivel)
+            if (existingUser.UserRol.Nivel != nivel)
             {
                 return false;
             }
 
-            var key = Convert.FromBase64String(existingUser.userKey);
+            var key = Convert.FromBase64String(existingUser.UserKey);
             var keyGenerator = _keyGeneratorFactory(key);
            
 
           
             var cryto = _crytoServiceFactory(keyGenerator,_factoryHmac);
 
-            user.password = cryto.getEncryptedText(user.password);           
+            user.Password = cryto.getEncryptedText(user.Password);           
            
-            return user.password.Equals(existingUser.password);
+            return user.Password.Equals(existingUser.Password);
         }
 
       

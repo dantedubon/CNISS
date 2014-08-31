@@ -16,8 +16,8 @@ namespace CNISS.EnterpriseDomain.Application
 
         public bool isValidDireccion(Direccion direccion)
         {
-            var departamentoDireccion = direccion.departamento;
-            var municipioDireccion = direccion.municipio;
+            var departamentoDireccion = direccion.Departamento;
+            var municipioDireccion = direccion.Municipio;
             var departamento = repositorio.get(departamentoDireccion.Id);
             return departamento != null && departamento.isMunicipioFromDepartamento(municipioDireccion);
         }

@@ -7,7 +7,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
     {
         public MotivoDespido(string descripcion):this()
         {
-            this.descripcion = descripcion;
+            this.Descripcion = descripcion;
           
         }
 
@@ -16,7 +16,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
             Id = Guid.NewGuid();
         }
 
-        public virtual string descripcion { get; set; }
-        public virtual Auditoria auditoria { get; set; }
+        public virtual string Descripcion { get; set; }
+        public virtual Auditoria Auditoria { get; set; }
     }
 }

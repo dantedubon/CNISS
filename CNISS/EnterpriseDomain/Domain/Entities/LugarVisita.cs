@@ -5,14 +5,14 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 {
     public class LugarVisita:Entity<Guid>
     {
-        public virtual Empresa empresa { get;  protected set; }
-        public virtual Sucursal sucursal { get; protected set; }
-        public virtual Auditoria auditoria { get;  set; }
+        public virtual Empresa Empresa { get;  protected set; }
+        public virtual Sucursal Sucursal { get; protected set; }
+        public virtual Auditoria Auditoria { get;  set; }
 
         public LugarVisita(Empresa empresa, Sucursal sucursal): this()
         {
-            this.empresa = empresa;
-            this.sucursal = sucursal;
+            this.Empresa = empresa;
+            this.Sucursal = sucursal;
         }
 
         protected LugarVisita()

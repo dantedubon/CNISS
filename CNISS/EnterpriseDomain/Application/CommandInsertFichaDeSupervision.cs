@@ -51,7 +51,7 @@ namespace CNISS.EnterpriseDomain.Application
         public bool isExecutable(FichaSupervisionEmpleo ficha, Beneficiario beneficiario, Guid idEmpleo)
         {
             var nivelUsuarioFirma = 1;
-            var userFirma = ficha.firma.user;
+            var userFirma = ficha.Firma.User;
             var validUser = _authenticateUser.isValidUser(userFirma, nivelUsuarioFirma);
             return validUser && _beneficiarioRepositoryRead.exists(beneficiario.Id)&& _empleoRepositoryRead.exists(idEmpleo);
         }

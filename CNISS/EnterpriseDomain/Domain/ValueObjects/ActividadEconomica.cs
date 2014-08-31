@@ -7,7 +7,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
     {
         public ActividadEconomica( string descripcion)
         {
-            this.descripcion = descripcion;
+            this.Descripcion = descripcion;
             Id = Guid.NewGuid();
         }
 
@@ -16,7 +16,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
             Id = Guid.NewGuid();
         }
 
-        public virtual string descripcion { get; set; }
-        public virtual Auditoria auditoria { get; set; }
+        public virtual string Descripcion { get; set; }
+        public virtual Auditoria Auditoria { get; set; }
     }
 }

@@ -46,18 +46,18 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Query
             {
                 identidadRequest = new IdentidadRequest() { identidad = beneficiario.Id.identidad},
                 nombreRequest = new NombreRequest() {
-                    nombres = beneficiario.nombre.nombres,
-                    primerApellido = beneficiario.nombre.primerApellido, 
-                    segundoApellido = beneficiario.nombre.segundoApellido
+                    nombres = beneficiario.Nombre.Nombres,
+                    primerApellido = beneficiario.Nombre.PrimerApellido, 
+                    segundoApellido = beneficiario.Nombre.SegundoApellido
                 },
-                fechaNacimiento = beneficiario.fechaNacimiento,
+                fechaNacimiento = beneficiario.FechaNacimiento,
                 dependienteRequests = new List<DependienteRequest>(),
                 auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo = beneficiario.auditoria.fechaCreo,
-                    fechaModifico = beneficiario.auditoria.fechaModifico,
-                    usuarioCreo = beneficiario.auditoria.usuarioCreo,
-                    usuarioModifico = beneficiario.auditoria.usuarioModifico
+                    fechaCreo = beneficiario.Auditoria.FechaCreacion,
+                    fechaModifico = beneficiario.Auditoria.FechaActualizacion,
+                    usuarioCreo = beneficiario.Auditoria.CreadoPor,
+                    usuarioModifico = beneficiario.Auditoria.ActualizadoPor
                 }
                 
             };
@@ -69,43 +69,43 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Query
             {
                 nombreRequest = new NombreRequest()
                 {
-                    nombres = beneficiario.nombre.nombres,
-                    primerApellido = beneficiario.nombre.primerApellido,
-                    segundoApellido = beneficiario.nombre.segundoApellido
+                    nombres = beneficiario.Nombre.Nombres,
+                    primerApellido = beneficiario.Nombre.PrimerApellido,
+                    segundoApellido = beneficiario.Nombre.SegundoApellido
                 },
-                fechaNacimiento = beneficiario.fechaNacimiento,
+                fechaNacimiento = beneficiario.FechaNacimiento,
                 identidadRequest = new IdentidadRequest() { identidad = beneficiario.Id.identidad },
-                dependienteRequests = beneficiario.dependientes.Select(x => new DependienteRequest()
+                dependienteRequests = beneficiario.Dependientes.Select(x => new DependienteRequest()
                 {
                     IdGuid = x.idGuid,
-                    fechaNacimiento = x.fechaNacimiento,
+                    fechaNacimiento = x.FechaNacimiento,
                     identidadRequest = new IdentidadRequest() { identidad = x.Id.identidad },
                     nombreRequest = new NombreRequest()
                     {
-                        nombres = x.nombre.nombres,
-                        primerApellido = x.nombre.primerApellido,
-                        segundoApellido = x.nombre.segundoApellido
+                        nombres = x.Nombre.Nombres,
+                        primerApellido = x.Nombre.PrimerApellido,
+                        segundoApellido = x.Nombre.SegundoApellido
                     },
                     parentescoRequest = new ParentescoRequest()
                     {
-                        descripcion = x.parentesco.descripcion,
-                        guid = x.parentesco.Id
+                        descripcion = x.Parentesco.Descripcion,
+                        guid = x.Parentesco.Id
                     },
                     auditoriaRequest = new AuditoriaRequest()
                     {
-                        fechaCreo = x.auditoria.fechaCreo,
-                        fechaModifico = x.auditoria.fechaModifico,
-                        usuarioCreo = x.auditoria.usuarioCreo,
-                        usuarioModifico = x.auditoria.usuarioModifico
+                        fechaCreo = x.auditoria.FechaCreacion,
+                        fechaModifico = x.auditoria.FechaActualizacion,
+                        usuarioCreo = x.auditoria.CreadoPor,
+                        usuarioModifico = x.auditoria.ActualizadoPor
                     }
 
                 }),
                 auditoriaRequest  = new AuditoriaRequest()
                 {
-                    fechaCreo = beneficiario.auditoria.fechaCreo,
-                    fechaModifico = beneficiario.auditoria.fechaModifico,
-                    usuarioCreo = beneficiario.auditoria.usuarioCreo,
-                    usuarioModifico = beneficiario.auditoria.usuarioModifico
+                    fechaCreo = beneficiario.Auditoria.FechaCreacion,
+                    fechaModifico = beneficiario.Auditoria.FechaActualizacion,
+                    usuarioCreo = beneficiario.Auditoria.CreadoPor,
+                    usuarioModifico = beneficiario.Auditoria.ActualizadoPor
                 }
 
             };

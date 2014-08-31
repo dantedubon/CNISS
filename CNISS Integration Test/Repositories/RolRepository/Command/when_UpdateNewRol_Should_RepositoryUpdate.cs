@@ -43,7 +43,7 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.Command
 
          Because of = () =>
          {
-             _expectedRol.name = _newRolName;
+             _expectedRol.Name = _newRolName;
              using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
              {
                  _repository = new RolRepositoryCommands(uow.Session);
@@ -63,7 +63,7 @@ namespace CNISS_Integration_Test.Repositories.RolRepository.Command
 
             }
 
-            _resultRol.name.Should().BeEquivalentTo(_newRolName);
+            _resultRol.Name.Should().BeEquivalentTo(_newRolName);
         };
     }
 }

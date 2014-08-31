@@ -31,7 +31,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
         {
             var visitas =
                 Session.Query<Visita>()
-                    .Where(visita => visita.fechaInicial < fechaFinal && fechaInicial < visita.fechaFinal);
+                    .Where(visita => visita.FechaInicial < fechaFinal && fechaInicial < visita.FechaFinal);
             return visitas.ToList();
         }
 
@@ -39,10 +39,10 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
         {
             var fechaActual = DateTime.Now.Date;
             var supervisoresActuales = Session.Query<Visita>()
-                .Where(visita => visita.fechaInicial <= fechaActual && visita.fechaFinal >= fechaActual)
-                .SelectMany(users => users.supervisores).ToFuture();
+                .Where(visita => visita.FechaInicial <= fechaActual && visita.FechaFinal >= fechaActual)
+                .SelectMany(users => users.Supervisores).ToFuture();
 
-            var resultado = supervisoresActuales.FirstOrDefault(supervisor => supervisor.usuario.Id == user.Id);
+            var resultado = supervisoresActuales.FirstOrDefault(supervisor => supervisor.Usuario.Id == user.Id);
             return resultado;
         }
 
@@ -51,8 +51,8 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
         {
        
             var usuariosSupervisores = Session.Query<Visita>()
-                .Where(visita => visita.fechaInicial < fechaFinal && fechaInicial < visita.fechaFinal)
-                .SelectMany(users => users.supervisores).ToFuture();
+                .Where(visita => visita.FechaInicial < fechaFinal && fechaInicial < visita.FechaFinal)
+                .SelectMany(users => users.Supervisores).ToFuture();
 
        
 
@@ -60,10 +60,10 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
             var usuariosNoSupervisores = Session.QueryOver<User>()
                
                 .WhereRestrictionOn(u => u.Id)
-                .Not.IsIn(usuariosSupervisores.Select(x => x.usuario.Id).ToList());
+                .Not.IsIn(usuariosSupervisores.Select(x => x.Usuario.Id).ToList());
 
 
-            return usuariosNoSupervisores.List().Where(x => x.userRol.nivel ==2);
+            return usuariosNoSupervisores.List().Where(x => x.UserRol.Nivel ==2);
 
 
         }

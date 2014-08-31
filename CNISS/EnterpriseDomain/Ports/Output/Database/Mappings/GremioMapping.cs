@@ -9,18 +9,18 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
         {
             CompositeId()
                 .ComponentCompositeIdentifier(x => x.Id)
-                .KeyProperty(x => x.Id.rtn);
+                .KeyProperty(x => x.Id.Rtn);
 
-            Map(x => x.nombre);
-            References(x => x.representanteLegal);
-            References(x => x.direccion);
-            HasMany(x => x.empresas).Inverse().Cascade.SaveUpdate().KeyColumn("rtn_gremio");
-            Component(x => x.auditoria, m =>
+            Map(x => x.Nombre);
+            References(x => x.RepresentanteLegal);
+            References(x => x.Direccion);
+            HasMany(x => x.Empresas).Inverse().Cascade.SaveUpdate().KeyColumn("rtn_gremio");
+            Component(x => x.Auditoria, m =>
             {
-                m.Map(x => x.usuarioCreo);
-                m.Map(x => x.fechaCreo);
-                m.Map(x => x.usuarioModifico);
-                m.Map(x => x.fechaModifico);
+                m.Map(x => x.CreadoPor);
+                m.Map(x => x.FechaCreacion);
+                m.Map(x => x.ActualizadoPor);
+                m.Map(x => x.FechaActualizacion);
             });
 
         }

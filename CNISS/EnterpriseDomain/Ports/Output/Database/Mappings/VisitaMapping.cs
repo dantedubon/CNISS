@@ -12,17 +12,17 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
         public VisitaMapping()
         {
             Id(x => x.Id).GeneratedBy.Assigned();
-            Map(x => x.fechaInicial).Index("Indx_fechaInicial");
-            Map(x => x.fechaFinal).Index("Indx_fechaFinal");
-            Map(x => x.nombre);
-            Component(x => x.auditoria, m =>
+            Map(x => x.FechaInicial).Index("Indx_fechaInicial");
+            Map(x => x.FechaFinal).Index("Indx_fechaFinal");
+            Map(x => x.Nombre);
+            Component(x => x.Auditoria, m =>
             {
-                m.Map(x => x.usuarioCreo);
-                m.Map(x => x.fechaCreo);
-                m.Map(x => x.usuarioModifico);
-                m.Map(x => x.fechaModifico);
+                m.Map(x => x.CreadoPor);
+                m.Map(x => x.FechaCreacion);
+                m.Map(x => x.ActualizadoPor);
+                m.Map(x => x.FechaActualizacion);
             });
-            HasMany(x => x.supervisores).Cascade.All();
+            HasMany(x => x.Supervisores).Cascade.All();
 
 
         }

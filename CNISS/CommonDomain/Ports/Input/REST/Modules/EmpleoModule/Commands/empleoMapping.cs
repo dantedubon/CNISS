@@ -39,12 +39,12 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                 getHorarioLaboral(horarioRequest),
                 empleoRequest.cargo,empleoRequest.sueldo,getTipoEmpleo(tipoEmpleo),empleoRequest.fechaDeInicio);
 
-            empleo.contrato = getContrato(empleoRequest);
+            empleo.Contrato = getContrato(empleoRequest);
 
             var comprobantesEmpleo = getComprobantes(comprobantes);
 
             comprobantesEmpleo.ForEach(empleo.addComprobante);
-            empleo.auditoria = getAuditoria(empleoRequest.auditoriaRequest);
+            empleo.Auditoria = getAuditoria(empleoRequest.auditoriaRequest);
             
             return empleo;
 
@@ -98,8 +98,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
             {
                 comprobante.Id = guiRequest;
             }
-            comprobante.imagenComprobante = getImagenComprobante(comprobantePagoRequest);
-            comprobante.auditoria = getAuditoria(comprobantePagoRequest.auditoriaRequest);
+            comprobante.ImagenComprobante = getImagenComprobante(comprobantePagoRequest);
+            comprobante.Auditoria = getAuditoria(comprobantePagoRequest.auditoriaRequest);
             return comprobante;
         }
 
@@ -127,13 +127,13 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
 
             var diasLaborables = new DiasLaborables()
             {
-                domingo = horarioLaboralRequest.diasLaborablesRequest.domingo,
-                lunes = horarioLaboralRequest.diasLaborablesRequest.lunes,
-                martes = horarioLaboralRequest.diasLaborablesRequest.martes,
-                miercoles = horarioLaboralRequest.diasLaborablesRequest.miercoles,
-                jueves = horarioLaboralRequest.diasLaborablesRequest.jueves,
-                viernes = horarioLaboralRequest.diasLaborablesRequest.viernes,
-                sabado = horarioLaboralRequest.diasLaborablesRequest.sabado
+                Domingo = horarioLaboralRequest.diasLaborablesRequest.domingo,
+                Lunes = horarioLaboralRequest.diasLaborablesRequest.lunes,
+                Martes = horarioLaboralRequest.diasLaborablesRequest.martes,
+                Miercoles = horarioLaboralRequest.diasLaborablesRequest.miercoles,
+                Jueves = horarioLaboralRequest.diasLaborablesRequest.jueves,
+                Viernes = horarioLaboralRequest.diasLaborablesRequest.viernes,
+                Sabado = horarioLaboralRequest.diasLaborablesRequest.sabado
             };
 
             return new HorarioLaboral(horaEntrada, horarioSalida, diasLaborables);

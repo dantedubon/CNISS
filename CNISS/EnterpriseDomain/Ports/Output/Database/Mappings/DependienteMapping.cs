@@ -11,25 +11,25 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
 
             Component(x => x.Id, z => z.Map(x => x.identidad).Index("identidad_indx"));
 
-            Component(x => x.nombre, z =>
+            Component(x => x.Nombre, z =>
             {
-                z.Map(x => x.nombres);
-                z.Map(x => x.primerApellido);
-                z.Map(x => x.segundoApellido);
+                z.Map(x => x.Nombres);
+                z.Map(x => x.PrimerApellido);
+                z.Map(x => x.SegundoApellido);
               
             }
                 );
 
-            Map(x => x.fechaNacimiento);
+            Map(x => x.FechaNacimiento);
 
-            References(x => x.parentesco);
+            References(x => x.Parentesco);
 
             Component(x => x.auditoria, m =>
             {
-                m.Map(x => x.usuarioCreo);
-                m.Map(x => x.fechaCreo);
-                m.Map(x => x.usuarioModifico);
-                m.Map(x => x.fechaModifico);
+                m.Map(x => x.CreadoPor);
+                m.Map(x => x.FechaCreacion);
+                m.Map(x => x.ActualizadoPor);
+                m.Map(x => x.FechaActualizacion);
             });
 
         }

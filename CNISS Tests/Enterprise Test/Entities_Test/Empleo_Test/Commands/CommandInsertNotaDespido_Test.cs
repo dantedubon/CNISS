@@ -29,7 +29,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
             var authenticateUser = Mock.Of<IAuthenticateUser>();
             var uow = Mock.Of<Func<IUnitOfWork>>();
             Mock.Get(uow).Setup(x => x()).Returns(new DummyUnitOfWork());
-            Mock.Get(repositoryEmpleoRead).Setup(x => x.existsEmpleoForNotaDespido(idEmpleo,nota.fechaDespido)).Returns(false);
+            Mock.Get(repositoryEmpleoRead).Setup(x => x.existsEmpleoForNotaDespido(idEmpleo,nota.FechaDespido)).Returns(false);
 
             var comando = new CommandInsertNotaDespido(repositoryEmpleoRead,repositoryEmpleoCommand, authenticateUser, uow);
 
@@ -53,8 +53,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
             var authenticateUser = Mock.Of<IAuthenticateUser>();
             var uow = Mock.Of<Func<IUnitOfWork>>();
             Mock.Get(uow).Setup(x => x()).Returns(new DummyUnitOfWork());
-            Mock.Get(authenticateUser).Setup(x => x.isValidUser(nota.firmaAutorizada.user, nivelFirma)).Returns(false);
-            Mock.Get(repositoryEmpleoRead).Setup(x => x.existsEmpleoForNotaDespido(idEmpleo, nota.fechaDespido)).Returns(true);
+            Mock.Get(authenticateUser).Setup(x => x.isValidUser(nota.FirmaAutorizada.User, nivelFirma)).Returns(false);
+            Mock.Get(repositoryEmpleoRead).Setup(x => x.existsEmpleoForNotaDespido(idEmpleo, nota.FechaDespido)).Returns(true);
 
             var comando = new CommandInsertNotaDespido(repositoryEmpleoRead, repositoryEmpleoCommand, authenticateUser, uow);
 

@@ -107,11 +107,11 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
         It should_save_notaDespido = () => Mock.Get(_command).Verify(x =>
             x.execute(_notaDespidoRequest.empleoId,Moq.It.Is<NotaDespido>(
-            z => z.firmaAutorizada.Id == _notaDespido.firmaAutorizada.Id 
-            && z.fechaDespido == _notaDespido.fechaDespido 
-            && z.motivoDespido.Id == _notaDespido.motivoDespido.Id
-            && z.posicionGPS == _notaDespido.posicionGPS
-            && z.supervisor.Id == _notaDespido.supervisor.Id)));
+            z => z.FirmaAutorizada.Id == _notaDespido.FirmaAutorizada.Id 
+            && z.FechaDespido == _notaDespido.FechaDespido 
+            && z.MotivoDespido.Id == _notaDespido.MotivoDespido.Id
+            && z.PosicionGps == _notaDespido.PosicionGps
+            && z.Supervisor.Id == _notaDespido.Supervisor.Id)));
 
         private static Func<string, IEncrytRequestProvider> getEncrypter()
         {

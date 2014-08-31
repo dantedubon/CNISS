@@ -31,7 +31,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserCommands
                             _userRequest.password,
                             _userRequest.mail,
                             _userRol);
-                        user.auditoria = new Auditoria(_userRequest.auditoriaRequest.usuarioCreo,
+                        user.Auditoria = new Auditoria(_userRequest.auditoriaRequest.usuarioCreo,
                             _userRequest.auditoriaRequest.fechaCreo,_userRequest.auditoriaRequest.usuarioModifico,
                             _userRequest.auditoriaRequest.fechaModifico);
                         commandUpdate.execute(user);

@@ -12,18 +12,18 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
         public ComprobantePagoMapping()
         {
             Id(x => x.Id).GeneratedBy.Assigned();
-            Map(x => x.deducciones);
-            Map(x => x.sueldoNeto);
-            Map(x => x.bonificaciones);
-            Map(x => x.total);
-            Map(x => x.fechaPago);
-            References(x => x.imagenComprobante);
-            Component(x => x.auditoria, m =>
+            Map(x => x.Deducciones);
+            Map(x => x.SueldoNeto);
+            Map(x => x.Bonificaciones);
+            Map(x => x.Total);
+            Map(x => x.FechaPago);
+            References(x => x.ImagenComprobante);
+            Component(x => x.Auditoria, m =>
             {
-                m.Map(x => x.usuarioCreo);
-                m.Map(x => x.fechaCreo);
-                m.Map(x => x.usuarioModifico);
-                m.Map(x => x.fechaModifico);
+                m.Map(x => x.CreadoPor);
+                m.Map(x => x.FechaCreacion);
+                m.Map(x => x.ActualizadoPor);
+                m.Map(x => x.FechaActualizacion);
             });
         }
     }

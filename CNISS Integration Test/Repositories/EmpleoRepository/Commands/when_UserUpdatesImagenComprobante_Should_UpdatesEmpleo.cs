@@ -43,14 +43,14 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
 
             prepareEmpresa(empresa);
 
-            var sucursal = empresa.sucursales.First();
+            var sucursal = empresa.Sucursales.First();
             var horario = new HorarioLaboral(new Hora(7, 0, "AM"), new Hora(5, 30, "PM"), new DiasLaborables()
             {
-                lunes = true,
-                martes = true,
-                miercoles = true,
-                jueves = true,
-                viernes = true
+                Lunes = true,
+                Martes = true,
+                Miercoles = true,
+                Jueves = true,
+                Viernes = true
             });
              var contrato = new ContentFile(new byte[] { 1, 1, 1 });
 
@@ -64,7 +64,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
             _expectedEmpleo.addComprobante(_comprobantePagoWithOutImage);
 
 
-            _expectedEmpleo.contrato = contrato;
+            _expectedEmpleo.Contrato = contrato;
             prepareBeneficiario(beneficiario);
             prepareTipoEmpleo(tipoEmpleo);
 
@@ -82,8 +82,8 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
 
         private Because of = () =>
         {
-            _comprobantePagoWithImage.imagenComprobante = _imagenComprobante1;
-            _comprobantePagoWithOutImage.imagenComprobante = _imagenComprobante2;
+            _comprobantePagoWithImage.ImagenComprobante = _imagenComprobante1;
+            _comprobantePagoWithOutImage.ImagenComprobante = _imagenComprobante2;
            
             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
@@ -103,9 +103,9 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
             using (var tx = _session.BeginTransaction())
             {
                 _responseEmpleo = _session.Get<Empleo>(_expectedEmpleo.Id);
-                _responseEmpleo.empresa.gremial.empresas = new List<Empresa>();
-                _responseEmpleo.empresa.sucursales = new List<Sucursal>();
-                _expectedEmpleo.empresa.sucursales = new List<Sucursal>();
+                _responseEmpleo.Empresa.Gremial.Empresas = new List<Empresa>();
+                _responseEmpleo.Empresa.Sucursales = new List<Sucursal>();
+                _expectedEmpleo.Empresa.Sucursales = new List<Sucursal>();
                 _responseEmpleo.ShouldBeEquivalentTo(_expectedEmpleo);
             }
         };
@@ -115,7 +115,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
         private static ComprobantePago getComprobantePagoWithImage()
         {
             var comprobante = new ComprobantePago(new DateTime(2014, 8, 2), 10, 20, 10);
-            comprobante.imagenComprobante = new ContentFile(new byte[]{1,1,1});
+            comprobante.ImagenComprobante = new ContentFile(new byte[]{1,1,1});
             return comprobante;
         }
 
@@ -191,11 +191,11 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
 
         private static void prepareEmpresa(Empresa empresa)
         {
-            var gremio = empresa.gremial;
-            var sucursales = empresa.sucursales;
-            var actividades = empresa.actividadesEconomicas;
+            var gremio = empresa.Gremial;
+            var sucursales = empresa.Sucursales;
+            var actividades = empresa.ActividadesEconomicas;
             prepareGremio(gremio);
-            sucursales.ToList().ForEach(x => prepareUser(x.firma.user));
+            sucursales.ToList().ForEach(x => prepareUser(x.Firma.User));
             actividades.ToList().ForEach(prepareActividades);
 
 
@@ -223,8 +223,8 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
 
         private static void prepareGremio(Gremio gremio)
         {
-            var direccion = gremio.direccion;
-            saveDepartamentoMunicipio(direccion.departamento, direccion.municipio);
+            var direccion = gremio.Direccion;
+            saveDepartamentoMunicipio(direccion.Departamento, direccion.Municipio);
 
             using (var uow = new NHibernateUnitOfWork(_sessionFactory.OpenSession()))
             {
@@ -259,7 +259,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
 
         private static void prepareUser(User user)
         {
-            var rol = user.userRol;
+            var rol = user.UserRol;
             _session = _sessionFactory.OpenSession();
             using (var tx = _session.BeginTransaction())
             {
@@ -279,9 +279,9 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
             var rtn = new RTN("08011985123960");
             var empresa = new Empresa(rtn, "La Holgazana", fechaIngreso, gremio);
 
-            empresa.actividadesEconomicas = actividades;
-            empresa.sucursales = sucursales;
-            empresa.contrato = getContrato();
+            empresa.ActividadesEconomicas = actividades;
+            empresa.Sucursales = sucursales;
+            empresa.Contrato = getContrato();
             return empresa;
         }
 
@@ -299,7 +299,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
         private static Gremio getGremio()
         {
             var municipio = new Municipio("01", "01", "Municipio");
-            var departamento = new Departamento() { Id = "01", municipios = new List<Municipio>() { municipio }, nombre = "Departamento" };
+            var departamento = new Departamento() { Id = "01", Municipios = new List<Municipio>() { municipio }, Nombre = "Departamento" };
             var direccion = new Direccion(departamento, municipio, "direccion gremio");
 
             var RTN = new RTN("08011985123960");
@@ -313,7 +313,7 @@ namespace CNISS_Integration_Test.Repositories.EmpleoRepository.Commands
         private static IList<Sucursal> getSucursales()
         {
             var municipio = new Municipio("01", "01", "Municipio");
-            var departamento = new Departamento() { Id = "01", municipios = new List<Municipio>() { municipio }, nombre = "Departamento" };
+            var departamento = new Departamento() { Id = "01", Municipios = new List<Municipio>() { municipio }, Nombre = "Departamento" };
             var direccion = new Direccion(departamento, municipio, "direccion");
             var fechaDeCreacionFirma = DateTime.ParseExact(DateTime.Now.ToString("g"), "g", null);
 

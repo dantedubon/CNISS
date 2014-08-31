@@ -18,12 +18,12 @@ namespace CNISS_Tests.Autentication_Test.User_Test.Cryptography
         [Test]
         public void isValidUser_UserExists_returnTrue()
         {
-            var userExisting = new User("User","Dante","Castillo","Password","mail",new Rol("Rol Prueba","Rol Prueba"){nivel = 1});
+            var userExisting = new User("User","Dante","Castillo","Password","mail",new Rol("Rol Prueba","Rol Prueba"){Nivel = 1});
             var nivel = 1;
             var repositoryRead = Mock.Of<IUserRepositoryReadOnly>();
             var cryptoService = getCryptoService();
-            userExisting.password = cryptoService.getEncryptedText(userExisting.password);
-            userExisting.userKey = cryptoService.getKey();
+            userExisting.Password = cryptoService.getEncryptedText(userExisting.Password);
+            userExisting.UserKey = cryptoService.getKey();
 
             var repository = Mock.Of<IUserRepositoryReadOnly>();
             Mock.Get(repository).Setup(x => x.get(userExisting.Id)).Returns(userExisting);
@@ -43,12 +43,12 @@ namespace CNISS_Tests.Autentication_Test.User_Test.Cryptography
         [Test]
         public void isValidUser_UserNivelError_returnFalse()
         {
-            var userExisting = new User("User", "Dante", "Castillo", "Password", "mail", new Rol("Rol Prueba", "Rol Prueba") { nivel = 1 });
+            var userExisting = new User("User", "Dante", "Castillo", "Password", "mail", new Rol("Rol Prueba", "Rol Prueba") { Nivel = 1 });
             var nivel = 2;
             var repositoryRead = Mock.Of<IUserRepositoryReadOnly>();
             var cryptoService = getCryptoService();
-            userExisting.password = cryptoService.getEncryptedText(userExisting.password);
-            userExisting.userKey = cryptoService.getKey();
+            userExisting.Password = cryptoService.getEncryptedText(userExisting.Password);
+            userExisting.UserKey = cryptoService.getKey();
 
             var repository = Mock.Of<IUserRepositoryReadOnly>();
             Mock.Get(repository).Setup(x => x.get(userExisting.Id)).Returns(userExisting);
@@ -70,12 +70,12 @@ namespace CNISS_Tests.Autentication_Test.User_Test.Cryptography
         [Test]
         public void isValidUser_UserNotExists_returnFalse()
         {
-            var userExisting = new User("User", "Dante", "Castillo", "Password", "mail", new Rol("Rol Prueba", "Rol Prueba"){nivel = 1});
+            var userExisting = new User("User", "Dante", "Castillo", "Password", "mail", new Rol("Rol Prueba", "Rol Prueba"){Nivel = 1});
             int nivel = 1;
             var repositoryRead = Mock.Of<IUserRepositoryReadOnly>();
             var cryptoService = getCryptoService();
-            userExisting.password = cryptoService.getEncryptedText(userExisting.password);
-            userExisting.userKey = cryptoService.getKey();
+            userExisting.Password = cryptoService.getEncryptedText(userExisting.Password);
+            userExisting.UserKey = cryptoService.getKey();
 
             var repository = Mock.Of<IUserRepositoryReadOnly>();
        
@@ -96,12 +96,12 @@ namespace CNISS_Tests.Autentication_Test.User_Test.Cryptography
         [Test]
         public void isValidUser_UserNotValidPassword_returnFalse()
         {
-            var userExisting = new User("User", "Dante", "Castillo", "Password", "mail", new Rol("Rol Prueba", "Rol Prueba"){nivel = 1});
+            var userExisting = new User("User", "Dante", "Castillo", "Password", "mail", new Rol("Rol Prueba", "Rol Prueba"){Nivel = 1});
             var nivel = 1;
             var repositoryRead = Mock.Of<IUserRepositoryReadOnly>();
             var cryptoService = getCryptoService();
-            userExisting.password = cryptoService.getEncryptedText(userExisting.password);
-            userExisting.userKey = cryptoService.getKey();
+            userExisting.Password = cryptoService.getEncryptedText(userExisting.Password);
+            userExisting.UserKey = cryptoService.getKey();
 
             var repository = Mock.Of<IUserRepositoryReadOnly>();
             Mock.Get(repository).Setup(x => x.get(userExisting.Id)).Returns(userExisting);

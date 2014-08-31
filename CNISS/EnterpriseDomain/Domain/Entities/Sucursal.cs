@@ -9,9 +9,9 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public Sucursal(string nombre, Direccion direccion, FirmaAutorizada firmaAutorizada):this()
         {
             
-            this.nombre = nombre;
-            this.direccion = direccion;
-            this.firma = firmaAutorizada;
+            this.Nombre = nombre;
+            this.Direccion = direccion;
+            this.Firma = firmaAutorizada;
         }
 
         protected Sucursal()
@@ -19,10 +19,10 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
             Id = Guid.NewGuid();
             
         }
-        public virtual string nombre { get; set; }
-        public virtual Direccion direccion { get; set; }
-        public virtual FirmaAutorizada firma { get; set; }
-        public virtual Auditoria auditoria { get; set; }
+        public virtual string Nombre { get; set; }
+        public virtual Direccion Direccion { get; set; }
+        public virtual FirmaAutorizada Firma { get; set; }
+        public virtual Auditoria Auditoria { get; set; }
 
         public virtual bool Equals(Sucursal other)
         {
@@ -41,7 +41,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 
         public override int GetHashCode()
         {
-            return (nombre != null ? Id.GetHashCode() : 0);
+            return (Nombre != null ? Id.GetHashCode() : 0);
         }
     }
 }

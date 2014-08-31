@@ -8,18 +8,18 @@ namespace CNISS.AutenticationDomain.Ports.Output.Database.Mappings
         public UserMappings()
         {
             Id(x => x.Id);
-            Map(x => x.firstName);
-            Map(x => x.mail);
-            Map(x => x.secondName);
-            Map(x => x.password);
-            Map(x => x.userKey);
-            References(x => x.userRol);
-            Component(x => x.auditoria, m =>
+            Map(x => x.FirstName);
+            Map(x => x.Mail);
+            Map(x => x.SecondName);
+            Map(x => x.Password);
+            Map(x => x.UserKey);
+            References(x => x.UserRol);
+            Component(x => x.Auditoria, m =>
             {
-                m.Map(x => x.usuarioCreo);
-                m.Map(x => x.fechaCreo);
-                m.Map(x => x.usuarioModifico);
-                m.Map(x => x.fechaModifico);
+                m.Map(x => x.CreadoPor);
+                m.Map(x => x.FechaCreacion);
+                m.Map(x => x.ActualizadoPor);
+                m.Map(x => x.FechaActualizacion);
             });
 
         }

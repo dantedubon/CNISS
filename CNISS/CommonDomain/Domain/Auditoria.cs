@@ -7,17 +7,17 @@ namespace CNISS.CommonDomain.Domain
 {
     public class Auditoria
     {
-        public virtual string usuarioCreo { get; set; }
-        public virtual DateTime  fechaCreo { get; set; }
-        public virtual string usuarioModifico { get; set; }
-        public virtual DateTime fechaModifico { get; set; }
+        public virtual string CreadoPor { get; set; }
+        public virtual DateTime  FechaCreacion { get; set; }
+        public virtual string ActualizadoPor { get; set; }
+        public virtual DateTime FechaActualizacion { get; set; }
 
-        public Auditoria(string usuarioCreo, DateTime fechaCreo, string usuarioModifico, DateTime fechaModifico)
+        public Auditoria(string creadoPor, DateTime fechaCreacion, string actualizadoPor, DateTime fechaActualizacion)
         {
-            this.usuarioCreo = usuarioCreo;
-            this.fechaCreo = fechaCreo;
-            this.usuarioModifico = usuarioModifico;
-            this.fechaModifico = fechaModifico;
+            this.CreadoPor = creadoPor;
+            this.FechaCreacion = fechaCreacion;
+            this.ActualizadoPor = actualizadoPor;
+            this.FechaActualizacion = fechaActualizacion;
         }
 
         public Auditoria()

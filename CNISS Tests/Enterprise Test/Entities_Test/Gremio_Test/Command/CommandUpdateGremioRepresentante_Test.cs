@@ -93,7 +93,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Command
             command.execute(nuevoGremio);
 
           
-            Mock.Get(repository).Verify(x => x.updateRepresentante(It.Is<Gremio>( z=> z.representanteLegal == nuevoGremio.representanteLegal)));
+            Mock.Get(repository).Verify(x => x.updateRepresentante(It.Is<Gremio>( z=> z.RepresentanteLegal == nuevoGremio.RepresentanteLegal)));
 
 
         }
@@ -113,12 +113,12 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Command
         private Direccion getDireccion(string idDepartamentoMunicipio, string idMunicipio, string idDepartamento, string descripcion)
         {
             var municipio = Builder<Municipio>.CreateNew().Build();
-            municipio.departamentoId = idDepartamentoMunicipio;
+            municipio.DepartamentoId = idDepartamentoMunicipio;
             municipio.Id = idMunicipio;
-            municipio.nombre = "municipio";
+            municipio.Nombre = "municipio";
             var departamento = Builder<Departamento>.CreateNew().Build();
             departamento.Id = idDepartamento;
-            departamento.nombre = "departamento";
+            departamento.Nombre = "departamento";
 
 
             return new Direccion(departamento, municipio, descripcion);

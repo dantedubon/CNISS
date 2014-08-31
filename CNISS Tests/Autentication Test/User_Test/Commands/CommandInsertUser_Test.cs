@@ -20,7 +20,7 @@ namespace CNISS_Tests.User_Test.Commands
             var _repository = userRepositoryCommands(out _uow);
 
             var _userTest = Builder<User>.CreateNew().Build();
-            var _passwordUser = _userTest.password;
+            var _passwordUser = _userTest.Password;
             var size = 128;
             var _keyGenerator = new UserKeyGenerator(new RandomKeyGenerator(), size);
 
@@ -34,8 +34,8 @@ namespace CNISS_Tests.User_Test.Commands
 
             command.execute(_userTest);
 
-            Mock.Get(_repository).Verify(x => x.save( It.Is<User>(z => z.password == passwordEncrypted 
-                && z.userKey == userKey)));
+            Mock.Get(_repository).Verify(x => x.save( It.Is<User>(z => z.Password == passwordEncrypted 
+                && z.UserKey == userKey)));
 
         }
 

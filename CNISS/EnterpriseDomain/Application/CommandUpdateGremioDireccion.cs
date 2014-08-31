@@ -26,8 +26,8 @@ namespace CNISS.EnterpriseDomain.Application
         public void execute(Gremio identity)
         {
             var gremio = _repositoryReadOnly.get(identity.Id);
-            identity.direccion.Id = gremio.direccion.Id;
-            gremio.direccion = identity.direccion;
+            identity.Direccion.Id = gremio.Direccion.Id;
+            gremio.Direccion = identity.Direccion;
 
 
             var _uow = _factory();
@@ -42,7 +42,7 @@ namespace CNISS.EnterpriseDomain.Application
         public bool isExecutable(Gremio identity)
         {
 
-            return _repositoryReadOnly.exists(identity.Id) && _validatorDireccion.isValidDireccion(identity.direccion);
+            return _repositoryReadOnly.exists(identity.Id) && _validatorDireccion.isValidDireccion(identity.Direccion);
         }
     }
 }

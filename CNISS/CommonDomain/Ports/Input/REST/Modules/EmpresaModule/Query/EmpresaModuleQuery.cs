@@ -25,22 +25,22 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
 
                 var response = empresas.Select(x => new EmpresaRequest()
                 {
-                    rtnRequest = new RTNRequest() { RTN = x.Id.rtn},
+                    rtnRequest = new RTNRequest() { RTN = x.Id.Rtn},
                    
-                    contentFile = x.contrato == null ? "": x.contrato.Id.ToString(),
-                    empleadosTotales = x.empleadosTotales,
-                    fechaIngreso = x.fechaIngreso,
+                    contentFile = x.Contrato == null ? "": x.Contrato.Id.ToString(),
+                    empleadosTotales = x.EmpleadosTotales,
+                    fechaIngreso = x.FechaIngreso,
                     actividadEconomicaRequests = new List<ActividadEconomicaRequest>(),
                     gremioRequest = new GremioRequest(),
                     sucursalRequests = new List<SucursalRequest>(),
-                    nombre = x.nombre,
-                    programaPiloto = x.proyectoPiloto,
+                    nombre = x.Nombre,
+                    programaPiloto = x.ProyectoPiloto,
                     auditoriaRequest = new AuditoriaRequest()
                     {
-                        fechaCreo = x.auditoria.fechaCreo,
-                        fechaModifico = x.auditoria.fechaModifico,
-                        usuarioCreo = x.auditoria.usuarioCreo,
-                        usuarioModifico = x.auditoria.usuarioModifico
+                        fechaCreo = x.Auditoria.FechaCreacion,
+                        fechaModifico = x.Auditoria.FechaActualizacion,
+                        usuarioCreo = x.Auditoria.CreadoPor,
+                        usuarioModifico = x.Auditoria.ActualizadoPor
                     }
 
                 });
@@ -56,7 +56,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
                     var rtnEmpresa = new RTN(rtn.RTN);
                     if (rtnEmpresa.isRTNValid())
                     {
-                        var empresa = repositoryRead.get(new RTN(rtnEmpresa.rtn));
+                        var empresa = repositoryRead.get(new RTN(rtnEmpresa.Rtn));
                         return Response.AsJson(getEmpresaRequest(empresa))
                       .WithStatusCode(HttpStatusCode.OK);
                     }
@@ -75,25 +75,25 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
                     var rtnGremio = new RTN(rtn.RTN);
                     if (rtnGremio.isRTNValid())
                     {
-                        var empresas = gremioRepositoryRead.get(rtnGremio).empresas;
+                        var empresas = gremioRepositoryRead.get(rtnGremio).Empresas;
                         var response = empresas.Select(x => new EmpresaRequest()
                         {
-                            rtnRequest = new RTNRequest() { RTN = x.Id.rtn },
+                            rtnRequest = new RTNRequest() { RTN = x.Id.Rtn },
 
-                            contentFile = x.contrato == null ? "" : x.contrato.Id.ToString(),
-                            empleadosTotales = x.empleadosTotales,
-                            fechaIngreso = x.fechaIngreso,
+                            contentFile = x.Contrato == null ? "" : x.Contrato.Id.ToString(),
+                            empleadosTotales = x.EmpleadosTotales,
+                            fechaIngreso = x.FechaIngreso,
                             actividadEconomicaRequests = new List<ActividadEconomicaRequest>(),
                             gremioRequest = new GremioRequest(),
                             sucursalRequests = new List<SucursalRequest>(),
-                            nombre = x.nombre,
-                            programaPiloto = x.proyectoPiloto,
+                            nombre = x.Nombre,
+                            programaPiloto = x.ProyectoPiloto,
                             auditoriaRequest = new AuditoriaRequest()
                             {
-                                fechaCreo = x.auditoria.fechaCreo,
-                                fechaModifico = x.auditoria.fechaModifico,
-                                usuarioCreo = x.auditoria.usuarioCreo,
-                                usuarioModifico = x.auditoria.usuarioModifico
+                                fechaCreo = x.Auditoria.FechaCreacion,
+                                fechaModifico = x.Auditoria.FechaActualizacion,
+                                usuarioCreo = x.Auditoria.CreadoPor,
+                                usuarioModifico = x.Auditoria.ActualizadoPor
                             }
 
                         });
@@ -114,64 +114,64 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Query
         {
             var empresaRequest = new EmpresaRequest()
             {
-                nombre = empresa.nombre,
-                actividadEconomicaRequests = empresa.actividadesEconomicas.Select(x => new ActividadEconomicaRequest()
+                nombre = empresa.Nombre,
+                actividadEconomicaRequests = empresa.ActividadesEconomicas.Select(x => new ActividadEconomicaRequest()
                 {
-                    descripcion = x.descripcion,
+                    descripcion = x.Descripcion,
                     guid = x.Id
                 }),
-                contentFile = empresa.contrato == null? "":empresa.contrato.Id.ToString(),
-                empleadosTotales = empresa.empleadosTotales,
-                fechaIngreso = empresa.fechaIngreso,
+                contentFile = empresa.Contrato == null? "":empresa.Contrato.Id.ToString(),
+                empleadosTotales = empresa.EmpleadosTotales,
+                fechaIngreso = empresa.FechaIngreso,
                 gremioRequest = new GremioRequest()
                 {
-                    nombre = empresa.gremial.nombre,
+                    nombre = empresa.Gremial.Nombre,
                     rtnRequest = new RTNRequest()
                     {
-                        RTN = empresa.gremial.Id.rtn
+                        RTN = empresa.Gremial.Id.Rtn
                     }
                 },
-                programaPiloto = empresa.proyectoPiloto,
-                rtnRequest = new RTNRequest() { RTN = empresa.Id.rtn },
-                sucursalRequests = empresa.sucursales.Select(x => new SucursalRequest()
+                programaPiloto = empresa.ProyectoPiloto,
+                rtnRequest = new RTNRequest() { RTN = empresa.Id.Rtn },
+                sucursalRequests = empresa.Sucursales.Select(x => new SucursalRequest()
                 {
                     guid = x.Id,
-                    nombre = x.nombre,
+                    nombre = x.Nombre,
                     direccionRequest = new DireccionRequest()
                     {
                         departamentoRequest = new DepartamentoRequest()
                         {
-                            idDepartamento = x.direccion.departamento.Id,
-                            nombre = x.direccion.departamento.nombre
+                            idDepartamento = x.Direccion.Departamento.Id,
+                            nombre = x.Direccion.Departamento.Nombre
                         },
-                        descripcion = x.direccion.referenciaDireccion,
+                        descripcion = x.Direccion.ReferenciaDireccion,
                         IdGuid = x.Id,
                         municipioRequest = new MunicipioRequest()
                         {
-                            idDepartamento = x.direccion.municipio.departamentoId,
-                            idMunicipio = x.direccion.municipio.Id,
-                            nombre = x.direccion.municipio.nombre
+                            idDepartamento = x.Direccion.Municipio.DepartamentoId,
+                            idMunicipio = x.Direccion.Municipio.Id,
+                            nombre = x.Direccion.Municipio.Nombre
                         }
 
                     },
                     userFirmaRequest = new UserRequest()
                     {
-                        Id = x.firma.user.Id
+                        Id = x.Firma.User.Id
                     },
                     auditoriaRequest = new AuditoriaRequest()
                     {
-                        fechaCreo = x.auditoria.fechaCreo,
-                        fechaModifico = x.auditoria.fechaModifico,
-                        usuarioCreo = x.auditoria.usuarioCreo,
-                        usuarioModifico = x.auditoria.usuarioModifico
+                        fechaCreo = x.Auditoria.FechaCreacion,
+                        fechaModifico = x.Auditoria.FechaActualizacion,
+                        usuarioCreo = x.Auditoria.CreadoPor,
+                        usuarioModifico = x.Auditoria.ActualizadoPor
                     }
                 }),
                 auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo = empresa.auditoria.fechaCreo,
-                    fechaModifico = empresa.auditoria.fechaModifico,
-                    usuarioCreo = empresa.auditoria.usuarioCreo,
-                    usuarioModifico = empresa.auditoria.usuarioModifico
+                    fechaCreo = empresa.Auditoria.FechaCreacion,
+                    fechaModifico = empresa.Auditoria.FechaActualizacion,
+                    usuarioCreo = empresa.Auditoria.CreadoPor,
+                    usuarioModifico = empresa.Auditoria.ActualizadoPor
                 }
             };
             return empresaRequest;

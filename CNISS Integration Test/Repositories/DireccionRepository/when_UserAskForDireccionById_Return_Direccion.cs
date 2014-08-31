@@ -29,11 +29,11 @@ namespace CNISS_Integration_Test.Repositories.DireccionRepository
              var idDepartamento = "departamento1";
              var municipio = Builder<Municipio>.CreateNew()
                  .With(x => x.Id = idMunicipio)
-                 .With(x => x.departamentoId = idDepartamento)
+                 .With(x => x.DepartamentoId = idDepartamento)
                  .Build();
              var departamento = Builder<Departamento>.CreateNew()
                  .With(x => x.Id = idDepartamento)
-                 .With(x => x.municipios = new List<Municipio>
+                 .With(x => x.Municipios = new List<Municipio>
                  {
                      municipio
                  })

@@ -9,7 +9,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
         {
             Id(x => x.Id).GeneratedBy.Assigned();
             Map(x => x.fechaCreacion);
-            References(x => x.user).Columns(x => x.Id).Column("UserName");
+            References(x => x.User).Columns(x => x.Id).Column("UserName");
         } 
     }
 }

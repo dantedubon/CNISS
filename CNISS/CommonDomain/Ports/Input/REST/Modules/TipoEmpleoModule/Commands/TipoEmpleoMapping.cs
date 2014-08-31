@@ -21,7 +21,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.TipoEmpleoModule.Commands
         {
             var tipoEmpleo = new TipoEmpleo(tipoEmpleoRequest.descripcion)
             {
-                auditoria = new Domain.Auditoria(
+                Auditoria = new Domain.Auditoria(
                     tipoEmpleoRequest.auditoriaRequest.usuarioCreo,
                     tipoEmpleoRequest.auditoriaRequest.fechaCreo,
                     tipoEmpleoRequest.auditoriaRequest.usuarioModifico,

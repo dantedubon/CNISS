@@ -25,7 +25,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
             var fechaBase = fechaDeBusqueda.AddDays(-days);
             return (from empleo in Session.Query<Empleo>()
                 where
-                    empleo.beneficiario.Id == identidadBeneficiario && empleo.fechaDeInicio > fechaBase
+                    empleo.Beneficiario.Id == identidadBeneficiario && empleo.FechaDeInicio > fechaBase
                 select empleo.Id
                 ).Any();
             ;
@@ -37,7 +37,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
             var fechaBase = fechaDeBusqueda.AddDays(-days);
             return (from empleo in Session.Query<Empleo>()
                     where
-                        empleo.beneficiario.Id == identidadBeneficiario && empleo.fechaDeInicio > fechaBase && empleo.Id != idEmpleo
+                        empleo.Beneficiario.Id == identidadBeneficiario && empleo.FechaDeInicio > fechaBase && empleo.Id != idEmpleo
                     select empleo.Id
                 ).Any();
             ;
@@ -47,7 +47,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
         {
             return (from empleo in Session.Query<Empleo>()
                 where
-                    empleo.empresa.Id == rtn
+                    empleo.Empresa.Id == rtn
                 select empleo
                 );
 
@@ -57,7 +57,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
         {
             return (from empleo in Session.Query<Empleo>()
                     where
-                        empleo.beneficiario.Id == identidad
+                        empleo.Beneficiario.Id == identidad
                        
                     select empleo
                     
@@ -70,8 +70,8 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
 
            return (Session.QueryOver<Empleo>()
 
-                .Where(x => x.beneficiario.Id == identidad)
-                .OrderBy(x => x.fechaDeInicio).Desc
+                .Where(x => x.Beneficiario.Id == identidad)
+                .OrderBy(x => x.FechaDeInicio).Desc
                 .List<Empleo>()).FirstOrDefault();
 
 
@@ -81,13 +81,13 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
         public bool existsComprobante(Guid empleoid, Guid comprobanteId)
         {
             var empleo = Session.Get<Empleo>(empleoid);
-            return empleo != null && empleo.comprobantesPago.Any(x => x.Id == comprobanteId);
+            return empleo != null && empleo.ComprobantesPago.Any(x => x.Id == comprobanteId);
         }
 
         public bool existsEmpleoForNotaDespido(Guid empleoId, DateTime fecha)
         {
             return (from empleo in Session.Query<Empleo>()
-                    where empleo.Id == empleoId && empleo.fechaDeInicio < fecha && empleo.notaDespido == null
+                    where empleo.Id == empleoId && empleo.FechaDeInicio < fecha && empleo.NotaDespido == null
                     select empleo.Id
                 ).Any()
             ;

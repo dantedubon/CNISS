@@ -9,13 +9,13 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 {
     public class NotaDespido:Entity<Guid>
     {
-        public virtual MotivoDespido motivoDespido { get; set; }
-        public virtual DateTime fechaDespido { get; set; }
-        public virtual ContentFile documentoDespido { get; set; }
-        public virtual string posicionGPS { get; set; }
-        public virtual Supervisor supervisor { get; set; }
-        public virtual FirmaAutorizada firmaAutorizada { get; set; }
-        public virtual Auditoria auditoria { get; set; }
+        public virtual MotivoDespido MotivoDespido { get; set; }
+        public virtual DateTime FechaDespido { get; set; }
+        public virtual ContentFile DocumentoDespido { get; set; }
+        public virtual string PosicionGps { get; set; }
+        public virtual Supervisor Supervisor { get; set; }
+        public virtual FirmaAutorizada FirmaAutorizada { get; set; }
+        public virtual Auditoria Auditoria { get; set; }
 
         protected NotaDespido()
         {
@@ -24,11 +24,11 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 
         public NotaDespido(MotivoDespido motivoDespido, DateTime fechaDespido, string posicionGps, Supervisor supervisor, FirmaAutorizada firmaAutorizada):this()
         {
-            this.motivoDespido = motivoDespido;
-            this.fechaDespido = fechaDespido;
-            posicionGPS = posicionGps;
-            this.supervisor = supervisor;
-            this.firmaAutorizada = firmaAutorizada;
+            this.MotivoDespido = motivoDespido;
+            this.FechaDespido = fechaDespido;
+            PosicionGps = posicionGps;
+            this.Supervisor = supervisor;
+            this.FirmaAutorizada = firmaAutorizada;
         }
     }
 }

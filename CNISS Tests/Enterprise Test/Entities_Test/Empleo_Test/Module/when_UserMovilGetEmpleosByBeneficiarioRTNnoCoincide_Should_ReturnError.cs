@@ -52,14 +52,14 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                   Builder<HorarioLaboral>.CreateNew().WithConstructor(() => new HorarioLaboral(Builder<Hora>.CreateNew().Build(), Builder<Hora>.CreateNew().Build(), Builder<DiasLaborables>.CreateNew().Build())).Build(),
                   "Ingeniero", 12000m, Builder<TipoEmpleo>.CreateNew().Build(), new DateTime(2014, 8, 2))
 
-              ).With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
-            empleo.sucursal.Id = _sucursalGuid;
+              ).With(x => x.Auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
+            empleo.Sucursal.Id = _sucursalGuid;
 
             _empleoExpected = getEmpleoRequests(empleo);
 
 
             var repository = Mock.Of<IEmpleoRepositoryReadOnly>();
-            Mock.Get(repository).Setup(x => x.getEmpleoMasRecienteBeneficiario(empleo.beneficiario.Id)).Returns(empleo);
+            Mock.Get(repository).Setup(x => x.getEmpleoMasRecienteBeneficiario(empleo.Beneficiario.Id)).Returns(empleo);
 
             var tokenizer = Mock.Of<ITokenizer>();
             Mock.Get(tokenizer)
@@ -104,77 +104,77 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
             {
                 beneficiarioRequest = new BeneficiarioRequest()
                 {
-                    identidadRequest = new IdentidadRequest() { identidad = empleo.beneficiario.Id.identidad },
+                    identidadRequest = new IdentidadRequest() { identidad = empleo.Beneficiario.Id.identidad },
                     nombreRequest = new NombreRequest()
                     {
-                        nombres = empleo.beneficiario.nombre.nombres,
-                        primerApellido = empleo.beneficiario.nombre.primerApellido,
-                        segundoApellido = empleo.beneficiario.nombre.segundoApellido
+                        nombres = empleo.Beneficiario.Nombre.Nombres,
+                        primerApellido = empleo.Beneficiario.Nombre.PrimerApellido,
+                        segundoApellido = empleo.Beneficiario.Nombre.SegundoApellido
                     },
-                    fechaNacimiento = empleo.beneficiario.fechaNacimiento
+                    fechaNacimiento = empleo.Beneficiario.FechaNacimiento
 
 
                 },
-                cargo = empleo.cargo,
-                comprobantes = empleo.comprobantesPago.Select(z => new ComprobantePagoRequest()
+                cargo = empleo.Cargo,
+                comprobantes = empleo.ComprobantesPago.Select(z => new ComprobantePagoRequest()
                 {
-                    deducciones = z.deducciones,
-                    fechaPago = z.fechaPago,
+                    deducciones = z.Deducciones,
+                    fechaPago = z.FechaPago,
                     guid = z.Id,
-                    sueldoNeto = z.sueldoNeto,
-                    bonificaciones = z.total
+                    sueldoNeto = z.SueldoNeto,
+                    bonificaciones = z.Total
                 }),
                 empresaRequest = new EmpresaRequest()
                 {
-                    nombre = empleo.empresa.nombre,
-                    rtnRequest = new RTNRequest() { RTN = empleo.empresa.Id.rtn }
+                    nombre = empleo.Empresa.Nombre,
+                    rtnRequest = new RTNRequest() { RTN = empleo.Empresa.Id.Rtn }
                 },
                 auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo = empleo.auditoria.fechaCreo,
-                    fechaModifico = empleo.auditoria.fechaModifico,
-                    usuarioCreo = empleo.auditoria.usuarioCreo,
-                    usuarioModifico = empleo.auditoria.usuarioModifico
+                    fechaCreo = empleo.Auditoria.FechaCreacion,
+                    fechaModifico = empleo.Auditoria.FechaActualizacion,
+                    usuarioCreo = empleo.Auditoria.CreadoPor,
+                    usuarioModifico = empleo.Auditoria.ActualizadoPor
                 },
                 sucursalRequest = new SucursalRequest()
                 {
-                    guid = empleo.sucursal.Id,
-                    nombre = empleo.sucursal.nombre
+                    guid = empleo.Sucursal.Id,
+                    nombre = empleo.Sucursal.Nombre
                 },
-                fechaDeInicio = empleo.fechaDeInicio,
+                fechaDeInicio = empleo.FechaDeInicio,
                 horarioLaboralRequest = new HorarioLaboralRequest()
                 {
                     diasLaborablesRequest = new DiasLaborablesRequest()
                     {
-                        domingo = empleo.horarioLaboral.diasLaborables.domingo,
-                        lunes = empleo.horarioLaboral.diasLaborables.lunes,
-                        martes = empleo.horarioLaboral.diasLaborables.martes,
-                        miercoles = empleo.horarioLaboral.diasLaborables.miercoles,
-                        jueves = empleo.horarioLaboral.diasLaborables.jueves,
-                        viernes = empleo.horarioLaboral.diasLaborables.viernes,
-                        sabado = empleo.horarioLaboral.diasLaborables.sabado
+                        domingo = empleo.HorarioLaboral.DiasLaborables.Domingo,
+                        lunes = empleo.HorarioLaboral.DiasLaborables.Lunes,
+                        martes = empleo.HorarioLaboral.DiasLaborables.Martes,
+                        miercoles = empleo.HorarioLaboral.DiasLaborables.Miercoles,
+                        jueves = empleo.HorarioLaboral.DiasLaborables.Jueves,
+                        viernes = empleo.HorarioLaboral.DiasLaborables.Viernes,
+                        sabado = empleo.HorarioLaboral.DiasLaborables.Sabado
                     },
                     horaEntrada = new HoraRequest()
                     {
-                        hora = empleo.horarioLaboral.horaEntrada.hora,
-                        minutos = empleo.horarioLaboral.horaEntrada.minutos,
-                        parte = empleo.horarioLaboral.horaEntrada.parte
+                        hora = empleo.HorarioLaboral.HoraEntrada.HoraEntera,
+                        minutos = empleo.HorarioLaboral.HoraEntrada.Minutos,
+                        parte = empleo.HorarioLaboral.HoraEntrada.Parte
 
                     },
                     horaSalida = new HoraRequest()
                     {
-                        hora = empleo.horarioLaboral.horaSalida.hora,
-                        minutos = empleo.horarioLaboral.horaSalida.minutos,
-                        parte = empleo.horarioLaboral.horaSalida.parte
+                        hora = empleo.HorarioLaboral.HoraSalida.HoraEntera,
+                        minutos = empleo.HorarioLaboral.HoraSalida.Minutos,
+                        parte = empleo.HorarioLaboral.HoraSalida.Parte
 
                     }
                 },
-                contrato = empleo.contrato == null ? "" : empleo.contrato.Id.ToString(),
-                sueldo = empleo.sueldo,
+                contrato = empleo.Contrato == null ? "" : empleo.Contrato.Id.ToString(),
+                sueldo = empleo.Sueldo,
                 tipoEmpleoRequest = new TipoEmpleoRequest()
                 {
-                    descripcion = empleo.tipoEmpleo.descripcion,
-                    IdGuid = empleo.tipoEmpleo.Id
+                    descripcion = empleo.TipoEmpleo.Descripcion,
+                    IdGuid = empleo.TipoEmpleo.Id
                 },
                 IdGuid = empleo.Id
             };

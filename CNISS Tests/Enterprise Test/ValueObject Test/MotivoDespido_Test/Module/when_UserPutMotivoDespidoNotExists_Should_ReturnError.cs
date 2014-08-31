@@ -68,7 +68,7 @@ namespace CNISS_Tests.MotivoDespido_Test.Module
         {
             var motivoDespido = new MotivoDespido(motivoDespidoRequest.descripcion)
             {
-                auditoria = new CNISS.CommonDomain.Domain.Auditoria(
+                Auditoria = new CNISS.CommonDomain.Domain.Auditoria(
                     motivoDespidoRequest.auditoriaRequest.usuarioCreo,
                     motivoDespidoRequest.auditoriaRequest.fechaCreo,
                     motivoDespidoRequest.auditoriaRequest.usuarioModifico,

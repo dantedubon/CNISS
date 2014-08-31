@@ -20,9 +20,9 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database
 
         public void updateInformationFromMovil(Beneficiario beneficiario)
         {
-            if (beneficiario.fotografiaBeneficiario != null)
+            if (beneficiario.FotografiaBeneficiario != null)
             {
-                saveFotografia(beneficiario.fotografiaBeneficiario);
+                saveFotografia(beneficiario.FotografiaBeneficiario);
             }
 
             

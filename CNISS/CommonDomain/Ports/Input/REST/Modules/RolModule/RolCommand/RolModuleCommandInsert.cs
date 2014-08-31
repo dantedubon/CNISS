@@ -24,8 +24,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.RolModule.RolCommand
                 var _rol = new Rol(_rolRequest.name, _rolRequest.description);
 
                 var auditoriaRequest = _rolRequest.auditoriaRequest;
-                _rol.auditoria = new Auditoria(auditoriaRequest.usuarioCreo,auditoriaRequest.fechaCreo,auditoriaRequest.usuarioModifico,auditoriaRequest.fechaModifico);
-                _rol.nivel = _rolRequest.nivel;
+                _rol.Auditoria = new Auditoria(auditoriaRequest.usuarioCreo,auditoriaRequest.fechaCreo,auditoriaRequest.usuarioModifico,auditoriaRequest.fechaModifico);
+                _rol.Nivel = _rolRequest.nivel;
                 command.execute(_rol);
                 return new Response() {}
                     .WithStatusCode(HttpStatusCode.OK);

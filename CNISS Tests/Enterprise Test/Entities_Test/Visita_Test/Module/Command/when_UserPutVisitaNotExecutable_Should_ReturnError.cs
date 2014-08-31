@@ -83,8 +83,8 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Module.Command
 
             return new Visita(visitaRequest.nombre, visitaRequest.fechaInicial, visitaRequest.fechaFinal)
             {
-                auditoria = auditoria,
-                supervisores = getSupervisores(visitaRequest.supervisoresRequests)
+                Auditoria = auditoria,
+                Supervisores = getSupervisores(visitaRequest.supervisoresRequests)
 
             };
         }
@@ -98,10 +98,10 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Visita_Test.Module.Command
                         x.userRequest.password, x.userRequest.mail,
                         new Rol(x.userRequest.userRol.name, x.userRequest.userRol.description)))
                     {
-                        auditoria =
+                        Auditoria =
                             new Auditoria(x.auditoriaRequest.usuarioCreo, x.auditoriaRequest.fechaCreo,
                                 x.auditoriaRequest.usuarioModifico, x.auditoriaRequest.fechaModifico),
-                        lugaresVisitas = getLugaresVisitas(x.lugarVisitaRequests)
+                        LugaresVisitas = getLugaresVisitas(x.lugarVisitaRequests)
 
 
                     }).ToList();

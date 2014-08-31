@@ -12,14 +12,14 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
         public LugarVisitaMappig()
         {
             Id(x => x.Id).GeneratedBy.Assigned();
-            References(x => x.empresa);
-            References(x => x.sucursal);
-            Component(x => x.auditoria, m =>
+            References(x => x.Empresa);
+            References(x => x.Sucursal);
+            Component(x => x.Auditoria, m =>
             {
-                m.Map(x => x.usuarioCreo);
-                m.Map(x => x.fechaCreo);
-                m.Map(x => x.usuarioModifico);
-                m.Map(x => x.fechaModifico);
+                m.Map(x => x.CreadoPor);
+                m.Map(x => x.FechaCreacion);
+                m.Map(x => x.ActualizadoPor);
+                m.Map(x => x.FechaActualizacion);
             });
         }
     }

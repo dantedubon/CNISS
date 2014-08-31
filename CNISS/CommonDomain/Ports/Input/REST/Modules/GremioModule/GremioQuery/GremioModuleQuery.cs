@@ -49,48 +49,48 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioQuery
 
         private GremioRequest convertToGremioRequest(Gremio gremio)
         {
-            var direccion = gremio.direccion;
-            var departamento = direccion.departamento;
-            var municipio = direccion.municipio;
-            var auditoria = gremio.auditoria;
+            var direccion = gremio.Direccion;
+            var departamento = direccion.Departamento;
+            var municipio = direccion.Municipio;
+            var auditoria = gremio.Auditoria;
             var rtn = gremio.Id;
-            var representante = gremio.representanteLegal;
-            var nombreGremio = gremio.nombre;
+            var representante = gremio.RepresentanteLegal;
+            var nombreGremio = gremio.Nombre;
 
             
             var representanteRequest = new RepresentanteLegalRequest()
             {
                 identidadRequest = new IdentidadRequest() {identidad = representante.Id.identidad},
-                nombre = representante.nombre
+                nombre = representante.Nombre
             };
 
-            var rtnRequestGremio = new RTNRequest() {RTN = rtn.rtn};
+            var rtnRequestGremio = new RTNRequest() {RTN = rtn.Rtn};
             var departamentoRequestGremio = new DepartamentoRequest()
             {
                 idDepartamento = departamento.Id,
-                nombre = departamento.nombre
+                nombre = departamento.Nombre
             };
 
             var municipioRequestGremio = new MunicipioRequest()
             {
-                idDepartamento = municipio.departamentoId,
+                idDepartamento = municipio.DepartamentoId,
                 idMunicipio = municipio.Id,
-                nombre = municipio.nombre
+                nombre = municipio.Nombre
             };
             var direccionRequestGremio = new DireccionRequest()
             {
                departamentoRequest = departamentoRequestGremio,
                municipioRequest = municipioRequestGremio,
-               descripcion = direccion.referenciaDireccion,
+               descripcion = direccion.ReferenciaDireccion,
                IdGuid = direccion.Id
             };
 
             var auditoriaRequest = new AuditoriaRequest()
             {
-                fechaCreo = auditoria.fechaCreo,
-                fechaModifico = auditoria.fechaModifico,
-                usuarioCreo = auditoria.usuarioCreo,
-                usuarioModifico = auditoria.usuarioModifico
+                fechaCreo = auditoria.FechaCreacion,
+                fechaModifico = auditoria.FechaActualizacion,
+                usuarioCreo = auditoria.CreadoPor,
+                usuarioModifico = auditoria.ActualizadoPor
             };
             var gremioRequest = new GremioRequest()
             {

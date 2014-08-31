@@ -25,10 +25,10 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
 
             var beneficiario = getBeneficiario();
 
-            var sucursal = empresa.sucursales.First();
+            var sucursal = empresa.Sucursales.First();
 
             var horario = new HorarioLaboral(new Hora(7, 0, "AM"), new Hora(5, 30, "PM"),
-                new DiasLaborables() { lunes = true, martes = true });
+                new DiasLaborables() { Lunes = true, Martes = true });
 
             var empleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 30000,
                 new TipoEmpleo("Horas"), new DateTime(2014, 5, 6));
@@ -60,10 +60,10 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
 
             var beneficiario = getBeneficiario();
 
-            var sucursal = empresa.sucursales.First();
+            var sucursal = empresa.Sucursales.First();
 
             var horario = new HorarioLaboral(new Hora(7, 0, "AM"), new Hora(5, 30, "PM"),
-                new DiasLaborables() { lunes = true, martes = true });
+                new DiasLaborables() { Lunes = true, Martes = true });
 
             var empleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 30000,
                 new TipoEmpleo("Horas"), new DateTime(2014, 5, 6));
@@ -81,7 +81,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
             Mock.Get(repositoryRead).Setup(x => x.exists(empleo.Id)).Returns(true);
             Mock.Get(providerDays).Setup(x => x.getDays()).Returns(90);
             Mock.Get(repositoryRead)
-                .Setup(x => x.existsEmpleoRecienteParaBeneficiario(empleo.fechaDeInicio, 90, empleo.beneficiario.Id))
+                .Setup(x => x.existsEmpleoRecienteParaBeneficiario(empleo.FechaDeInicio, 90, empleo.Beneficiario.Id))
                 .Returns(true);
 
             var command = new CommandUpdateEmpleo(repositoryCommands, uow, repositoryRead, beneficiarioRead, providerDays, empresaRead, tiposEmpleoRead);
@@ -99,10 +99,10 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
 
             var beneficiario = getBeneficiario();
 
-            var sucursal = empresa.sucursales.First();
+            var sucursal = empresa.Sucursales.First();
 
             var horario = new HorarioLaboral(new Hora(7, 0, "AM"), new Hora(5, 30, "PM"),
-                new DiasLaborables() { lunes = true, martes = true });
+                new DiasLaborables() { Lunes = true, Martes = true });
 
             var empleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 30000,
                 new TipoEmpleo("Horas"), new DateTime(2014, 5, 6));
@@ -120,10 +120,10 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
             Mock.Get(repositoryRead).Setup(x => x.exists(empleo.Id)).Returns(true);
             Mock.Get(providerDays).Setup(x => x.getDays()).Returns(90);
             Mock.Get(repositoryRead)
-                .Setup(x => x.existsEmpleoRecienteParaBeneficiario(empleo.fechaDeInicio, 90, empleo.beneficiario.Id))
+                .Setup(x => x.existsEmpleoRecienteParaBeneficiario(empleo.FechaDeInicio, 90, empleo.Beneficiario.Id))
                 .Returns(false);
 
-            Mock.Get(beneficiarioRead).Setup(x => x.exists(empleo.beneficiario.Id)).Returns(false);
+            Mock.Get(beneficiarioRead).Setup(x => x.exists(empleo.Beneficiario.Id)).Returns(false);
 
             var command = new CommandUpdateEmpleo(repositoryCommands, uow, repositoryRead, beneficiarioRead, providerDays, empresaRead, tiposEmpleoRead);
 
@@ -138,10 +138,10 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
 
             var beneficiario = getBeneficiario();
 
-            var sucursal = empresa.sucursales.First();
+            var sucursal = empresa.Sucursales.First();
 
             var horario = new HorarioLaboral(new Hora(7, 0, "AM"), new Hora(5, 30, "PM"),
-                new DiasLaborables() { lunes = true, martes = true });
+                new DiasLaborables() { Lunes = true, Martes = true });
 
             var empleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 30000,
                 new TipoEmpleo("Horas"), new DateTime(2014, 5, 6));
@@ -159,11 +159,11 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
             Mock.Get(repositoryRead).Setup(x => x.exists(empleo.Id)).Returns(true);
             Mock.Get(providerDays).Setup(x => x.getDays()).Returns(90);
             Mock.Get(repositoryRead)
-                .Setup(x => x.existsEmpleoRecienteParaBeneficiario(empleo.fechaDeInicio, 90, empleo.beneficiario.Id))
+                .Setup(x => x.existsEmpleoRecienteParaBeneficiario(empleo.FechaDeInicio, 90, empleo.Beneficiario.Id))
                 .Returns(false);
 
-            Mock.Get(beneficiarioRead).Setup(x => x.exists(empleo.beneficiario.Id)).Returns(true);
-            Mock.Get(empresaRead).Setup(x => x.exists(empleo.empresa.Id)).Returns(false);
+            Mock.Get(beneficiarioRead).Setup(x => x.exists(empleo.Beneficiario.Id)).Returns(true);
+            Mock.Get(empresaRead).Setup(x => x.exists(empleo.Empresa.Id)).Returns(false);
 
 
             var command = new CommandUpdateEmpleo(repositoryCommands, uow, repositoryRead, beneficiarioRead, providerDays, empresaRead, tiposEmpleoRead);
@@ -180,10 +180,10 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
 
             var beneficiario = getBeneficiario();
 
-            var sucursal = empresa.sucursales.First();
+            var sucursal = empresa.Sucursales.First();
 
             var horario = new HorarioLaboral(new Hora(7, 0, "AM"), new Hora(5, 30, "PM"),
-                new DiasLaborables() { lunes = true, martes = true });
+                new DiasLaborables() { Lunes = true, Martes = true });
 
             var empleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 30000,
                 new TipoEmpleo("Horas"), new DateTime(2014, 5, 6));
@@ -201,12 +201,12 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
             Mock.Get(repositoryRead).Setup(x => x.exists(empleo.Id)).Returns(true);
             Mock.Get(providerDays).Setup(x => x.getDays()).Returns(90);
             Mock.Get(repositoryRead)
-                .Setup(x => x.existsEmpleoRecienteParaBeneficiario(empleo.fechaDeInicio, 90, empleo.beneficiario.Id))
+                .Setup(x => x.existsEmpleoRecienteParaBeneficiario(empleo.FechaDeInicio, 90, empleo.Beneficiario.Id))
                 .Returns(false);
 
-            Mock.Get(beneficiarioRead).Setup(x => x.exists(empleo.beneficiario.Id)).Returns(true);
-            Mock.Get(empresaRead).Setup(x => x.exists(empleo.empresa.Id)).Returns(true);
-            Mock.Get(tiposEmpleoRead).Setup(x => x.exists(empleo.tipoEmpleo.Id)).Returns(false);
+            Mock.Get(beneficiarioRead).Setup(x => x.exists(empleo.Beneficiario.Id)).Returns(true);
+            Mock.Get(empresaRead).Setup(x => x.exists(empleo.Empresa.Id)).Returns(true);
+            Mock.Get(tiposEmpleoRead).Setup(x => x.exists(empleo.TipoEmpleo.Id)).Returns(false);
 
 
 
@@ -224,10 +224,10 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
 
             var beneficiario = getBeneficiario();
 
-            var sucursal = empresa.sucursales.First();
+            var sucursal = empresa.Sucursales.First();
 
             var horario = new HorarioLaboral(new Hora(7, 0, "AM"), new Hora(5, 30, "PM"),
-                new DiasLaborables() { lunes = true, martes = true });
+                new DiasLaborables() { Lunes = true, Martes = true });
 
             var empleo = new Empleo(empresa, sucursal, beneficiario, horario, "Ingeniero", 30000,
                 new TipoEmpleo("Horas"), new DateTime(2014, 5, 6));
@@ -245,12 +245,12 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
             Mock.Get(repositoryRead).Setup(x => x.exists(empleo.Id)).Returns(true);
             Mock.Get(providerDays).Setup(x => x.getDays()).Returns(90);
             Mock.Get(repositoryRead)
-                .Setup(x => x.existsEmpleoRecienteParaBeneficiario(empleo.fechaDeInicio, 90, empleo.beneficiario.Id))
+                .Setup(x => x.existsEmpleoRecienteParaBeneficiario(empleo.FechaDeInicio, 90, empleo.Beneficiario.Id))
                 .Returns(false);
 
-            Mock.Get(beneficiarioRead).Setup(x => x.exists(empleo.beneficiario.Id)).Returns(true);
-            Mock.Get(empresaRead).Setup(x => x.exists(empleo.empresa.Id)).Returns(true);
-            Mock.Get(tiposEmpleoRead).Setup(x => x.exists(empleo.tipoEmpleo.Id)).Returns(true);
+            Mock.Get(beneficiarioRead).Setup(x => x.exists(empleo.Beneficiario.Id)).Returns(true);
+            Mock.Get(empresaRead).Setup(x => x.exists(empleo.Empresa.Id)).Returns(true);
+            Mock.Get(tiposEmpleoRead).Setup(x => x.exists(empleo.TipoEmpleo.Id)).Returns(true);
 
 
 
@@ -299,9 +299,9 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
             var rtn = new RTN("08011985123960");
             var empresa = new Empresa(rtn, "La Holgazana", fechaIngreso, gremio);
 
-            empresa.actividadesEconomicas = actividades;
-            empresa.sucursales = sucursales;
-            empresa.contrato = getContrato();
+            empresa.ActividadesEconomicas = actividades;
+            empresa.Sucursales = sucursales;
+            empresa.Contrato = getContrato();
             return empresa;
         }
 
@@ -317,7 +317,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
         private Gremio getGremio()
         {
             var municipio = new Municipio("01", "01", "Municipio");
-            var departamento = new Departamento() { Id = "01", municipios = new List<Municipio>() { municipio }, nombre = "Departamento" };
+            var departamento = new Departamento() { Id = "01", Municipios = new List<Municipio>() { municipio }, Nombre = "Departamento" };
             var direccion = new Direccion(departamento, municipio, "direccion gremio");
 
             var RTN = new RTN("08011985123960");
@@ -331,7 +331,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Commands
         private IList<Sucursal> getSucursales()
         {
             var municipio = new Municipio("01", "01", "Municipio");
-            var departamento = new Departamento() { Id = "01", municipios = new List<Municipio>() { municipio }, nombre = "Departamento" };
+            var departamento = new Departamento() { Id = "01", Municipios = new List<Municipio>() { municipio }, Nombre = "Departamento" };
             var direccion = new Direccion(departamento, municipio, "direccion");
             var fechaDeCreacionFirma = DateTime.ParseExact(DateTime.Now.ToString("g"), "g", null);
 

@@ -20,9 +20,9 @@ namespace CNISS.EnterpriseDomain.Ports.Output
 
         public void save(Empresa entity)
         {
-            var sucursales = entity.sucursales;
-            if (entity.contrato != null)
-                saveContrato(entity.contrato);
+            var sucursales = entity.Sucursales;
+            if (entity.Contrato != null)
+                saveContrato(entity.Contrato);
 
             base.save(entity);
             sucursales.ToList().ForEach(saveSucursal);
@@ -40,7 +40,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output
 
         public void update(Empresa entity)
         {
-            var sucursales = entity.sucursales;
+            var sucursales = entity.Sucursales;
             
             
             sucursales.ToList().ForEach(updateSucursal);
@@ -51,8 +51,8 @@ namespace CNISS.EnterpriseDomain.Ports.Output
         public void updateContrato(RTN id, ContentFile nuevoContrato)
         {
             var empresa = _session.Get<Empresa>(id);
-            empresa.contrato = nuevoContrato;
-            _session.Save(empresa.contrato);
+            empresa.Contrato = nuevoContrato;
+            _session.Save(empresa.Contrato);
             _session.Update(empresa);
 
         }
@@ -64,16 +64,16 @@ namespace CNISS.EnterpriseDomain.Ports.Output
 
         private void updateSucursal(Sucursal sucursal)
         {
-            var direccion = sucursal.direccion;
-            var firma = sucursal.firma;
+            var direccion = sucursal.Direccion;
+            var firma = sucursal.Firma;
             _session.SaveOrUpdate(direccion);
             _session.SaveOrUpdate(firma);
             _session.SaveOrUpdate(sucursal);
         }
         private void saveSucursal(Sucursal sucursal)
         {
-            var direccion = sucursal.direccion;
-            var firma = sucursal.firma;
+            var direccion = sucursal.Direccion;
+            var firma = sucursal.Firma;
             _session.Save(direccion);
             _session.Save(firma);
             _session.Save(sucursal);

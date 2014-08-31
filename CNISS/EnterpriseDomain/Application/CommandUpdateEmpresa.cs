@@ -35,9 +35,9 @@ namespace CNISS.EnterpriseDomain.Application
         public override bool isExecutable(Empresa identity)
         {
             return _repositoryReadOnly.exists(identity.Id)
-                && _repositoryActividadesRead.existsAll(identity.actividadesEconomicas)
-                && _repositoryGremiosRead.exists(identity.gremial.Id)
-            && _validadorSucursales.isValid(identity.sucursales);
+                && _repositoryActividadesRead.existsAll(identity.ActividadesEconomicas)
+                && _repositoryGremiosRead.exists(identity.Gremial.Id)
+            && _validadorSucursales.isValid(identity.Sucursales);
         }
     }
 }

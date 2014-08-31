@@ -7,26 +7,26 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 {
     public class Departamento:ValueObject<string>
     {
-        public virtual string nombre { get; set; }
-        public virtual IEnumerable<Municipio> municipios { get;  set; }
+        public virtual string Nombre { get; set; }
+        public virtual IEnumerable<Municipio> Municipios { get;  set; }
 
         public Departamento()
         {
-            municipios = new List<Municipio>();
+            Municipios = new List<Municipio>();
         }
 
        
         public virtual bool isMunicipioFromDepartamento(Municipio municipio)
         {
-            return municipios.Any(x => x.Id == municipio.Id && x.departamentoId == municipio.departamentoId);
+            return Municipios.Any(x => x.Id == municipio.Id && x.DepartamentoId == municipio.DepartamentoId);
         }
 
     }
 
     public class DepartamentoNull:Departamento
     {
-        public virtual string nombre { get { return string.Empty; }  }
+        public virtual string Nombre { get { return string.Empty; }  }
         public virtual string Id { get { return string.Empty; }  }
-        public virtual IEnumerable<MunicipioNull> municipios { get { return new List<MunicipioNull>(); }  }
+        public virtual IEnumerable<MunicipioNull> Municipios { get { return new List<MunicipioNull>(); }  }
     }
 }

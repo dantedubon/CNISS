@@ -11,7 +11,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
                 .ComponentCompositeIdentifier(x => x.Id)
                 .KeyProperty(x => x.Id.identidad);
 
-            Map(x => x.nombre);
+            Map(x => x.Nombre);
         }
     }
 }

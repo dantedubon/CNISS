@@ -8,15 +8,15 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
         public SucursalMapping()
         {
             Id(x => x.Id).GeneratedBy.Assigned();
-            Map(x => x.nombre);
-            References(x => x.direccion);
-            References(x => x.firma);
-            Component(x => x.auditoria, m =>
+            Map(x => x.Nombre);
+            References(x => x.Direccion);
+            References(x => x.Firma);
+            Component(x => x.Auditoria, m =>
             {
-                m.Map(x => x.usuarioCreo);
-                m.Map(x => x.fechaCreo);
-                m.Map(x => x.usuarioModifico);
-                m.Map(x => x.fechaModifico);
+                m.Map(x => x.CreadoPor);
+                m.Map(x => x.FechaCreacion);
+                m.Map(x => x.ActualizadoPor);
+                m.Map(x => x.FechaActualizacion);
             });
 
         }

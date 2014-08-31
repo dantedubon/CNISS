@@ -82,10 +82,10 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
         private Because of = () => { _response = _browser.PutSecureJson("/enterprise/empleos", _request); };
 
         private It should_save_empleo = () => Mock.Get(_commandUpdate).Verify(x => x.execute(Moq.It.Is<Empleo>(z =>
-            z.beneficiario.Equals(_expectedEmpleo.beneficiario) &&
-            z.empresa.Equals(_expectedEmpleo.empresa) &&
-            z.cargo.Equals(_expectedEmpleo.cargo) &&
-            z.comprobantesPago.Count.Equals(_expectedEmpleo.comprobantesPago.Count)
+            z.Beneficiario.Equals(_expectedEmpleo.Beneficiario) &&
+            z.Empresa.Equals(_expectedEmpleo.Empresa) &&
+            z.Cargo.Equals(_expectedEmpleo.Cargo) &&
+            z.ComprobantesPago.Count.Equals(_expectedEmpleo.ComprobantesPago.Count)
 
 
              )));

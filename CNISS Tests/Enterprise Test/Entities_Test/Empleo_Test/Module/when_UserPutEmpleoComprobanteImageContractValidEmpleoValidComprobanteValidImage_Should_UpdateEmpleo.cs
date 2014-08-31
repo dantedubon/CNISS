@@ -73,6 +73,6 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
             .Verify(
                 x =>
                     x.execute(_empleoId, _comprobanteId,
-                        Moq.It.Is<ContentFile>(z => z.dataFile == _contentFile.dataFile)));
+                        Moq.It.Is<ContentFile>(z => z.DataFile == _contentFile.DataFile)));
     }
 }

@@ -6,9 +6,9 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 {
     public class Dependiente:Entity<Identidad>
     {
-        public virtual Nombre nombre { get; protected set; }
-        public virtual Parentesco parentesco { get; protected set; }
-        public virtual DateTime fechaNacimiento { get; protected set; }
+        public virtual Nombre Nombre { get; protected set; }
+        public virtual Parentesco Parentesco { get; protected set; }
+        public virtual DateTime FechaNacimiento { get; protected set; }
       
         public virtual Guid idGuid { get; set; }
 
@@ -17,9 +17,9 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
         public Dependiente(Identidad identidad, Nombre nombre, Parentesco parentesco, DateTime fechaNacimiento)
         {
             this.Id = identidad;
-            this.nombre = nombre;
-            this.parentesco = parentesco;
-            this.fechaNacimiento = fechaNacimiento;
+            this.Nombre = nombre;
+            this.Parentesco = parentesco;
+            this.FechaNacimiento = fechaNacimiento;
             idGuid = Guid.NewGuid();
         }
 

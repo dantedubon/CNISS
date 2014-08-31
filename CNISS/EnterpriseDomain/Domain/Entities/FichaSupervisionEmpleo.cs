@@ -9,16 +9,16 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 {
     public class FichaSupervisionEmpleo:Entity<Guid>
     {
-        public virtual ContentFile fotografiaBeneficiario { get; set; }
-        public virtual string posicionGPS { get; set; }
-        public virtual string cargo { get; set; }
-        public virtual string funciones { get; set; }
-        public virtual string telefonoFijo { get; set; }
-        public virtual string telefonoCelular { get; set; }
-        public virtual FirmaAutorizada firma { get; set; }
-        public virtual int desempeñoEmpleado { get; set; }
-        public virtual Supervisor supervisor { get; set; }
-        public virtual Auditoria auditoria { get; set; }
+        public virtual ContentFile FotografiaBeneficiario { get; set; }
+        public virtual string PosicionGps { get; set; }
+        public virtual string Cargo { get; set; }
+        public virtual string Funciones { get; set; }
+        public virtual string TelefonoFijo { get; set; }
+        public virtual string TelefonoCelular { get; set; }
+        public virtual FirmaAutorizada Firma { get; set; }
+        public virtual int DesempeñoEmpleado { get; set; }
+        public virtual Supervisor Supervisor { get; set; }
+        public virtual Auditoria Auditoria { get; set; }
 
         protected FichaSupervisionEmpleo()
         {
@@ -29,15 +29,15 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
             string funciones, string telefonoFijo, string telefonoCelular, int desempeñoEmpleado, 
             ContentFile fotografiaBeneficiario):this()
         {
-            this.supervisor = supervisor;
-            this.firma = firma;
-            posicionGPS = posicionGps;
-            this.cargo = cargo;
-            this.funciones = funciones;
-            this.telefonoFijo = telefonoFijo;
-            this.telefonoCelular = telefonoCelular;
-            this.desempeñoEmpleado = desempeñoEmpleado;
-            this.fotografiaBeneficiario = fotografiaBeneficiario;
+            this.Supervisor = supervisor;
+            this.Firma = firma;
+            PosicionGps = posicionGps;
+            this.Cargo = cargo;
+            this.Funciones = funciones;
+            this.TelefonoFijo = telefonoFijo;
+            this.TelefonoCelular = telefonoCelular;
+            this.DesempeñoEmpleado = desempeñoEmpleado;
+            this.FotografiaBeneficiario = fotografiaBeneficiario;
         }
     }
 }

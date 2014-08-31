@@ -61,9 +61,9 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                             {
                                 var identidad = new Identidad(identidadRequest.identidad);
                                 var empleo = repositoryRead.getEmpleoMasRecienteBeneficiario(identidad);
-                                if (empleo.empresa.Id.rtn == rtnRequest.RTN)
+                                if (empleo.Empresa.Id.Rtn == rtnRequest.RTN)
                                 {
-                                    if (empleo.sucursal.Id == idSucursal)
+                                    if (empleo.Sucursal.Id == idSucursal)
                                     {
                                         var fichaEmpleo = getEmpleoRequest(empleo);
                                         var fichaEmpleoString = serializerJson.toJson(fichaEmpleo);
@@ -96,24 +96,24 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                 {
                     IdGuid = x.idGuid,
                     identidadRequest = new IdentidadRequest() { identidad = x.Id.identidad },
-                    fechaNacimiento = x.fechaNacimiento,
+                    fechaNacimiento = x.FechaNacimiento,
                     nombreRequest = new NombreRequest()
                     {
-                        nombres = x.nombre.nombres,
-                        primerApellido = x.nombre.primerApellido,
-                        segundoApellido = x.nombre.segundoApellido
+                        nombres = x.Nombre.Nombres,
+                        primerApellido = x.Nombre.PrimerApellido,
+                        segundoApellido = x.Nombre.SegundoApellido
                     },
                     parentescoRequest = new ParentescoRequest()
                     {
-                        descripcion = x.parentesco.descripcion,
-                        guid = x.parentesco.Id
+                        descripcion = x.Parentesco.Descripcion,
+                        guid = x.Parentesco.Id
                     },
                     auditoriaRequest = new AuditoriaRequest()
                     {
-                        fechaCreo = x.auditoria.fechaCreo,
-                        fechaModifico = x.auditoria.fechaModifico,
-                        usuarioCreo = x.auditoria.usuarioCreo,
-                        usuarioModifico = x.auditoria.usuarioModifico
+                        fechaCreo = x.auditoria.FechaCreacion,
+                        fechaModifico = x.auditoria.FechaActualizacion,
+                        usuarioCreo = x.auditoria.CreadoPor,
+                        usuarioModifico = x.auditoria.ActualizadoPor
                     }
                 }).ToList();
             }
@@ -123,27 +123,27 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
 
         private DireccionRequest getDireccionRequest(Beneficiario beneficiario)
         {
-            var direccion = beneficiario.direccion;
+            var direccion = beneficiario.Direccion;
             if (direccion == null)
             {
                 return new DireccionRequest();
             }
             var departamentoRequest = new DepartamentoRequest()
             {
-                idDepartamento = direccion.departamento.Id,
-                nombre = direccion.departamento.nombre
+                idDepartamento = direccion.Departamento.Id,
+                nombre = direccion.Departamento.Nombre
             };
             var municipioRequest = new MunicipioRequest()
             {
-                idMunicipio = direccion.municipio.Id,
-                idDepartamento = direccion.municipio.Id,
-                nombre = direccion.municipio.nombre
+                idMunicipio = direccion.Municipio.Id,
+                idDepartamento = direccion.Municipio.Id,
+                nombre = direccion.Municipio.Nombre
             };
             return new DireccionRequest()
             {
                 departamentoRequest = departamentoRequest,
                 municipioRequest = municipioRequest,
-                descripcion = direccion.referenciaDireccion,
+                descripcion = direccion.ReferenciaDireccion,
                 IdGuid = direccion.Id
             };
         }
@@ -154,41 +154,41 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
 
             return fichasSupervision.Select(x => new FichaSupervisionEmpleoRequest()
             {
-                telefonoCelular = x.telefonoCelular,
-                telefonoFijo = x.telefonoFijo,
-                fotografiaBeneficiario = x.fotografiaBeneficiario.Id,
-                cargo = x.cargo,
-                funciones = x.funciones,
-                desempeñoEmpleado = x.desempeñoEmpleado,
-                posicionGPS = x.posicionGPS,
+                telefonoCelular = x.TelefonoCelular,
+                telefonoFijo = x.TelefonoFijo,
+                fotografiaBeneficiario = x.FotografiaBeneficiario.Id,
+                cargo = x.Cargo,
+                funciones = x.Funciones,
+                desempeñoEmpleado = x.DesempeñoEmpleado,
+                posicionGPS = x.PosicionGps,
                 supervisor = new SupervisorRequest()
                 {
-                    guid = x.supervisor.Id,
+                    guid = x.Supervisor.Id,
                     userRequest = new UserRequest()
                     {
-                        Id = x.supervisor.usuario.Id,
-                        firstName = x.supervisor.usuario.firstName,
-                        secondName = x.supervisor.usuario.secondName,
-                        mail = x.supervisor.usuario.mail
+                        Id = x.Supervisor.Usuario.Id,
+                        firstName = x.Supervisor.Usuario.FirstName,
+                        secondName = x.Supervisor.Usuario.SecondName,
+                        mail = x.Supervisor.Usuario.Mail
                     }
 
                 },
                 auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo = x.auditoria.fechaCreo,
-                    fechaModifico = x.auditoria.fechaModifico,
-                    usuarioCreo = x.auditoria.usuarioCreo,
-                    usuarioModifico = x.auditoria.usuarioModifico
+                    fechaCreo = x.Auditoria.FechaCreacion,
+                    fechaModifico = x.Auditoria.FechaActualizacion,
+                    usuarioCreo = x.Auditoria.CreadoPor,
+                    usuarioModifico = x.Auditoria.ActualizadoPor
                 },
                 firma = new FirmaAutorizadaRequest()
                 {
-                    IdGuid = x.firma.Id,
+                    IdGuid = x.Firma.Id,
                     userRequest = new UserRequest()
                     {
-                        Id = x.firma.user.Id,
-                        firstName = x.firma.user.firstName,
-                        mail = x.firma.user.mail,
-                        secondName = x.firma.user.secondName
+                        Id = x.Firma.User.Id,
+                        firstName = x.Firma.User.FirstName,
+                        mail = x.Firma.User.Mail,
+                        secondName = x.Firma.User.SecondName
 
                     }
 
@@ -204,17 +204,17 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
             return new NotaDespidoRequest()
             {
                 guid = notaDespido.Id,
-                fechaDespido = notaDespido.fechaDespido,
-                imagenNotaDespido = notaDespido.documentoDespido.Id,
+                fechaDespido = notaDespido.FechaDespido,
+                imagenNotaDespido = notaDespido.DocumentoDespido.Id,
                 firmaAutorizadaRequest = new FirmaAutorizadaRequest()
                 {
-                    IdGuid = notaDespido.firmaAutorizada.Id,
+                    IdGuid = notaDespido.FirmaAutorizada.Id,
                     userRequest = new UserRequest()
                     {
-                        Id = notaDespido.firmaAutorizada.user.Id,
-                        firstName = notaDespido.firmaAutorizada.user.firstName,
-                        mail = notaDespido.firmaAutorizada.user.mail,
-                        secondName = notaDespido.firmaAutorizada.user.secondName
+                        Id = notaDespido.FirmaAutorizada.User.Id,
+                        firstName = notaDespido.FirmaAutorizada.User.FirstName,
+                        mail = notaDespido.FirmaAutorizada.User.Mail,
+                        secondName = notaDespido.FirmaAutorizada.User.SecondName
 
                     }
 
@@ -222,26 +222,26 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
                 },
                 auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo = notaDespido.auditoria.fechaCreo,
-                    fechaModifico = notaDespido.auditoria.fechaModifico,
-                    usuarioCreo = notaDespido.auditoria.usuarioCreo,
-                    usuarioModifico = notaDespido.auditoria.usuarioModifico
+                    fechaCreo = notaDespido.Auditoria.FechaCreacion,
+                    fechaModifico = notaDespido.Auditoria.FechaActualizacion,
+                    usuarioCreo = notaDespido.Auditoria.CreadoPor,
+                    usuarioModifico = notaDespido.Auditoria.ActualizadoPor
                 },
                 motivoDespidoRequest = new MotivoDespidoRequest()
                 {
-                    IdGuid = notaDespido.motivoDespido.Id,
-                    descripcion = notaDespido.motivoDespido.descripcion
+                    IdGuid = notaDespido.MotivoDespido.Id,
+                    descripcion = notaDespido.MotivoDespido.Descripcion
                 },
-                posicionGPS = notaDespido.posicionGPS,
+                posicionGPS = notaDespido.PosicionGps,
                 supervisorRequest = new SupervisorRequest()
                 {
-                    guid = notaDespido.supervisor.Id,
+                    guid = notaDespido.Supervisor.Id,
                     userRequest = new UserRequest()
                     {
-                        Id = notaDespido.supervisor.usuario.Id,
-                        firstName = notaDespido.supervisor.usuario.firstName,
-                        secondName = notaDespido.supervisor.usuario.secondName,
-                        mail = notaDespido.supervisor.usuario.mail
+                        Id = notaDespido.Supervisor.Usuario.Id,
+                        firstName = notaDespido.Supervisor.Usuario.FirstName,
+                        secondName = notaDespido.Supervisor.Usuario.SecondName,
+                        mail = notaDespido.Supervisor.Usuario.Mail
                     }
 
                 }
@@ -254,100 +254,100 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Query
             {
                 beneficiarioRequest = new BeneficiarioRequest()
                 {
-                    identidadRequest = new IdentidadRequest() { identidad = empleo.beneficiario.Id.identidad },
+                    identidadRequest = new IdentidadRequest() { identidad = empleo.Beneficiario.Id.identidad },
                     nombreRequest = new NombreRequest()
                     {
-                        nombres = empleo.beneficiario.nombre.nombres,
-                        primerApellido = empleo.beneficiario.nombre.primerApellido,
-                        segundoApellido = empleo.beneficiario.nombre.segundoApellido
+                        nombres = empleo.Beneficiario.Nombre.Nombres,
+                        primerApellido = empleo.Beneficiario.Nombre.PrimerApellido,
+                        segundoApellido = empleo.Beneficiario.Nombre.SegundoApellido
                     },
-                    fechaNacimiento = empleo.beneficiario.fechaNacimiento,
-                    dependienteRequests = getDependienteRequests(empleo.beneficiario.dependientes),
-                    telefonoCelular = empleo.beneficiario.telefonoCelular ?? "",
-                    telefonoFijo = empleo.beneficiario.telefonoFijo ?? "",
-                    direccionRequest = getDireccionRequest(empleo.beneficiario)
+                    fechaNacimiento = empleo.Beneficiario.FechaNacimiento,
+                    dependienteRequests = getDependienteRequests(empleo.Beneficiario.Dependientes),
+                    telefonoCelular = empleo.Beneficiario.TelefonoCelular ?? "",
+                    telefonoFijo = empleo.Beneficiario.TelefonoFijo ?? "",
+                    direccionRequest = getDireccionRequest(empleo.Beneficiario)
 
 
 
 
                 },
-                cargo = empleo.cargo,
-                supervisado = empleo.supervisado,
-                comprobantes = empleo.comprobantesPago.Select(z => new ComprobantePagoRequest()
+                cargo = empleo.Cargo,
+                supervisado = empleo.Supervisado,
+                comprobantes = empleo.ComprobantesPago.Select(z => new ComprobantePagoRequest()
                 {
-                    deducciones = z.deducciones,
-                    fechaPago = z.fechaPago,
+                    deducciones = z.Deducciones,
+                    fechaPago = z.FechaPago,
                     guid = z.Id,
-                    sueldoNeto = z.sueldoNeto,
+                    sueldoNeto = z.SueldoNeto,
 
-                    bonificaciones = z.bonificaciones,
-                    archivoComprobante = z.imagenComprobante == null ? "" : z.imagenComprobante.Id.ToString()
+                    bonificaciones = z.Bonificaciones,
+                    archivoComprobante = z.ImagenComprobante == null ? "" : z.ImagenComprobante.Id.ToString()
                 }),
-                contrato = empleo.contrato == null ? "" : empleo.contrato.Id.ToString(),
+                contrato = empleo.Contrato == null ? "" : empleo.Contrato.Id.ToString(),
                 empresaRequest = new EmpresaRequest()
                 {
-                    nombre = empleo.empresa.nombre,
-                    rtnRequest = new RTNRequest() { RTN = empleo.empresa.Id.rtn }
+                    nombre = empleo.Empresa.Nombre,
+                    rtnRequest = new RTNRequest() { RTN = empleo.Empresa.Id.Rtn }
                 },
                 sucursalRequest = new SucursalRequest()
                 {
-                    guid = empleo.sucursal.Id,
-                    nombre = empleo.sucursal.nombre,
+                    guid = empleo.Sucursal.Id,
+                    nombre = empleo.Sucursal.Nombre,
                     firmaAutorizadaRequest = new FirmaAutorizadaRequest()
                     {
-                        IdGuid = empleo.sucursal.firma.Id,
-                        fechaCreacion = empleo.sucursal.firma.fechaCreacion,
+                        IdGuid = empleo.Sucursal.Firma.Id,
+                        fechaCreacion = empleo.Sucursal.Firma.fechaCreacion,
                         userRequest = new UserRequest()
                         {
-                            Id = empleo.sucursal.firma.user.Id
+                            Id = empleo.Sucursal.Firma.User.Id
                         }
                     }
 
 
                 },
-                fechaDeInicio = empleo.fechaDeInicio,
+                fechaDeInicio = empleo.FechaDeInicio,
                 horarioLaboralRequest = new HorarioLaboralRequest()
                 {
                     diasLaborablesRequest = new DiasLaborablesRequest()
                     {
-                        domingo = empleo.horarioLaboral.diasLaborables.domingo,
-                        lunes = empleo.horarioLaboral.diasLaborables.lunes,
-                        martes = empleo.horarioLaboral.diasLaborables.martes,
-                        miercoles = empleo.horarioLaboral.diasLaborables.miercoles,
-                        jueves = empleo.horarioLaboral.diasLaborables.jueves,
-                        viernes = empleo.horarioLaboral.diasLaborables.viernes,
-                        sabado = empleo.horarioLaboral.diasLaborables.sabado
+                        domingo = empleo.HorarioLaboral.DiasLaborables.Domingo,
+                        lunes = empleo.HorarioLaboral.DiasLaborables.Lunes,
+                        martes = empleo.HorarioLaboral.DiasLaborables.Martes,
+                        miercoles = empleo.HorarioLaboral.DiasLaborables.Miercoles,
+                        jueves = empleo.HorarioLaboral.DiasLaborables.Jueves,
+                        viernes = empleo.HorarioLaboral.DiasLaborables.Viernes,
+                        sabado = empleo.HorarioLaboral.DiasLaborables.Sabado
                     },
                     horaEntrada = new HoraRequest()
                     {
-                        hora = empleo.horarioLaboral.horaEntrada.hora,
-                        minutos = empleo.horarioLaboral.horaEntrada.minutos,
-                        parte = empleo.horarioLaboral.horaEntrada.parte
+                        hora = empleo.HorarioLaboral.HoraEntrada.HoraEntera,
+                        minutos = empleo.HorarioLaboral.HoraEntrada.Minutos,
+                        parte = empleo.HorarioLaboral.HoraEntrada.Parte
 
                     },
                     horaSalida = new HoraRequest()
                     {
-                        hora = empleo.horarioLaboral.horaSalida.hora,
-                        minutos = empleo.horarioLaboral.horaSalida.minutos,
-                        parte = empleo.horarioLaboral.horaSalida.parte
+                        hora = empleo.HorarioLaboral.HoraSalida.HoraEntera,
+                        minutos = empleo.HorarioLaboral.HoraSalida.Minutos,
+                        parte = empleo.HorarioLaboral.HoraSalida.Parte
 
                     }
                 },
-                sueldo = empleo.sueldo,
+                sueldo = empleo.Sueldo,
                 tipoEmpleoRequest = new TipoEmpleoRequest()
                 {
-                    descripcion = empleo.tipoEmpleo.descripcion,
-                    IdGuid = empleo.tipoEmpleo.Id
+                    descripcion = empleo.TipoEmpleo.Descripcion,
+                    IdGuid = empleo.TipoEmpleo.Id
                 },
                 IdGuid = empleo.Id,
-                notaDespidoRequest = getNotaDespidoRequest(empleo.notaDespido),
-                fichaSupervisionEmpleoRequests = getFichaSupervisionEmpleos(empleo.fichasSupervisionEmpleos),
+                notaDespidoRequest = getNotaDespidoRequest(empleo.NotaDespido),
+                fichaSupervisionEmpleoRequests = getFichaSupervisionEmpleos(empleo.FichasSupervisionEmpleos),
                 auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo = empleo.auditoria.fechaCreo,
-                    fechaModifico = empleo.auditoria.fechaModifico,
-                    usuarioCreo = empleo.auditoria.usuarioCreo,
-                    usuarioModifico = empleo.auditoria.usuarioModifico
+                    fechaCreo = empleo.Auditoria.FechaCreacion,
+                    fechaModifico = empleo.Auditoria.FechaActualizacion,
+                    usuarioCreo = empleo.Auditoria.CreadoPor,
+                    usuarioModifico = empleo.Auditoria.ActualizadoPor
                 },
 
             };

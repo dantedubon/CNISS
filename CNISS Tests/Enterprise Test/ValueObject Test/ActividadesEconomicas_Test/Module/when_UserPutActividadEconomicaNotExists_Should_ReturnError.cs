@@ -68,7 +68,7 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.ActividadesEconomicas_Tes
         {
             var actividad = new ActividadEconomica(actividadEconomicaRequest.descripcion)
             {
-                auditoria = new CNISS.CommonDomain.Domain.Auditoria(
+                Auditoria = new CNISS.CommonDomain.Domain.Auditoria(
                     actividadEconomicaRequest.auditoriaRequest.usuarioCreo,
                     actividadEconomicaRequest.auditoriaRequest.fechaCreo,
                     actividadEconomicaRequest.auditoriaRequest.usuarioModifico,

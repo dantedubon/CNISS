@@ -28,7 +28,7 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.DireccionTest
         {
             
             var municipiosDepartamento = new List<Municipio>() {new Municipio("01", "02", "La Merced")};
-            var departamento = new Departamento() {Id = "02", municipios = municipiosDepartamento, nombre = "Departamento"};
+            var departamento = new Departamento() {Id = "02", Municipios = municipiosDepartamento, Nombre = "Departamento"};
             var repositorio = Mock.Of<IDepartamentRepositoryReadOnly>();
             Mock.Get(repositorio).Setup(x => x.get("02")).Returns(departamento);
 
@@ -41,12 +41,12 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.DireccionTest
         private Direccion getDireccion(string idDepartamentoMunicipio, string idMunicipio, string idDepartamento, string descripcion)
         {
             var municipio = Builder<Municipio>.CreateNew().Build();
-            municipio.departamentoId = idDepartamentoMunicipio;
+            municipio.DepartamentoId = idDepartamentoMunicipio;
             municipio.Id = idMunicipio;
-            municipio.nombre = "municipio";
+            municipio.Nombre = "municipio";
             var departamento = Builder<Departamento>.CreateNew().Build();
             departamento.Id = idDepartamento;
-            departamento.nombre = "departamento";
+            departamento.Nombre = "departamento";
 
 
             return new Direccion(departamento, municipio, descripcion);

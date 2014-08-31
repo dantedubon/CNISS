@@ -45,10 +45,10 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                        Builder<Gremio>.CreateNew().WithConstructor(() => new Gremio(
                           new RTN("08011985123960"), Builder<RepresentanteLegal>.CreateNew().Build(),
                            Builder<Direccion>.CreateNew().Build(), "gremio")).Build())
-               ).With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
+               ).With(x => x.Auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
 
-            empresa.actividadesEconomicas = Builder<ActividadEconomica>.CreateListOfSize(3).Build();
-            empresa.sucursales = Builder<Sucursal>.CreateListOfSize(3).All().WithConstructor(
+            empresa.ActividadesEconomicas = Builder<ActividadEconomica>.CreateListOfSize(3).Build();
+            empresa.Sucursales = Builder<Sucursal>.CreateListOfSize(3).All().WithConstructor(
                 ()=> new Sucursal("Sucursal",Builder<Direccion>.CreateNew().WithConstructor(
                     ()=> new Direccion(Builder<Departamento>.CreateNew().Build(),
                         Builder<Municipio>.CreateNew().Build(),"referencia")
@@ -59,7 +59,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                     ()=> new FirmaAutorizada(Builder<User>.CreateNew().Build(),new DateTime(2014,3,1))
                     
                     ).Build())
-                ).With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
+                ).With(x => x.Auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
 
 
 
@@ -90,64 +90,64 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
         {
             var empresaRequest = new EmpresaRequest()
             {
-                nombre = empresa.nombre,
-                actividadEconomicaRequests = empresa.actividadesEconomicas.Select(x => new ActividadEconomicaRequest()
+                nombre = empresa.Nombre,
+                actividadEconomicaRequests = empresa.ActividadesEconomicas.Select(x => new ActividadEconomicaRequest()
                 {
-                    descripcion = x.descripcion,
+                    descripcion = x.Descripcion,
                     guid = x.Id
                 }),
                 contentFile = "",
-                empleadosTotales = empresa.empleadosTotales,
-                fechaIngreso = empresa.fechaIngreso,
+                empleadosTotales = empresa.EmpleadosTotales,
+                fechaIngreso = empresa.FechaIngreso,
                 gremioRequest = new GremioRequest()
                 {
-                    nombre = empresa.gremial.nombre,
+                    nombre = empresa.Gremial.Nombre,
                     rtnRequest = new RTNRequest()
                     {
-                        RTN = empresa.gremial.Id.rtn
+                        RTN = empresa.Gremial.Id.Rtn
                     }
                 },
-                programaPiloto = empresa.proyectoPiloto,
-                rtnRequest = new RTNRequest() { RTN = empresa.Id.rtn},
-                sucursalRequests = empresa.sucursales.Select(x => new SucursalRequest()
+                programaPiloto = empresa.ProyectoPiloto,
+                rtnRequest = new RTNRequest() { RTN = empresa.Id.Rtn},
+                sucursalRequests = empresa.Sucursales.Select(x => new SucursalRequest()
                 {
                     guid = x.Id,
-                    nombre = x.nombre,
+                    nombre = x.Nombre,
                     direccionRequest = new DireccionRequest()
                     {
                         departamentoRequest = new DepartamentoRequest()
                         {
-                            idDepartamento = x.direccion.departamento.Id,
-                            nombre = x.direccion.departamento.nombre
+                            idDepartamento = x.Direccion.Departamento.Id,
+                            nombre = x.Direccion.Departamento.Nombre
                         },
-                        descripcion = x.direccion.referenciaDireccion,
+                        descripcion = x.Direccion.ReferenciaDireccion,
                         IdGuid = x.Id,
                         municipioRequest = new MunicipioRequest()
                         {
-                            idDepartamento = x.direccion.municipio.departamentoId,
-                            idMunicipio = x.direccion.municipio.Id,
-                            nombre = x.direccion.municipio.nombre
+                            idDepartamento = x.Direccion.Municipio.DepartamentoId,
+                            idMunicipio = x.Direccion.Municipio.Id,
+                            nombre = x.Direccion.Municipio.Nombre
                         }
 
                     },
                     userFirmaRequest = new UserRequest()
                     {
-                        Id = x.firma.user.Id
+                        Id = x.Firma.User.Id
                     },
                     auditoriaRequest = new AuditoriaRequest()
                     {
-                        fechaCreo = x.auditoria.fechaCreo,
-                        fechaModifico = x.auditoria.fechaModifico,
-                        usuarioCreo = x.auditoria.usuarioCreo,
-                        usuarioModifico = x.auditoria.usuarioModifico
+                        fechaCreo = x.Auditoria.FechaCreacion,
+                        fechaModifico = x.Auditoria.FechaActualizacion,
+                        usuarioCreo = x.Auditoria.CreadoPor,
+                        usuarioModifico = x.Auditoria.ActualizadoPor
                     }
                 }),
                 auditoriaRequest = new AuditoriaRequest()
                     {
-                        fechaCreo = empresa.auditoria.fechaCreo,
-                        fechaModifico = empresa.auditoria.fechaModifico,
-                        usuarioCreo = empresa.auditoria.usuarioCreo,
-                        usuarioModifico = empresa.auditoria.usuarioModifico
+                        fechaCreo = empresa.Auditoria.FechaCreacion,
+                        fechaModifico = empresa.Auditoria.FechaActualizacion,
+                        usuarioCreo = empresa.Auditoria.CreadoPor,
+                        usuarioModifico = empresa.Auditoria.ActualizadoPor
                     }
             };
             return empresaRequest;

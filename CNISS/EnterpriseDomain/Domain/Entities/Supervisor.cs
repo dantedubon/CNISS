@@ -7,26 +7,26 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 {
     public class Supervisor:Entity<Guid>
     {
-        public virtual User usuario { get; protected set; }
-        public virtual Auditoria auditoria { get;  set; }
-        public virtual IList<LugarVisita> lugaresVisitas { get;  set; }
+        public virtual User Usuario { get; protected set; }
+        public virtual Auditoria Auditoria { get;  set; }
+        public virtual IList<LugarVisita> LugaresVisitas { get;  set; }
 
         protected Supervisor()
         {
             Id = Guid.NewGuid();
-            lugaresVisitas = new List<LugarVisita>();
+            LugaresVisitas = new List<LugarVisita>();
         }
 
         public Supervisor(User user):this()
         {
-            usuario = user;
+            Usuario = user;
         }
 
         
 
         public virtual void addLugarVisita(LugarVisita lugarVisita)
         {
-            lugaresVisitas.Add(lugarVisita);
+            LugaresVisitas.Add(lugarVisita);
         }
        
 

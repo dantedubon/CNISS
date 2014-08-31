@@ -107,38 +107,38 @@ namespace CNISS_Tests.Autentication_Test.User_Test.Modules
                 guid = supervisor.Id,
                 userRequest = new UserRequest()
                 {
-                    Id = supervisor.usuario.Id
+                    Id = supervisor.Usuario.Id
                 },
-                lugarVisitaRequests = supervisor.lugaresVisitas.Select(x => new LugarVisitaRequest()
+                lugarVisitaRequests = supervisor.LugaresVisitas.Select(x => new LugarVisitaRequest()
                 {
                     guid = x.Id,
                     empresaRequest = new EmpresaRequest()
                     {
-                        nombre = x.empresa.nombre,
-                        rtnRequest = new RTNRequest() { RTN = x.empresa.Id.rtn}
+                        nombre = x.Empresa.Nombre,
+                        rtnRequest = new RTNRequest() { RTN = x.Empresa.Id.Rtn}
                     },
                     sucursalRequest = new SucursalRequest()
                     {
-                        guid = x.sucursal.Id,
-                        nombre = x.sucursal.nombre,
+                        guid = x.Sucursal.Id,
+                        nombre = x.Sucursal.Nombre,
                         direccionRequest = new DireccionRequest()
                         {
                             departamentoRequest = new DepartamentoRequest()
                             {
-                                idDepartamento = x.sucursal.direccion.departamento.Id,
-                                nombre = x.sucursal.direccion.departamento.nombre
+                                idDepartamento = x.Sucursal.Direccion.Departamento.Id,
+                                nombre = x.Sucursal.Direccion.Departamento.Nombre
                             },
                             municipioRequest = new MunicipioRequest()
                             {
-                                idDepartamento = x.sucursal.direccion.municipio.departamentoId,
-                                idMunicipio = x.sucursal.direccion.municipio.Id,
-                                nombre = x.sucursal.direccion.municipio.nombre
+                                idDepartamento = x.Sucursal.Direccion.Municipio.DepartamentoId,
+                                idMunicipio = x.Sucursal.Direccion.Municipio.Id,
+                                nombre = x.Sucursal.Direccion.Municipio.Nombre
                             },
-                            descripcion = x.sucursal.direccion.referenciaDireccion
+                            descripcion = x.Sucursal.Direccion.ReferenciaDireccion
                         },
                         userFirmaRequest = new UserRequest()
                         {
-                            Id = x.sucursal.firma.user.Id
+                            Id = x.Sucursal.Firma.User.Id
                         }
                     }
                     
@@ -153,7 +153,7 @@ namespace CNISS_Tests.Autentication_Test.User_Test.Modules
             return new Supervisor(user)
             {
                 Id = Guid.NewGuid(),
-                lugaresVisitas = new List<LugarVisita>()
+                LugaresVisitas = new List<LugarVisita>()
                 {
                     new LugarVisita(getEmpresa(),getSucursal() )
                 }
@@ -175,7 +175,7 @@ namespace CNISS_Tests.Autentication_Test.User_Test.Modules
 
         private static Direccion getDireccion()
         {
-            return new Direccion(new Departamento() {Id = "01", nombre = "Francisco Morazan"},
+            return new Direccion(new Departamento() {Id = "01", Nombre = "Francisco Morazan"},
                 new Municipio("01", "01", "Distrito Central"), "Barrio Abajo");
         }
         private static Gremio getGremio()

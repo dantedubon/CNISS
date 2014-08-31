@@ -24,7 +24,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
                         .WithStatusCode(HttpStatusCode.NotFound);
                
 
-                return Response.FromStream(() => new MemoryStream(fileData.dataFile),"application/pdf")
+                return Response.FromStream(() => new MemoryStream(fileData.DataFile),"application/pdf")
 
                     .WithStatusCode(HttpStatusCode.OK);
 
@@ -40,7 +40,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EnterpriseServiceModule
                         .WithStatusCode(HttpStatusCode.NotFound);
 
 
-                return Response.FromStream(() => new MemoryStream(fileData.dataFile), "image/jpeg")
+                return Response.FromStream(() => new MemoryStream(fileData.DataFile), "image/jpeg")
 
                     .WithStatusCode(HttpStatusCode.OK);
 

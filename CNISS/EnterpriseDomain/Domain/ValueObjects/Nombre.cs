@@ -2,17 +2,17 @@
 {
     public class Nombre
     {
-        public virtual string nombres { get; set; }
+        public virtual string Nombres { get; set; }
       
-        public virtual string primerApellido { get; set; }
-        public virtual string  segundoApellido { get; set; }
+        public virtual string PrimerApellido { get; set; }
+        public virtual string  SegundoApellido { get; set; }
 
         public Nombre(string nombres, string primerApellido, string segundoApellido)
         {
-            this.nombres = nombres;
+            this.Nombres = nombres;
             
-            this.primerApellido = primerApellido;
-            this.segundoApellido = segundoApellido;
+            this.PrimerApellido = primerApellido;
+            this.SegundoApellido = segundoApellido;
         }
 
         protected Nombre()

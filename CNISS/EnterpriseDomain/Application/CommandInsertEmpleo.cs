@@ -41,11 +41,11 @@ namespace CNISS.EnterpriseDomain.Application
         public override bool isExecutable(Empleo identity)
         {
             var days = _providerDays.getDays();
-            var empleoReciente = !_repositoryRead.existsEmpleoRecienteParaBeneficiario(identity.fechaDeInicio, days,
-                identity.beneficiario.Id);
-            var beneficiarioExiste = _beneficiarioRepositoryRead.exists(identity.beneficiario.Id);
-            var empresaExiste = _empresaRepositoryRead.exists(identity.empresa.Id);
-            var tipoEmpleoExiste = _tipoDeEmpleoReadOnlyRepository.exists(identity.tipoEmpleo.Id);
+            var empleoReciente = !_repositoryRead.existsEmpleoRecienteParaBeneficiario(identity.FechaDeInicio, days,
+                identity.Beneficiario.Id);
+            var beneficiarioExiste = _beneficiarioRepositoryRead.exists(identity.Beneficiario.Id);
+            var empresaExiste = _empresaRepositoryRead.exists(identity.Empresa.Id);
+            var tipoEmpleoExiste = _tipoDeEmpleoReadOnlyRepository.exists(identity.TipoEmpleo.Id);
 
 
             return empleoReciente && beneficiarioExiste && empresaExiste && tipoEmpleoExiste;

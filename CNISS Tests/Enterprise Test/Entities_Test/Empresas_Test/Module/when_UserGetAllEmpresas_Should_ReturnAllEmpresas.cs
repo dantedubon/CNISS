@@ -42,7 +42,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
                            new RTN("08011985123960"), Builder<RepresentanteLegal>.CreateNew().Build(),
                             Builder<Direccion>.CreateNew().Build(), "gremio"))
                             .Build())
-                ).With( x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
+                ).With( x => x.Auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
 
            
            
@@ -79,20 +79,20 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Module
             {
                 
                 contentFile = "",
-                empleadosTotales = x.empleadosTotales,
-                fechaIngreso = x.fechaIngreso,
+                empleadosTotales = x.EmpleadosTotales,
+                fechaIngreso = x.FechaIngreso,
                 gremioRequest = new GremioRequest(),
                 actividadEconomicaRequests = new List<ActividadEconomicaRequest>(),
                 sucursalRequests = new List<SucursalRequest>(),
-                nombre = x.nombre, 
-                programaPiloto = x.proyectoPiloto,
-                rtnRequest = new RTNRequest() { RTN = x.Id.rtn},
+                nombre = x.Nombre, 
+                programaPiloto = x.ProyectoPiloto,
+                rtnRequest = new RTNRequest() { RTN = x.Id.Rtn},
                 auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo = x.auditoria.fechaCreo,
-                    fechaModifico = x.auditoria.fechaModifico,
-                    usuarioCreo = x.auditoria.usuarioCreo,
-                    usuarioModifico = x.auditoria.usuarioModifico
+                    fechaCreo = x.Auditoria.FechaCreacion,
+                    fechaModifico = x.Auditoria.FechaActualizacion,
+                    usuarioCreo = x.Auditoria.CreadoPor,
+                    usuarioModifico = x.Auditoria.ActualizadoPor
                 }
 
                 

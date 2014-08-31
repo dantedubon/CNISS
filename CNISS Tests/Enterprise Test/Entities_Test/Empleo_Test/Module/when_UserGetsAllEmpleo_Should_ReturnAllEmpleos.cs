@@ -47,7 +47,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                     Builder<HorarioLaboral>.CreateNew().WithConstructor(()=> new HorarioLaboral(Builder<Hora>.CreateNew().Build(),Builder<Hora>.CreateNew().Build(),Builder<DiasLaborables>.CreateNew().Build())).Build(),
                     "Ingeniero",12000m,Builder<TipoEmpleo>.CreateNew().Build(),new DateTime(2014,8,2))
 
-                ).All().With(x => x.auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
+                ).All().With(x => x.Auditoria = Builder<Auditoria>.CreateNew().Build()).Build();
 
             _repositoryRead = Mock.Of<IEmpleoRepositoryReadOnly>();
             Mock.Get(_repositoryRead).Setup(x => x.getAll()).Returns(empleos);
@@ -73,27 +73,27 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
         private static DireccionRequest getDireccionRequest(Beneficiario beneficiario)
         {
-            var direccion = beneficiario.direccion;
+            var direccion = beneficiario.Direccion;
             if (direccion == null)
             {
                 return new DireccionRequest();
             }
             var departamentoRequest = new DepartamentoRequest()
             {
-                idDepartamento = direccion.departamento.Id,
-                nombre = direccion.departamento.nombre
+                idDepartamento = direccion.Departamento.Id,
+                nombre = direccion.Departamento.Nombre
             };
             var municipioRequest = new MunicipioRequest()
             {
-                idMunicipio = direccion.municipio.Id,
-                idDepartamento = direccion.municipio.Id,
-                nombre = direccion.municipio.nombre
+                idMunicipio = direccion.Municipio.Id,
+                idDepartamento = direccion.Municipio.Id,
+                nombre = direccion.Municipio.Nombre
             };
             return new DireccionRequest()
             {
                 departamentoRequest = departamentoRequest,
                 municipioRequest = municipioRequest,
-                descripcion = direccion.referenciaDireccion,
+                descripcion = direccion.ReferenciaDireccion,
                 IdGuid = direccion.Id
             };
         }
@@ -107,24 +107,24 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                 {
                     IdGuid = x.idGuid,
                     identidadRequest = new IdentidadRequest() { identidad = x.Id.identidad },
-                    fechaNacimiento = x.fechaNacimiento,
+                    fechaNacimiento = x.FechaNacimiento,
                     nombreRequest = new NombreRequest()
                     {
-                        nombres = x.nombre.nombres,
-                        primerApellido = x.nombre.primerApellido,
-                        segundoApellido = x.nombre.segundoApellido
+                        nombres = x.Nombre.Nombres,
+                        primerApellido = x.Nombre.PrimerApellido,
+                        segundoApellido = x.Nombre.SegundoApellido
                     },
                     parentescoRequest = new ParentescoRequest()
                     {
-                        descripcion = x.parentesco.descripcion,
-                        guid = x.parentesco.Id
+                        descripcion = x.Parentesco.Descripcion,
+                        guid = x.Parentesco.Id
                     },
                     auditoriaRequest = new AuditoriaRequest()
                     {
-                        fechaCreo = x.auditoria.fechaCreo,
-                        fechaModifico = x.auditoria.fechaModifico,
-                        usuarioCreo = x.auditoria.usuarioCreo,
-                        usuarioModifico = x.auditoria.usuarioModifico
+                        fechaCreo = x.auditoria.FechaCreacion,
+                        fechaModifico = x.auditoria.FechaActualizacion,
+                        usuarioCreo = x.auditoria.CreadoPor,
+                        usuarioModifico = x.auditoria.ActualizadoPor
                     }
                 }).ToList();
             }
@@ -139,46 +139,46 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
             {
                 beneficiarioRequest = new BeneficiarioRequest()
                 {
-                    identidadRequest = new IdentidadRequest() { identidad = x.beneficiario.Id.identidad},
+                    identidadRequest = new IdentidadRequest() { identidad = x.Beneficiario.Id.identidad},
                     nombreRequest = new NombreRequest()
                     {
-                        nombres = x.beneficiario.nombre.nombres,
-                        primerApellido = x.beneficiario.nombre.primerApellido,
-                        segundoApellido = x.beneficiario.nombre.segundoApellido
+                        nombres = x.Beneficiario.Nombre.Nombres,
+                        primerApellido = x.Beneficiario.Nombre.PrimerApellido,
+                        segundoApellido = x.Beneficiario.Nombre.SegundoApellido
                     },
-                    fechaNacimiento = x.beneficiario.fechaNacimiento,
-                    dependienteRequests = getDependienteRequests(x.beneficiario.dependientes),
-                    direccionRequest = getDireccionRequest(x.beneficiario),
-                    telefonoCelular = x.beneficiario.telefonoCelular ?? "",
-                    telefonoFijo = x.beneficiario.telefonoFijo ?? ""
+                    fechaNacimiento = x.Beneficiario.FechaNacimiento,
+                    dependienteRequests = getDependienteRequests(x.Beneficiario.Dependientes),
+                    direccionRequest = getDireccionRequest(x.Beneficiario),
+                    telefonoCelular = x.Beneficiario.TelefonoCelular ?? "",
+                    telefonoFijo = x.Beneficiario.TelefonoFijo ?? ""
 
                 },
-                cargo = x.cargo,
-                supervisado = x.supervisado,
-                comprobantes = x.comprobantesPago.Select(z=> new ComprobantePagoRequest()
+                cargo = x.Cargo,
+                supervisado = x.Supervisado,
+                comprobantes = x.ComprobantesPago.Select(z=> new ComprobantePagoRequest()
                 {
-                    deducciones = z.deducciones,
-                    fechaPago = z.fechaPago,
+                    deducciones = z.Deducciones,
+                    fechaPago = z.FechaPago,
                     guid = z.Id,
-                    sueldoNeto = z.sueldoNeto,
-                    bonificaciones = z.total
+                    sueldoNeto = z.SueldoNeto,
+                    bonificaciones = z.Total
                 }),
                 empresaRequest = new EmpresaRequest()
                 {
-                    nombre = x.empresa.nombre,
-                    rtnRequest = new RTNRequest() { RTN = x.empresa.Id.rtn}
+                    nombre = x.Empresa.Nombre,
+                    rtnRequest = new RTNRequest() { RTN = x.Empresa.Id.Rtn}
                 },
                 sucursalRequest = new SucursalRequest()
                 {
-                    guid = x.sucursal.Id,
-                    nombre = x.sucursal.nombre,
+                    guid = x.Sucursal.Id,
+                    nombre = x.Sucursal.Nombre,
                     firmaAutorizadaRequest = new FirmaAutorizadaRequest()
                     {
-                        IdGuid = x.sucursal.firma.Id,
-                        fechaCreacion = x.sucursal.firma.fechaCreacion,
+                        IdGuid = x.Sucursal.Firma.Id,
+                        fechaCreacion = x.Sucursal.Firma.fechaCreacion,
                         userRequest = new UserRequest()
                         {
-                            Id = x.sucursal.firma.user.Id
+                            Id = x.Sucursal.Firma.User.Id
                         }
                     }
 
@@ -186,45 +186,45 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
                   auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo = x.auditoria.fechaCreo,
-                    fechaModifico = x.auditoria.fechaModifico,
-                    usuarioCreo = x.auditoria.usuarioCreo,
-                    usuarioModifico = x.auditoria.usuarioModifico
+                    fechaCreo = x.Auditoria.FechaCreacion,
+                    fechaModifico = x.Auditoria.FechaActualizacion,
+                    usuarioCreo = x.Auditoria.CreadoPor,
+                    usuarioModifico = x.Auditoria.ActualizadoPor
                 },
-                fechaDeInicio = x.fechaDeInicio,
+                fechaDeInicio = x.FechaDeInicio,
                 horarioLaboralRequest = new HorarioLaboralRequest()
                 {
                     diasLaborablesRequest = new DiasLaborablesRequest()
                     {
-                        domingo = x.horarioLaboral.diasLaborables.domingo,
-                        lunes = x.horarioLaboral.diasLaborables.lunes,
-                        martes = x.horarioLaboral.diasLaborables.martes,
-                        miercoles = x.horarioLaboral.diasLaborables.miercoles,
-                        jueves = x.horarioLaboral.diasLaborables.jueves,
-                        viernes = x.horarioLaboral.diasLaborables.viernes,
-                        sabado = x.horarioLaboral.diasLaborables.sabado
+                        domingo = x.HorarioLaboral.DiasLaborables.Domingo,
+                        lunes = x.HorarioLaboral.DiasLaborables.Lunes,
+                        martes = x.HorarioLaboral.DiasLaborables.Martes,
+                        miercoles = x.HorarioLaboral.DiasLaborables.Miercoles,
+                        jueves = x.HorarioLaboral.DiasLaborables.Jueves,
+                        viernes = x.HorarioLaboral.DiasLaborables.Viernes,
+                        sabado = x.HorarioLaboral.DiasLaborables.Sabado
                     },
                     horaEntrada = new HoraRequest()
                     {
-                        hora = x.horarioLaboral.horaEntrada.hora,
-                        minutos = x.horarioLaboral.horaEntrada.minutos,
-                        parte = x.horarioLaboral.horaEntrada.parte
+                        hora = x.HorarioLaboral.HoraEntrada.HoraEntera,
+                        minutos = x.HorarioLaboral.HoraEntrada.Minutos,
+                        parte = x.HorarioLaboral.HoraEntrada.Parte
 
                     },
                     horaSalida = new HoraRequest()
                     {
-                        hora = x.horarioLaboral.horaSalida.hora,
-                        minutos = x.horarioLaboral.horaSalida.minutos,
-                        parte = x.horarioLaboral.horaSalida.parte
+                        hora = x.HorarioLaboral.HoraSalida.HoraEntera,
+                        minutos = x.HorarioLaboral.HoraSalida.Minutos,
+                        parte = x.HorarioLaboral.HoraSalida.Parte
 
                     }
                 },
-                contrato = x.contrato == null ? "" : x.contrato.Id.ToString(),
-                sueldo = x.sueldo,
+                contrato = x.Contrato == null ? "" : x.Contrato.Id.ToString(),
+                sueldo = x.Sueldo,
                 tipoEmpleoRequest = new TipoEmpleoRequest()
                 {
-                    descripcion = x.tipoEmpleo.descripcion,
-                    IdGuid = x.tipoEmpleo.Id
+                    descripcion = x.TipoEmpleo.Descripcion,
+                    IdGuid = x.TipoEmpleo.Id
                 },
                 IdGuid = x.Id
             }

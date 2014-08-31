@@ -31,10 +31,10 @@ namespace CNISS.EnterpriseDomain.Application
         {
 
             return !_repositoryRead.exists(identity.Id) 
-                && _repositoryActividadesRead.existsAll(identity.actividadesEconomicas)
-                && _repositoryGremiosRead.exists(identity.gremial.Id)
+                && _repositoryActividadesRead.existsAll(identity.ActividadesEconomicas)
+                && _repositoryGremiosRead.exists(identity.Gremial.Id)
                
-                && _validadorSucursales.isValid(identity.sucursales);
+                && _validadorSucursales.isValid(identity.Sucursales);
         }
     }
 }

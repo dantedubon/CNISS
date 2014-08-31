@@ -13,21 +13,21 @@ namespace CNISS.AutenticationDomain.Domain.ValueObjects
         public Rol(string name, string description):this()
         {
            
-            this.name = name;
-            this.description = description;
+            this.Name = name;
+            this.Description = description;
         }
-        public virtual string name { get; set; }
-        public virtual string description { get; set; }
-        public virtual int nivel { get; set; }
-        public virtual Auditoria auditoria { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string Description { get; set; }
+        public virtual int Nivel { get; set; }
+        public virtual Auditoria Auditoria { get; set; }
 
         
     }
 
     public class RolNull:Rol
     {
-        public virtual string name { get { return string.Empty; } }
-        public virtual string description { get { return string.Empty; } }
+        public virtual string Name { get { return string.Empty; } }
+        public virtual string Description { get { return string.Empty; } }
         public virtual Guid Id { get { return Guid.Empty; } }
     }
 }

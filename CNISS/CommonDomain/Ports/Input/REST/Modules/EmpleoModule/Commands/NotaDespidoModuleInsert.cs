@@ -66,7 +66,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                         {
                             var dataImage = fileGetter.getFile(directorioImagenes, archivoNotaDespido, extensionImagenes);
                             var imageFile = new ContentFile(dataImage);
-                            notaDespido.documentoDespido = imageFile;
+                            notaDespido.DocumentoDespido = imageFile;
                             command.execute(notaDespidoRequest.empleoId,notaDespido);
                             fileGetter.deleteFile(directorioImagenes, archivoNotaDespido, extensionImagenes);
                             return new Response()
@@ -92,7 +92,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpleoModule.Commands
                 notaDespidoRequest.posicionGPS, supervisor, firma);
 
             var auditoriaRequest = notaDespidoRequest.auditoriaRequest;
-            notaDespido.auditoria = new Auditoria(auditoriaRequest.usuarioCreo, auditoriaRequest.fechaCreo,
+            notaDespido.Auditoria = new Auditoria(auditoriaRequest.usuarioCreo, auditoriaRequest.fechaCreo,
                 auditoriaRequest.usuarioModifico, auditoriaRequest.fechaModifico); ;
             return notaDespido;
         }

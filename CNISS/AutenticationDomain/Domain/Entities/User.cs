@@ -6,13 +6,13 @@ namespace CNISS.AutenticationDomain.Domain.Entities
 {
     public class User:Entity<string>, IEquatable<User>
     {
-        public virtual String firstName { get; set; }
-        public virtual String mail { get; set; }
-        public virtual String secondName { get; set; }
-        public virtual String password { get; set; }
-        public virtual String userKey { get; set; }
-        public virtual Rol userRol { get; set; }
-        public virtual Auditoria auditoria { get; set; }
+        public virtual String FirstName { get; set; }
+        public virtual String Mail { get; set; }
+        public virtual String SecondName { get; set; }
+        public virtual String Password { get; set; }
+        public virtual String UserKey { get; set; }
+        public virtual Rol UserRol { get; set; }
+        public virtual Auditoria Auditoria { get; set; }
        
 
         protected User()
@@ -23,11 +23,11 @@ namespace CNISS.AutenticationDomain.Domain.Entities
         public User(String id, String firstName, String secondName, String password, String mail, Rol userRol)
         {
             Id = id;
-            this.firstName = firstName;
-            this.secondName = secondName;
-            this.password = password;
-            this.mail = mail;
-            this.userRol = userRol;
+            this.FirstName = firstName;
+            this.SecondName = secondName;
+            this.Password = password;
+            this.Mail = mail;
+            this.UserRol = userRol;
 
         }
 

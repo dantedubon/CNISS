@@ -30,11 +30,11 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Command
 
             dependientes.ToArray().ForEach( beneficiario.addDependiente);
 
-            beneficiario.auditoria = getAuditoria(request.auditoriaRequest);
-            beneficiario.telefonoCelular = request.telefonoCelular;
-            beneficiario.telefonoFijo = request.telefonoFijo;
-            beneficiario.fotografiaBeneficiario = getFotografia(request);
-            beneficiario.direccion = getDireccion(request);
+            beneficiario.Auditoria = getAuditoria(request.auditoriaRequest);
+            beneficiario.TelefonoCelular = request.telefonoCelular;
+            beneficiario.TelefonoFijo = request.telefonoFijo;
+            beneficiario.FotografiaBeneficiario = getFotografia(request);
+            beneficiario.Direccion = getDireccion(request);
             return beneficiario;
         }
 
@@ -48,7 +48,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.BeneficiarioModule.Command
             var departamento = new Departamento()
             {
                 Id = direccionRequest.departamentoRequest.idDepartamento,
-                nombre = direccionRequest.departamentoRequest.nombre
+                Nombre = direccionRequest.departamentoRequest.nombre
             };
 
             var municipio = new Municipio(direccionRequest.municipioRequest.idMunicipio,

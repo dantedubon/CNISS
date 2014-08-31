@@ -6,7 +6,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 {
     public class FirmaAutorizada:Entity<Guid>
     {
-        public virtual User user { get; set; }
+        public virtual User User { get; set; }
 
 
         public virtual DateTime fechaCreacion { get; set; }
@@ -16,7 +16,7 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
             
             Id = Guid.NewGuid();
             this.fechaCreacion = fechaCreacion;
-            this.user = user;
+            this.User = user;
 
         }
 

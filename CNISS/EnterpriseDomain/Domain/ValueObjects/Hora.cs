@@ -9,10 +9,10 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
             
         }
 
-        public Hora(int hora, int minutos,string parte)
+        public Hora(int horaEntera, int minutos,string parte)
         {
           
-            if (hora > 12 || hora < 1)
+            if (horaEntera > 12 || horaEntera < 1)
             {
                 throw new ArgumentException();
             }
@@ -31,15 +31,15 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
             {
                 throw new ArgumentException();
             }
-            this.hora = hora;
-            this.minutos = minutos;
-            this.parte = parte;
+            this.HoraEntera = horaEntera;
+            this.Minutos = minutos;
+            this.Parte = parte;
 
         }
 
-        public virtual int hora { get; protected set; }
-        public virtual int minutos { get; protected set; }
-        public virtual string parte { get; set; }
+        public virtual int HoraEntera { get; protected set; }
+        public virtual int Minutos { get; protected set; }
+        public virtual string Parte { get; set; }
       
 
     }

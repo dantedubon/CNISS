@@ -8,29 +8,29 @@ namespace CNISS.EnterpriseDomain.Domain.Entities
 {
     public class Visita : Entity<Guid>
     {
-        public virtual string nombre { get; protected set; }
-        public virtual DateTime fechaInicial { get; protected set; }
-        public virtual DateTime fechaFinal { get; protected set; }
-        public virtual Auditoria auditoria { get;  set; }
-        public virtual IList<Supervisor> supervisores { get;  set; }
+        public virtual string Nombre { get; protected set; }
+        public virtual DateTime FechaInicial { get; protected set; }
+        public virtual DateTime FechaFinal { get; protected set; }
+        public virtual Auditoria Auditoria { get;  set; }
+        public virtual IList<Supervisor> Supervisores { get;  set; }
 
 
         public Visita(string nombre, DateTime fechaInicial, DateTime fechaFinal):this()
         {
-            this.nombre = nombre;
-            this.fechaInicial = fechaInicial;
-            this.fechaFinal = fechaFinal;
+            this.Nombre = nombre;
+            this.FechaInicial = fechaInicial;
+            this.FechaFinal = fechaFinal;
         }
 
         public Visita()
         {
             Id = Guid.NewGuid();
-            supervisores = new List<Supervisor>();
+            Supervisores = new List<Supervisor>();
         }
 
         public virtual  void addSupervisor(Supervisor supervisor)
         {
-            supervisores.Add(supervisor);
+            Supervisores.Add(supervisor);
         }
 
     }

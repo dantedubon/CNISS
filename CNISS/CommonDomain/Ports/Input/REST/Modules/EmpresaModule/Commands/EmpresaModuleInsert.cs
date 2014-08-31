@@ -34,7 +34,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
                                         .WithStatusCode(HttpStatusCode.BadRequest);
                             }
                             var fileContrato = fileGetter.getFile(@"/EmpresasContratos", file, ".pdf");
-                            empresa.contrato = new ContentFile(fileContrato);
+                            empresa.Contrato = new ContentFile(fileContrato);
                         }
 
 

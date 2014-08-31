@@ -25,7 +25,7 @@ namespace CNISS.EnterpriseDomain.Application
         public override void execute(Gremio gremio)
         {
             
-            if(!validatorDireccion.isValidDireccion(gremio.direccion))
+            if(!validatorDireccion.isValidDireccion(gremio.Direccion))
                 throw new ArgumentException("Direccion mala");
             
             base.execute(gremio);

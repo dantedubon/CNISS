@@ -23,12 +23,12 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.MotivoDespidoModule.Comman
         {
             var motivoDespido = new MotivoDespido(motivoDespidoRequest.descripcion)
             {
-               auditoria = new Auditoria()
+               Auditoria = new Auditoria()
                {
-                   fechaCreo = motivoDespidoRequest.auditoriaRequest.fechaCreo,
-                   fechaModifico = motivoDespidoRequest.auditoriaRequest.fechaModifico,
-                   usuarioCreo = motivoDespidoRequest.auditoriaRequest.usuarioCreo,
-                   usuarioModifico = motivoDespidoRequest.auditoriaRequest.usuarioModifico
+                   FechaCreacion = motivoDespidoRequest.auditoriaRequest.fechaCreo,
+                   FechaActualizacion = motivoDespidoRequest.auditoriaRequest.fechaModifico,
+                   CreadoPor = motivoDespidoRequest.auditoriaRequest.usuarioCreo,
+                   ActualizadoPor = motivoDespidoRequest.auditoriaRequest.usuarioModifico
                    
                }
             };

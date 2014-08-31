@@ -59,13 +59,13 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.TipoEmpleo_Test.Module
 
 
          It should_save_tipoEmpleo = () => Mock.Get(_command)
-            .Verify(x => x.execute(Moq.It.Is<TipoEmpleo>(z => z.descripcion == _tipoEmpleoExpected.descripcion)));
+            .Verify(x => x.execute(Moq.It.Is<TipoEmpleo>(z => z.Descripcion == _tipoEmpleoExpected.Descripcion)));
 
         private static TipoEmpleo getTipoEmpleo(TipoEmpleoRequest tipoEmpleoRequest)
         {
             var tipoEmpleo = new TipoEmpleo(tipoEmpleoRequest.descripcion)
             {
-                auditoria = new CNISS.CommonDomain.Domain.Auditoria(
+                Auditoria = new CNISS.CommonDomain.Domain.Auditoria(
                     tipoEmpleoRequest.auditoriaRequest.usuarioCreo,
                     tipoEmpleoRequest.auditoriaRequest.fechaCreo,
                     tipoEmpleoRequest.auditoriaRequest.usuarioModifico,

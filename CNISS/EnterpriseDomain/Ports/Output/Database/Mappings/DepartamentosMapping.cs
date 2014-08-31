@@ -12,8 +12,8 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
             ReadOnly();
        
             Id(x => x.Id).Column("CodigoDepartamento");
-            Map(x => x.nombre).Column("DescripcionDepartamento");
-            HasMany(x => x.municipios)
+            Map(x => x.Nombre).Column("DescripcionDepartamento");
+            HasMany(x => x.Municipios)
                 .Inverse()
                 .KeyColumns.Add("CodigoDepartamento", mapping => mapping.Name("CodigoDepartamento"));
 

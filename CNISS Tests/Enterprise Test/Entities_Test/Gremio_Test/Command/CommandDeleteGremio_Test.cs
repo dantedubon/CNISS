@@ -96,12 +96,12 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Command
         private Direccion getDireccion(string idDepartamentoMunicipio, string idMunicipio, string idDepartamento, string descripcion)
         {
             var municipio = Builder<Municipio>.CreateNew().Build();
-            municipio.departamentoId = idDepartamentoMunicipio;
+            municipio.DepartamentoId = idDepartamentoMunicipio;
             municipio.Id = idMunicipio;
-            municipio.nombre = "municipio";
+            municipio.Nombre = "municipio";
             var departamento = Builder<Departamento>.CreateNew().Build();
             departamento.Id = idDepartamento;
-            departamento.nombre = "departamento";
+            departamento.Nombre = "departamento";
 
 
             return new Direccion(departamento, municipio, descripcion);

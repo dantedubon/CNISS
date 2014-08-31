@@ -101,7 +101,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Command
             Mock.Get(repositoryReadOnly).Setup(x => x.exists(empresa.Id)).Returns(true);
             Mock.Get(repositoryActividadesRead).Setup((x => x.existsAll(It.IsAny<IEnumerable<ActividadEconomica>>()))).Returns(true);
             Mock.Get(repositoryGremiosRead).Setup(x => x.exists(It.IsAny<RTN>())).Returns(true);
-            Mock.Get(validadorSucursales).Setup(x => x.isValid(empresa.sucursales)).Returns(false);
+            Mock.Get(validadorSucursales).Setup(x => x.isValid(empresa.Sucursales)).Returns(false);
 
             var command = new CommandUpdateEmpresa(validadorSucursales, repositoryGremiosRead, repositoryActividadesRead, repositoryReadOnly, repositoryCommand, uof);
 
@@ -123,7 +123,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Command
         private Gremio getGremio()
         {
             var municipio = new Municipio("01", "01", "Municipio");
-            var departamento = new Departamento() { Id = "01", municipios = new List<Municipio>() { municipio }, nombre = "Departamento" };
+            var departamento = new Departamento() { Id = "01", Municipios = new List<Municipio>() { municipio }, Nombre = "Departamento" };
             var direccion = new Direccion(departamento, municipio, "direccion gremio");
 
             var RTN = new RTN("08011985123960");
@@ -137,7 +137,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Command
         private IList<Sucursal> getSucursales()
         {
             var municipio = new Municipio("01", "01", "Municipio");
-            var departamento = new Departamento() { Id = "01", municipios = new List<Municipio>() { municipio }, nombre = "Departamento" };
+            var departamento = new Departamento() { Id = "01", Municipios = new List<Municipio>() { municipio }, Nombre = "Departamento" };
             var direccion = new Direccion(departamento, municipio, "direccion");
             var firma = new FirmaAutorizada(new User("DRCD", "Dante", "Ruben", "SDSD", "as", new Rol("rol", "rol")), DateTime.Now);
 
@@ -160,9 +160,9 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empresas_Test.Command
             var fechaIngreso = DateTime.Now;
             var rtn = new RTN("08011985123960");
             var empresa = new Empresa(rtn, "La Holgazana", fechaIngreso, gremio);
-            empresa.actividadesEconomicas = actividades;
-            empresa.sucursales = sucursales;
-            empresa.contrato = getContrato();
+            empresa.ActividadesEconomicas = actividades;
+            empresa.Sucursales = sucursales;
+            empresa.Contrato = getContrato();
             return empresa;
         }
 

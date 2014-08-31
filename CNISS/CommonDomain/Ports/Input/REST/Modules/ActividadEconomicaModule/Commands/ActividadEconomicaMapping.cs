@@ -20,7 +20,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.ActividadEconomicaModule.C
         {
             var actividad = new ActividadEconomica(actividadEconomicaRequest.descripcion)
             {
-                auditoria = new CNISS.CommonDomain.Domain.Auditoria(
+                Auditoria = new CNISS.CommonDomain.Domain.Auditoria(
                     actividadEconomicaRequest.auditoriaRequest.usuarioCreo,
                     actividadEconomicaRequest.auditoriaRequest.fechaCreo,
                     actividadEconomicaRequest.auditoriaRequest.usuarioModifico,

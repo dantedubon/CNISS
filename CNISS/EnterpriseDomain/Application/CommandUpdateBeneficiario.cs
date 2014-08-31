@@ -27,7 +27,7 @@ namespace CNISS.EnterpriseDomain.Application
 
         public override bool isExecutable(Beneficiario identity)
         {
-            return _repositoryReadBeneficiario.exists(identity.Id) && identity.dependientes.All(x => existsParentesco(x.parentesco));
+            return _repositoryReadBeneficiario.exists(identity.Id) && identity.Dependientes.All(x => existsParentesco(x.Parentesco));
         }
 
         private bool existsParentesco(Parentesco parentesco)

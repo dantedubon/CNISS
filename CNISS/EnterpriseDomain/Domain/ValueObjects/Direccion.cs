@@ -5,9 +5,9 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 {
     public class Direccion:ValueObject<Guid>
     {
-        public virtual Municipio municipio { get;  set; }
-        public virtual string referenciaDireccion { get;  set; }
-        public virtual Departamento departamento { get;  set; }
+        public virtual Municipio Municipio { get;  set; }
+        public virtual string ReferenciaDireccion { get;  set; }
+        public virtual Departamento Departamento { get;  set; }
        
 
         protected Direccion()
@@ -22,9 +22,9 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
             if (municipio == null) throw new ArgumentNullException("El municipio no puede ser nulo");
             if (string.IsNullOrEmpty(referenciaDireccion)) throw new ArgumentException("Referencia no puede ser nula");
             Id = Guid.NewGuid();
-            this.departamento = departamento;
-            this.municipio = municipio;
-            this.referenciaDireccion = referenciaDireccion;
+            this.Departamento = departamento;
+            this.Municipio = municipio;
+            this.ReferenciaDireccion = referenciaDireccion;
         }
     }
 

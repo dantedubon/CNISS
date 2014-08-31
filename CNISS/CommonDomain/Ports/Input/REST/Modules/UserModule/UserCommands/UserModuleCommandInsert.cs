@@ -32,7 +32,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserCommands
                             _userRequest.mail,
                            _userRol);
                         var auditoriaRequest = _userRequest.auditoriaRequest;
-                        user.auditoria = new Auditoria(auditoriaRequest.usuarioCreo,auditoriaRequest.fechaCreo,auditoriaRequest.usuarioModifico,auditoriaRequest.fechaModifico);
+                        user.Auditoria = new Auditoria(auditoriaRequest.usuarioCreo,auditoriaRequest.fechaCreo,auditoriaRequest.usuarioModifico,auditoriaRequest.fechaModifico);
                         commandInsert.execute(user);
                        
                         return new Response()

@@ -71,7 +71,7 @@ namespace CNISS_Tests.Enterprise_Test.ValueObject_Test.TipoEmpleo_Test.Module
         {
             var tipoEmpleo = new TipoEmpleo(tipoEmpleoRequest.descripcion)
             {
-                auditoria = new CNISS.CommonDomain.Domain.Auditoria(
+                Auditoria = new CNISS.CommonDomain.Domain.Auditoria(
                     tipoEmpleoRequest.auditoriaRequest.usuarioCreo,
                     tipoEmpleoRequest.auditoriaRequest.fechaCreo,
                     tipoEmpleoRequest.auditoriaRequest.usuarioModifico,

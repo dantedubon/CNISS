@@ -20,7 +20,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand
             var direccion = getDireccion(gremioRequest);
             var nombre = gremioRequest.nombre;
             var gremio = new Gremio(rtn,representanteLegal,direccion,nombre);
-            gremio.auditoria = getAuditoria(gremioRequest.auditoriaRequest);
+            gremio.Auditoria = getAuditoria(gremioRequest.auditoriaRequest);
             return gremio;
 
 
@@ -63,9 +63,9 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand
         {
             var municipio = new Municipio()
             {
-                departamentoId = direccionRequest.municipioRequest.idDepartamento,
+                DepartamentoId = direccionRequest.municipioRequest.idDepartamento,
                 Id = direccionRequest.municipioRequest.idMunicipio,
-                nombre = direccionRequest.municipioRequest.nombre
+                Nombre = direccionRequest.municipioRequest.nombre
             };
             return municipio;
         }
@@ -75,7 +75,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.GremioModule.GremioCommand
             var departamento = new Departamento()
             {
                 Id = direccionRequest.departamentoRequest.idDepartamento,
-                nombre = direccionRequest.departamentoRequest.nombre
+                Nombre = direccionRequest.departamentoRequest.nombre
             };
             return departamento;
         }

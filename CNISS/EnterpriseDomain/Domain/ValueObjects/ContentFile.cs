@@ -8,7 +8,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
         public ContentFile(byte[] data)
         {
             Id = Guid.NewGuid();
-            dataFile = data;
+            DataFile = data;
         }
 
         protected ContentFile()
@@ -16,7 +16,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
             Id = Guid.NewGuid();
         }
 
-        public virtual byte[] dataFile { get; set; }
+        public virtual byte[] DataFile { get; set; }
 
         public virtual bool Equals(ContentFile other)
         {
@@ -35,7 +35,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
 
         public override int GetHashCode()
         {
-            return (dataFile != null ? Id.GetHashCode() : 0);
+            return (DataFile != null ? Id.GetHashCode() : 0);
         }
     }
 
@@ -44,7 +44,7 @@ namespace CNISS.EnterpriseDomain.Domain.ValueObjects
         public ContentFileNull(Guid idGuid)
         {
             Id = idGuid;
-            dataFile = new byte[]{0};
+            DataFile = new byte[]{0};
         }
     }
 }

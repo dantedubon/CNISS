@@ -88,7 +88,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
             _request.contentFile = dataFile;
             _expectedEmpleo = new EmpleoMapping().getEmpleoForPost(_request);
-            _expectedEmpleo.contrato = new ContentFile(dataFile);
+            _expectedEmpleo.Contrato = new ContentFile(dataFile);
             _browser = new Browser(
                 x =>
                 {

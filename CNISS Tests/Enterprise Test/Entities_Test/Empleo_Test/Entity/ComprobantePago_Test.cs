@@ -22,7 +22,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Entity
 
             var comprobante = new ComprobantePago(fechaPago, deducciones, percepciones, bonificiones);
 
-            Assert.AreEqual(totalEsperado,comprobante.total);
+            Assert.AreEqual(totalEsperado,comprobante.Total);
         }
     }
 }

@@ -22,32 +22,32 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.UserModule.UserQuery
         {
             return new UserRequest
             {
-                firstName = user.firstName,
-                secondName = user.secondName,
+                firstName = user.FirstName,
+                secondName = user.SecondName,
                 Id = user.Id,
-                mail = user.mail,
+                mail = user.Mail,
                 password = "",
                 userRol = new RolRequest
                 {
-                    description = user.userRol.description,
-                    name = user.userRol.name,
-                    idGuid = user.userRol.Id,
-                    nivel = user.userRol.nivel,
+                    description = user.UserRol.Description,
+                    name = user.UserRol.Name,
+                    idGuid = user.UserRol.Id,
+                    nivel = user.UserRol.Nivel,
                     auditoriaRequest = new AuditoriaRequest()
                     {
-                        fechaCreo = user.userRol.auditoria.fechaCreo,
-                        fechaModifico = user.userRol.auditoria.fechaModifico,
-                        usuarioCreo = user.userRol.auditoria.usuarioCreo,
-                        usuarioModifico = user.userRol.auditoria.usuarioModifico
+                        fechaCreo = user.UserRol.Auditoria.FechaCreacion,
+                        fechaModifico = user.UserRol.Auditoria.FechaActualizacion,
+                        usuarioCreo = user.UserRol.Auditoria.CreadoPor,
+                        usuarioModifico = user.UserRol.Auditoria.ActualizadoPor
                     }
 
                 },
                 auditoriaRequest = new AuditoriaRequest()
                 {
-                    fechaCreo =  user.auditoria.fechaCreo,
-                    fechaModifico = user.auditoria.fechaModifico,
-                    usuarioCreo = user.auditoria.usuarioCreo,
-                    usuarioModifico = user.auditoria.usuarioModifico
+                    fechaCreo =  user.Auditoria.FechaCreacion,
+                    fechaModifico = user.Auditoria.FechaActualizacion,
+                    usuarioCreo = user.Auditoria.CreadoPor,
+                    usuarioModifico = user.Auditoria.ActualizadoPor
                 }
             };
         }

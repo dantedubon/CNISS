@@ -48,7 +48,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Gremio_Test.Module
 
         private Because of = () => { _browser.PutSecureJson("enterprise/gremio/direccion", _request); };
 
-        It should_update_gremio = () => { Mock.Get(_commandUpdate).Verify(x => x.execute(Moq.It.Is<Gremio>(z => z.Id.rtn == _request.rtnRequest.RTN))); };
+        It should_update_gremio = () => { Mock.Get(_commandUpdate).Verify(x => x.execute(Moq.It.Is<Gremio>(z => z.Id.Rtn == _request.rtnRequest.RTN))); };
 
         private static RepresentanteLegalRequest getRepresentanteLegal()
         {

@@ -87,7 +87,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
             _request.contentFile = _dataFile;
             _expectedEmpleo = new EmpleoMapping().getEmpleoForPost(_request);
-            _expectedEmpleo.contrato = new ContentFile(_dataFile);
+            _expectedEmpleo.Contrato = new ContentFile(_dataFile);
             _browser = new Browser(
                 x =>
                 {
@@ -102,13 +102,13 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
 
         private Because of = () => { _response = _browser.PostSecureJson("/enterprise/empleos", _request); };
 
-        It should_save_empleo = () => Mock.Get(_commandInsert).Verify(x => x.execute(Moq.It.Is<Empleo>(z => z.empresa.Equals(_expectedEmpleo.empresa)
-                                                                                                           && z.beneficiario.Equals(_expectedEmpleo.beneficiario)
-                                                                                                           && z.cargo.Equals(_expectedEmpleo.cargo)
-                                                                                                           && z.contrato.dataFile.Equals(_expectedEmpleo.contrato.dataFile)
-                                                                                                           && z.fechaDeInicio.Equals(z.fechaDeInicio)
-           && z.comprobantesPago.Count == z.comprobantesPago.Count
-           && z.comprobantesPago.All(t => t.imagenComprobante.dataFile == _dataFile )
+        It should_save_empleo = () => Mock.Get(_commandInsert).Verify(x => x.execute(Moq.It.Is<Empleo>(z => z.Empresa.Equals(_expectedEmpleo.Empresa)
+                                                                                                           && z.Beneficiario.Equals(_expectedEmpleo.Beneficiario)
+                                                                                                           && z.Cargo.Equals(_expectedEmpleo.Cargo)
+                                                                                                           && z.Contrato.DataFile.Equals(_expectedEmpleo.Contrato.DataFile)
+                                                                                                           && z.FechaDeInicio.Equals(z.FechaDeInicio)
+           && z.ComprobantesPago.Count == z.ComprobantesPago.Count
+           && z.ComprobantesPago.All(t => t.ImagenComprobante.DataFile == _dataFile )
            )));
 
         private static AuditoriaRequest getAuditoriaRequest()

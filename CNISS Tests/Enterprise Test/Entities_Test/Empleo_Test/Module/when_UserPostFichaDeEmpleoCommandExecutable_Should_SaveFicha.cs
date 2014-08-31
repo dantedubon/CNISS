@@ -91,7 +91,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
             _idEmpleo = _fichaSupervisionEmpleoRequest.empleoId;
 
             Mock.Get(_command)
-                .Setup(x => x.isExecutable(Moq.It.Is<FichaSupervisionEmpleo>(z => z.firma.Id == _ficha.firma.Id), Moq.It.Is<Beneficiario>(z => z.Id.identidad == _beneficiario.Id.identidad), _idEmpleo))
+                .Setup(x => x.isExecutable(Moq.It.Is<FichaSupervisionEmpleo>(z => z.Firma.Id == _ficha.Firma.Id), Moq.It.Is<Beneficiario>(z => z.Id.identidad == _beneficiario.Id.identidad), _idEmpleo))
                 .Returns(true);
 
 
@@ -127,7 +127,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
             _browserResponse = _browser.PostSecureJson("/movil/fichaSupervision/", _dummyMovilRequest);
         };
 
-         It should_save_ficha = () => Mock.Get(_command).Verify(x => x.execute(Moq.It.Is<FichaSupervisionEmpleo>(z => z.firma.Id == _ficha.firma.Id)
+         It should_save_ficha = () => Mock.Get(_command).Verify(x => x.execute(Moq.It.Is<FichaSupervisionEmpleo>(z => z.Firma.Id == _ficha.Firma.Id)
             
              , Moq.It.Is<Beneficiario>(z => z.Id.identidad == _beneficiario.Id.identidad), _idEmpleo));
 
@@ -144,7 +144,7 @@ namespace CNISS_Tests.Enterprise_Test.Entities_Test.Empleo_Test.Module
                 fichaSupervisionEmpleoRequest.desempeñoEmpleado, imagen);
 
             var auditoriaRequest = fichaSupervisionEmpleoRequest.auditoriaRequest;
-            ficha.auditoria = new Auditoria(auditoriaRequest.usuarioCreo, auditoriaRequest.fechaCreo,
+            ficha.Auditoria = new Auditoria(auditoriaRequest.usuarioCreo, auditoriaRequest.fechaCreo,
                 auditoriaRequest.usuarioModifico, auditoriaRequest.fechaModifico);
             return ficha;
         }

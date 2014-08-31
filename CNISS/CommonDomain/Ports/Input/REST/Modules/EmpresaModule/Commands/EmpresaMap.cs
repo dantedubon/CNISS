@@ -28,14 +28,14 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
             var empresa = new Empresa(rtn, request.nombre, request.fechaIngreso, gremio)
             {
                 
-                empleadosTotales = request.empleadosTotales,
-                actividadesEconomicas = getActividades(request.actividadEconomicaRequests),
-                sucursales = getSucursales(request.sucursalRequests),
-                proyectoPiloto = request.programaPiloto,
-                contrato = getContrato(request)
+                EmpleadosTotales = request.empleadosTotales,
+                ActividadesEconomicas = getActividades(request.actividadEconomicaRequests),
+                Sucursales = getSucursales(request.sucursalRequests),
+                ProyectoPiloto = request.programaPiloto,
+                Contrato = getContrato(request)
                 
             };
-            empresa.auditoria = getAuditoria(request.auditoriaRequest);
+            empresa.Auditoria = getAuditoria(request.auditoriaRequest);
             
             return empresa;
         }
@@ -60,7 +60,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
         {
             return
                 actividadEconomicaRequests.Select(
-                    x => new ActividadEconomica() {descripcion = x.descripcion, Id = x.guid}).ToList();
+                    x => new ActividadEconomica() {Descripcion = x.descripcion, Id = x.guid}).ToList();
         }
 
         private IList<Sucursal> getSucursales(IEnumerable<SucursalRequest> requests)
@@ -79,7 +79,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
                 sucursal.Id = request.guid;
             }
 
-            sucursal.auditoria = getAuditoria(request.auditoriaRequest);
+            sucursal.Auditoria = getAuditoria(request.auditoriaRequest);
             return sucursal;
 
         }
@@ -98,7 +98,7 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Modules.EmpresaModule.Commands
             var departamento = new Departamento() {Id = request.departamentoRequest.idDepartamento};
             var municipio = new Municipio()
             {
-                departamentoId = request.municipioRequest.idDepartamento,
+                DepartamentoId = request.municipioRequest.idDepartamento,
                 Id = request.municipioRequest.idMunicipio
             };
             var direccion = new Direccion(departamento,municipio,request.descripcion);

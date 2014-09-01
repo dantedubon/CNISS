@@ -7,7 +7,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public MotivoDespidoMapping()
         {
-            Id(x => x.Id).GeneratedBy.Assigned();
+            Id(x => x.Id).GeneratedBy.Assigned().Column("MotivoDespidoId");
             Map(x => x.Descripcion);
             Component(x => x.Auditoria, m =>
             {

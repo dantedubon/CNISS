@@ -11,7 +11,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public NotaDespidoMapping()
         {
-            Id(x => x.Id).GeneratedBy.Assigned();
+            Id(x => x.Id).GeneratedBy.Assigned().Column("NotaDespidoId");
             Map(x => x.FechaDespido);
             Map(x => x.PosicionGps);
             References(x => x.MotivoDespido);

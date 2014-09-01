@@ -7,7 +7,7 @@ namespace CNISS.AutenticationDomain.Ports.Output.Database.Mappings
     {
         public UserMappings()
         {
-            Id(x => x.Id);
+            Id(x => x.Id).Column("UserId");
             Map(x => x.FirstName);
             Map(x => x.Mail);
             Map(x => x.SecondName);

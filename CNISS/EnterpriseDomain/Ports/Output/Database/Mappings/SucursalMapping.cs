@@ -7,7 +7,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public SucursalMapping()
         {
-            Id(x => x.Id).GeneratedBy.Assigned();
+            Id(x => x.Id).GeneratedBy.Assigned().Column("SucursalId");
             Map(x => x.Nombre);
             References(x => x.Direccion);
             References(x => x.Firma);

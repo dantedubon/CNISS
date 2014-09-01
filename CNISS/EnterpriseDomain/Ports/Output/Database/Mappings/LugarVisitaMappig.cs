@@ -11,7 +11,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public LugarVisitaMappig()
         {
-            Id(x => x.Id).GeneratedBy.Assigned();
+            Id(x => x.Id).GeneratedBy.Assigned().Column("LugarVisitaId");
             References(x => x.Empresa);
             References(x => x.Sucursal);
             Component(x => x.Auditoria, m =>

@@ -7,7 +7,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public FirmaAutorizadaMapping()
         {
-            Id(x => x.Id).GeneratedBy.Assigned();
+            Id(x => x.Id).GeneratedBy.Assigned().Column("FirmaAutorizadaId");
             Map(x => x.fechaCreacion);
             References(x => x.User).Columns(x => x.Id).Column("UserName");
         } 

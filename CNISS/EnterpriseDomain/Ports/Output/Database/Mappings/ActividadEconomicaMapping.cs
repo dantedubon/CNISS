@@ -7,7 +7,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public ActividadEconomicaMapping()
         {
-            Id(x => x.Id);
+            Id(x => x.Id).Column("ActividadEconomicaId");
             Map(x => x.Descripcion);
             Component(x => x.Auditoria, m =>
             {

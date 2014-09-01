@@ -11,7 +11,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public TipoEmpleoMapping()
         {
-            Id(x => x.Id);
+            Id(x => x.Id).Column("TipoEmpleoId");
             Map(x => x.Descripcion);
             Component(x => x.Auditoria, m =>
             {

@@ -7,7 +7,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public ParentescoMapping()
         {
-            Id(x => x.Id);
+            Id(x => x.Id).Column("ParentescoId");
             Map(x => x.Descripcion);
             Component(x => x.Auditoria, m =>
             {

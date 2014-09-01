@@ -11,7 +11,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public FichaSupervisionEmpleoMapping()
         {
-            Id(x => x.Id).GeneratedBy.Assigned();
+            Id(x => x.Id).GeneratedBy.Assigned().Column("FichaSupervisionEmpleoId");
             Map(x => x.Cargo);
             Map(x => x.Funciones);
             Map(x => x.TelefonoCelular);

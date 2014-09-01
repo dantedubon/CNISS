@@ -7,7 +7,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public DependienteMapping()
         {
-            Id(x => x.idGuid).GeneratedBy.Assigned();
+            Id(x => x.idGuid).GeneratedBy.Assigned().Column("DependienteId");
 
             Component(x => x.Id, z => z.Map(x => x.identidad).Index("identidad_indx"));
 

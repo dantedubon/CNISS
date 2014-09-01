@@ -11,7 +11,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public VisitaMapping()
         {
-            Id(x => x.Id).GeneratedBy.Assigned();
+            Id(x => x.Id).GeneratedBy.Assigned().Column("VisitaId");
             Map(x => x.FechaInicial).Index("Indx_fechaInicial");
             Map(x => x.FechaFinal).Index("Indx_fechaFinal");
             Map(x => x.Nombre);

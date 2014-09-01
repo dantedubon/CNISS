@@ -12,7 +12,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public EmpleoMapping()
         {
-            Id(x => x.Id);
+            Id(x => x.Id).Column("EmpleoId");
             Map(x => x.Cargo);
             Map(x => x.Sueldo);
             Map(x => x.FechaDeInicio);

@@ -7,7 +7,7 @@ namespace CNISS.EnterpriseDomain.Ports.Output.Database.Mappings
     {
         public DireccionMapping()
         {
-            Id(x => x.Id).GeneratedBy.Assigned();
+            Id(x => x.Id).GeneratedBy.Assigned().Column("DireccionId");
             Map(x => x.ReferenciaDireccion);
             References(x => x.Departamento).Column("CodigoDepartamento");
             References(x => x.Municipio).Columns("CodigoDepartamentoMunicipio","CodigoMunicipio");

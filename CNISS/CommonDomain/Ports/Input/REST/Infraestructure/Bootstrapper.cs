@@ -34,6 +34,8 @@ namespace CNISS.CommonDomain.Ports.Input.REST.Infraestructure
             _tasks.ForEach(task => task.Task.Invoke(builder));
             builder.Update(existingContainer.ComponentRegistry);
             base.ConfigureApplicationContainer(existingContainer);
+
+            Nancy.Json.JsonSettings.MaxJsonLength = int.MaxValue;
         }
     }
 }
